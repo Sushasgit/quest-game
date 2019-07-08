@@ -54,3 +54,19 @@ div.today:before{
 .picky-date-time-calendar__table-row{
   background: url('image/background_cell.svg');
 }
+
+div.picky-date-time-calendar__table-row:nth-child(3):after{
+  content: "";
+  display: block;
+  height: 50px;
+}
+div.picky-date-time-calendar__table-row{
+  display: block;
+}
+span.picky-date-time-calendar__body-container{
+  overflow: visible;
+}
+
+div.picky-date-time-calendar__button{
+  display: none;
+}
