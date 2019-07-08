@@ -1,0 +1,128 @@
+.banner {
+    height: 100vh;
+}
+.parallax__stage {
+    perspective: 100px;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 0;
+    left: 0%;
+    right: 0;
+    bottom: 0;
+    background: #242424;
+    margin-top: 70px;
+}
+
+.parallax__layer {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    background-repeat: no-repeat;
+}
+
+.last {
+    display: flex;
+}
+
+.l1 {
+    background-image: 
+        url(../../images/l1.svg),
+        url(../../images/l2.svg),
+        url(../../images/l8.svg);
+    background-position: bottom left,
+    bottom right, bottom right;
+    background-repeat: repeat-x, repeat-x, no-repeat;
+    z-index: 10;
+}
+
+.l2 {
+    background-image: 
+    url(../../images/l3.svg),
+    url(../../images/l4.svg);
+    background-position: bottom left;
+    background-repeat: repeat-x;
+    transition: all 1.5s linear;
+}
+
+.l3 {
+    background-image: 
+    url(../../images/l5.svg);
+    background-position: bottom left,
+    bottom right;
+    background-repeat: repeat-x;
+    transition: all 1.5s linear;
+}
+
+.l4 {
+    background-image: 
+    url(../../images/l6.svg);
+    background-position: top;
+    background-repeat: repeat-x;
+    transition: all 1.5s linear;
+}
+.l5 {
+    background-image: 
+    url(../../images/l7.svg);
+    background-position: center center;
+    transition: all 1.5s linear;
+}
+
+// .l--6 {
+//     background-image: 
+//     url(../images/l8.svg);
+//     background-position: bottom right;
+//     background-repeat: no-repeat;
+// }
+
+.content {
+    margin-top: 100vh;
+    margin-top: 100vh;
+    min-height: 300vh; // to make up for the lack of content
+    position: relative;
+    width: 100%;
+}
+
+// .l2 {
+//     background-image: url(../images/l2.svg);
+//     background-position: bottom right;
+// }
+
+// $parallax__layers: 3;
+$parallax__amount: 1;
+
+// @for $i from 0 through $parallax__layers {
+//     $distance: -$parallax__amount * ($parallax__layers - $i);
+//     .parallax__layer--#{$i}{
+//         background-color: rgba(0,0,0,(1 + $i) / 10);
+//         transform: translateZ($distance#{px});
+//     }
+// }
+
+// @for $i from 0 through $parallax__layers {
+//     $distance: ($parallax__layers - $i) / 2;
+//     .l#{$i}{
+//         background-color: rgba(0,0,0,(1 + $i) / 10);
+//         transform: translateZ(-100 * $distance#{px}) scale($distance + 1);
+//     }
+// }
+
+$parallax__layers: 6;
+
+// @for $i from 0 through $parallax__layers {
+//   $x: ($parallax__layers - $i) / 2;
+//   .l#{$i}{
+//      transform: translateZ(-100 * $x#{px}) scale($x + 1);
+//   }
+// }
+@for $i from 0 through $parallax__layers {
+    $x: ($parallax__layers - $i) / 2;
+    .l#{$i}{
+       transform: translateZ(-100 * $x#{px}) scale($x + 1);
+    }
+  }
