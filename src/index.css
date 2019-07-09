@@ -31,9 +31,6 @@ div.picky-date-time-calendar__table-cel.picky-date-time-calendar__date-item:not(
   background: url("image/circle.svg") center no-repeat;
   transition: 0s;
 }
-div.picky-date-time-calendar__table-cel:hover{
-  z-index: 2;
-}
 
 div.picky-date-time-calendar__table-cel.today{
   color: #fff;
@@ -48,17 +45,25 @@ div.today:before{
   height: 28px;
   position: absolute;
   top: calc(50% - 14.5px);
-  left:calc(50% - 14.5px);
+  left:calc(50% - 15px);
+}
+div.active.today:before{
+    display: none;
 }
 
 .picky-date-time-calendar__table-row{
   background: url('image/background_cell.svg');
+}
+div.picky-date-time-calendar__table-cel.picky-date-time-calendar__date-item.m.active{
+    background: url("image/circle_white.svg") center no-repeat;
+    color: #414141;
 }
 
 div.picky-date-time-calendar__table-row:nth-child(3):after{
   content: "";
   display: block;
   height: 50px;
+  background: #404040;
 }
 div.picky-date-time-calendar__table-row{
   display: block;
@@ -69,4 +74,20 @@ span.picky-date-time-calendar__body-container{
 
 div.picky-date-time-calendar__button{
   display: none;
+}
+
+div.picky-date-time-calendar__table-caption.picky-date-time-calendar__table-cel {
+    background: #404040;
+    border: none;
+    color: #999;
+}
+
+div.picky-date-time-calendar__table-cel.disabled{
+    color: #414141;
+    background: #202020;
+}
+
+span.picky-date-time-check:before{
+    display: none;
+
 }
