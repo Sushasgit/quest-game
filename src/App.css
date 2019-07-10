@@ -1,36 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Finger+Paint&display=swap');
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css?family=Poppins:700&display=swap');
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  /* background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white; */
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+* {
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -40,95 +13,44 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
 li {
   list-style: none;
 }
+
 span {
   display: block;
 }
+
 button {
   border: none;
   outline: none;
 }
-.container {
-  width: 35rem;
-  margin: 3rem auto;
-  position: relative;
-}
-.card {
-  width: 100%;
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 0.2rem;
-}
-.card-header {
-  padding: 1rem;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.05);
-}
-.table,
-.table th {
-  border: 1px solid #dee2e6;
-  border-collapse: collapse;
-}
-.table th {
-  border-bottom-width: 2px;
-}
-.table th,
-.table td {
-  padding: 1.2rem;
-}
-.table thead tr th,
-.table tbody tr td {
-  flex: auto;
-  text-align: center;
-}
-.table tbody tr td {
-  border: 1px solid rgba(0, 0, 0, 0.15);
-}
-.table tbody tr td {
-  color: #495057;
+
+.main-title {
+  color: #fff;
+  font-size: 45px;
+  font-family: 'Poppins', sans-serif;
+  padding: 1px;
 }
 
-/***************** ON CALENDAR *********************/
-.activeDay {
-  border: 5px solid #10a3a3 !important;
+.main-title--primary {
+  color: #FFDC26;
+  margin: 90px 0 auto;
 }
 
-.eventDay {
-  position: relative;
-  cursor: pointer;
+.main-description {
+  color: #fff;
+  font-size: 25px;
+  font-weight: 700;
+  max-width: 700px;
+  margin: 50px auto;
 }
-.eventDay:before {
-  content: "";
-  position: absolute;
-  width: 60%;
-  height: 60%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 2px solid tomato;
-  border-radius: 50%;
+
+.bg {
+  background: #242424;
 }
-.niedziela {
-  background: #10a3a3;
-}
-.available {
-  background: lightgray;
-}
-.available:hover {
-  border: 1px solid red;
-}
-.unavailable {
-  background: gray;
-}
-.today {
-  background: yellowgreen;
+
+.bg--yellow {
+  padding: 10px 0 0;
 }

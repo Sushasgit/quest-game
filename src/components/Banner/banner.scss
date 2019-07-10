@@ -1,3 +1,7 @@
+
+$parallax__amount: 1;
+$parallax__layers: 6;
+
 .banner {
     height: 100vh;
 }
@@ -12,7 +16,6 @@
     right: 0;
     bottom: 0;
     background: #242424;
-    margin-top: 70px;
 }
 
 .parallax__layer {
@@ -31,98 +34,126 @@
 }
 
 .l1 {
-    background-image: 
-        url(../../images/l1.svg),
-        url(../../images/l2.svg),
-        url(../../images/l8.svg);
-    background-position: bottom left,
-    bottom right, bottom right;
-    background-repeat: repeat-x, repeat-x, no-repeat;
-    z-index: 10;
-}
-
-.l2 {
-    background-image: 
-    url(../../images/l3.svg),
-    url(../../images/l4.svg);
+    background-image: url(../../images/l2.svg);
     background-position: bottom left;
     background-repeat: repeat-x;
-    transition: all 1.5s linear;
 }
 
 .l3 {
+    background-image: 
+    url(../../images/l1.svg),
+    url(../../images/l8.svg),
+    url(../../images/l3.svg),
+    url(../../images/l4.svg);
+    background-position: bottom left, bottom right;
+    background-repeat: repeat-x, no-repeat;
+}
+
+.l4 {
     background-image: 
     url(../../images/l5.svg);
     background-position: bottom left,
     bottom right;
     background-repeat: repeat-x;
-    transition: all 1.5s linear;
 }
 
-.l4 {
+.l5 {
     background-image: 
     url(../../images/l6.svg);
     background-position: top;
     background-repeat: repeat-x;
-    transition: all 1.5s linear;
 }
-.l5 {
+.l6 {
     background-image: 
     url(../../images/l7.svg);
     background-position: center center;
-    transition: all 1.5s linear;
 }
 
-// .l--6 {
-//     background-image: 
-//     url(../images/l8.svg);
-//     background-position: bottom right;
-//     background-repeat: no-repeat;
-// }
-
-.content {
-    margin-top: 100vh;
-    margin-top: 100vh;
-    min-height: 300vh; // to make up for the lack of content
-    position: relative;
-    width: 100%;
-}
-
-// .l2 {
-//     background-image: url(../images/l2.svg);
-//     background-position: bottom right;
-// }
-
-// $parallax__layers: 3;
-$parallax__amount: 1;
-
-// @for $i from 0 through $parallax__layers {
-//     $distance: -$parallax__amount * ($parallax__layers - $i);
-//     .parallax__layer--#{$i}{
-//         background-color: rgba(0,0,0,(1 + $i) / 10);
-//         transform: translateZ($distance#{px});
-//     }
-// }
-
-// @for $i from 0 through $parallax__layers {
-//     $distance: ($parallax__layers - $i) / 2;
-//     .l#{$i}{
-//         background-color: rgba(0,0,0,(1 + $i) / 10);
-//         transform: translateZ(-100 * $distance#{px}) scale($distance + 1);
-//     }
-// }
-
-$parallax__layers: 6;
-
-// @for $i from 0 through $parallax__layers {
-//   $x: ($parallax__layers - $i) / 2;
-//   .l#{$i}{
-//      transform: translateZ(-100 * $x#{px}) scale($x + 1);
-//   }
-// }
 @for $i from 0 through $parallax__layers {
     $x: ($parallax__layers - $i) / 2;
     .l#{$i}{
        transform: translateZ(-100 * $x#{px}) scale($x + 1);
     }
+}
+
+.box {
+    width: 100%;
+    position: relative;
+    height: 100%;
+
+  &.small {
+    background-color: #86D0F2;
   }
+
+  &.medium {
+    background-color: #F4C4D5;
+  }
+}
+
+.glitch {
+    font-size: 70px;
+    line-height: 1;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    position:absolute;
+    bottom: 50%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    text-decoration: none;
+    color: #fff;
+
+    &:before,
+    &:after {
+        display: block;
+        content: 'Територия реальных игр';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        opacity: .8;
+    }
+
+    &:after {
+        color: #e9e84c;
+        z-index: -2;
+        animation: glitch-left-2 1s cubic-bezier(.25, .46, .45, .94) reverse both infinite
+    }
+    
+    &:before {
+        color: #3d3d12;
+        z-index: -1;
+        animation: glitch-left 1s cubic-bezier(.25, .46, .45, .94) both infinite;
+    }
+}
+
+@keyframes glitch-left {
+    0% {
+        transform: translate(0)
+    }
+    33% {
+        transform: translate(-5px, 3px)
+    }
+    66% {
+        transform: translate(5px, -3px)
+    }
+    to {
+        transform: translate(0)
+    }
+}
+
+@keyframes glitch-left-2 {
+    0% {
+        transform: translate(0)
+    }
+    33% {
+        transform: translate(-5px, -3px)
+    }
+    66% {
+        transform: translate(5px, 2px)
+    }
+    to {
+        transform: translate(0)
+    }
+}

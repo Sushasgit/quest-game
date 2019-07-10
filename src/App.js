@@ -1,42 +1,19 @@
 import React from 'react';
 import './App.css';
 
-import moment from 'moment';
 import Banner from './components/Banner/Banner';
-import Header from './components/Header/Header';
 import Advantages from './components/Advantages/Advantages';
+import CardsList from './components/CardsList/CardsList';
+import Parallax from './components/Parallax';
+import AdvantagesPlace from './components/Advantages/AdvantagesPlace';
 
-import Calendar from './components/Calendar/Calendar';
-
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-       films: [],
-    };
-}
-calendarDayClick = (date) => { 
-	console.log(date);
-	this.setState({
-		day: date,
-		show: true,
-	})
-}
-  render() {
+const App = () => {
+  const layersGroup = [<Banner />, <Advantages />, <AdvantagesPlace />, <CardsList />];
   return (
-    	<div className="App">
-      		{/* <Header />
-			<div className="banner">
-				<Banner>
-					<Advantages />
-				</Banner>
-			</div> */}
+    <div className="App">
+      <Parallax layersGroup={layersGroup} />
+    </div>
+  );
+};
 
-			<Calendar month={moment().month()+1} year={moment().year()} onDayClick={this.calendarDayClick} />
-			{
-				this.state.show && <div>Test</div>
-			}
-    	</div>
-  	);
-  }
-}
+export default App;

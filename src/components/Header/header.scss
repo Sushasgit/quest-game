@@ -4,16 +4,29 @@
     padding: 10px;
 
     &__logo {
-        font-family: 'Finger Paint', cursive;
-        font-size: 35px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: 30px;
         color: #fff;
         text-decoration: none;
         display: flex;
         align-items: center;
+        position: absolute;
+        top: 70px;
+        left: 20px;
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        text-align: right;
+
+        span {
+            color: #e9e84c;
+        }
 
         img {
             max-width: 50px;
-            margin-right: 10px;
+            margin: 20px;
+            transform: rotate(90deg);
+
         }
     }
 }

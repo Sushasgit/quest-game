@@ -1,30 +1,33 @@
 import React from 'react';
 
+import { ADVANTAGES_DATA } from '../../utils/constants';
+
 import './advantages.scss';
 
-const Advantages = (props) => {
-    return (
-        <section className="advantages">
-            <div className="wrapper flex">
-                <article className="advantages__item">
-                    <h3>Площадка 3200 кв.м</h3>
-                    <p>Застекленная, освещенная, со спец. декорациями</p>
-                </article>
-                <article className="advantages__item">
-                    <h3>Лаунж зона</h3>
-                    <p>Раздевалка, туалет, камера хранения, кухня и бар</p>
-                </article>
-                <article className="advantages__item">
-                    <h3>Охраняемая парковка</h3>
-                    <p>Для авто, мото, вело транспорта</p>
-                </article>
-                <article className="advantages__item">
-                    <h3>Фото-видео</h3>
-                    <p>Незабываемые селфи, друзья обзавидуются</p>
-                </article>
-            </div>
-        </section>
-    );
-};
+const Advantages = () => (
+  <section className="advantages">
+    <div className="bg bg--yellow">
+      <h2 className="main-title main-title--primary">Real Games</h2>
+    </div>
+    <p className="main-description">
+        9 лет опыта в организации разных мероприятий, 6 лет из них по направлению «экстрим».
+    </p>
+    <ul className="advantages__games flex">
+      {
+        ADVANTAGES_DATA.map(item => (
+          <li key={item.id} className={`activity activity--${item.bgImg}`}>
+            <h3 className="activity__title">
+              <span>{item.title}</span>
+            </h3>
+
+            <p className="activity__description">
+              {item.description}
+            </p>
+          </li>
+        ))
+                }
+    </ul>
+  </section>
+);
 
 export default Advantages;

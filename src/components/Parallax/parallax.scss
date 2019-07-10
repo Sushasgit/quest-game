@@ -1,0 +1,18 @@
+.parallax {
+    perspective: 100px;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #242424;
+}
+  
+.parallax__layer--base {
+    transform: translateZ(0);
+}
+
+.parallax__group {
+    position: relative;
+    height: 100vh;
+    transform-style: preserve-3d;
+}
+
