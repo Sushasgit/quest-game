@@ -3,14 +3,12 @@ import './App.css';
 
 import Banner from './components/Banner/Banner';
 import Advantages from './components/Advantages/Advantages';
-import CardsList from './components/CardsList/CardsList';
 import Parallax from './components/Parallax';
-import AdvantagesPlace from './components/Advantages/AdvantagesPlace';
 
 const App = () => {
-  const layersGroup = [<Banner />, <Advantages />, <AdvantagesPlace />, <CardsList />];
+  const layersGroup = [<Banner />, <Advantages />];
   return (
-    <div className="App">
+    <div className="app">
       <Parallax layersGroup={layersGroup} />
     </div>
   );
