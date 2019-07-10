@@ -12,11 +12,16 @@
         display: flex;
         align-items: center;
         position: absolute;
-        top: 70px;
+        top: 20px;
         left: 20px;
-        writing-mode: vertical-rl;
-        transform: rotate(180deg);
-        text-align: right;
+
+        @media only screen and (min-width: 580px)  {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            text-align: right;
+            top: 70px;
+            left: 20px;
+        }
 
         span {
             color: #e9e84c;
@@ -25,8 +30,10 @@
         img {
             max-width: 50px;
             margin: 20px;
-            transform: rotate(90deg);
 
+            @media only screen and (min-width: 580px)  {
+                transform: rotate(90deg);
+            }
         }
     }
 }

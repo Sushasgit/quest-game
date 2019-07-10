@@ -5,8 +5,8 @@ import { CARDS_DATA } from '../../utils/constants';
 import './cards-list.scss';
 
 const CardsList = () => (
-  <div className="bg">
-    <h2 className="main-title">Наши игры</h2>
+  <div className="advantages bg bg--buildings">
+    <h2 className="main-title main-title--primary">Наши игры</h2>
     <ul className="cards flex">
       {
         CARDS_DATA.map(item => (
@@ -66,6 +66,8 @@ const CardsList = () => (
           </li>
         ))
     }
+
+    Test
     </ul>
   </div>
 );

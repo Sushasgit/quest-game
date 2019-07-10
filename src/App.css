@@ -12,6 +12,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+  line-height: calc(1.3em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));
+}
+ul {
+  padding: 0;
 }
 
 li {
@@ -27,12 +32,23 @@ button {
   outline: none;
 }
 
+.wrapper {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
 .main-title {
   color: #fff;
-  font-size: 45px;
+  font-size: 2em;
   font-family: 'Poppins', sans-serif;
   padding: 1px;
+  text-align: center;
 }
+
+/* Utils styles */
+
+/* TODO: Think about create atomic classes for general things */
 
 .main-title--primary {
   color: #FFDC26;
@@ -41,10 +57,12 @@ button {
 
 .main-description {
   color: #fff;
-  font-size: 25px;
+  font-size: 1.1em;
+  line-height: 1.5em;
   font-weight: 700;
   max-width: 700px;
   margin: 50px auto;
+  text-align: center;
 }
 
 .bg {
@@ -52,5 +70,24 @@ button {
 }
 
 .bg--yellow {
-  padding: 10px 0 0;
+  padding: 15px;
+}
+
+.bg--buildings {
+  position: relative;
+}
+
+.bg--buildings::before {
+      content: '';
+      background:url(./images/l1.svg),
+      url(./images/l1.svg);
+      top: -110px;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      background-repeat: no-repeat;
+      position: absolute;
+      width: 100%;
+      min-height: 200px;
+      background-position: top left, top right;
 }

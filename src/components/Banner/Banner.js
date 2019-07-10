@@ -15,7 +15,6 @@ const Banner = () => (
     <div className="parallax__layer l4" />
     <div className="parallax__layer l3" />
     <div className="parallax__layer l2" />
-    <div className="parallax__layer l1" />
   </React.Fragment>
 );
 

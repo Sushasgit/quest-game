@@ -1,6 +1,6 @@
 
-$parallax__amount: 1;
-$parallax__layers: 6;
+$parallax__amount: 2;
+$parallax__layers: 8;
 
 .banner {
     height: 100vh;
@@ -9,7 +9,7 @@ $parallax__layers: 6;
     perspective: 100px;
     height: 100vh;
     overflow-x: hidden;
-    overflow-y: auto;
+
     position: absolute;
     top: 0;
     left: 0%;
@@ -33,12 +33,6 @@ $parallax__layers: 6;
     display: flex;
 }
 
-.l1 {
-    background-image: url(../../images/l2.svg);
-    background-position: bottom left;
-    background-repeat: repeat-x;
-}
-
 .l3 {
     background-image: 
     url(../../images/l1.svg),
@@ -47,6 +41,10 @@ $parallax__layers: 6;
     url(../../images/l4.svg);
     background-position: bottom left, bottom right;
     background-repeat: repeat-x, no-repeat;
+
+    @media only screen and (max-width: 800px)  {
+        background-position: bottom left, bottom -80px right;
+    }
 }
 
 .l4 {
@@ -91,17 +89,19 @@ $parallax__layers: 6;
 }
 
 .glitch {
-    font-size: 70px;
+    font-size: 2.8em;
     line-height: 1;
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     position:absolute;
-    bottom: 50%;
+    top: 30%;
     left: 48%;
     transform: translate(-50%, -50%);
     margin: 0;
     text-decoration: none;
     color: #fff;
+    text-align: center;
+    width:70%;
 
     &:before,
     &:after {
@@ -120,7 +120,7 @@ $parallax__layers: 6;
         z-index: -2;
         animation: glitch-left-2 1s cubic-bezier(.25, .46, .45, .94) reverse both infinite
     }
-    
+
     &:before {
         color: #3d3d12;
         z-index: -1;
