@@ -28,8 +28,6 @@ h2{
 .date-number{
     cursor: pointer;
 }
-
-<<<<<<< HEAD
         body {
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -47,7 +45,6 @@ div.picky-date-time-calendar__content{
 
 }
 div>.picky-date-time-calendar__table-cel{
-    background: url('image/background_cell.svg');
     color: #fff;
     border-color: #373737;
     font-size: 10px;
@@ -59,11 +56,6 @@ div>.picky-date-time-calendar__table-cel{
     background-color: #202020;
     color: #20c997;
 }
-div.picky-date-time-calendar__table-cel.picky-date-time-calendar__date-item:not(.disabled):hover{
-    background: url("image/circle.svg") center no-repeat;
-    transition: 0s;
-}
-
 div.picky-date-time-calendar__table-cel.today{
     color: #fff;
 }
@@ -82,14 +74,7 @@ div.today:before{
 div.active.today:before{
     display: none;
 }
-
-.picky-date-time-calendar__table-row{
-    background: url('image/background_cell.svg');
-}
-div.picky-date-time-calendar__table-cel.picky-date-time-calendar__date-item.m.active{
-    background: url("image/circle_white.svg") center no-repeat;
-    color: #414141;
-}
+ы
 
 div.picky-date-time-calendar__table-row:nth-child(3):after{
     content: "";
@@ -123,5 +108,7 @@ span.picky-date-time-check:before{
     display: none;
 
 }
-=======
->>>>>>> 9c63a07032cc56307e098c501d635a0e9436287f
+
+.week {
+    display: flex;
+}
