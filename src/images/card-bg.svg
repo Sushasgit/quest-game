@@ -1,0 +1,16 @@
+ <svg xmlns="http://www.w3.org/2000/svg" width="500" height="500">
+    <defs>
+        <filter id="filter" x="0%" y="0%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="linearRGB">
+	        <feTurbulence type="turbulence" baseFrequency="0.024 0.064" numOctaves="2" seed="2" stitchTiles="noStitch" result="turbulence"/>
+	        <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="199" xChannelSelector="B" yChannelSelector="B" result="displacementMap"/>
+        </filter>
+    </defs>
+    <rect
+        fill="#1a1a1a"
+        filter="url(#filter)"
+        width="100%"
+        height="100%"
+        x="0"
+        y="0"
+    />
+</svg>

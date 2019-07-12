@@ -5,6 +5,7 @@ import { ADVANTAGES_DATA } from '../../utils/constants';
 import './advantages.scss';
 import AdvantagesPlace from './AdvantagesPlace';
 import CardsList from '../CardsList/CardsList';
+import MapBox from '../MapBox/MapBox';
 
 const Advantages = () => (
   <section className="advantages bg bg--buildings">
@@ -31,6 +32,9 @@ const Advantages = () => (
     </ul>
     <AdvantagesPlace />
     <CardsList />
+    <div className="leaflet__box" id="mount">
+        <MapBox />
+    </div>
   </section>
 );
 

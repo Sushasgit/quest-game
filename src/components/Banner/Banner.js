@@ -8,7 +8,7 @@ const Banner = () => (
     <div className="parallax__layer l6">
       <Header />
       <div className="box">
-        <a href="/" className="glitch">Територия реальных игр</a>
+        <h1 href="/" className="neon">Территория реальных игр</h1>
       </div>
     </div>
     <div className="parallax__layer l5" />

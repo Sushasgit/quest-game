@@ -1,4 +1,6 @@
 
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300&display=swap');
+
 $parallax__amount: 2;
 $parallax__layers: 8;
 
@@ -88,72 +90,41 @@ $parallax__layers: 8;
   }
 }
 
-.glitch {
-    font-size: 2.8em;
-    line-height: 1;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    position:absolute;
-    top: 30%;
-    left: 48%;
-    transform: translate(-50%, -50%);
-    margin: 0;
-    text-decoration: none;
-    color: #fff;
-    text-align: center;
-    width:70%;
-
-    &:before,
-    &:after {
-        display: block;
-        content: 'Територия реальных игр';
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        opacity: .8;
-    }
-
-    &:after {
-        color: #e9e84c;
-        z-index: -2;
-        animation: glitch-left-2 1s cubic-bezier(.25, .46, .45, .94) reverse both infinite
-    }
-
-    &:before {
-        color: #3d3d12;
-        z-index: -1;
-        animation: glitch-left 1s cubic-bezier(.25, .46, .45, .94) both infinite;
-    }
+.neon {
+	position: absolute;
+	text-align: center;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	margin: 0;
+	padding:  0 20px;
+	font-size: 3.2em;
+	color: #fff;
+    text-shadow: 0 0 20px #FFDC26;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1em;
 }
 
-@keyframes glitch-left {
-    0% {
-        transform: translate(0)
-    }
-    33% {
-        transform: translate(-5px, 3px)
-    }
-    66% {
-        transform: translate(5px, -3px)
-    }
-    to {
-        transform: translate(0)
-    }
+.neon:after {
+	content: attr(data-text);
+	position: absolute;
+	z-index: -1;
+	color: #000;
+	top: 0;
+	left: 0;
+	margin: 0;
+	padding:  0 20px;
+	filter: blur(15px); 
 }
-
-@keyframes glitch-left-2 {
-    0% {
-        transform: translate(0)
-    }
-    33% {
-        transform: translate(-5px, -3px)
-    }
-    66% {
-        transform: translate(5px, 2px)
-    }
-    to {
-        transform: translate(0)
-    }
+.neon:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #FFDC26;
+	z-index: -2;
+	opacity: .5;
+	filter: blur(80px);
 }
