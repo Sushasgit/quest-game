@@ -1,0 +1,159 @@
+
+$parallax__amount: 2;
+$parallax__layers: 8;
+
+.banner {
+    height: 100vh;
+}
+.parallax__stage {
+    perspective: 100px;
+    height: 100vh;
+    overflow-x: hidden;
+
+    position: absolute;
+    top: 0;
+    left: 0%;
+    right: 0;
+    bottom: 0;
+    background: #242424;
+}
+
+.parallax__layer {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    background-repeat: no-repeat;
+}
+
+.last {
+    display: flex;
+}
+
+.l3 {
+    background-image: 
+    url(../../images/l1.svg),
+    url(../../images/l8.svg),
+    url(../../images/l3.svg),
+    url(../../images/l4.svg);
+    background-position: bottom left, bottom right;
+    background-repeat: repeat-x, no-repeat;
+
+    @media only screen and (max-width: 800px)  {
+        background-position: bottom left, bottom -80px right;
+    }
+}
+
+.l4 {
+    background-image: 
+    url(../../images/l5.svg);
+    background-position: bottom left,
+    bottom right;
+    background-repeat: repeat-x;
+}
+
+.l5 {
+    background-image: 
+    url(../../images/l6.svg);
+    background-position: top;
+    background-repeat: repeat-x;
+}
+.l6 {
+    background-image: 
+    url(../../images/l7.svg);
+    background-position: center center;
+}
+
+@for $i from 0 through $parallax__layers {
+    $x: ($parallax__layers - $i) / 2;
+    .l#{$i}{
+       transform: translateZ(-100 * $x#{px}) scale($x + 1);
+    }
+}
+
+.box {
+    width: 100%;
+    position: relative;
+    height: 100%;
+
+  &.small {
+    background-color: #86D0F2;
+  }
+
+  &.medium {
+    background-color: #F4C4D5;
+  }
+}
+
+.glitch {
+    font-size: 2.8em;
+    line-height: 1;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    position:absolute;
+    top: 30%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    text-decoration: none;
+    color: #fff;
+    text-align: center;
+    width:70%;
+
+    &:before,
+    &:after {
+        display: block;
+        content: 'Територия реальных игр';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        opacity: .8;
+    }
+
+    &:after {
+        color: #e9e84c;
+        z-index: -2;
+        animation: glitch-left-2 1s cubic-bezier(.25, .46, .45, .94) reverse both infinite
+    }
+
+    &:before {
+        color: #3d3d12;
+        z-index: -1;
+        animation: glitch-left 1s cubic-bezier(.25, .46, .45, .94) both infinite;
+    }
+}
+
+@keyframes glitch-left {
+    0% {
+        transform: translate(0)
+    }
+    33% {
+        transform: translate(-5px, 3px)
+    }
+    66% {
+        transform: translate(5px, -3px)
+    }
+    to {
+        transform: translate(0)
+    }
+}
+
+@keyframes glitch-left-2 {
+    0% {
+        transform: translate(0)
+    }
+    33% {
+        transform: translate(-5px, -3px)
+    }
+    66% {
+        transform: translate(5px, 2px)
+    }
+    to {
+        transform: translate(0)
+    }
+}

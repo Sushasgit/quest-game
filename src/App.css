@@ -1,33 +1,93 @@
-.App {
+@import url('https://fonts.googleapis.com/css?family=Finger+Paint&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:700&display=swap');
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+  line-height: calc(1.3em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));
+}
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+span {
+  display: block;
+}
+
+button {
+  border: none;
+  outline: none;
+}
+
+.wrapper {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.main-title {
+  color: #fff;
+  font-size: 2em;
+  font-family: 'Poppins', sans-serif;
+  padding: 1px;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+/* Utils styles */
+
+/* TODO: Think about create atomic classes for general things */
+
+.main-title--primary {
+  color: #FFDC26;
+  margin: 90px 0 auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.main-description {
+  color: #fff;
+  font-size: 1.1em;
+  line-height: 1.5em;
+  font-weight: 700;
+  max-width: 700px;
+  margin: 50px auto;
+  text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+.bg {
+  background: #242424;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.bg--yellow {
+  padding: 15px;
+}
+
+.bg--buildings {
+  position: relative;
+}
+
+.bg--buildings::before {
+      content: '';
+      background:url(./images/l1.svg),
+      url(./images/l1.svg);
+      top: -110px;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      background-repeat: no-repeat;
+      position: absolute;
+      width: 100%;
+      min-height: 200px;
+      background-position: top left, top right;
 }

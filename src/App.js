@@ -1,43 +1,17 @@
 import React from 'react';
+
 //import logo from './logo.svg';
+
 import './App.css';
-import axios from 'axios'; 
-import PickyDateTime from "react-picky-date-time";
 
-import Header from './components/Header';
-import FilmList from './components/FilmList';
+import Banner from './components/Banner/Banner';
+import Advantages from './components/Advantages/Advantages';
+import Parallax from './components/Parallax';
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-       films: [],
-    };
-}
-
-componentDidMount () {
-  this.getData();
-}
-
-onDatePicked(res) {
-  let { date, month, year } = res;
-  console.log(res)
-}
-
-getData () {
-  axios.get('https://swapi.co/api/films/')
-  .then((response) => {
-    this.setState({
-      films: response.data.results,
-    })
-  })
-  .catch( (error) => {
-    console.log(error);
-  });
-}
-  render() {
-    console.log(this.state)
+const App = () => {
+  const layersGroup = [<Banner />, <Advantages />];
   return (
+
     <div className="App">
       <Header user={'Susha'} age={29} />
       <FilmList films={this.state.films} />
@@ -65,7 +39,11 @@ getData () {
       {/*    Learn React*/}
       {/*  </a>*/}
       {/*</header>*/}
+    <div className="app">
+      <Parallax layersGroup={layersGroup} />
+
     </div>
   );
-  }
-}
+};
+
+export default App;

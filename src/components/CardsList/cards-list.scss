@@ -1,0 +1,67 @@
+.cards {
+    background-color: #242424;
+    // height: 100%;
+}
+
+.card {
+    // height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: relative;
+    padding: 10px;
+
+    &__title {
+        color: #FFDC26;
+        font-size: 1em;
+    }
+
+    p {
+        color: #fff;
+        font-size: 1em;
+        max-width: 60%;
+        margin-left: auto;
+    }
+
+    &__link {
+        color: #FFDC26;
+        align-self: flex-end;
+    }
+
+    &--kvadro::after {
+        content: '';
+        position: absolute;
+        background: url(../../images/kvadro.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+        right: 0;
+        bottom: -100px;
+    }
+
+    &--man::after {
+        content: '';
+        position: absolute;
+        background: url(../../images/l8.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+        right: 0;
+        bottom: -100px;
+    }
+
+    &--strike::after {
+        content: '';
+        position: absolute;
+        background: url(../../images/strike.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+        right: 0;
+        bottom: -100px;
+    }
+}
