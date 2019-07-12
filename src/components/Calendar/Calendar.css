@@ -1,0 +1,127 @@
+h2{
+    color: blue;
+}
+
+.left{
+    display: block;
+    height: 10px;
+    width: 10px;
+    background-color: black;
+}
+
+.right{
+    display: block;
+    height: 10px;
+    width: 10px;
+    background-color: blue;
+}
+
+.nav-month{
+    display: flex;
+    justify-content: space-between;
+}
+
+.empty-slot{
+    color: red;
+}
+
+.date-number{
+    cursor: pointer;
+}
+
+<<<<<<< HEAD
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+            "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+            sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+div.picky-date-time-calendar__content{
+
+}
+div>.picky-date-time-calendar__table-cel{
+    background: url('image/background_cell.svg');
+    color: #fff;
+    border-color: #373737;
+    font-size: 10px;
+    position: relative;
+    transition: none;
+}
+
+.picky-date-time-calendar__table-cel.picky-date-time-calendar__date-item.disabled){
+    background-color: #202020;
+    color: #20c997;
+}
+div.picky-date-time-calendar__table-cel.picky-date-time-calendar__date-item:not(.disabled):hover{
+    background: url("image/circle.svg") center no-repeat;
+    transition: 0s;
+}
+
+div.picky-date-time-calendar__table-cel.today{
+    color: #fff;
+}
+
+div.today:before{
+    content: "";
+    display: block;
+    border-radius: 50%;
+    border: 1px solid red;
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    top: calc(50% - 14.5px);
+    left:calc(50% - 15px);
+}
+div.active.today:before{
+    display: none;
+}
+
+.picky-date-time-calendar__table-row{
+    background: url('image/background_cell.svg');
+}
+div.picky-date-time-calendar__table-cel.picky-date-time-calendar__date-item.m.active{
+    background: url("image/circle_white.svg") center no-repeat;
+    color: #414141;
+}
+
+div.picky-date-time-calendar__table-row:nth-child(3):after{
+    content: "";
+    display: block;
+    height: 50px;
+    background: #404040;
+}
+div.picky-date-time-calendar__table-row{
+    display: block;
+}
+span.picky-date-time-calendar__body-container{
+    overflow: visible;
+}
+
+div.picky-date-time-calendar__button{
+    display: none;
+}
+
+div.picky-date-time-calendar__table-caption.picky-date-time-calendar__table-cel {
+    background: #404040;
+    border: none;
+    color: #999;
+}
+
+div.picky-date-time-calendar__table-cel.disabled{
+    color: #414141;
+    background: #202020;
+}
+
+span.picky-date-time-check:before{
+    display: none;
+
+}
+=======
+>>>>>>> 9c63a07032cc56307e098c501d635a0e9436287f
