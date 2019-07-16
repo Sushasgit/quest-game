@@ -47,13 +47,17 @@ button {
   text-align: center;
 }
 
+.text-color-yellow {
+  color: #FFDC26;
+}
+
 /* Utils styles */
 
 /* TODO: Think about create atomic classes for general things */
 
 .main-title--primary {
   color: #FFDC26;
-  margin: 90px 0 auto;
+  margin: 90px auto;
 }
 
 .main-description {

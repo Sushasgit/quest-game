@@ -4,8 +4,12 @@ import { ADVANTAGES_DATA } from '../../utils/constants';
 
 import './advantages.scss';
 import AdvantagesPlace from './AdvantagesPlace';
-import CardsList from '../CardsList/CardsList';
+// import AdvantagesPlace from './AdvantagesPlace';
+// import CardsList from '../CardsList/CardsList';
 import MapBox from '../MapBox/MapBox';
+import ContactForm from '../ContactForm/index.js';
+import CardsList from '../CardsList/CardsList';
+// import ContactForm from '../ContactForm.js';
 
 const Advantages = () => (
   <section className="advantages bg bg--buildings">
@@ -32,9 +36,8 @@ const Advantages = () => (
     </ul>
     <AdvantagesPlace />
     <CardsList />
-    <div className="leaflet__box" id="mount">
-        <MapBox />
-    </div>
+    <ContactForm />
+    <MapBox />
   </section>
 );
 

@@ -4,6 +4,7 @@ import './App.css';
 import Banner from './components/Banner/Banner';
 import Advantages from './components/Advantages/Advantages';
 import Parallax from './components/Parallax';
+import AdvantagesPlace from './components/Advantages/AdvantagesPlace';
 
 const App = () => {
   const layersGroup = [<Banner />, <Advantages />];

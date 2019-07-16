@@ -36,9 +36,15 @@
   }
 
   .grid {
+    // display: grid;
+    // grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    // grid-gap: 40px;
+
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    grid-gap: 0px;
+    grid-gap: 30px;
+    grid-template-columns: repeat(2, [col] auto);
+    grid-template-rows: repeat(2, [row] auto);
+    // background-color: #fff;
   }
   
   .advantages__item {
