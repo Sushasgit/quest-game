@@ -148,6 +148,8 @@ div.future-day{
     height: 8vw;
     min-width: 65px;
     min-height: 65px;
+    max-width: 105px;
+    max-height: 105px;
     border-bottom: 1px solid #373737;
     border-right: 1px solid #373737;
     display: flex;
@@ -181,7 +183,7 @@ div.future-day{
 
 .week-day{
     width: 100%;
-    height: 100%;
+    height: 58px;
     text-align: center;
     display: flex;
     align-items: center;

@@ -6,8 +6,8 @@ export default class Calendar extends Component {
     state = {
       dateContext: moment().weekday(0),
       today: moment(),
-      //showMonthPopup: false,
-      //showYearPopup: false,
+      // showMonthPopup: false,
+      // showYearPopup: false,
     };
     // constructor(props) {
     //   super(props);
@@ -19,7 +19,7 @@ export default class Calendar extends Component {
 
     weekdaysShort = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 
-    //months = moment.months();
+    // months = moment.months();
 
     year = () => this.state.dateContext.format('Y');
 
@@ -31,7 +31,7 @@ export default class Calendar extends Component {
 
     currentYear = () => moment().weekday(0).format('Y');
 
-    //currentDay = () => this.state.dateContext.format('D');
+    // currentDay = () => this.state.dateContext.format('D');
 
     today = () => moment().format('D');
 
@@ -42,6 +42,15 @@ export default class Calendar extends Component {
       firstDayStart == 0 ? firstDay = firstDayStart + 6 : firstDay = firstDayStart - 1;
       return firstDay;
     };
+
+    resetDateContext = () => {
+      this.state = {
+        dateContext: moment().weekday(0),
+        today: moment(),
+        // showMonthPopup: false,
+        // showYearPopup: false,
+      };
+    }
 
     // setMonth = (month) => {
     //   const monthNo = this.months.indexOf(month);
@@ -114,9 +123,9 @@ export default class Calendar extends Component {
     MonthNav = () => (
       <span className="label-month">
         {this.month()}
-        {/*{this.state.showMonthPopup*/}
-        {/*        && <this.Selectlist data={this.months} />*/}
-        {/*        }*/}
+        {/* {this.state.showMonthPopup */}
+        {/*        && <this.Selectlist data={this.months} /> */}
+        {/*        } */}
       </span>
     );
 
@@ -162,13 +171,14 @@ export default class Calendar extends Component {
       //     />
       //   )
       //   : (
-          <span
-            className="label-year"
-          >
-            {this.year()}
-          </span>
-        // ));
+      <span
+        className="label-year"
+      >
+        {this.year()}
+      </span>
+      // ));
     )
+
     onDayClick = (e, day) => {
       this.props.onDayClick && this.props.onDayClick(e, day);
     }
@@ -185,21 +195,43 @@ export default class Calendar extends Component {
         clickedWeek: week,
         clickedDay: day,
         clickedMonth: this.month(),
-        clickedYear: this.year()
+        clickedYear: this.year(),
       });
     };
 
-    render() {
-        const classNameNavButton = (this.currentMonth() === this.month() && this.currentYear() === this.year()? 'hidden-button-back' : 'button-back');
-        const navigationButtonBack = (<button className={classNameNavButton} onClick={(e) => this.state}>Back to {this.currentMonth()} </button>)
+    buttonClick = (e) => {
+      this.setState(
+        {
+          dateContext: moment().weekday(0),
+          today: moment(),
+        },
+      );
+    };
 
-        const classNameNav = (this.currentMonth() === this.month()? 'page-left hidden-navigation' : 'page-left')
-        const navigationLeft = (<span className={classNameNav} onClick={(e) => { this.prevMonth(); }}>
-                        <i className="month-prev"/>
-                    </span>);
-        const navigationright = (<span className="page-right" onClick={(e) => { this.nextMonth(); }}>
-                        <i className="month-next" />
-                    </span>)
+    render() {
+      const classNameNavButton = (this.currentMonth() === this.month() && this.currentYear() === this.year() ? 'hidden-button-back' : 'button-back');
+      const navigationButtonBack = (
+        <button className={classNameNavButton} onClick={(e) => { this.buttonClick(e); }}>
+Back to
+          {this.currentMonth()}
+          {' '}
+
+        </button>
+      );
+
+      const classNameNav = (this.currentMonth() === this.month() && this.currentYear() === this.year()? 'page-left hidden-navigation' : 'page-left');
+      const i =0;
+      const weekNum = 0;
+      const navigationLeft = (
+        <span className={classNameNav} onClick={(e) => { this.prevMonth();this.onDayClick(e, i, weekNum); }}>
+          <i className="month-prev" />
+        </span>
+      );
+      const navigationright = (
+        <span className="page-right" onClick={(e) => { this.nextMonth();this.onDayClick(e, i, weekNum);}}>
+          <i className="month-next" />
+        </span>
+      );
       // map weekdays
       const weekdays = this.weekdaysShort.map(day => (
         <div key={day} className="week-day">{day}</div>
@@ -207,39 +239,39 @@ export default class Calendar extends Component {
 
       const daysInPrevMonth = [];
       for (let i = this.prevMonthQuantityDay() - (this.firstDayOfMonth() - 1); i <= this.prevMonthQuantityDay(); i++) {
-          const classNameForDayPrevMonth = (this.currentMonth() === this.month() && this.currentYear() === this.year() ? 'empty-slot' : 'future-day available-day');
-          const weekNum = 1;
+        const classNameForDayPrevMonth = (this.currentMonth() === this.month() && this.currentYear() === this.year() ? 'empty-slot' : 'future-day available-day');
+        const weekNum = 1;
         daysInPrevMonth.push(<div key={i * 80} className={classNameForDayPrevMonth} onClick={(e) => { this.onDayClick(e, i, weekNum); }}>
-            <span className="date-number">{i}</span>
-        </div>);
+          <span className="date-number">{i}</span>
+                             </div>);
       }
 
       const daysInNextMonth = [];
-      for (let i = 1; i < 7 - (this.firstDayInNextMonth()-1); i++) {
-          const weekNum = Math.ceil((i + this.daysInMonth()) / 7);
-          //console.log('weekNum1111', weekNum, this.daysInMonth());
+      for (let i = 1; i < 7 - (this.firstDayInNextMonth() - 1); i++) {
+        const weekNum = Math.ceil((i + this.daysInMonth()) / 7);
+        // console.log('weekNum1111', weekNum, this.daysInMonth());
         daysInNextMonth.push(<div key={i * 80} className="future-day available-day" onClick={(e) => { this.onDayClick(e, i, weekNum); }}>
-            <span className="date-number">{i}</span>
-        </div>);
+          <span className="date-number">{i}</span>
+                             </div>);
       }
 
-      //console.log('prev', daysInPrevMonth, 'next', daysInNextMonth);
+      // console.log('prev', daysInPrevMonth, 'next', daysInNextMonth);
 
       const daysInMonth = [];
       for (let d = 1; d <= this.daysInMonth(); d++) {
-      const classNamePastDay = (d < +this.today() && this.currentMonth() === this.month() && this.currentYear() === this.year() ? 'empty-slot ' : 'available-day');
-      const classNameCurrentFutureDay = (d === +this.today() && this.currentMonth() === this.month() && this.currentYear() === this.year() ? 'current-day' : '');
+        const classNamePastDay = (d < +this.today() && this.currentMonth() === this.month() && this.currentYear() === this.year() ? 'empty-slot ' : 'available-day');
+        const classNameCurrentFutureDay = (d === +this.today() && this.currentMonth() === this.month() && this.currentYear() === this.year() ? 'current-day' : '');
 
         const weekNum = Math.ceil(d / 7);
-        //console.log('weekNum', weekNum);
+        // console.log('weekNum', weekNum);
         daysInMonth.push(
-            <div key={d} className={classNamePastDay + ' ' + classNameCurrentFutureDay} onClick={(e) => { this.onDayClick(e, d, weekNum); }}>
-            <span className="date-number" >{d}</span>
+          <div key={d} className={`${classNamePastDay} ${classNameCurrentFutureDay}`} onClick={(e) => { this.onDayClick(e, d, weekNum); }}>
+            <span className="date-number">{d}</span>
           </div>,
         );
       }
 
-      //console.log('days:', daysInMonth);
+      // console.log('days:', daysInMonth);
 
       const totalSlots = [...daysInPrevMonth, ...daysInMonth, ...daysInNextMonth];
       const rows = [];
@@ -248,10 +280,10 @@ export default class Calendar extends Component {
       totalSlots.forEach((row, i) => {
         if ((i % 7) != 0 || i === 0) {
           cells.push(row);
-          //console.log('cellscells', totalSlots);
+          // console.log('cellscells', totalSlots);
         } else {
           const insertRow = cells.slice();
-          //console.log('insertRow', insertRow);
+          // console.log('insertRow', insertRow);
           rows.push(insertRow);
           cells = [];
           cells.push(row);
@@ -262,18 +294,26 @@ export default class Calendar extends Component {
         }
       });
 
-      //console.log(rows);
+      // console.log(rows);
       const trElems = rows.map((d, i) => (
         <div className="test">
           <div key={i * 100} className="week">
             {d}
           </div>
-              {
-                this.state.clickedWeek === i+1? (
+          {
+                this.state.clickedWeek === i + 1 ? (
                   <div style={{ color: 'deeppink', minHeight: '150px', border: '1px solid black' }}>
                         Book
                     {' '}
-                    {this.state.clickedDay} {' '} {this.state.clickedMonth} {' '} {this.state.clickedYear}
+                    {this.state.clickedDay}
+                    {' '}
+                    {' '}
+                    {' '}
+                    {this.state.clickedMonth}
+                    {' '}
+                    {' '}
+                    {' '}
+                    {this.state.clickedYear}
                   </div>
                 ) : null
               }
@@ -284,20 +324,20 @@ export default class Calendar extends Component {
       return (
         <div className="calendar-container">
           <div className="calendar">
-              <div className="calendar-header">
-                <div className="calendar-title">
-                    {navigationLeft}
+            <div className="calendar-header">
+              <div className="calendar-title">
+                {navigationLeft}
                 <div className="selected-month-year">
                   <this.MonthNav />
                   <this.YearNav />
-                    {navigationButtonBack}
+                  {navigationButtonBack}
                 </div>
-                    {navigationright}
-                </div>
-            </div>
-              <div className="weekdays">
-                  {weekdays}
+                {navigationright}
               </div>
+            </div>
+            <div className="weekdays">
+              {weekdays}
+            </div>
             <div className="calendar-wrap">
               {trElems}
             </div>
