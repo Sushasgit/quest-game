@@ -3,14 +3,15 @@ import './App.css';
 
 import Banner from './components/Banner/Banner';
 import Advantages from './components/Advantages/Advantages';
-import Parallax from './components/Parallax';
-import AdvantagesPlace from './components/Advantages/AdvantagesPlace';
+import ScrollProvider from './components/ScrollProvider';
 
 const App = () => {
-  const layersGroup = [<Banner />, <Advantages />];
   return (
     <div className="app">
-      <Parallax layersGroup={layersGroup} />
+      <ScrollProvider>
+        <Banner />
+      </ScrollProvider>
+      <Advantages />
     </div>
   );
 };

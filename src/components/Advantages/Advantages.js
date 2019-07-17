@@ -6,13 +6,13 @@ import './advantages.scss';
 import AdvantagesPlace from './AdvantagesPlace';
 // import AdvantagesPlace from './AdvantagesPlace';
 // import CardsList from '../CardsList/CardsList';
-import MapBox from '../MapBox/MapBox';
-import ContactForm from '../ContactForm/index.js';
+// import MapBox from '../MapBox/MapBox';
+// import ContactForm from '../ContactForm/index.js';
 import CardsList from '../CardsList/CardsList';
 // import ContactForm from '../ContactForm.js';
 
 const Advantages = () => (
-  <section className="advantages bg bg--buildings">
+  <section className="advantages bg">
     <div className="bg bg--yellow wrapper">
       <h2 className="main-title main-title--primary">Real Games</h2>
       <p className="main-description">
@@ -36,8 +36,8 @@ const Advantages = () => (
     </ul>
     <AdvantagesPlace />
     <CardsList />
-    <ContactForm />
-    <MapBox />
+    {/* <ContactForm />
+    <MapBox /> */}
   </section>
 );
 

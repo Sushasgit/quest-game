@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import './contact-form.scss';
 
@@ -64,5 +65,10 @@ class ContactForm extends Component {
     );
   }
 }
+
+ContactForm.contextTypes = {
+  posX: PropTypes.number,
+  posY: PropTypes.number,
+};
 
 export default ContactForm;

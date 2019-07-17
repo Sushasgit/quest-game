@@ -69,19 +69,19 @@ export const CARDS_DATA = [
     imgBg: 'strike',
   },
   {
-    id: 3,
+    id: 4,
     title: 'Хоррор-квест “ПРЯТКИ”',
     description: 'Залез — нашёл — украл — принёс, всё просто, не так ли ….?',
     imgBg: 'strike',
   },
   {
-    id: 3,
+    id: 5,
     title: 'Хоррор-квест “ПРЯТКИ”',
     description: 'Залез — нашёл — украл — принёс, всё просто, не так ли ….?',
     imgBg: 'strike',
   },
   {
-    id: 3,
+    id: 6,
     title: 'Хоррор-квест “ПРЯТКИ”',
     description: 'Залез — нашёл — украл — принёс, всё просто, не так ли ….?',
     imgBg: 'strike',

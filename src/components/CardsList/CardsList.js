@@ -5,7 +5,7 @@ import { CARDS_DATA } from '../../utils/constants';
 import './cards-list.scss';
 
 const CardsList = () => (
-  <div className="wrapper advantages bg bg--buildings cards-box">
+  <div className="wrapper advantages bg cards-box">
     <h2 className="main-title main-title--primary">Наши игры</h2>
     <ul className="cards grid">
       {
