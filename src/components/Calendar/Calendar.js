@@ -39,7 +39,7 @@ export default class Calendar extends Component {
       const { dateContext } = this.state;
       const firstDayStart = moment(dateContext).startOf('month').format('d'); // dayOf week
       let firstDay;
-      firstDayStart == 0 ? firstDay = firstDayStart + 6 : firstDay = firstDayStart - 1;
+      +firstDayStart === 0 ? firstDay = firstDayStart + 6 : firstDay = firstDayStart - 1;
       return firstDay;
     };
 
@@ -210,25 +210,32 @@ export default class Calendar extends Component {
 
     render() {
       const classNameNavButton = (this.currentMonth() === this.month() && this.currentYear() === this.year() ? 'hidden-button-back' : 'button-back');
+      const i = 0;
+      const weekNum = 0;
       const navigationButtonBack = (
-        <button className={classNameNavButton} onClick={(e) => { this.buttonClick(e); }}>
-Back to
+        <button
+          className={classNameNavButton}
+          onClick={(e) => {
+            this.buttonClick(e);
+            this.onDayClick(e, i, weekNum);
+          }}
+        >
+          Back to
           {this.currentMonth()}
           {' '}
 
         </button>
       );
 
-      const classNameNav = (this.currentMonth() === this.month() && this.currentYear() === this.year()? 'page-left hidden-navigation' : 'page-left');
-      const i =0;
-      const weekNum = 0;
+      const classNameNav = (this.currentMonth() === this.month() && this.currentYear() === this.year() ? 'page-left hidden-navigation' : 'page-left');
+
       const navigationLeft = (
-        <span className={classNameNav} onClick={(e) => { this.prevMonth();this.onDayClick(e, i, weekNum); }}>
+          <span className={classNameNav} onClick={(e) => { this.prevMonth(); this.onDayClick(e, i, weekNum); }}>
           <i className="month-prev" />
         </span>
       );
       const navigationright = (
-        <span className="page-right" onClick={(e) => { this.nextMonth();this.onDayClick(e, i, weekNum);}}>
+        <span className="page-right" onClick={(e) => { this.nextMonth(); this.onDayClick(e, i, weekNum); }}>
           <i className="month-next" />
         </span>
       );
@@ -324,7 +331,6 @@ Back to
       return (
         <div className="calendar-container">
           <div className="calendar">
-            <div className="calendar-header">
               <div className="calendar-title">
                 {navigationLeft}
                 <div className="selected-month-year">
@@ -334,13 +340,12 @@ Back to
                 </div>
                 {navigationright}
               </div>
-            </div>
-            <div className="weekdays">
-              {weekdays}
-            </div>
-            <div className="calendar-wrap">
-              {trElems}
-            </div>
+                <div className="weekdays">
+                  {weekdays}
+                </div>
+                <div className="calendar-wrap">
+                  {trElems}
+                </div>
           </div>
         </div>
       );

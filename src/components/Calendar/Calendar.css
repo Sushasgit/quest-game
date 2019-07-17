@@ -17,10 +17,11 @@ h2{
 }
 .calendar-wrap{
     border-left: 1px solid #373737;
+    max-width: 720px;
 }
 
 .page-right, .page-left{
-    width: 50px;
+    width: 5vw;
     height: 30px;
     display: flex;
     align-items: center;
@@ -125,6 +126,7 @@ h2{
 
 .selected-month-year{
     display: flex;
+    flex-wrap: wrap;
 }
 div.empty-slot{
     color: #414141;
@@ -146,8 +148,8 @@ div.future-day{
 .available-day, .empty-slot{
     width: 8vw;
     height: 8vw;
-    min-width: 65px;
-    min-height: 65px;
+    min-width: 40px;
+    min-height: 40px;
     max-width: 105px;
     max-height: 105px;
     border-bottom: 1px solid #373737;
@@ -175,6 +177,7 @@ div.future-day{
     display: flex;
     background-color: #404040;
     height: 60px;
+    max-width: 720px;
 }
 
 .week {
@@ -182,8 +185,9 @@ div.future-day{
 }
 
 .week-day{
-    width: 100%;
+    width: 8vw;
     height: 58px;
+    min-width: 40px;
     text-align: center;
     display: flex;
     align-items: center;
@@ -216,4 +220,23 @@ div.future-day{
     display: none;
 }
 
+@media (max-width: 850px) {
+    .page-right, .page-left {
+        margin: 0px 15px;
+        width: 3vw;
+    }
+
+    .calendar-container {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 850px) {
+    .page-right, .page-left {
+        margin: 0 12px;
+    }
+    .weekdays{
+        height: 55px;
+    }
+}
 
