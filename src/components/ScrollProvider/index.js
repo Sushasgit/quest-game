@@ -17,7 +17,15 @@ class ScrollProvider extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', this.onScrollChanged);
+    window.addEventListener('scroll', this.onScrollChanged, {
+      passive: true,
+    });
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScrollChanged, {
+        passive: true
+      });
   }
 
   onScrollChanged(e) {

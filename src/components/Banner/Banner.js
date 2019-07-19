@@ -2,8 +2,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import logo from '../../images/logo-real.png';
+
 import styled from 'styled-components';
 import './banner.scss';
+import Menu from '../Menu';
 
 const Layer = styled.div`
   transform: translate3d(0px,${props => props.position ? props.position : '0'}px, 0px);
@@ -28,6 +31,7 @@ class Banner extends Component {
     const { posY } = this.context;
     return (
       <div className="banner">
+        <LayerPosition posY={posY} position={posY * 100 / 100} className="banner__layer parallax l9" />
         <Layer position={posY * 20 / 100}>
           <div className="box">
             <h1 className="neon">
@@ -35,7 +39,6 @@ class Banner extends Component {
             </h1>
           </div>
         </Layer>
-        <LayerPosition posY={posY} position={posY * 100 / 100} className="banner__layer parallax l9" />
         <LayerPosition
           bottom
           rightSide
@@ -45,11 +48,16 @@ class Banner extends Component {
         />
         <Layer position={posY * 80 / 100} className="banner__layer parallax l7" />
         <Layer position={posY * 60 / 100} className="banner__layer parallax l6" />
-        <Layer position={posY * 55 / 100} className="banner__layer parallax l5" />
+        <LayerPosition bottom posY={posY * 3} position={posY * 55 / 100} className="banner__layer parallax l5" />
         <Layer position={posY * 35 / 100} className="banner__layer parallax l4" />
         <Layer position={posY * 25 / 100} className="banner__layer parallax l3" />
         <Layer position={posY * 10 / 100} className="banner__layer parallax l2" />
-        <Layer position={posY * 1 / 100} className="banner__layer parallax l1" />
+        <Layer position={posY * 1 / 100} className="banner__layer parallax l1">
+          <a className="logo-link" href="/">
+            <img src={logo} alt="logo" />
+          </a>
+          <Menu />
+        </Layer>
       </div>
     );
   }

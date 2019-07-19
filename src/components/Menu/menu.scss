@@ -1,0 +1,83 @@
+.shape1,
+.shape2 {
+  stroke-dasharray: 320;
+  stroke-width: 4px;
+  fill: transparent;
+  stroke: #19f6e8;
+  border-bottom: 5px solid black;
+  transition-timing-function: linear;
+  transition: stroke-dashoffset 3s, stroke-dasharray 4s;
+}
+.shape1 {
+  stroke-dashoffset: 320;
+}
+.shape2 {
+  stroke-dashoffset: -320;
+}
+.text {
+  font-family: 'Roboto Condensed';
+  font-size: 22px;
+  line-height: 32px;
+  letter-spacing: 8px;
+  color: #fff;
+  position: relative;
+  display: none;
+
+}
+
+// .price {
+//   margin-left:
+// }
+
+// .menu__link:hover .shape1,
+// .menu__link:hover .shape2 {
+//   stroke-dashoffset: 0;
+//   stroke-dasharray: 320;
+// }
+
+.menu {
+  position: fixed;
+  right: 20px;
+  top: 150px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.menu__link svg{
+}
+
+.menu__link {
+  display: flex;
+  align-items: center;
+  color: #FFDC26;
+}
+
+.menu__link a {
+  transform: translateX(300%);
+  display: inline-block;
+  width: 55px;
+  height: 55px;
+  text-align: center;
+  padding: 12px;
+  border-radius: 50%;
+  transition: all 1s linear;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  background: transparent;
+  box-shadow: 0px 0px 78px 4px rgba(102, 102, 0, 0.73);
+}
+
+.menu__link span {
+  vertical-align: middle;
+  transform: translateX(300%);
+  transition: all 1s ease-in-out;
+}
+
+.menu__link:hover > span {
+    transform: translateX(0);
+    display: inline-block;
+    margin: 0;
+}
+
+.menu__link:hover a{
+  transform: translateX(0);
+}

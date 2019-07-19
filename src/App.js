@@ -1,18 +1,19 @@
 import React from 'react';
-import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import Banner from './components/Banner/Banner';
-import Advantages from './components/Advantages/Advantages';
-import ScrollProvider from './components/ScrollProvider';
+import Home from './pages/Home';
+import Prices from './pages/Prices';
+import OurGames from './pages/OurGames';
+
+import './App.css';
 
 const App = () => {
   return (
-    <div className="app">
-      <ScrollProvider>
-        <Banner />
-      </ScrollProvider>
-      <Advantages />
-    </div>
+    <Router>
+      <Route exact path="/" component={Home} />
+      <Route path="/prices" component={Prices} />
+      <Route path="/games" component={OurGames} />
+    </Router>
   );
 };
 

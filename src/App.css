@@ -39,6 +39,10 @@ button {
   padding: 0 15px;
 }
 
+.wrapper--lg {
+  max-width: 1700px;
+}
+
 .main-title {
   color: #fff;
   font-size: 2em;
@@ -49,6 +53,23 @@ button {
 
 .text-color-yellow {
   color: #FFDC26;
+}
+
+.test-bg {
+  background: url(./images/horror-back.svg);
+  background-attachment: fixed;
+  height: 400px;
+  width: 100%;
+}
+
+.logo-link {
+  position: absolute;
+  right: 60px;
+  top: 30px;
+}
+
+.logo-link img {
+  max-width: 50px;
 }
 
 /* Utils styles */
@@ -84,15 +105,23 @@ button {
 
 .bg--buildings::before {
       content: '';
-      background:url(./images/l1.svg),
-      url(./images/l1.svg);
+      background:url(./images/l1.svg);
       top: -110px;
       right: 0;
       left: 0;
       bottom: 0;
-      background-repeat: no-repeat;
+      background-repeat: repeat-x;
       position: absolute;
       width: 100%;
       min-height: 200px;
-      background-position: top left, top right;
+      background-position: top left;
+}
+
+.test-absolute {
+  position: absolute;
+  z-index: 100;
+}
+
+.test-relative {
+  position: relative;
 }

@@ -14,6 +14,7 @@
     &__layer {
         width: 100%;
         position: absolute;    
+        will-change: transform;
     }
 }
 
@@ -53,8 +54,8 @@
 .l5 {
     background-image: url(../../images/l5.svg);
     background-repeat: no-repeat;
-    background-size: auto 700px;
-    background-position: center center;
+    background-size: auto 500px;
+    background-position: bottom right;
 }
 
 .l7 {
@@ -75,7 +76,7 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: top left 150px;
-    background-size: auto 500px;
+    background-size: auto 400px;
 }
 
 .box {
@@ -105,6 +106,7 @@
     text-shadow: 0 0 20px #FFDC26;
     font-family: 'Montserrat', sans-serif;
     line-height: 1em;
+    z-index: 150;
 }
 
 .neon:after {
@@ -118,6 +120,7 @@
 	padding:  0 20px;
 	filter: blur(15px); 
 }
+
 .neon:before {
 	content: '';
 	position: absolute;
