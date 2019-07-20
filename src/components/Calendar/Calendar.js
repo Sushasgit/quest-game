@@ -31,8 +31,6 @@ export default class Calendar extends Component {
 
     currentYear = () => moment().weekday(0).format('Y');
 
-    // currentDay = () => this.state.dateContext.format('D');
-
     today = () => moment().format('D');
 
     firstDayOfMonth = () => {
@@ -43,23 +41,12 @@ export default class Calendar extends Component {
       return firstDay;
     };
 
-    resetDateContext = () => {
-      this.state = {
-        dateContext: moment().weekday(0),
-        today: moment(),
-        // showMonthPopup: false,
-        // showYearPopup: false,
-      };
-    }
-
-    // setMonth = (month) => {
-    //   const monthNo = this.months.indexOf(month);
-    //   let dateContext = Object.assign({}, this.state.dateContext);
-    //   dateContext = moment(dateContext).set('month', monthNo);
-    //   this.setState({
-    //     dateContext,
-    //   });
-    // };
+    // resetDateContext = () => {
+    //   this.state = {
+    //     dateContext: moment().weekday(0),
+    //     today: moment(),
+    //   };
+    // }
 
     firstDayInNextMonth = () => {
       let dateContext = Object.assign({}, this.state.dateContext);
@@ -73,6 +60,8 @@ export default class Calendar extends Component {
     prevMonthQuantityDay = () => {
       let dateContext = Object.assign({}, this.state.dateContext);
       dateContext = moment(dateContext).subtract(1, 'month');
+
+      console.log('DATE-CONTEXT!!!!!!!!!!!', dateContext.daysInMonth());
       return dateContext.daysInMonth();
     };
 
@@ -94,89 +83,18 @@ export default class Calendar extends Component {
       this.props.onPrevMonth && this.props.onPrevMonth();
     };
 
-    // onSelectchange = (e, data) => {
-    //   this.setMonth(data);
-    //   this.props.onMonthChange && this.props.onMonthChange();
-    // }
-
-    // Selectlist = (props) => {
-    //   const popup = props.data.map(data => (
-    //     <div key={data}>
-    //       <a href="#" className="link-months-list" onClick={(e) => { this.onSelectchange(e, data); }}>
-    //         {data}
-    //       </a>
-    //     </div>
-    //   ));
-    //   return (
-    //     <div className="month-popup">
-    //       {popup}
-    //     </div>
-    //   );
-    // };
-
-    // onChangeMonth=(e, month) => {
-    //   this.setState({
-    //     showMonthPopup: !this.state.showMonthPopup,
-    //   });
-    // };
-
     MonthNav = () => (
       <span className="label-month">
         {this.month()}
-        {/* {this.state.showMonthPopup */}
-        {/*        && <this.Selectlist data={this.months} /> */}
-        {/*        } */}
       </span>
     );
 
-    // showYearEditor = () => {
-    //   this.setState({
-    //     showYearNav: false,
-    //   });
-    // };
-
-    // setYear = (year) => {
-    //   let dateContext = Object.assign({}, this.state.dateContext);
-    //   dateContext = moment(dateContext).set('year', year);
-    //   this.setState({
-    //     dateContext,
-    //   });
-    // };
-    //
-    // onYearChange =(e) => {
-    //   this.setYear(e.target.value);
-    //   this.props.onYearChange && this.props.onYearChange(e, e.target.value);
-    // };
-    //
-    // onKeyUpYear = (e) => {
-    //   if (e.which === 13 || e.which === 27) {
-    //     this.setYear(e.target.value);
-    //     this.setState({
-    //       showYearNav: false,
-    //     });
-    //   }
-    // };
-
     YearNav = () => (
-      // this.state.showYearNav
-      //   ? (
-      //     <input
-      //       defaultValue={this.year()}
-      //       // className="editor-year"
-      //       // ref={(yearInput) => { this.yearInput = yearInput; }}
-      //       // onKeyUp={e => this.onKeyUpYear(e)}
-      //       // onChange={e => this.onYearChange(e)}
-      //       // type="number"
-      //       // placeholder="year"
-      //     />
-      //   )
-      //   : (
       <span
         className="label-year"
       >
         {this.year()}
       </span>
-      // ));
     )
 
     onDayClick = (e, day) => {
@@ -184,13 +102,6 @@ export default class Calendar extends Component {
     }
 
     onDayClick = (e, day, week) => {
-      // console.log(this.prevMonthQuantityDay());
-      // console.log(day);
-      // console.log('tterrevvb', this.today());
-      // console.log(this.year());
-      // console.log(this.firstDayOfMonth());
-      // console.log(`первый день${this.firstDayInNextMonth()}`);
-      // console.log('WEEEEk', moment().weekday(day));
       this.setState({
         clickedWeek: week,
         clickedDay: day,
@@ -281,16 +192,17 @@ export default class Calendar extends Component {
       // console.log('days:', daysInMonth);
 
       const totalSlots = [...daysInPrevMonth, ...daysInMonth, ...daysInNextMonth];
+      // console.log('TOTAL', totalSlots);
       const rows = [];
       let cells = [];
 
       totalSlots.forEach((row, i) => {
         if ((i % 7) != 0 || i === 0) {
           cells.push(row);
-          // console.log('cellscells', totalSlots);
+          // console.log('cellscellsOLD!!!!', totalSlots);
         } else {
           const insertRow = cells.slice();
-          // console.log('insertRow', insertRow);
+          // console.log('insertRowOLD!!', insertRow);
           rows.push(insertRow);
           cells = [];
           cells.push(row);
