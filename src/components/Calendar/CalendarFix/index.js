@@ -33,7 +33,7 @@ class CalendarFix extends Component {
     const firstDayStart = moment(dateContext).startOf('month').format('d'); // dayOf week
     let firstDay;
     // TODO REFACTOR conditions
-    +firstDayStart === 0 ? firstDay = firstDayStart + 6 : firstDay = firstDayStart - 1; 
+    +firstDayStart === 0 ? firstDay = firstDayStart + 6 : firstDay = firstDayStart - 1;
     this.setState({
       firstDay,
     }, () => {
@@ -43,7 +43,7 @@ class CalendarFix extends Component {
     });
   };
 
-  firstDayInNextMonth = () => { 
+  firstDayInNextMonth = () => {
     const { dateContext } = this.state;
     let newDateContext = Object.assign({}, dateContext);
     newDateContext = moment(dateContext).add(1, 'month');
@@ -142,40 +142,42 @@ class CalendarFix extends Component {
     });
   }
 
-  nextMonth = () => {
-    let dateContext = Object.assign({}, this.state.dateContext);
-    dateContext = moment(dateContext).add(1, 'month');
-    this.setState({
-      dateContext,
-      year: dateContext.format('Y'),
-      month: dateContext.format('MMMM'),
-      daysInMonth: dateContext.daysInMonth(),
-    }, () => {
-      this.firstDayOfMonth();
-      this.firstDayInNextMonth();
-      this.prevMonthQuantityDay();
-    });
-  };
-
-  prevMonth = () => {
-    let dateContext = Object.assign({}, this.state.dateContext);
-    dateContext = moment(dateContext).subtract(1, 'month');
-    this.setState({
-      dateContext,
-      year: dateContext.format('Y'),
-      month: dateContext.format('MMMM'),
-      daysInMonth: dateContext.daysInMonth(),
-    }, () => {
-      this.firstDayOfMonth();
-      this.firstDayInNextMonth();
-      this.prevMonthQuantityDay();
-    });
-  };
+    handleChooseMonth = (operator) => {
+      let dateContext = Object.assign({}, this.state.dateContext);
+      operator === 'next' ? dateContext = moment(dateContext).add(1, 'month')
+        : dateContext = moment(dateContext).subtract(1, 'month');
+      this.setState({
+        dateContext,
+        year: dateContext.format('Y'),
+        month: dateContext.format('MMMM'),
+        daysInMonth: dateContext.daysInMonth(),
+        clickedWeek: null,
+      }, () => {
+        this.firstDayOfMonth();
+        this.firstDayInNextMonth();
+        this.prevMonthQuantityDay();
+      });
+    };
 
   onDayClick = (e, day, week) => {
     this.setState({
       clickedWeek: week,
       clickedDay: day,
+    });
+  };
+
+  buttonBackClick = () => {
+    const dateContext = moment().weekday(0);
+    this.setState({
+      dateContext,
+      year: dateContext.format('Y'),
+      month: dateContext.format('MMMM'),
+      clickedWeek: null,
+      daysInMonth: dateContext.daysInMonth(),
+    }, () => {
+      this.firstDayOfMonth();
+      this.firstDayInNextMonth();
+      this.prevMonthQuantityDay();
     });
   };
 
@@ -190,6 +192,7 @@ class CalendarFix extends Component {
       clickedDay,
     } = this.state;
     const classNameNav = (currentMonth === month && currentYear === year ? 'page-left hidden-navigation' : 'page-left');
+    const classNameNavButton = (currentMonth === month && currentYear === year ? 'hidden-button-back' : 'button-back');
 
     return (
       <div>
@@ -199,19 +202,30 @@ class CalendarFix extends Component {
               <button
                 type="button"
                 className={classNameNav}
-                onClick={() => { this.prevMonth(); }}
+                onClick={() => { this.handleChooseMonth(); }}
               >
                 <i className="month-prev" />
               </button>
               <div className="selected-month-year">
                 {this.renderMonthNav()}
                 {this.renderYearNav()}
+                <button
+                  type="button"
+                  className={classNameNavButton}
+                  onClick={() => {
+                    this.buttonBackClick();
+                  }}
+                >
+                  Back to
+                  {currentMonth}
+                  {' '}
+                </button>
               </div>
 
               <button
-                type="button" 
-                className="page-right" 
-                onClick={() => { this.nextMonth(); }}
+                type="button"
+                className="page-right"
+                onClick={() => { this.handleChooseMonth('next'); }}
               >
                 <i className="month-next" />
               </button>
