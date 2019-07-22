@@ -69,3 +69,5 @@ export const CARDS_DATA = [
     imgBg: 'strike',
   },
 ];
+
+export const WEEK_DAY_SHORT = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
