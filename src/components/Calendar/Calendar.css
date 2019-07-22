@@ -6,7 +6,7 @@ h2{
 
 .calendar{
     font-family: 'Montserrat', sans-serif;
-
+    min-width: 270px;
 }
 
 .calendar-container{
@@ -28,6 +28,7 @@ h2{
     align-items: center;
     margin: 30px;
     cursor: pointer;
+    padding: 0;
 }
 
 .month-next, .month-prev{
