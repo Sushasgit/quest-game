@@ -6,7 +6,7 @@ import './advantages.scss';
 
 const AdvantagesPlace = () => (
   <section className="advantages advantages__place">
-    <div className="bg bg--buildings">
+    <div className="bg">
       <div className="wrapper flex">
         {
             ADVANTAGES_PLACE.map(item => (

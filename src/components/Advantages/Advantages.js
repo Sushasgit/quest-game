@@ -2,9 +2,11 @@ import React from 'react';
 
 import { ADVANTAGES_DATA } from '../../utils/constants';
 
-import './advantages.scss';
 import AdvantagesPlace from './AdvantagesPlace';
 import CardsList from '../CardsList/CardsList';
+import ContactForm from '../ContactForm';
+
+import './advantages.scss';
 
 const Advantages = () => (
   <section className="advantages bg bg--buildings">
@@ -17,7 +19,7 @@ const Advantages = () => (
     <ul className="advantages__games flex">
       {
         ADVANTAGES_DATA.map(item => (
-          <li key={item.id} className={`activity activity--${item.bgImg}`}>
+          <li key={item.id} className={`activity a activity--${item.bgImg}`}>
             <h3 className="activity__title">
               <span>{item.title}</span>
             </h3>
@@ -30,7 +32,9 @@ const Advantages = () => (
                 }
     </ul>
     <AdvantagesPlace />
+    <div className="test-bg" />
     <CardsList />
+    <ContactForm />
   </section>
 );
 
