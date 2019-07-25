@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Finger+Paint&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Poppins:700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300&display=swap');
 
 * {
   margin: 0;
@@ -7,9 +8,7 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
@@ -38,6 +37,10 @@ button {
   padding: 0 15px;
 }
 
+.wrapper--lg {
+  max-width: 1700px;
+}
+
 .main-title {
   color: #fff;
   font-size: 2em;
@@ -46,13 +49,34 @@ button {
   text-align: center;
 }
 
+.text-color-yellow {
+  color: #FFDC26;
+}
+
+.test-bg {
+  background: url(./images/horror-back.svg);
+  background-attachment: fixed;
+  height: 400px;
+  width: 100%;
+}
+
+.logo-link {
+  position: absolute;
+  right: 60px;
+  top: 30px;
+}
+
+.logo-link img {
+  max-width: 50px;
+}
+
 /* Utils styles */
 
 /* TODO: Think about create atomic classes for general things */
 
 .main-title--primary {
   color: #FFDC26;
-  margin: 90px 0 auto;
+  margin: 90px auto;
 }
 
 .main-description {
@@ -79,15 +103,30 @@ button {
 
 .bg--buildings::before {
       content: '';
-      background:url(./images/l1.svg),
-      url(./images/l1.svg);
+      background:url(./images/l1.svg);
       top: -110px;
       right: 0;
       left: 0;
       bottom: 0;
-      background-repeat: no-repeat;
+      background-repeat: repeat-x;
       position: absolute;
       width: 100%;
       min-height: 200px;
-      background-position: top left, top right;
+      background-position: top left;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex > * {
+  flex: 1 0 5em;
+  margin: 1em;
+}
+
+@media (max-width: 700px)  {
+  .flex {
+    flex-direction: column;
+  }
 }

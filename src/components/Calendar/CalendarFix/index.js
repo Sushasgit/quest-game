@@ -63,10 +63,10 @@ class CalendarFix extends Component {
     });
   };
 
-  arrayConversion = (incomingArray, modifier) =>{
-      return Array.from(Array(incomingArray)
-          .fill().map((_, idx) => ({ dayNam: startDay + idx, modifier })));
-  }
+  // arrayConversion = (incomingArray, modifier) =>{
+  //     return Array.from(Array(incomingArray)
+  //         .fill().map((_, idx) => ({ dayNam: startDay + idx, modifier })));
+  // }
 
   renderMonthNav = () => (
     <span className="label-month">
