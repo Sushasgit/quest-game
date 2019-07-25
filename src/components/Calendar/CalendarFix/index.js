@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-
 import '../Calendar.css';
 import Week from './parts/Week';
 import Day from './parts/Day';
@@ -38,7 +37,7 @@ class CalendarFix extends Component {
       firstDay,
     }, () => {
       this.renderDaysInNextMonth(firstDay);
-      this.renderdaysInPrevMonth();
+      this.renderDaysInPrevMonth();
       this.renderDaysCurrentMonth();
     });
   };
@@ -53,7 +52,7 @@ class CalendarFix extends Component {
     this.setState({
       firstDayNextMonth,
     });
-  }
+  };
 
   prevMonthQuantityDay = () => {
     let dateContext = Object.assign({}, this.state.dateContext);
@@ -64,14 +63,10 @@ class CalendarFix extends Component {
     });
   };
 
-  onDayClick = (e, day, week) => {
-    this.setState({
-      clickedWeek: week,
-      clickedDay: day,
-      clickedMonth: this.month(),
-      clickedYear: this.year(),
-    });
-  };
+  // arrayConversion = (incomingArray, modifier) =>{
+  //     return Array.from(Array(incomingArray)
+  //         .fill().map((_, idx) => ({ dayNam: startDay + idx, modifier })));
+  // }
 
   renderMonthNav = () => (
     <span className="label-month">
@@ -85,67 +80,76 @@ class CalendarFix extends Component {
     >
       {this.state.year}
     </span>
-  )
+  );
 
-  renderdaysInPrevMonth = () => {
-    const { prevMonthQuantityDay, firstDay } = this.state;
+  renderDaysInPrevMonth = () => {
+    const {
+      prevMonthQuantityDay, firstDay, currentMonth, currentYear,
+    } = this.state;
     const startDay = prevMonthQuantityDay - (+firstDay - 1);
-    const prevMonthDaysArr = Array.from(Array(prevMonthQuantityDay - startDay + 1)
-      .fill().map((_, idx) => ({ dayNam: startDay + idx, prev: true })));
+    let prevMonthDaysArr;
+    if (currentMonth === this.renderMonthNav() && currentYear === this.renderYearNav()) {
+      prevMonthDaysArr = Array.from(Array(prevMonthQuantityDay - startDay + 1)
+        .fill().map((_, idx) => ({ dayNam: startDay + idx, prev: true })));
+    } else {
+      prevMonthDaysArr = Array.from(Array(prevMonthQuantityDay - startDay + 1)
+        .fill().map((_, idx) => ({ dayNam: startDay + idx, next: true })));
+    }
     this.setState({
       prevMonthDaysArr,
     });
-  }
+  };
 
   renderDaysInNextMonth = () => {
     const { firstDayNextMonth } = this.state;
     const endDate = 7 - (firstDayNextMonth);
-    const nextMonthDaysArr = Array.from(Array(endDate - 1 + 1)
+    const nextMonthDaysArr = Array.from(Array(endDate)
       .fill().map((_, idx) => ({ dayNam: 1 + idx, next: true })));
     this.setState({
       nextMonthDaysArr,
     });
-  }
+  };
 
   renderDaysCurrentMonth = () => {
-    const { daysInMonth } = this.state;
-    const currentMonthDaysArr = Array.from(Array(daysInMonth - 1 + 1)
-      .fill().map((_, idx) => ({ dayNam: 1 + idx, current: true })));
+    const {daysInMonth, currentMonth, currentYear} = this.state;
+    let currentMonthDaysArr;
+    if (currentMonth === this.renderMonthNav() && currentYear === this.renderYearNav()) {
+      currentMonthDaysArr = Array.from(Array(daysInMonth)
+        .fill().map((_, idx) => ({ dayNam: 1 + idx, current: true })));
+    } else {
+      currentMonthDaysArr = Array.from(Array(daysInMonth)
+        .fill().map((_, idx) => ({ dayNam: 1 + idx, current: true })));
+    }
     this.setState({
       currentMonthDaysArr,
     }, () => {
       this.generateTotalArray();
     });
-  }
+  };
 
   generateTotalArray = () => {
     const { prevMonthDaysArr, nextMonthDaysArr, currentMonthDaysArr } = this.state;
     const totalSlots = [...prevMonthDaysArr, ...currentMonthDaysArr, ...nextMonthDaysArr];
     const rows = [];
-    let cells = [];
-    totalSlots.forEach((row, i) => {
-      if ((i % 7) !== 0 || i === 0) {
-        cells.push(row);
-      } else {
-        const insertRow = cells.slice();
-        rows.push(insertRow);
-        cells = [];
-        cells.push(row);
-      }
-      if (i === totalSlots.length - 1) {
-        const insertRow = cells.slice();
-        rows.push(insertRow);
+    totalSlots.forEach((item, i) => {
+      if ((i % 7) === 0 || (i + 1) === totalSlots.length) {
+        rows.push(totalSlots.slice(i - 7, i));
       }
     });
     this.setState({
       rows,
     });
-  }
+  };
 
-    handleChooseMonth = (operator) => {
+    navigationMonth = (operator) => {
       let dateContext = Object.assign({}, this.state.dateContext);
-      operator === 'next' ? dateContext = moment(dateContext).add(1, 'month')
-        : dateContext = moment(dateContext).subtract(1, 'month');
+      switch (operator) {
+        case 'next': dateContext = moment(dateContext).add(1, 'month');
+          break;
+        case 'prev': dateContext = moment(dateContext).subtract(1, 'month');
+          break;
+        default: dateContext = moment().weekday(0);
+      }
       this.setState({
         dateContext,
         year: dateContext.format('Y'),
@@ -163,21 +167,6 @@ class CalendarFix extends Component {
     this.setState({
       clickedWeek: week,
       clickedDay: day,
-    });
-  };
-
-  buttonBackClick = () => {
-    const dateContext = moment().weekday(0);
-    this.setState({
-      dateContext,
-      year: dateContext.format('Y'),
-      month: dateContext.format('MMMM'),
-      clickedWeek: null,
-      daysInMonth: dateContext.daysInMonth(),
-    }, () => {
-      this.firstDayOfMonth();
-      this.firstDayInNextMonth();
-      this.prevMonthQuantityDay();
     });
   };
 
@@ -202,7 +191,7 @@ class CalendarFix extends Component {
               <button
                 type="button"
                 className={classNameNav}
-                onClick={() => { this.handleChooseMonth(); }}
+                onClick={() => { this.navigationMonth('prev'); }}
               >
                 <i className="month-prev" />
               </button>
@@ -213,7 +202,7 @@ class CalendarFix extends Component {
                   type="button"
                   className={classNameNavButton}
                   onClick={() => {
-                    this.buttonBackClick();
+                    this.navigationMonth('toCurrentMonth');
                   }}
                 >
                   Back to
@@ -221,11 +210,10 @@ class CalendarFix extends Component {
                   {' '}
                 </button>
               </div>
-
               <button
                 type="button"
                 className="page-right"
-                onClick={() => { this.handleChooseMonth('next'); }}
+                onClick={() => { this.navigationMonth('next'); }}
               >
                 <i className="month-next" />
               </button>
