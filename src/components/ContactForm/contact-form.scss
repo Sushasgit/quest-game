@@ -3,6 +3,8 @@
     background-size: 200px 300px;
     background-repeat: no-repeat;
     background-position: bottom center;
+
+    flex: 0 0 20%;
     
     font-size: 0.8em;
 
@@ -20,7 +22,11 @@
     &__info {
       margin-bottom: 20px;
     }
-
+    
+    &__list {
+      display: flex;
+      margin-top: 40px;
+    }
   }
   
   .contact-form {
@@ -69,4 +75,29 @@
         color: #242424;
       }
     }
+  }
+
+  .link {
+    display: inline-block;
+    width: 55px;
+    height: 55px;
+    text-align: center;
+    padding: 12px;
+    border-radius: 50%;
+    transition: all 1s linear;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background: transparent;
+    box-shadow: 0px 0px 78px 4px rgba(102, 102, 0, 0.73);
+  }
+
+  .footer {
+    box-shadow: 0px 0px 78px 4px #333;
+    color: #fff;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    font-size: 0.7em;
+    color: #FFDC26;
   }

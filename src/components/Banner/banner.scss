@@ -4,12 +4,14 @@
 .banner, 
 .banner__layer {
     height: 100vh;
+    overflow: hidden;
 }
 
 .banner {
-	position: relative;
+	  position: relative;
     z-index: 10;
     background-color: #242424;
+    overflow: hidden;
 
     &__layer {
         width: 100%;
@@ -20,6 +22,7 @@
 
 .banner__layer.parallax {
     position: fixed;
+    overflow: hidden;
 }
 
 .l1 {

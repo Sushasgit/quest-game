@@ -3,10 +3,11 @@ import React from 'react';
 import './menu.scss';
 
 import { Link } from 'react-router-dom';
+import BurgerMenu from '../BurgerMenu';
 
-const Menu = () => {
-  return (
-    <ul className="menu">
+const Menu = () => (
+  <React.Fragment>
+    <ul className="menu menu--desktop">
       <li className="menu__link">
         <Link to="/prices">
           <svg
@@ -61,7 +62,11 @@ const Menu = () => {
         <span>Игры</span>
       </li>
     </ul>
-  );
-};
+
+    <div className="menu menu--mobile">
+      <BurgerMenu />
+    </div>
+  </React.Fragment>
+);
 
 export default Menu;

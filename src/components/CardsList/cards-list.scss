@@ -5,6 +5,8 @@
 
 .cards {
     background-color: #242424;
+    display: flex;
+    flex-wrap: wrap;
 
     .card-bg {
         &:hover {
@@ -14,6 +16,15 @@
             }
         } 
     
+    }
+
+    &__item {
+        max-width: 50%;
+
+        @media (max-width: 700px)  {
+            width: 100%;
+            max-width: 100%;
+        }
     }
 }
 
@@ -64,6 +75,7 @@
     p {
         color: #fff;
         font-size: 0.8em;
+        font-weight: 700;
         max-width: 60%;
         margin-left: auto;
         background-color: #242424;

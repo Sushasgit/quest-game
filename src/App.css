@@ -8,9 +8,7 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
@@ -117,11 +115,18 @@ button {
       background-position: top left;
 }
 
-.test-absolute {
-  position: absolute;
-  z-index: 100;
+.flex {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.test-relative {
-  position: relative;
+.flex > * {
+  flex: 1 0 5em;
+  margin: 1em;
+}
+
+@media (max-width: 700px)  {
+  .flex {
+    flex-direction: column;
+  }
 }

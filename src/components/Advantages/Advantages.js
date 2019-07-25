@@ -3,7 +3,6 @@ import React from 'react';
 import { ADVANTAGES_DATA } from '../../utils/constants';
 
 import AdvantagesPlace from './AdvantagesPlace';
-// import MapBox from '../MapBox/MapBox';
 import CardsList from '../CardsList/CardsList';
 import ContactForm from '../ContactForm';
 
@@ -36,7 +35,6 @@ const Advantages = () => (
     <div className="test-bg" />
     <CardsList />
     <ContactForm />
-    {/* <MapBox /> */}
   </section>
 );
 

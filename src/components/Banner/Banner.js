@@ -1,23 +1,23 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 import logo from '../../images/logo-real.png';
 
-import styled from 'styled-components';
 import './banner.scss';
 import Menu from '../Menu';
 
 const Layer = styled.div`
-  transform: translate3d(0px,${props => props.position ? props.position : '0'}px, 0px);
+  transform: translate3d(0px,${props => Math.round(props.position) ? Math.round(props.position) : '0'}px, 0px);
 `;
 
 const LayerPosition = styled.div`
-  transform: translate3d(0px,${props => props.position ? props.position : '0'}px, 0px);
+  transform: translate3d(0px,${props => Math.round(props.position)? Math.round(props.position) : '0'}px, 0px);
   background-position: 
     ${props => props.bottom ? 'bottom' : 'top'} 
     ${props => props.rightSide ? 'right' : 'left'} 
-    ${props => props.posY ? props.posY : '0'}px;
+    ${props => props.posY ? Math.round(props.posY) : '0'}px;
 `;
 
 class Banner extends Component {

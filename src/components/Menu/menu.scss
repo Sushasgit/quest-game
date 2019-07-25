@@ -25,24 +25,27 @@
 
 }
 
-// .price {
-//   margin-left:
-// }
-
-// .menu__link:hover .shape1,
-// .menu__link:hover .shape2 {
-//   stroke-dashoffset: 0;
-//   stroke-dasharray: 320;
-// }
-
 .menu {
   position: fixed;
   right: 20px;
-  top: 150px;
+  top: 160px;
   font-family: 'Montserrat', sans-serif;
-}
 
-.menu__link svg{
+  &--desktop {
+    @media (max-width: 850px)  {
+      display: none;
+    }
+  }
+
+  &--mobile {
+    display: none;
+    @media (max-width: 850px)  {
+      left:20px;
+      top: 20px;
+      // width: 80px;
+      display: inline-block;
+    }
+  }
 }
 
 .menu__link {

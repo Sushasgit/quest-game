@@ -24,15 +24,15 @@ class ScrollProvider extends React.Component {
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.onScrollChanged, {
-        passive: true
-      });
+      passive: true,
+    });
   }
 
   onScrollChanged(e) {
-      console.log(e)
-    this.setState({ posX: window.pageXOffset, posY: window.pageYOffset });
+    if (window.pageYOffset <= 600) {
+      this.setState({ posX: window.pageXOffset, posY: window.pageYOffset });
+    }
   }
-
   render() {
       console.log('thisState', this.state)
     return this.props.children
