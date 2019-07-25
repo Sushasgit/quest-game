@@ -32,6 +32,9 @@ class Banner extends Component {
     return (
       <div className="banner">
         <LayerPosition posY={posY} position={posY * 100 / 100} className="banner__layer parallax l9" />
+          <LayerPosition posY={posY} position={posY * 100 / 100} className="banner__layer parallax 20" />
+          <LayerPosition posY={posY} position={posY * 100 / 100} className="banner__layer parallax 21" />
+          <LayerPosition posY={posY} position={posY * 100 / 100} className="banner__layer parallax 22" />
         <Layer position={posY * 20 / 100}>
           <div className="box">
             <h1 className="neon">
