@@ -8,20 +8,14 @@ import OurGames from './pages/OurGames';
 import './App.css';
 import Development from './pages/AboutUs';
 
-
-import CalendarFix from './components/Calendar/CalendarFix';
 const App = () => {
   return (
-
-    <div className="app">
-        <CalendarFix onDayClick = {(e,day) => this.onDayClick(e,day)}/>
     <Router>
       <Route exact path="/" component={Home} />
       <Route path="/prices" component={Prices} />
       <Route path="/games" component={OurGames} />
       <Route path="/dev" component={Development} />
     </Router>
-    </div>
   );
 };
 
