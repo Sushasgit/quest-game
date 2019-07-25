@@ -1,48 +1,23 @@
 import React from 'react';
 
-//import logo from './logo.svg';
+import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+import Home from './pages/Home';
+import Prices from './pages/Prices';
+import OurGames from './pages/OurGames';
 
 import './App.css';
+import Development from './pages/AboutUs';
 
-import Banner from './components/Banner/Banner';
-import Advantages from './components/Advantages/Advantages';
-import Parallax from './components/Parallax';
-import Calendar from './components/Calendar/Calendar';
 const App = () => {
-  const layersGroup = [<Banner />, <Advantages />];
   return (
-
-    <div className="App">
-      <Header user={'Susha'} age={29} />
-      <FilmList films={this.state.films} />
-      <PickyDateTime
-        size="m"
-        mode={0}
-        locale="en-us"
-        show={true}
-        onClose={() => this.onClose()}
-        onYearPicked={res => this.onYearPicked(res)}
-        onMonthPicked={res => this.onMonthPicked(res)}
-        onDatePicked={res => this.onDatePicked(res)}
-      />
-      {/*<header className="App-header">*/}
-      {/*  <img src={logo} className="App-logo" alt="logo" />*/}
-      {/*  <p>*/}
-      {/*    Edit <code>src/App.js</code> and save to reload.*/}
-      {/*  </p>*/}
-      {/*  <a*/}
-      {/*    className="App-link"*/}
-      {/*    href="https://reactjs.org"*/}
-      {/*    target="_blank"*/}
-      {/*    rel="noopener noreferrer"*/}
-      {/*  >*/}
-      {/*    Learn React*/}
-      {/*  </a>*/}
-      {/*</header>*/}
-    <div className="app">
-      <Parallax layersGroup={layersGroup} />
-        <Calendar onDayClick = {(e,day) => this.onDayClick(e,day)}/>
-    </div>
+    <Router>
+      <Route exact path="/" component={Home} />
+      <Route path="/prices" component={Prices} />
+      <Route path="/games" component={OurGames} />
+      <Route path="/dev" component={Development} />
+    </Router>
   );
 };
 

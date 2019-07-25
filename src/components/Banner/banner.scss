@@ -1,77 +1,85 @@
 
-$parallax__amount: 2;
-$parallax__layers: 8;
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300&display=swap');
+
+.banner, 
+.banner__layer {
+    height: 100vh;
+    overflow: hidden;
+}
 
 .banner {
-    height: 100vh;
-}
-.parallax__stage {
-    perspective: 100px;
-    height: 100vh;
-    overflow-x: hidden;
+	  position: relative;
+    z-index: 10;
+    background-color: #242424;
+    overflow: hidden;
 
-    position: absolute;
-    top: 0;
-    left: 0%;
-    right: 0;
-    bottom: 0;
-    background: #242424;
+    &__layer {
+        width: 100%;
+        position: absolute;    
+        will-change: transform;
+    }
 }
 
-.parallax__layer {
-    bottom: 0;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 100%;
+.banner__layer.parallax {
+    position: fixed;
+    overflow: hidden;
+}
+
+.l1 {
+    background-image: url(../../images/l1.svg);
+    background-repeat: repeat-x;
+    background-size: auto 200px;
+    background-position: bottom center;
+}
+
+.l2 {
+    background-image: url(../../images/l2.svg);
     background-repeat: no-repeat;
-}
-
-.last {
-    display: flex;
+    background-position: bottom center;
 }
 
 .l3 {
-    background-image: 
-    url(../../images/l1.svg),
-    url(../../images/l8.svg),
-    url(../../images/l3.svg),
-    url(../../images/l4.svg);
-    background-position: bottom left, bottom right;
-    background-repeat: repeat-x, no-repeat;
-
-    @media only screen and (max-width: 800px)  {
-        background-position: bottom left, bottom -80px right;
-    }
+    background-image: url(../../images/l3.svg);
+    background-size: auto 500px;
+    background-position: bottom center;
+    background-repeat: repeat-x;
 }
 
 .l4 {
-    background-image: 
-    url(../../images/l5.svg);
-    background-position: bottom left,
-    bottom right;
+    background-image: url(../../images/l4.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: auto 400px;
     background-repeat: repeat-x;
+    background-position: bottom center;
 }
 
 .l5 {
-    background-image: 
-    url(../../images/l6.svg);
-    background-position: top;
-    background-repeat: repeat-x;
-}
-.l6 {
-    background-image: 
-    url(../../images/l7.svg);
-    background-position: center center;
+    background-image: url(../../images/l5.svg);
+    background-repeat: no-repeat;
+    background-size: auto 500px;
+    background-position: bottom right;
 }
 
-@for $i from 0 through $parallax__layers {
-    $x: ($parallax__layers - $i) / 2;
-    .l#{$i}{
-       transform: translateZ(-100 * $x#{px}) scale($x + 1);
-    }
+.l7 {
+    background-image: url(../../images/l7.svg);
+    background-repeat: no-repeat;
+    background-position: bottom center;
+}
+
+.l8 {
+    background-image: url(../../images/l8.svg);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: auto 600px;
+}
+
+.l9 {
+    background-image: url(../../images/bats.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top left 150px;
+    background-size: auto 400px;
 }
 
 .box {
@@ -88,72 +96,43 @@ $parallax__layers: 8;
   }
 }
 
-.glitch {
-    font-size: 2.8em;
-    line-height: 1;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    position:absolute;
-    top: 30%;
-    left: 48%;
-    transform: translate(-50%, -50%);
-    margin: 0;
-    text-decoration: none;
-    color: #fff;
-    text-align: center;
-    width:70%;
-
-    &:before,
-    &:after {
-        display: block;
-        content: 'Територия реальных игр';
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        opacity: .8;
-    }
-
-    &:after {
-        color: #e9e84c;
-        z-index: -2;
-        animation: glitch-left-2 1s cubic-bezier(.25, .46, .45, .94) reverse both infinite
-    }
-
-    &:before {
-        color: #3d3d12;
-        z-index: -1;
-        animation: glitch-left 1s cubic-bezier(.25, .46, .45, .94) both infinite;
-    }
+.neon {
+	position: absolute;
+	text-align: center;
+	top: 200px;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	margin: 0;
+	padding:  0 20px;
+	font-size: 3em;
+	color: #fff;
+    text-shadow: 0 0 20px #FFDC26;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1em;
+    z-index: 150;
 }
 
-@keyframes glitch-left {
-    0% {
-        transform: translate(0)
-    }
-    33% {
-        transform: translate(-5px, 3px)
-    }
-    66% {
-        transform: translate(5px, -3px)
-    }
-    to {
-        transform: translate(0)
-    }
+.neon:after {
+	content: attr(data-text);
+	position: absolute;
+	z-index: -1;
+	color: #000;
+	top: 0;
+	left: 0;
+	margin: 0;
+	padding:  0 20px;
+	filter: blur(15px); 
 }
 
-@keyframes glitch-left-2 {
-    0% {
-        transform: translate(0)
-    }
-    33% {
-        transform: translate(-5px, -3px)
-    }
-    66% {
-        transform: translate(5px, 2px)
-    }
-    to {
-        transform: translate(0)
-    }
+.neon:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #FFDC26;
+	z-index: -2;
+	opacity: .5;
+	filter: blur(80px);
 }
