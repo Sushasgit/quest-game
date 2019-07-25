@@ -34,7 +34,6 @@ class ScrollProvider extends React.Component {
     }
   }
   render() {
-      console.log('thisState', this.state)
     return this.props.children
   }
 }

@@ -6,6 +6,7 @@ import Prices from './pages/Prices';
 import OurGames from './pages/OurGames';
 
 import './App.css';
+import Development from './pages/AboutUs';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Route exact path="/" component={Home} />
       <Route path="/prices" component={Prices} />
       <Route path="/games" component={OurGames} />
+      <Route path="/dev" component={Development} />
     </Router>
   );
 };

@@ -93,3 +93,5 @@ export const CARDS_DATA = [
     posterUrl: 'http://realgames.com.ua/wp-content/uploads/brizy/10/assets/images/iW=352&iH=352&oX=0&oY=7&cW=352&cH=345/-%D0%BA%D0%B2%D0%B5%D1%81%D1%82.jpg',
   },
 ];
+
+export const WEEK_DAY_SHORT = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
