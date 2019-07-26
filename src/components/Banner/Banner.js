@@ -31,7 +31,9 @@ class Banner extends Component {
     const { posY } = this.context;
     return (
       <div className="banner">
-        <LayerPosition posY={posY} position={posY * 100 / 100} className="banner__layer parallax l9" />
+          <LayerPosition posY={posY} position={posY * 100 / 100} className="banner__layer parallax l10" />
+          <LayerPosition posY={posY} position={posY * -100 / 130} className="banner__layer parallax l11" />
+          <LayerPosition posY={posY} position={posY * 100 / 40} className="banner__layer parallax l12" />
         <Layer position={posY * 20 / 100}>
           <div className="box">
             <h1 className="neon">
@@ -39,6 +41,7 @@ class Banner extends Component {
             </h1>
           </div>
         </Layer>
+          <LayerPosition posY={posY} position={posY * -100 / 300} className="banner__layer parallax l13" />
         <LayerPosition
           bottom
           rightSide
