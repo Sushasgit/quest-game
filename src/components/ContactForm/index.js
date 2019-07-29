@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import MapBox from '../MapBox/MapBox';
 
-import arrow from '../../images/right-arrow.svg';
+// import arrow from '../../images/right-arrow.svg';
+import Title from '../ui/Title';
 import './contact-form.scss';
 
 class ContactForm extends Component {
@@ -19,7 +20,9 @@ class ContactForm extends Component {
   render() {
     return (
       <div className="advantages bg">
-        <h2 className="main-title main-title--primary">Как нас найти</h2>
+        <Title primary level={2}>
+          Как нас найти
+        </Title>
         <div className="wrapper wrapper--lg flex">
           <div className="contacts">
             <p className="contacts__info">Одесса, Украина</p>

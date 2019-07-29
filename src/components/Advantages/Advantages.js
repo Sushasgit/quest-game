@@ -7,11 +7,14 @@ import CardsList from '../CardsList/CardsList';
 import ContactForm from '../ContactForm';
 
 import './advantages.scss';
+import Title from '../ui/Title';
 
 const Advantages = () => (
   <section className="advantages bg bg--buildings">
     <div className="bg bg--yellow wrapper">
-      <h2 className="main-title main-title--primary">Real Games</h2>
+      <Title primary level={2}>
+        Real Games
+      </Title>
       <p className="main-description">
         9 лет опыта в организации разных мероприятий, 6 лет из них по направлению «экстрим».
       </p>
@@ -29,9 +32,10 @@ const Advantages = () => (
             </p>
           </li>
         ))
-                }
+      }
     </ul>
     <AdvantagesPlace />
+    <Title level={2} />
     <div className="test-bg" />
     <CardsList />
     <ContactForm />
