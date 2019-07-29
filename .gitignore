@@ -5,6 +5,10 @@
 /.pnp
 .pnp.js
 .idea
+<<<<<<< HEAD
+
+=======
+>>>>>>> a48e03b1499ab6ab5f0eb5a11656b7e3650b3dcd
 # testing
 /coverage
 
