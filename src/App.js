@@ -15,9 +15,9 @@ const Development = React.lazy(() => import('./pages/Development'));
 const App = () => {
   return (
     <Suspense fallback={<img src={loader} alt="" />}>
+                <GlobalStyles />
           <ThemeProvider theme={theme}>
       <Router>
-          <GlobalStyles />
           <Route exact path="/" component={Home} />
           <Route path="/prices" component={Prices} />
           <Route path="/games" component={OurGames} />
