@@ -13,7 +13,7 @@ const Layer = styled.div`
 `;
 
 const LayerPosition = styled.div`
-  transform: translate3d(${props => (Math.round(props.positionX) ? Math.round(props.positionX) : '0')}px, ${props => (Math.round(props.positionY) ? Math.round(props.positionY) : '0')}px, ${props => (Math.round(props.positionZ) ? Math.round(props.positionZ) : '0')}px)
+  transform: translate3d(${props => (Math.round(props.positionX) ? Math.round(props.positionX) : '0')}px, ${props => (Math.round(props.positionY) ? Math.round(props.positionY) : '0')}px, 0px)
  scale(${props => props.scaleX ? props.scaleX : '1'});
     
   background-position: 
@@ -34,7 +34,7 @@ class Banner extends Component {
     return (
       <div className="banner">
         <LayerPosition posY={posY} positionY={posY} className="banner__layer parallax l10" />
-        <LayerPosition posY={posY} positionY={posY * 1.2} positionX={posY * 100 / 90} scaleX={posY / 300 + 1} className="banner__layer parallax l12" />
+        <LayerPosition posY={posY} positionY={posY * 1.9} positionX={posY * 1.10} scaleX={posY / 300 + 1} className="banner__layer parallax l12" />
         <Layer position={posY * 20 / 100}>
           <div className="box">
             <h1 className="neon">
@@ -42,8 +42,8 @@ class Banner extends Component {
             </h1>
           </div>
         </Layer>
-        <LayerPosition posY={posY} positionY={posY * 100 / 110} positionX={posY * 3} scaleX={posY / 270 + 1} className="banner__layer parallax l11" />
-        <LayerPosition posY={posY} positionY={posY * 100 / 120} positionX={posY * -100 / 70} scaleX={posY / 270 + 1} className="banner__layer parallax l13" />
+        <LayerPosition posY={posY} positionY={posY } positionX={posY * 3} scaleX={posY / 270 + 1} className="banner__layer parallax l11" />
+        <LayerPosition posY={posY} positionY={posY * 0.83} positionX={posY * -1.42} scaleX={posY / 270 + 1} className="banner__layer parallax l13" />
         <LayerPosition
           bottom
           rightSide
