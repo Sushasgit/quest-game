@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
 }
 
 body {
+    margin: 0;
     font-family: 'MontserratLight', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
