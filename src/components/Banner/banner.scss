@@ -1,6 +1,8 @@
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300&display=swap');
 
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap');
+
 .banner, 
 .banner__layer {
     height: 100vh;
@@ -73,14 +75,6 @@
     background-position: bottom right;
     background-size: auto 600px;
 }
-//
-//.l9 {
-//    background-image: url(../../images/bats.svg);
-//    background-repeat: no-repeat;
-//    background-size: contain;
-//    background-position: top left 150px;
-//    background-size: auto 400px;
-//}
 
 .l10, .l11, .l12, .l13{
   background-repeat: no-repeat;
@@ -130,7 +124,8 @@
 	font-size: 3em;
 	color: #fff;
     text-shadow: 0 0 20px #FFDC26;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'FiraSans-Light', sans-serif;
+    font-weight: 500;
     line-height: 1em;
     z-index: 150;
 }

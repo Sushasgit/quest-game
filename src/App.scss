@@ -1,0 +1,124 @@
+@font-face {
+  font-family: 'MontserratBold';
+  src: url('/fonts/MontserratBold.woff2') format('woff2'),
+       url('/fonts/MontserratBold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MontserratLight';
+  src: url('/fonts/MontserratLight.woff2') format('woff2'),
+       url('/fonts/MontserratLight.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FiraSans-Light";
+  src: url("/fonts/FiraSans-Light.woff") format("woff"),
+       url("/fonts/FiraSans-Light.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FiraSans-Bold";
+  src: url("/fonts/FiraSans-Bold.woff") format("woff"),
+       url("/fonts/FiraSans-Bold.woff2") format("woff2"); 
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+ul {
+    padding: 0;
+}
+  
+li {
+    list-style: none;
+}
+
+.wrapper {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 15px;
+
+    &--lg {
+        max-width: 1700px;
+    }
+}
+
+.bg {
+    background: #242424;
+
+    &--yellow {
+        padding: 15px;
+    }
+
+    &--buildings {
+        position: relative;
+
+        &::before {
+            content: '';
+            background:url(./images/l1.svg);
+            top: -110px;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            background-repeat: repeat-x;
+            position: absolute;
+            width: 100%;
+            min-height: 200px;
+            background-position: top left;
+        }
+    }
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+  
+.flex > * {
+    flex: 1 0 5em;
+    margin: 1em;
+}
+  
+@media (max-width: 700px) {
+    .flex {
+      flex-direction: column;
+    }
+}
+
+
+.main-title {
+    color: #fff;
+    font-size: 2em;
+    font-family: 'Poppins', sans-serif;
+    padding: 1px;
+    text-align: center;
+  }
+  
+  .text-color-yellow {
+    color: #FFDC26;
+  }
+  
+  .test-bg {
+    background: url(./images/horror-back.svg);
+    background-attachment: fixed;
+    height: 400px;
+    width: 100%;
+  }
+  
+  .logo-link {
+    position: absolute;
+    right: 60px;
+    top: 30px;
+  }
+  
+  .logo-link img {
+    max-width: 50px;
+  }
