@@ -12,14 +12,14 @@ const Layer = styled.div`
   transform: translate3d(0px,${props => (Math.round(props.position) ? Math.round(props.position) : '0')}px, 0px);
 `;
 
-const LayerPosition = styled.div`
+const LayerPosition = styled.div` &&{
   transform: translate3d(${props => (Math.round(props.positionX) ? Math.round(props.positionX) : '0')}px, ${props => (Math.round(props.positionY) ? Math.round(props.positionY) : '0')}px, 0px)
  scale(${props => props.scaleX ? props.scaleX : '1'});
     
   background-position: 
     ${props => (props.bottom ? 'bottom' : 'top')} 
     ${props => (props.rightSide ? 'right' : 'left')} 
-    ${props => (props.posY ? Math.round(props.posY) : '0')}px;
+    ${props => (props.posY ? Math.round(props.posY) : '0')}px;}
 `;
 
 class Banner extends Component {
