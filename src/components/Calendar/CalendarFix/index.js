@@ -250,6 +250,7 @@ class CalendarFix extends Component {
               ))}
           </div>
         </div>
+        <div><img src="../../../images/bats.svg"/></div>
       </div>
     );
   }
