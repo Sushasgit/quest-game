@@ -63,11 +63,6 @@ class CalendarFix extends Component {
     });
   };
 
-  // arrayConversion = (incomingArray, modifier) =>{
-  //     return Array.from(Array(incomingArray)
-  //         .fill().map((_, idx) => ({ dayNam: startDay + idx, modifier })));
-  // }
-
   renderMonthNav = () => (
     <span className="label-month">
       {this.state.month}
@@ -83,12 +78,10 @@ class CalendarFix extends Component {
   );
 
   renderDaysInPrevMonth = () => {
-    const {
-      prevMonthQuantityDay, firstDay, currentMonth, currentYear,
-    } = this.state;
+    const {prevMonthQuantityDay, firstDay, currentMonth, currentYear, month, year} = this.state;
     const startDay = prevMonthQuantityDay - (+firstDay - 1);
     let prevMonthDaysArr;
-    if (currentMonth === this.renderMonthNav() && currentYear === this.renderYearNav()) {
+    if (currentMonth === month && currentYear === year) {
       prevMonthDaysArr = Array.from(Array(prevMonthQuantityDay - startDay + 1)
         .fill().map((_, idx) => ({ dayNam: startDay + idx, prev: true })));
     } else {
@@ -111,11 +104,15 @@ class CalendarFix extends Component {
   };
 
   renderDaysCurrentMonth = () => {
-    const {daysInMonth, currentMonth, currentYear} = this.state;
+    const {daysInMonth, currentMonth, currentYear, today, month, year} = this.state;
     let currentMonthDaysArr;
-    if (currentMonth === this.renderMonthNav() && currentYear === this.renderYearNav()) {
-      currentMonthDaysArr = Array.from(Array(daysInMonth)
-        .fill().map((_, idx) => ({ dayNam: 1 + idx, current: true })));
+    if (currentMonth === month && currentYear === year) {
+      const prevDaysInMonth = Array.from(Array(today - 1)
+        .fill().map((_, idx) => ({ dayNam: 1 + idx, prev: true })));
+      const todayInMonth = [{ dayNam: today, today: true }];
+      const futureDaysInMonth = Array.from(Array(daysInMonth - 1 - today + 1)
+        .fill().map((_, idx) => ({ dayNam: +today + 1 + idx, current: true })));
+      currentMonthDaysArr = [...prevDaysInMonth, ...todayInMonth, ...futureDaysInMonth]
     } else {
       currentMonthDaysArr = Array.from(Array(daysInMonth)
         .fill().map((_, idx) => ({ dayNam: 1 + idx, current: true })));
@@ -182,7 +179,6 @@ class CalendarFix extends Component {
     } = this.state;
     const classNameNav = (currentMonth === month && currentYear === year ? 'page-left hidden-navigation' : 'page-left');
     const classNameNavButton = (currentMonth === month && currentYear === year ? 'hidden-button-back' : 'button-back');
-
     return (
       <div>
         <div className="calendar-container">
@@ -254,6 +250,7 @@ class CalendarFix extends Component {
               ))}
           </div>
         </div>
+        <div><img src="../../../images/bats.svg"/></div>
       </div>
     );
   }

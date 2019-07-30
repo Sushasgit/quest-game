@@ -1,21 +1,30 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import Home from './pages/Home';
-import Prices from './pages/Prices';
-import OurGames from './pages/OurGames';
+import loader from './images/loader.svg';
+import GlobalStyles from './styles/global';
+import { ThemeProvider } from 'styled-components';
+import theme from './styles/theme';
+import './App.scss';
 
-import './App.css';
-import Development from './pages/AboutUs';
+const Home = React.lazy(() => import('./pages/Home'));
+const Prices = React.lazy(() => import('./pages/Prices'));
+const OurGames = React.lazy(() => import('./pages/OurGames'));
+const Development = React.lazy(() => import('./pages/Development'));
 
 const App = () => {
   return (
-    <Router>
-      <Route exact path="/" component={Home} />
-      <Route path="/prices" component={Prices} />
-      <Route path="/games" component={OurGames} />
-      <Route path="/dev" component={Development} />
-    </Router>
+    <Suspense fallback={<img src={loader} alt="" />}>
+                <GlobalStyles />
+          <ThemeProvider theme={theme}>
+      <Router>
+          <Route exact path="/" component={Home} />
+          <Route path="/prices" component={Prices} />
+          <Route path="/games" component={OurGames} />
+          <Route path="/dev" component={Development} />
+      </Router>
+      </ThemeProvider>
+    </Suspense>
   );
 };
 

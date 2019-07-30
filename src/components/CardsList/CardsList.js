@@ -1,13 +1,16 @@
 import React from 'react';
 
 import { CARDS_DATA } from '../../utils/constants';
+import Title from '../ui/Title';
 
 import './cards-list.scss';
 
 const CardsList = () => (
-  <div className="advantages bg bg--buildings cards-box">
+  <section className="advantages bg bg--buildings cards-box">
     <div className="bg bg--yellow wrapper">
-      <h2 className="main-title main-title--primary">Наши игры</h2>
+      <Title primary level={2}>
+        Наши игры
+      </Title>
       <ul className="cards">
         {
           CARDS_DATA.map(item => (
@@ -30,7 +33,7 @@ const CardsList = () => (
         }
       </ul>
     </div>
-  </div>
+  </section>
 );
 
 export default CardsList;
