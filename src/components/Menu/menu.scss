@@ -27,9 +27,11 @@
 
 .menu {
   position: fixed;
-  right: 20px;
+  right: -10px;
   top: 160px;
   font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+  padding: 19px;
 
   &--desktop {
     @media (max-width: 850px)  {
@@ -38,11 +40,12 @@
   }
 
   &--mobile {
+    margin: 0;
+    padding: 0;
     display: none;
     @media (max-width: 850px)  {
       left:20px;
       top: 20px;
-      // width: 80px;
       display: inline-block;
     }
   }
@@ -66,7 +69,7 @@
   margin-right: 10px;
   margin-bottom: 10px;
   background: transparent;
-  box-shadow: 0px 0px 78px 4px rgba(102, 102, 0, 0.73);
+  box-shadow: 0px 0px 20px 4px rgba(102, 102, 0, 0.73);
 }
 
 .menu__link span {

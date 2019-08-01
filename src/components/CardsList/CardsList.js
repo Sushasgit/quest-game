@@ -4,10 +4,10 @@ import { CARDS_DATA } from '../../utils/constants';
 import Title from '../ui/Title';
 
 import './cards-list.scss';
+import Button from '../ui/Button';
 
 const CardsList = () => (
-  <section className="advantages bg bg--buildings cards-box">
-    <div className="bg bg--yellow wrapper">
+    <div className="wrapper">
       <Title primary level={2}>
         Наши игры
       </Title>
@@ -23,9 +23,9 @@ const CardsList = () => (
                   <p>
                     {item.description}
                   </p>
-                  <a className="card__link" href="/">
+                  <Button className="card__link" href="/">
                     Подробнее
-                  </a>
+                  </Button>
                 </div>
               </div>
             </li>
@@ -33,7 +33,6 @@ const CardsList = () => (
         }
       </ul>
     </div>
-  </section>
 );
 
 export default CardsList;

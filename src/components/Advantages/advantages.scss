@@ -1,137 +1,61 @@
-.advantages {
-    background-color: #242424;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    z-index: 100;
+.activity {
+  &--mask {
+    background: url(../../images/masks.svg);
+    background-size: contain;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 80px 80px;
+}
 
-    &__place {
-        background-image: url(../../images/horror-back.svg);
-        background-attachment: fixed;
-        height: 100%;
-
-        @media (max-width: 700px)  {
-            background-position: bottom 90% center;
-            background-size: 700px 400px;
-        }
-    }
-
-    &__games {
-        background-color: #242424;
-        padding: 0 0 110px 0;
-    }
+  &--paintball {
+    background: url(../../images/paintball.svg);
+    background-size: contain;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 80px 80px;
   }
-  
-  .advantages__item {
-    position: relative;
-    padding: 20px;
-    margin-top: 0;
+
+  &--team {
+    background: url(../../images/team.svg);
+    background-size: contain;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 80px 80px;
   }
-  
-  .advantages__item::after {
+}
+
+.advantage {
+  position: relative;
+  padding: 20px;
+  margin-top: 0;
+  color: #fff;
+  text-align: center;
+  font-size: 0.8em;
+
+  @media (max-width: 700px)  {
+    font-size: 1em;
+  }
+
+  &::after {
     content: '';
     background-image: url(../../images/corner.svg);
     position: absolute;
-    bottom: 0;
-    right: -15px;
+    bottom: 0px;
+    right: -70px;
     width: 105px;
     height: 46px;
     background-repeat: no-repeat;
   }
   
-  .advantages__item::before {
+  &::before {
     content: '';
     background-image: url(../../images/corner.svg);
     position: absolute;
     top: 0;
-    left: -15px;
+    left: -70px;
     width: 105px;
     height: 46px;
     background-repeat: no-repeat;
     transform: rotate(180deg);
   }
-  
-  .advantages__item h3 {
-    font-family: 'Karla', sans-serif;
-    font-weight: bold;
-    font-size: 1.2em;
-    line-height: 28px;
-    text-align: center;
-    color: #FFDC26;
-    margin-bottom: 15px;
-  }
-  
-  .advantages__item {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.8em;
-    line-height: 17px;
-    text-align: center;
-    line-height: 1.2em;
-    color: #FFFFFF;
-
-    @media (max-width: 700px)  {
-        font-size: 1em;
-    }
 }
-
-
-  .activity {
-    text-align: center;
-    position: relative;
-
-    padding-top: 80px;
-
-    &--mask {
-        background: url(../../images/masks.svg);
-        background-size: contain;
-        background-position: top center;
-        background-repeat: no-repeat;
-        background-size: 80px 80px;
-    }
-
-    &--paintball {
-        background: url(../../images/paintball.svg);
-        background-size: contain;
-        background-position: top center;
-        background-repeat: no-repeat;
-        background-size: 80px 80px;
-    }
-
-    &--team {
-        background: url(../../images/team.svg);
-        background-size: contain;
-        background-position: top center;
-        background-repeat: no-repeat;
-        background-size: 80px 80px;
-    }
-
-    &__title {
-        color: #fff;
-        font-size: 1.4em;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 20px 0;
-    }
-
-    &__description {
-        color: #fff;
-        font-size: 18px;
-        margin-top: 30px;
-        line-height: 30px;
-    }
-
-    &__body {
-        background-color: #fff;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-
-        h3 {
-            font-family: 'Karla', sans-serif;
-            font-weight: 700;
-        }
-    }
-  }

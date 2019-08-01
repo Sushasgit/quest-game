@@ -14,8 +14,7 @@
                 opacity: 1;
                 transform: translate3d(0,0,0);
             }
-        } 
-    
+        }
     }
 
     &__item {
@@ -65,6 +64,7 @@
     &__title {
         color: #fff;
         font-size: 1em;
+        font-weight: 900;
         text-align: center;
 
         &:hover{
@@ -84,10 +84,10 @@
     }
 
     &__link {
-        color: #FFDC26;
         background-color: #242424;
         align-self: flex-end;
-        padding: 5px;
+        margin-right: 20px;
+        opacity: 0.9;
     }
 
     &--kvadro::after {

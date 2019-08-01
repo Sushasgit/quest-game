@@ -20,7 +20,7 @@ export default class BurgerMenu extends React.Component {
     return (
       <nav className="navbar">
         <button type="button" className={burgerMenuStyleClasses} onClick={this.handleOpenMenu}>
-          <svg width="50" height="50">
+          <svg width="60" height="35">
             <g className={`icon ${activeMenuStyleClass}`}>
               <rect className="frstbar" x="10" y="5" width="40" height="6" rx="3" ry="3" fill="#FFDC26" />
               <rect className="scndbar" x="10" y="15" width="40" height="6" rx="3" ry="3" fill="#FFDC26" />

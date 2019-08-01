@@ -13,8 +13,9 @@ import Button from '../ui/Button';
 
 const StyledForm = styled.form`
   border-radius: 4px;
-  padding: 25px;
-  max-width: 320px;
+  padding: 0 25px;
+  max-width: 100%;
+  text-align: center;
 
   background-color: #1c1c1c;
 
@@ -36,7 +37,7 @@ class ContactForm extends Component {
 
   render() {
     return (
-      <div className="advantages bg">
+      <React.Fragment>
         <Title primary level={2}>
           Как нас найти
         </Title>
@@ -91,8 +92,7 @@ class ContactForm extends Component {
         <footer className="footer">
           @All rights reserved 2019
         </footer>
-
-      </div>
+      </React.Fragment>
     );
   }
 }
