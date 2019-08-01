@@ -107,6 +107,8 @@ li {
   .test-bg {
     background: url(./images/horror-back.svg);
     background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 400px;
     width: 100%;
   }

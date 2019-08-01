@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
 import { CARDS_DATA } from '../../utils/constants';
 import Title from '../ui/Title';
 
@@ -14,7 +15,7 @@ const CardsList = () => (
       <ul className="cards">
         {
           CARDS_DATA.map(item => (
-            <li className="cards__item" key={item.id}>
+            <Link to="/hideandseek" className="cards__item" key={item.id}>
               <div className="card-bg">
                 <h3 className="card__title">
                   {item.title}
@@ -23,12 +24,12 @@ const CardsList = () => (
                   <p>
                     {item.description}
                   </p>
-                  <Button className="card__link" href="/">
+                  <Button className="card__link">
                     Подробнее
                   </Button>
                 </div>
               </div>
-            </li>
+            </Link>
           ))
         }
       </ul>

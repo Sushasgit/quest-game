@@ -9,7 +9,7 @@ const StyledLabel = styled.label`
     left: 15px;
     top: 5px;
     transition: all 150ms ease-in;
-    font-size: 0.8em;
+    font-size: 0.7em;
     color: #fff;
 
     transform: ${props => (props.active ? 'translateY(-35px)' : 'none')};
