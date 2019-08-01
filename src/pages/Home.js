@@ -6,10 +6,12 @@ import ScrollProvider from '../components/ScrollProvider';
 
 const Home = () => (
   <React.Fragment>
-    <ScrollProvider>
-      <Banner />
-    </ScrollProvider>
-    <Advantages />
+    <div className="wrap">
+      <ScrollProvider>
+        <Banner />
+      </ScrollProvider>
+      <Advantages />
+    </div>
   </React.Fragment>
 );
 

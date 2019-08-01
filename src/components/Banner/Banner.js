@@ -36,11 +36,9 @@ class Banner extends Component {
         <LayerPosition posY={posY} positionY={posY} className="banner__layer parallax l10" />
         <LayerPosition posY={posY} positionY={posY * 1.9} positionX={posY * 1.10} scaleX={posY / 300 + 1} className="banner__layer parallax l12" />
         <Layer position={posY * 20 / 100}>
-          <div className="box">
             <h1 className="neon">
               Территория реальных игр
             </h1>
-          </div>
         </Layer>
         <LayerPosition posY={posY} positionY={posY } positionX={posY * 3} scaleX={posY / 270 + 1} className="banner__layer parallax l11" />
         <LayerPosition posY={posY} positionY={posY * 0.83} positionX={posY * -1.42} scaleX={posY / 270 + 1} className="banner__layer parallax l13" />
