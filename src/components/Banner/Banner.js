@@ -2,8 +2,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-
+import * as ScrollMagic from 'scrollmagic';
+import {TimelineMax, TweenMax, Elastic, Circ, Sine, Bounce, Power2 } from 'gsap'
+// import 'imports?define=>false!scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap';
 import logo from '../../images/logo-real.png';
+require("script!animation.gsap");
 
 import './banner.scss';
 import Menu from '../Menu';
@@ -22,45 +25,97 @@ const LayerPosition = styled.div` &&{
     ${props => (props.posY ? Math.round(props.posY) : '0')}px;}
 `;
 
-class Banner extends Component {
-  constructor(props) {
-    super(props);
+// var tl = new TimelineMax({
+//   repeat: 0,
+//   play: 0,
+//   yoyo: true,
+//   delay:1
+// });
+// let animation = new TimelineMax({
+//       repeat:1,
+//     })
 
-    this.state = {};
+class Banner extends Component {
+  constructor(){
+    super()
+
+    this.state = {
+      paused:true,
+    }
+
+    this.layer1 = React.createRef();
+  }
+  
+
+  componentDidMount() {
+    TweenMax.set("#arizona, h1", {xPercent:-50, yPercent:-50});
+
+    let width = window.innerWidth,
+        height = window.innerHeight; 
+        
+        console.log(width, height)
+
+        var controller = new ScrollMagic.Controller();
+
+        var action = new TimelineMax()
+  .to('#arizona',5,{width:'110%', y:"+=130"})
+  
+  .to('.part06',5,{y:'+=10'},0)
+  .to('.part05',5,{y:'+=25'},0)
+  .to('.part04',4.75,{y:'+=30'},0)
+  .to('.part03',4.5,{y:'+=35'},0)
+  .to('.part02',4.25,{y:'+=40'},0)
+  .to('.part01',4,{y:'+=50'},0)
+  .to('#sun',5.5,{
+    bezier:{values:[
+      {x:0, y:0}, 
+      {x:150, y:0}, 
+      {x:350, y:180}
+  ]}, ease: Power2.easeOut},0)
+  .to('#night',1,{autoAlpha:1},2)
+  .to('h1',2,{autoAlpha:1, y:'+=150'},0)
+  .to('h1',4.5,{scale:2},1.5)
+
+        new ScrollMagic.Scene({
+          triggerElement: "body",
+          triggerHook: "onLeave",
+          duration: 2000,   
+          offset:0
+        })
+          .setTween(action)
+          .setPin("#wrapper")
+          //.addIndicators()
+          .addTo(controller);
   }
 
+
+  // animate(event) {
+  //   if (this.state.paused) {
+  //     tl.resume() 
+  //     this.setState({
+  //       paused:false,
+  //     })
+  //   } else {
+  //     tl.pause()
+  //     this.setState({
+  //       paused:true,
+  //     })
+  //   }
+  // }
   render() {
     const { posY } = this.context;
     return (
       <div className="banner">
-        <LayerPosition posY={posY} positionY={posY} className="banner__layer parallax l10" />
-        <LayerPosition posY={posY} positionY={posY * 1.9} positionX={posY * 1.10} scaleX={posY / 300 + 1} className="banner__layer parallax l12" />
-        <Layer position={posY * 20 / 100}>
-            <h1 className="neon">
-              Территория реальных игр
-            </h1>
-        </Layer>
-        <LayerPosition posY={posY} positionY={posY } positionX={posY * 3} scaleX={posY / 270 + 1} className="banner__layer parallax l11" />
-        <LayerPosition posY={posY} positionY={posY * 0.83} positionX={posY * -1.42} scaleX={posY / 270 + 1} className="banner__layer parallax l13" />
-        <LayerPosition
-          bottom
-          rightSide
-          posY={posY * -1}
-          position={posY * 4 / 100}
-          className="banner__layer parallax l8"
-        />
-        <Layer position={posY * 80 / 100} className="banner__layer parallax l7" />
-        <Layer position={posY * 60 / 100} className="banner__layer parallax l6" />
-        <LayerPosition bottom posY={posY * 3} positionY={posY * 55 / 100} className="banner__layer parallax l5" />
-        <Layer position={posY * 35 / 100} className="banner__layer parallax l4" />
-        <Layer position={posY * 25 / 100} className="banner__layer parallax l3" />
-        <Layer position={posY * 10 / 100} className="banner__layer parallax l2" />
-        <Layer position={posY * 1 / 100} className="banner__layer parallax l1">
-          <a className="logo-link" href="/">
-            <img src={logo} alt="logo" />
-          </a>
-          <Menu />
-        </Layer>
+        <div ref={this.layer1} className='l test l1' />
+        <div className='test l l4'>A</div>
+        <div className='test l l5'>B</div>
+        <div className='test l l7'>C</div>
+        <div className='test l l8'>D</div>
+        <div className='test l l9'>D</div>
+        <div className='test l l10'>D</div>
+        <div className='test l l11'>D</div>
+        <div className='div'>E</div>
+        <div className='div'>F</div>
       </div>
     );
   }

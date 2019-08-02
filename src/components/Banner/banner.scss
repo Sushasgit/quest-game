@@ -22,11 +22,21 @@
     overflow: hidden;
 }
 
+.l {
+  position: absolute;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
 .l1 {
     background-image: url(../../images/l1.svg);
     background-repeat: repeat-x;
-    background-size: auto 200px;
+    background-size: auto 300px;
     background-position: bottom center;
+    height: 100vh;
+    z-index: 50;
 }
 
 .l2 {
@@ -40,6 +50,7 @@
     background-size: auto 500px;
     background-position: bottom center;
     background-repeat: repeat-x;
+    height: 100vh;
 }
 
 .l4 {

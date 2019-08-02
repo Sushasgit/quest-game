@@ -16,6 +16,22 @@ class ScrollProvider extends React.Component {
     };
   }
 
+  debounce(func, wait, immediate) {
+    var timeout;
+    return function() {
+      var context = this,
+        args = arguments;
+      var later = function() {
+        timeout = null;
+        if (!immediate) func.apply(context, args);
+      };
+      var callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) func.apply(context, args);
+    };
+  }
+
   componentDidMount() {
     window.addEventListener('scroll', this.onScrollChanged, {
       passive: true,
@@ -30,7 +46,7 @@ class ScrollProvider extends React.Component {
 
   onScrollChanged(e) {
     if (window.pageYOffset <= 600) {
-      this.setState({ posX: window.pageXOffset, posY: window.pageYOffset });
+      this.debounce(this.setState({ posX: window.pageXOffset, posY: window.pageYOffset }), 200, true);
     }
   }
   render() {
