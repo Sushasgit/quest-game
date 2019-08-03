@@ -1,10 +1,10 @@
 import React from 'react';
-import CalendarFix from '../components/Calendar/CalendarFix';
+import Calendar from '../components/Calendar';
 
 const Development = () => {
   return (
     <div>
-      <CalendarFix onDayClick={(e, day) => this.onDayClick(e,day)} />
+      <Calendar onDayClick={(e, day) => this.onDayClick(e,day)} />
     </div>
   );
 };

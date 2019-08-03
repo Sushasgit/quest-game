@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-import '../Calendar.css';
+import './Calendar.css';
 import Week from './parts/Week';
 import Day from './parts/Day';
 
-import { WEEK_DAY_SHORT } from '../../../utils/constants';
+import { WEEK_DAY_SHORT } from '../../utils/constants';
+import {debuggerStatement} from "@babel/types";
 
-class CalendarFix extends Component {
+class Calendar extends Component {
   constructor(props) {
+    debugger
     const dateContext = moment().weekday(0);
     super(props);
     this.state = {
@@ -20,6 +22,7 @@ class CalendarFix extends Component {
       today: moment().format('D'),
     };
   }
+
 
   componentWillMount() {
     this.firstDayOfMonth();
@@ -81,12 +84,12 @@ class CalendarFix extends Component {
     const {prevMonthQuantityDay, firstDay, currentMonth, currentYear, month, year} = this.state;
     const startDay = prevMonthQuantityDay - (+firstDay - 1);
     let prevMonthDaysArr;
-    if (currentMonth === month && currentYear === year) {
+    if (currentMonth <= month && currentYear <= year) {
       prevMonthDaysArr = Array.from(Array(prevMonthQuantityDay - startDay + 1)
-        .fill().map((_, idx) => ({ dayNam: startDay + idx, prev: true })));
+        .fill().map((_, idx) => ({ dayNam: startDay + idx, prev: true, click: false })));
     } else {
       prevMonthDaysArr = Array.from(Array(prevMonthQuantityDay - startDay + 1)
-        .fill().map((_, idx) => ({ dayNam: startDay + idx, next: true })));
+        .fill().map((_, idx) => ({ dayNam: startDay + idx, next: true, click: true })));
     }
     this.setState({
       prevMonthDaysArr,
@@ -97,7 +100,7 @@ class CalendarFix extends Component {
     const { firstDayNextMonth } = this.state;
     const endDate = 7 - (firstDayNextMonth);
     const nextMonthDaysArr = Array.from(Array(endDate)
-      .fill().map((_, idx) => ({ dayNam: 1 + idx, next: true })));
+      .fill().map((_, idx) => ({ dayNam: 1 + idx, next: true, click: true })));
     this.setState({
       nextMonthDaysArr,
     });
@@ -106,16 +109,16 @@ class CalendarFix extends Component {
   renderDaysCurrentMonth = () => {
     const {daysInMonth, currentMonth, currentYear, today, month, year} = this.state;
     let currentMonthDaysArr;
-    if (currentMonth === month && currentYear === year) {
+    if (currentMonth <= month && currentYear <= year) {
       const prevDaysInMonth = Array.from(Array(today - 1)
-        .fill().map((_, idx) => ({ dayNam: 1 + idx, prev: true })));
-      const todayInMonth = [{ dayNam: today, today: true }];
-      const futureDaysInMonth = Array.from(Array(daysInMonth - 1 - today + 1)
-        .fill().map((_, idx) => ({ dayNam: +today + 1 + idx, current: true })));
+        .fill().map((_, idx) => ({ dayNam: 1 + idx, prev: true, click: false })));
+      const todayInMonth = [{ dayNam: today, today: true, click: true }];
+      const futureDaysInMonth = Array.from(Array(daysInMonth - today)
+        .fill().map((_, idx) => ({ dayNam: +today + 1 + idx, current: true, click: true })));
       currentMonthDaysArr = [...prevDaysInMonth, ...todayInMonth, ...futureDaysInMonth]
     } else {
       currentMonthDaysArr = Array.from(Array(daysInMonth)
-        .fill().map((_, idx) => ({ dayNam: 1 + idx, current: true })));
+        .fill().map((_, idx) => ({ dayNam: 1 + idx, current: true, click: true })));
     }
     this.setState({
       currentMonthDaysArr,
@@ -250,10 +253,9 @@ class CalendarFix extends Component {
               ))}
           </div>
         </div>
-        <div><img src="../../../images/bats.svg"/></div>
       </div>
     );
   }
 }
 
-export default CalendarFix;
+export default Calendar;

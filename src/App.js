@@ -11,6 +11,7 @@ const Home = React.lazy(() => import('./pages/Home'));
 const Prices = React.lazy(() => import('./pages/Prices'));
 const OurGames = React.lazy(() => import('./pages/OurGames'));
 const Development = React.lazy(() => import('./pages/Development'));
+const Calendar = React.lazy(() => import('./components/Calendar/index.js'));
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="/prices" component={Prices} />
           <Route path="/games" component={OurGames} />
           <Route path="/dev" component={Development} />
+          <Route path="/calendar" component={Calendar} />
         </Router>
       </ThemeProvider>
     </Suspense>
