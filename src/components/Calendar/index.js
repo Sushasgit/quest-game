@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-import './Calendar.css';
+import './Calendar.scss';
+import { debuggerStatement } from '@babel/types';
 import Week from './parts/Week';
 import Day from './parts/Day';
 
 import { WEEK_DAY_SHORT } from '../../utils/constants';
-import {debuggerStatement} from "@babel/types";
 
 class Calendar extends Component {
   constructor(props) {
-    debugger
-    const dateContext = moment().weekday(0);
+    const dateContext = moment();
     super(props);
     this.state = {
       dateContext,
       year: dateContext.format('Y'),
       month: dateContext.format('MMMM'),
-      currentMonth: moment().weekday(0).format('MMMM'),
+      currentMonth: moment().format('MMMM'),
+      monthNumber: dateContext.format('MM'),
+      currentMonthNumber: moment().format('MM'),
       daysInMonth: dateContext.daysInMonth(),
-      currentYear: moment().weekday(0).format('Y'),
+      currentYear: moment().format('Y'),
       today: moment().format('D'),
     };
   }
@@ -81,10 +82,13 @@ class Calendar extends Component {
   );
 
   renderDaysInPrevMonth = () => {
-    const {prevMonthQuantityDay, firstDay, currentMonth, currentYear, month, year} = this.state;
+    const {
+      prevMonthQuantityDay, firstDay, currentYear, year, monthNumber, currentMonthNumber,
+    } = this.state;
     const startDay = prevMonthQuantityDay - (+firstDay - 1);
     let prevMonthDaysArr;
-    if (currentMonth <= month && currentYear <= year) {
+    console.log(monthNumber, currentMonthNumber, currentYear, year);
+    if (currentYear > year || monthNumber <= currentMonthNumber) {
       prevMonthDaysArr = Array.from(Array(prevMonthQuantityDay - startDay + 1)
         .fill().map((_, idx) => ({ dayNam: startDay + idx, prev: true, click: false })));
     } else {
@@ -97,28 +101,39 @@ class Calendar extends Component {
   };
 
   renderDaysInNextMonth = () => {
-    const { firstDayNextMonth } = this.state;
+    const { firstDayNextMonth,currentYear, year, monthNumber, currentMonthNumber } = this.state;
     const endDate = 7 - (firstDayNextMonth);
-    const nextMonthDaysArr = Array.from(Array(endDate)
-      .fill().map((_, idx) => ({ dayNam: 1 + idx, next: true, click: true })));
+    let nextMonthDaysArr;
+    if (currentYear >= year && monthNumber < currentMonthNumber) {
+      nextMonthDaysArr = Array.from(Array(endDate)
+        .fill().map((_, idx) => ({dayNam: 1 + idx, prev: true, click: false})));
+    } else {
+      nextMonthDaysArr = Array.from(Array(endDate)
+        .fill().map((_, idx) => ({ dayNam: 1 + idx, next: true, click: true })));
+    }
     this.setState({
       nextMonthDaysArr,
     });
   };
 
   renderDaysCurrentMonth = () => {
-    const {daysInMonth, currentMonth, currentYear, today, month, year} = this.state;
+    const {
+      daysInMonth, currentMonth, currentYear, today, month, year, monthNumber, currentMonthNumber,
+    } = this.state;
     let currentMonthDaysArr;
-    if (currentMonth <= month && currentYear <= year) {
+    if (currentMonth === month && currentYear === year) {
       const prevDaysInMonth = Array.from(Array(today - 1)
         .fill().map((_, idx) => ({ dayNam: 1 + idx, prev: true, click: false })));
       const todayInMonth = [{ dayNam: today, today: true, click: true }];
       const futureDaysInMonth = Array.from(Array(daysInMonth - today)
         .fill().map((_, idx) => ({ dayNam: +today + 1 + idx, current: true, click: true })));
-      currentMonthDaysArr = [...prevDaysInMonth, ...todayInMonth, ...futureDaysInMonth]
+      currentMonthDaysArr = [...prevDaysInMonth, ...todayInMonth, ...futureDaysInMonth];
+    } else if (currentYear >= year && monthNumber < currentMonthNumber) {
+      currentMonthDaysArr = Array.from(Array(daysInMonth)
+        .fill().map((_, idx) => ({ dayNam: 1 + idx, prev: true, click: false })));
     } else {
       currentMonthDaysArr = Array.from(Array(daysInMonth)
-        .fill().map((_, idx) => ({ dayNam: 1 + idx, current: true, click: true })));
+        .fill().map((_, idx) => ({ dayNam: 1 + idx, next: true, click: true })));
     }
     this.setState({
       currentMonthDaysArr,
@@ -132,10 +147,13 @@ class Calendar extends Component {
     const totalSlots = [...prevMonthDaysArr, ...currentMonthDaysArr, ...nextMonthDaysArr];
     const rows = [];
     totalSlots.forEach((item, i) => {
-      if ((i % 7) === 0 || (i + 1) === totalSlots.length) {
+      if ((i % 7) === 0 && i > 0) {
         rows.push(totalSlots.slice(i - 7, i));
+      } else if (i === totalSlots.length - 1) {
+        rows.push(totalSlots.slice(i - 6, i + 1));
       }
     });
+    console.log(rows);
     this.setState({
       rows,
     });
@@ -148,12 +166,13 @@ class Calendar extends Component {
           break;
         case 'prev': dateContext = moment(dateContext).subtract(1, 'month');
           break;
-        default: dateContext = moment().weekday(0);
+        default: dateContext = moment();
       }
       this.setState({
         dateContext,
         year: dateContext.format('Y'),
         month: dateContext.format('MMMM'),
+        monthNumber: dateContext.format('MM'),
         daysInMonth: dateContext.daysInMonth(),
         clickedWeek: null,
       }, () => {
