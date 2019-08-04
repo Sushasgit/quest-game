@@ -68,14 +68,14 @@ class Calendar extends Component {
   };
 
   renderMonthNav = () => (
-    <span className="label-month">
+    <span className="label_month">
       {this.state.month}
     </span>
   );
 
   renderYearNav = () => (
     <span
-      className="label-year"
+      className="label_year"
     >
       {this.state.year}
     </span>
@@ -199,21 +199,20 @@ class Calendar extends Component {
       clickedWeek,
       clickedDay,
     } = this.state;
-    const classNameNav = (currentMonth === month && currentYear === year ? 'page-left hidden-navigation' : 'page-left');
-    const classNameNavButton = (currentMonth === month && currentYear === year ? 'hidden-button-back' : 'button-back');
+    const classNameNav = (currentMonth === month && currentYear === year ? 'page__left hidden__navigation' : 'page__left');
+    const classNameNavButton = (currentMonth === month && currentYear === year ? 'hidden__button__back' : 'button__back');
     return (
-      <div>
-        <div className="calendar-container">
-          <div className="calendar">
-            <div className="calendar-title">
+        <div className="calendar">
+          <div className="calendar_container">
+            <div className="calendar_navigation">
               <button
                 type="button"
                 className={classNameNav}
                 onClick={() => { this.navigationMonth('prev'); }}
               >
-                <i className="month-prev" />
+                <i className="month__prev" />
               </button>
-              <div className="selected-month-year">
+              <div className="selected__month__year">
                 {this.renderMonthNav()}
                 {this.renderYearNav()}
                 <button
@@ -230,10 +229,10 @@ class Calendar extends Component {
               </div>
               <button
                 type="button"
-                className="page-right"
+                className="page__right"
                 onClick={() => { this.navigationMonth('next'); }}
               >
-                <i className="month-next" />
+                <i className="month__next" />
               </button>
             </div>
             <div className="weekdays">
@@ -272,7 +271,6 @@ class Calendar extends Component {
               ))}
           </div>
         </div>
-      </div>
     );
   }
 }

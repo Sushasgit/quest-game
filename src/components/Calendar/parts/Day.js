@@ -7,9 +7,9 @@ const Day = (props) => {
   const todayInMonth = props.day.today ? 'current-today available-day' : '';
   const clickDisable = props.day.click ?
       <div onClick={(e) => {props.onDayClick(e, props.day.dayNam, props.week);}} className={`${currentDay} ${prevDay} ${futureDay} ${todayInMonth}`}>
-        {props.day.dayNam}
+          <span className={ `calendar_data_day`}>{props.day.dayNam}</span>
       </div> :  <div className={`${currentDay} ${prevDay} ${futureDay} ${todayInMonth}`}>
-        {props.day.dayNam}
+          <span className="calendar_data_day">{props.day.dayNam}</span>
       </div>
   return (
       clickDisable

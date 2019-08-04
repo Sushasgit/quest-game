@@ -8,22 +8,19 @@ h2{
 
 .calendar{
     font-family: 'Montserrat', sans-serif;
-
-}
-
-.calendar-container{
     display: flex;
     justify-content: center;
     background-color: #262626;
     padding: 55px;
     min-width: 270px;
 }
+
 .calendar-wrap{
     border-left: 1px solid #373737;
     max-width: 720px;
 }
 
-.page-right, .page-left{
+.page__right, .page__left{
     background: none;
     width: 5vw;
     height: 30px;
@@ -35,7 +32,7 @@ h2{
     border: none;
 }
 
-.month-next, .month-prev{
+.month__next, .month__prev{
     display: block;
     width: 48px;
     height: 2px;
@@ -43,12 +40,12 @@ h2{
     position: relative;
 }
 
-.page-right:hover .month-next,
-.page-left:hover .month-prev,
-.page-left:hover .month-prev:before,
-.page-left:hover .month-prev:after,
-.page-right:hover .month-next:before,
-.page-right:hover .month-next:after{
+.page__right:hover .month__next,
+.page__left:hover .month__prev,
+.page__left:hover .month__prev:before,
+.page__left:hover .month__prev:after,
+.page__right:hover .month__next:before,
+.page__right:hover .month__next:after{
     background-color: #ffdc26;
 
 }
@@ -65,7 +62,7 @@ h2{
 }
 
 
-.month-prev:before{
+.month__prev:before{
     content: "";
     display: block;
     position: absolute;
@@ -76,7 +73,7 @@ h2{
 
 }
 
-.month-prev:after{
+.month__prev:after{
     content: "";
     display: block;
     position: absolute;
@@ -87,7 +84,7 @@ h2{
 
 }
 
-.month-next:before{
+.month__next:before{
     content: "";
     display: block;
     position: absolute;
@@ -99,7 +96,7 @@ h2{
 
 }
 
-.month-next:after{
+.month__next:after{
     content: "";
     display: block;
     position: absolute;
@@ -111,11 +108,11 @@ h2{
 
 }
 
-.hidden-navigation{
+.hidden__navigation{
     visibility: hidden;
 }
 
-.calendar-title{
+.calendar_navigation{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -126,11 +123,11 @@ h2{
     border-left: 1px solid #373737;
     border-right: 1px solid #373737;
 }
-.label-month, .label-year{
+.label_month, .label_year{
     padding: 6px;
 }
 
-.selected-month-year{
+.selected__month__year{
     display: flex;
     flex-wrap: wrap;
 }
@@ -149,6 +146,41 @@ div.future-day{
     cursor: pointer;
     background-color: #242424;
     color: #fff;
+    position: relative;
+  &:hover {
+    .calendar_data_day {
+      width: 5vw;
+      height: 5vw;
+      border: solid 1px #fff500;
+      background-color: #fff500;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #202020;
+    }
+  }
+}
+
+.calendar_data_day{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.current-today{
+  position: relative;
+}
+.current-today:before{
+  content: "";
+  display: block;
+  width: 5vw;
+  height: 5vw;
+  border-radius: 50%;
+  border: solid 1px #fff500;
+  position: absolute;
 }
 
 .available-day, .empty-slot{
@@ -208,7 +240,7 @@ div.future-day{
     border-right:1px solid #373737;
 }
 
-.button-back{
+.button__back{
     background: none;
     display: flex;
     align-items: center;
@@ -223,12 +255,12 @@ div.future-day{
     color: rgba(255, 255, 255, 0.5);
 }
 
-.hidden-button-back{
+.hidden__button__back{
     display: none;
 }
 
 @media (max-width: 850px) {
-    .page-right, .page-left {
+    .page__right, .page__left {
         margin: 0px 15px;
         width: 3vw;
     }
@@ -239,7 +271,7 @@ div.future-day{
 }
 
 @media (max-width: 850px) {
-    .page-right, .page-left {
+    .page__right, .page__left {
         margin: 0 12px;
     }
     .weekdays{
@@ -248,11 +280,11 @@ div.future-day{
 }
 
 @media (max-width: 700px) {
-  .selected-month-year{
+  .selected__month__year{
     flex-direction: column;
     align-items: center;
   }
-  .label-month, .label-year, .button-back{
+  .label_month, .label_year, .button__back{
     padding: 2px;
   }
 }
