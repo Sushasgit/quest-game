@@ -1,129 +1,119 @@
-
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import * as ScrollMagic from 'scrollmagic';
-import {TimelineMax, TweenMax, Elastic, Circ, Sine, Bounce, Power2 } from 'gsap'
-// import 'imports?define=>false!scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap';
-import logo from '../../images/logo-real.png';
-require("script!animation.gsap");
+
+import { TimelineLite, Power2, Power1 } from 'gsap';
+import Observed from 'react-observed';
 
 import './banner.scss';
-import Menu from '../Menu';
-
-const Layer = styled.div`
-  transform: translate3d(0px,${props => (Math.round(props.position) ? Math.round(props.position) : '0')}px, 0px);
-`;
-
-const LayerPosition = styled.div` &&{
-  transform: translate3d(${props => (Math.round(props.positionX) ? Math.round(props.positionX) : '0')}px, ${props => (Math.round(props.positionY) ? Math.round(props.positionY) : '0')}px, 0px)
- scale(${props => props.scaleX ? props.scaleX : '1'});
-    
-  background-position: 
-    ${props => (props.bottom ? 'bottom' : 'top')} 
-    ${props => (props.rightSide ? 'right' : 'left')} 
-    ${props => (props.posY ? Math.round(props.posY) : '0')}px;}
-`;
-
-// var tl = new TimelineMax({
-//   repeat: 0,
-//   play: 0,
-//   yoyo: true,
-//   delay:1
-// });
-// let animation = new TimelineMax({
-//       repeat:1,
-//     })
 
 class Banner extends Component {
-  constructor(){
-    super()
-
-    this.state = {
-      paused:true,
-    }
-
-    this.layer1 = React.createRef();
+  constructor(props) {
+    super(props);
+    this.animateMe = React.createRef();
+    this.theTween = new TimelineLite({ paused: true });
+    this.preLoadedImage = React.createRef();
   }
-  
 
   componentDidMount() {
-    TweenMax.set("#arizona, h1", {xPercent:-50, yPercent:-50});
-
-    let width = window.innerWidth,
-        height = window.innerHeight; 
-        
-        console.log(width, height)
-
-        var controller = new ScrollMagic.Controller();
-
-        var action = new TimelineMax()
-  .to('#arizona',5,{width:'110%', y:"+=130"})
-  
-  .to('.part06',5,{y:'+=10'},0)
-  .to('.part05',5,{y:'+=25'},0)
-  .to('.part04',4.75,{y:'+=30'},0)
-  .to('.part03',4.5,{y:'+=35'},0)
-  .to('.part02',4.25,{y:'+=40'},0)
-  .to('.part01',4,{y:'+=50'},0)
-  .to('#sun',5.5,{
-    bezier:{values:[
-      {x:0, y:0}, 
-      {x:150, y:0}, 
-      {x:350, y:180}
-  ]}, ease: Power2.easeOut},0)
-  .to('#night',1,{autoAlpha:1},2)
-  .to('h1',2,{autoAlpha:1, y:'+=150'},0)
-  .to('h1',4.5,{scale:2},1.5)
-
-        new ScrollMagic.Scene({
-          triggerElement: "body",
-          triggerHook: "onLeave",
-          duration: 2000,   
-          offset:0
-        })
-          .setTween(action)
-          .setPin("#wrapper")
-          //.addIndicators()
-          .addTo(controller);
+    if (this.preLoadedImage) {
+      this.animate();
+      this.theTween.play();
+    }
   }
 
+  animate() {
+    this.theTween
+      .to('.part05', 4, { y: '-=120' }, 0).delay(2.5)
+      .to('.part04', 5.75, { y: '-=70' }, 0).delay(3)
+      .to('.part03', 5.8, { y: '+=120' }, 3)
+      .to('.part02', 6, { y: '+=40' }, 3)
+      .to('.l8', 1.5, { scale: 1.1 }, 0)
+      .delay(3)
+      .to('.part01', 5, { y: '+=40' }, 7)
+      .delay(4)
+      .to('.part06', 3, { y: '-=60' }, 0)
+      .delay(2)
+      .to('.sun', 5, {
+        bezier: {
+          values: [
+            { x: 0, y: 0 },
+            { x: -150, y: 0 },
+            { x: -350, y: 350 },
+          ],
+        },
+        ease: Power2.easeOut,
+      }, 0)
+      .delay(2)
+      .to('h1', 2, { autoAlpha: 1, y: '+=50' }, 0)
+      .delay(2)
+      .to('.l11', 3, {
+        bezier: {
+          type: 'soft',
+          values: [
+            { x: 900, y: 30 },
+            { x: 700, y: 100 },
+            { x: 500, y: 0 },
+            { x: 300, y: 100 },
+            { x: 100, y: 180 }],
+          autoRotate: false,
+          ease: Power1.easeInOut,
+        },
+      })
+      .to('.l12', 0.6, { rotation: 20 }, '-=3')
+      .to('.l13', 1, { rotation: -30, ease: Power1.easeInOut }, '-=2.4');
+  }
 
-  // animate(event) {
-  //   if (this.state.paused) {
-  //     tl.resume() 
-  //     this.setState({
-  //       paused:false,
-  //     })
-  //   } else {
-  //     tl.pause()
-  //     this.setState({
-  //       paused:true,
-  //     })
-  //   }
-  // }
+  clearAnimate() {
+    this.theTween.restart(true, false);
+  }
+
   render() {
-    const { posY } = this.context;
+    const { title } = this.props;
     return (
-      <div className="banner">
-        <div ref={this.layer1} className='l test l1' />
-        <div className='test l l4'>A</div>
-        <div className='test l l5'>B</div>
-        <div className='test l l7'>C</div>
-        <div className='test l l8'>D</div>
-        <div className='test l l9'>D</div>
-        <div className='test l l10'>D</div>
-        <div className='test l l11'>D</div>
-        <div className='div'>E</div>
-        <div className='div'>F</div>
-      </div>
+      <React.Fragment>
+        <div className="wrap">
+          <Observed
+            intersectionRatio={0.45}
+            onEnter={() => { this.animate(); }}
+            onExit={() => { this.clearAnimate(); }}
+            options={{
+              root: null,
+              rootMargin: '0px',
+              threshold: 0.9,
+            }}
+          >
+            {({ mapRef }) => (
+              <div style={{ height: '100vh' }}>
+                <div id="arizona" ref={mapRef}>
+                  <div ref={this.animateMe} id="wrapper">
+                    <div className="sun banner__layer l10" />
+                    <div className="banner__layer l12" />
+                    <div className="banner__layer l11" />
+                    <div className="banner__layer l13" />
+                    <div className="banner__layer l8" />
+                    <div className="banner__layer l7" />
+                    <div className="banner__layer l6" />
+                    <div className="parts part05 banner__layer l5" />
+                    <div className="parts part04 banner__layer l4" />
+                    <div className="parts part03 banner__layer l3" />
+                    <div className="parts part02 banner__layer l2" />
+                    <div ref={this.preLoadedImage} className="parts part01 banner__layer l1" />
+                    <div id="night" />
+                    <div id="sun" />
+                  </div>
+                  <h1 className="neon">{title}</h1>
+                </div>
+              </div>
+            )}
+          </Observed>
+        </div>
+      </React.Fragment>
     );
   }
 }
 
-Banner.contextTypes = {
-  posX: PropTypes.number,
-  posY: PropTypes.number,
+Banner.propTypes = {
+  title: PropTypes.string.isRequired,
 };
 
 

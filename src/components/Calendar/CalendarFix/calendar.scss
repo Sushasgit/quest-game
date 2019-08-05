@@ -1,0 +1,241 @@
+h2{
+    color: blue;
+}
+
+.calendar{
+    font-family: 'Montserrat', sans-serif;
+    min-width: 270px;
+}
+
+.calendar-container{
+    display: flex;
+    justify-content: center;
+    background-color: #262626;
+    padding: 55px;
+}
+.calendar-wrap{
+    border-left: 1px solid #373737;
+    max-width: 720px;
+}
+
+.page-right, .page-left{
+    background: none;
+    width: 5vw;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    margin: 30px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.month-next, .month-prev{
+    display: block;
+    width: 48px;
+    height: 2px;
+    background-color: #fff;
+    position: relative;
+}
+
+.page-right:hover .month-next,
+.page-left:hover .month-prev,
+.page-left:hover .month-prev:before,
+.page-left:hover .month-prev:after,
+.page-right:hover .month-next:before,
+.page-right:hover .month-next:after{
+    background-color: #ffdc26;
+
+}
+
+.current-day .date-number{
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: 1px solid #ffdc26;
+    width: 45%;
+    height: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.month-prev:before{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 6px;
+    height: 2px;
+    background-color: #fff;
+    transform: translateY(-1.5px) translateX(-1px) rotate(-45deg);
+
+}
+
+.month-prev:after{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 6px;
+    height: 2px;
+    background-color: #fff;
+    transform: translateY(1.5px) translateX(-1px) rotate(45deg);
+
+}
+
+.month-next:before{
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    width: 6px;
+    height: 2px;
+    background-color: #fff;
+    transform: translateY(-1.5px) translateX(1px) rotate(45deg);
+
+}
+
+.month-next:after{
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    width: 6px;
+    height: 2px;
+    background-color: #fff;
+    transform: translateY(1.5px) translateX(1px) rotate(-45deg);
+
+}
+
+.hidden-navigation{
+    visibility: hidden;
+}
+
+.calendar-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    color: #fff;
+    background-color: #202020;
+    border-top: 1px solid #373737;
+    border-left: 1px solid #373737;
+    border-right: 1px solid #373737;
+}
+.label-month, .label-year{
+    padding: 6px;
+}
+
+.selected-month-year{
+    display: flex;
+    flex-wrap: wrap;
+}
+div.empty-slot{
+    color: #414141;
+    background-color: #202020;
+    cursor: no-drop;
+
+}
+div.future-day{
+    color: #414141;
+    background-color: #202020;
+}
+
+.available-day{
+    cursor: pointer;
+    background-color: #242424;
+    color: #fff;
+}
+
+.available-day, .empty-slot{
+    width: 8vw;
+    height: 8vw;
+    min-width: 40px;
+    min-height: 40px;
+    max-width: 105px;
+    max-height: 105px;
+    border-bottom: 1px solid #373737;
+    border-right: 1px solid #373737;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.date-number{
+    text-align: center;
+}
+.available-day:hover .date-number{
+    width: 45%;
+    height: 45%;
+    background-color: #ffdc26;
+    border-radius: 50%;
+    color: #202020;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.weekdays{
+    display: flex;
+    background-color: #404040;
+    height: 60px;
+    max-width: 720px;
+}
+
+.week {
+    display: flex;
+}
+
+.week-day{
+    width: 8vw;
+    height: 58px;
+    min-width: 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #373737;
+    border-bottom: 1px solid #373737;
+    box-sizing: border-box;
+    color: #999;
+}
+
+.week-day:last-child{
+    border-right:1px solid #373737;
+}
+
+.button-back{
+    background: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.25);
+    padding-top: 8px;
+}
+
+.button-back:hover{
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.hidden-button-back{
+    display: none;
+}
+
+@media (max-width: 850px) {
+    .page-right, .page-left {
+        margin: 0px 15px;
+        width: 3vw;
+    }
+
+    .calendar-container {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 850px) {
+    .page-right, .page-left {
+        margin: 0 12px;
+    }
+    .weekdays{
+        height: 55px;
+    }
+}

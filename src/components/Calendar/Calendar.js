@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import './Calendar.css';
 import moment from 'moment';
-import './Calendar.css'
+// import '../Calendar/Calendar.scss'
 
 export default class Calendar extends Component{
     state = {
