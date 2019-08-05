@@ -4,6 +4,9 @@ import Advantages from '../components/Advantages/Advantages';
 
 import '../components/Banner/banner.scss';
 import Banner from '../components/Banner/Banner';
+import Menu from '../components/Menu';
+
+import logo from '../images/logo-real.png';
 
 class Home extends Component {
   constructor(props) {
@@ -13,7 +16,9 @@ class Home extends Component {
     return (
       <React.Fragment>
         <div className="wrap">
-          <Banner title={'Територрия реальных игр'} />
+          <Banner title={'Територрия реальных игр'}>
+            <Menu />
+          </Banner>
           <Advantages />
         </div>
       </React.Fragment>

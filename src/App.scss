@@ -34,22 +34,24 @@
   font-display: swap;
 }
 
-#wrapper{
-  position: absolute;
-  height: 100vh;
-  width: 100%;
-  background: #242424;
-  overflow: hidden;
-}
+// #wrapper{
+//   position: absolute;
+//   height: 100vh;
+//   width: 100%;
+//   background: #242424;
+// }
 
 #arizona{
-  position:absolute;
+  position: fixed;
   height:auto;
   width:100%;
   left:0;
   top:0;
+  bottom: 0;
+  right: 0;
   overflow:visible;
 }
+
 #night{
   position: absolute;
   width: 100%;
@@ -152,13 +154,22 @@ li {
   }
   
   .logo-link {
-    position: absolute;
+    position: fixed;
     right: 20px;
     top: 20px;
+
+    @media (max-width: 850px)  {
+      right: 10px;
+      top: 10px;
+    }
   }
   
   .logo-link img {
     max-width: 50px;
+
+    @media (max-width: 850px)  {
+      max-width: 40px;
+    }
   }
 
   .wrap {

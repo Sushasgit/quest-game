@@ -4,6 +4,15 @@ import PropTypes from 'prop-types';
 import { TimelineLite, Power2, Power1 } from 'gsap';
 import Observed from 'react-observed';
 
+import { Breakpoint } from '../../utils/responsive-components';
+import {
+  MediumAndUp,
+  LargeAndUp,
+  SmallAndDown,
+  MediumAndDown,
+  MediumOnly,
+} from '../../utils/break-points';
+
 import './banner.scss';
 
 class Banner extends Component {
@@ -68,45 +77,57 @@ class Banner extends Component {
   }
 
   render() {
-    const { title } = this.props;
+    const { title, children } = this.props;
     return (
       <React.Fragment>
-        <div className="wrap">
-          <Observed
-            intersectionRatio={0.45}
-            onEnter={() => { this.animate(); }}
-            onExit={() => { this.clearAnimate(); }}
-            options={{
-              root: null,
-              rootMargin: '0px',
-              threshold: 0.9,
-            }}
-          >
-            {({ mapRef }) => (
-              <div style={{ height: '100vh' }}>
-                <div id="arizona" ref={mapRef}>
-                  <div ref={this.animateMe} id="wrapper">
-                    <div className="sun banner__layer l10" />
-                    <div className="banner__layer l12" />
-                    <div className="banner__layer l11" />
-                    <div className="banner__layer l13" />
-                    <div className="banner__layer l8" />
-                    <div className="banner__layer l7" />
-                    <div className="banner__layer l6" />
-                    <div className="parts part05 banner__layer l5" />
-                    <div className="parts part04 banner__layer l4" />
-                    <div className="parts part03 banner__layer l3" />
-                    <div className="parts part02 banner__layer l2" />
-                    <div ref={this.preLoadedImage} className="parts part01 banner__layer l1" />
-                    <div id="night" />
-                    <div id="sun" />
+        <Observed
+          intersectionRatio={0.45}
+          onEnter={() => { this.animate(); }}
+          onExit={() => { this.clearAnimate(); }}
+          options={{
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.9,
+          }}
+        >
+          {({ mapRef }) => (
+            <React.Fragment>
+              <MediumAndUp>
+                <div className="banner">
+                  <div id="arizona" ref={mapRef}>
+                    <div ref={this.animateMe} id="wrapper">
+                      <div className="sun banner__layer l10" />
+                      <div className="banner__layer l12" />
+                      <div className="banner__layer l11" />
+                      <div className="banner__layer l13" />
+                      <div className="banner__layer l8" />
+                      <div className="banner__layer l7" />
+                      <div className="banner__layer l6" />
+                      <div className="parts part05 banner__layer l5" />
+                      <div className="parts part04 banner__layer l4" />
+                      <div className="parts part03 banner__layer l3" />
+                      <div className="parts part02 banner__layer l2" />
+                      <div ref={this.preLoadedImage} className="parts part01 banner__layer l1" />
+                      <div id="night" />
+                      <div id="sun" />
+                    </div>
+                    <h1 className="neon">
+                      Real Games
+                      {' '}
+                      {title}
+                    </h1>
                   </div>
-                  <h1 className="neon">{title}</h1>
+                  {children}
                 </div>
-              </div>
-            )}
-          </Observed>
-        </div>
+              </MediumAndUp>
+              <MediumAndDown>
+                <div className="small-devices">
+                  {children}
+                </div>
+              </MediumAndDown>
+            </React.Fragment>
+          )}
+        </Observed>
       </React.Fragment>
     );
   }
