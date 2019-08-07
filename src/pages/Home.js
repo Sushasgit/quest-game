@@ -1,18 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-import Banner from '../components/Banner/Banner';
 import Advantages from '../components/Advantages/Advantages';
-import ScrollProvider from '../components/ScrollProvider';
 
-const Home = () => (
-  <React.Fragment>
-    <div className="wrap">
-      <ScrollProvider>
-        <Banner />
-      </ScrollProvider>
-      <Advantages />
-    </div>
-  </React.Fragment>
-);
+import '../components/Banner/banner.scss';
+import Banner from '../components/Banner/Banner';
+import Menu from '../components/Menu';
 
+import logo from '../images/logo-real.png';
+
+class Home extends Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <React.Fragment>
+        <div className="wrap">
+          <Banner title={'Територрия реальных игр'}>
+            <Menu />
+          </Banner>
+          <Advantages />
+        </div>
+      </React.Fragment>
+    );
+  }
+}
 export default Home;

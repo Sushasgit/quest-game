@@ -8,17 +8,16 @@
     display: flex;
     flex-wrap: wrap;
 
-    .card-bg {
-        &:hover {
-            .card::before {
-                opacity: 1;
-                transform: translate3d(0,0,0);
-            }
-        }
-    }
+        // .card__link:hover {
+        //     .card::before {
+        //         opacity: 1;
+        //         transform: translate3d(0,0,0);
+        //     }
+        // }
 
     &__item {
         max-width: 50%;
+        text-decoration: none;
 
         @media (max-width: 700px)  {
             width: 100%;
@@ -126,3 +125,12 @@
         bottom: 0;
     }
 }
+
+// .card__link {
+//     &:hover {
+//         .card::before {
+//             opacity: 1;
+//             transform: translate3d(0,0,0);
+//         }
+//     }
+// }

@@ -11,6 +11,7 @@ const Home = React.lazy(() => import('./pages/Home'));
 const Prices = React.lazy(() => import('./pages/Prices'));
 const OurGames = React.lazy(() => import('./pages/OurGames'));
 const Development = React.lazy(() => import('./pages/Development'));
+const HideAndSeek = React.lazy(() => import('./pages/HideAndSeek'));
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="/prices" component={Prices} />
           <Route path="/games" component={OurGames} />
           <Route path="/dev" component={Development} />
+          <Route path="/hideandseek" component={HideAndSeek} />
         </Router>
       </ThemeProvider>
     </Suspense>

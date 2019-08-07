@@ -32,6 +32,7 @@
   font-family: 'Montserrat', sans-serif;
   overflow-x: hidden;
   padding: 19px;
+  z-index: 150;
 
   &--desktop {
     @media (max-width: 850px)  {
@@ -44,8 +45,8 @@
     padding: 0;
     display: none;
     @media (max-width: 850px)  {
-      left:20px;
-      top: 20px;
+      left:0;
+      top: 0;
       display: inline-block;
     }
   }
