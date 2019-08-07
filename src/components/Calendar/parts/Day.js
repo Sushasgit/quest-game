@@ -5,10 +5,12 @@ const Day = (props) => {
   const prevDay = props.day.prev ? 'empty-slot' : '';
   const futureDay = props.day.next ? 'future-day available-day' : '';
   const todayInMonth = props.day.today ? 'current-today available-day' : '';
+  const clicked = props.active ? 'clicked_day' : '';
   const clickDisable = props.day.click ?
-      <div onClick={(e) => {props.onDayClick(e, props.day.dayNam, props.week);}} className={`${currentDay} ${prevDay} ${futureDay} ${todayInMonth}`}>
+      <div onClick={(e) => {props.onDayClick(e, props.day.dayNam, props.week, props.day.month);}} className={`${currentDay} ${clicked} ${prevDay} ${futureDay} ${todayInMonth}`}>
           <span className={ `calendar_data_day`}>{props.day.dayNam}</span>
-      </div> :  <div className={`${currentDay} ${prevDay} ${futureDay} ${todayInMonth}`}>
+      </div>
+      : <div className={`${currentDay} ${prevDay} ${futureDay} ${todayInMonth}`}>
           <span className="calendar_data_day">{props.day.dayNam}</span>
       </div>
   return (

@@ -15,11 +15,6 @@ h2{
     min-width: 270px;
 }
 
-.calendar-wrap{
-    border-left: 1px solid #373737;
-    max-width: 720px;
-}
-
 .page__right, .page__left{
     background: none;
     width: 5vw;
@@ -122,6 +117,7 @@ h2{
     border-top: 1px solid #373737;
     border-left: 1px solid #373737;
     border-right: 1px solid #373737;
+  max-height: 99px;
 }
 .label_month, .label_year{
     padding: 6px;
@@ -151,6 +147,8 @@ div.future-day{
     .calendar_data_day {
       width: 5vw;
       height: 5vw;
+      max-width: 50px;
+      max-height: 50px;
       border: solid 1px #fff500;
       background-color: #fff500;
       border-radius: 50%;
@@ -160,6 +158,10 @@ div.future-day{
       color: #202020;
     }
   }
+}
+
+.calendar_container{
+  max-width: 720px;
 }
 
 .calendar_data_day{
@@ -178,6 +180,8 @@ div.future-day{
   display: block;
   width: 5vw;
   height: 5vw;
+  max-width: 50px;
+  max-height: 50px;
   border-radius: 50%;
   border: solid 1px #fff500;
   position: absolute;
@@ -265,7 +269,7 @@ div.future-day{
         width: 3vw;
     }
 
-    .calendar-container {
+    .calendar_container {
         padding: 10px;
     }
 }
@@ -284,8 +288,18 @@ div.future-day{
     flex-direction: column;
     align-items: center;
   }
+
   .label_month, .label_year, .button__back{
     padding: 2px;
   }
+
+  .calendar_navigation{
+    max-height: 70px;
+  }
+}
+
+.calendar_order_list{
+  height: 470px;
+  background-color: #404040;
 }
 

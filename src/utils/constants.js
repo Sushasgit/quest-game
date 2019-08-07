@@ -95,3 +95,7 @@ export const CARDS_DATA = [
 ];
 
 export const WEEK_DAY_SHORT = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+
+export const CALENDAR_ORDER_LIST = [
+
+    ]
