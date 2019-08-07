@@ -18,13 +18,16 @@ const Description = styled.p`
   line-height: 1.8em;
 `;
 
-const ListItem = styled.p`
+const ListItem = styled.li`
   color: #fff;
   text-align: center;
   font-size: 1em;
   line-height: 1.8em;
   position: relative;
   padding-top: 80px;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: 80px 80px;
 `;
 
 const ListItemTitle = styled.h3`

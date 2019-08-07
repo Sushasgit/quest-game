@@ -1,26 +1,14 @@
 .activity {
   &--mask {
-    background: url(../../images/masks.svg);
-    background-size: contain;
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-size: 80px 80px;
+    background-image: url(../../images/masks.svg);
 }
 
   &--paintball {
-    background: url(../../images/paintball.svg);
-    background-size: contain;
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-size: 80px 80px;
+    background-image: url(../../images/paintball.svg);
   }
 
   &--team {
-    background: url(../../images/team.svg);
-    background-size: contain;
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-size: 80px 80px;
+    background-image: url(../../images/team.svg);
   }
 }
 
@@ -36,26 +24,25 @@
     font-size: 1em;
   }
 
-  &::after {
-    content: '';
-    background-image: url(../../images/corner.svg);
+  &::after, &::before {
     position: absolute;
-    bottom: 0px;
-    right: -70px;
     width: 105px;
     height: 46px;
     background-repeat: no-repeat;
   }
+
+  &::after {
+    content: '';
+    bottom: 0;
+    background-image: url(../../images/corner.svg);
+    right: -70px;
+  }
   
   &::before {
     content: '';
-    background-image: url(../../images/corner.svg);
-    position: absolute;
     top: 0;
+    background-image: url(../../images/corner.svg);
     left: -70px;
-    width: 105px;
-    height: 46px;
-    background-repeat: no-repeat;
     transform: rotate(180deg);
   }
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import MapBox from '../MapBox/MapBox';
+// import MapBox from '../MapBox/MapBox';
 
 import styled from 'styled-components';
 
@@ -10,6 +10,7 @@ import './contact-form.scss';
 import Input from '../ui/Input';
 import Icon from '../ui/Icon';
 import Button from '../ui/Button';
+import map from '../../images/map.png';
 
 const StyledForm = styled.form`
   border-radius: 4px;
@@ -75,7 +76,9 @@ class ContactForm extends Component {
               </li>
             </ul>
           </div>
-          <MapBox />
+          <div className="contacts__map">
+            <img src={map} alt="map" />
+          </div>
           <StyledForm>
             <Title level={3}>
               Жду звонка

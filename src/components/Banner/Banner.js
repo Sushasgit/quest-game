@@ -4,13 +4,9 @@ import PropTypes from 'prop-types';
 import { TimelineLite, Power2, Power1 } from 'gsap';
 import Observed from 'react-observed';
 
-import { Breakpoint } from '../../utils/responsive-components';
 import {
-  MediumAndUp,
   LargeAndUp,
-  SmallAndDown,
   MediumAndDown,
-  MediumOnly,
 } from '../../utils/break-points';
 
 import './banner.scss';
@@ -92,7 +88,7 @@ class Banner extends Component {
         >
           {({ mapRef }) => (
             <React.Fragment>
-              <MediumAndUp>
+              <LargeAndUp>
                 <div className="banner">
                   <div id="arizona" ref={mapRef}>
                     <div ref={this.animateMe} id="wrapper">
@@ -119,7 +115,7 @@ class Banner extends Component {
                   </div>
                   {children}
                 </div>
-              </MediumAndUp>
+              </LargeAndUp>
               <MediumAndDown>
                 <div className="small-devices">
                   {children}
