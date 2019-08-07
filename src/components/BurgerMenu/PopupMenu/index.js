@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import './popup.scss';
 
@@ -21,5 +22,15 @@ const PopupMenu = ({ onClick, mobile }) => {
     </ul>
   );
 };
+
+PopupMenu.defaultProps = {
+  mobile: false,
+};
+
+PopupMenu.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  mobile: PropTypes.bool,
+};
+
 
 export default PopupMenu;

@@ -24,6 +24,12 @@
       display: flex;
       margin-top: 40px;
     }
+
+    &__map {
+      img {
+        min-height: 425px;
+      }
+    }
   }
 
   .link {

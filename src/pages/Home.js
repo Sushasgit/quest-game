@@ -6,8 +6,6 @@ import '../components/Banner/banner.scss';
 import Banner from '../components/Banner/Banner';
 import Menu from '../components/Menu';
 
-import logo from '../images/logo-real.png';
-
 class Home extends Component {
   constructor(props) {
     super(props);

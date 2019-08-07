@@ -2,9 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Banner from '../components/Banner/Banner';
-import ScrollProvider from '../components/ScrollProvider';
 
-import imgTest from '../images/banner-img.png';
+// import imgTest from '../images/banner-img.png';
 
 const AdvantagesBox = styled.div`
   background-color: #242424;
@@ -19,7 +18,7 @@ const HideAndSeek = () => {
     <div className="wrap">
 
       <AdvantagesBox className="bg bg--buildings">
-      <img src={imgTest} alt="" />
+      {/* <img src={imgTest} alt="" /> */}
       <section className="bg bg--buildings">
         Test
       </section>

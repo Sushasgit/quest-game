@@ -45,8 +45,7 @@ nav {
 .frstbar,.scndbar,.thrdbar {
     transition: all 0.35s linear;
     transform: rotate(0deg);
-    // transform-origin: 10% 50%;
-  }
+}
 
   .icon.is-active .frstbar {
     transform: rotate(45deg);
