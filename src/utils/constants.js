@@ -2,6 +2,15 @@ import peintball from '../images/paintball.svg';
 import masks from '../images/masks.svg';
 import team from '../images/team.svg';
 
+import hideAndSeekJpg from '../images/game.jpg';
+import hideAndSeekWebP from '../images/game.webp';
+import quadroJpg from '../images/quadro.jpg';
+import quadroWebP from '../images/quadro.webp';
+import peintBallJpg from '../images/index.jpg';
+import peintBallWebP from '../images/index.webp';
+import straikBallJpg from '../images/straikball.jpg';
+import straikBallWebP from '../images/straikball.webp';
+
 export const ADVANTAGES_DATA = [
   {
     id: 1,
@@ -54,43 +63,36 @@ export const CARDS_DATA = [
     id: 1,
     title: 'Хоррор-квест “ПРЯТКИ”',
     description: 'Залез — нашёл — украл — принёс, всё просто, не так ли ….?',
-    imgBg: 'man',
-    posterUrl: 'https://questroom.com.ua/dist/pict_rooms/M1B45lDN.png',
+    imgBg: 'strike',
+    posterUrlJpg: hideAndSeekJpg,
+    posterUrlWebp: hideAndSeekWebP,
+    tag: '18+',
   },
   {
     id: 2,
-    title: 'Квадроциклы и баги',
-    description: 'Залез — нашёл — украл — принёс, всё просто, не так ли ….?',
-    imgBg: 'kvadro',
-    posterUrl: 'http://realgames.com.ua/wp-content/uploads/2019/03/%D0%9F%D0%B5%D0%B9%D0%BD%D1%82%D0%B1%D0%BE%D0%BB-%D0%9E%D0%B4%D0%B5%D1%81%D1%81%D0%B0-%D1%86%D0%B5%D0%BD%D1%8B.jpg',
+    title: 'Пейнтбол',
+    description: 'Пейнтбол — игра для всех и каждого! Мы организовываем пейнтбольные турниры и сценарные игры',
+    imgBg: 'man',
+    posterUrlJpg: peintBallJpg,
+    posterUrlWebp: peintBallWebP,
+    tag: 'для новичков',
   },
   {
     id: 3,
-    title: 'Хоррор-квест “ПРЯТКИ”',
-    description: 'Залез — нашёл — украл — принёс, всё просто, не так ли ….?',
-    imgBg: 'strike',
-    posterUrl: 'http://realgames.com.ua/wp-content/uploads/brizy/72/assets/images/iW=1110&iH=1110&oX=0&oY=0&cW=1110&cH=832/-%D0%BF%D0%B5%D0%B9%D0%BD%D1%82%D0%B1%D0%BE%D0%BB.jpg',
+    title: 'Квадроциклы и баги',
+    description: 'Квадроциклы и Багги легки в управлении, имеют достаточную проходимость, а предоставляемая экипировка, сделает Вашу прогулку не только увлекательной, но и безопасной.',
+    imgBg: 'kvadro',
+    posterUrlJpg: quadroJpg,
+    posterUrlWebp: quadroWebP,
   },
   {
     id: 4,
-    title: 'Хоррор-квест “ПРЯТКИ”',
-    description: 'Залез — нашёл — украл — принёс, всё просто, не так ли ….?',
+    title: 'Страйкбол',
+    description: 'Игра рассчитана как на новичков, так и на профи! Только для тех, кому 16+',
     imgBg: 'strike',
-    posterUrl: 'http://realgames.com.ua/wp-content/uploads/brizy/84/assets/images/iW=1364&iH=904&oX=44&oY=26&cW=1274&cH=852/-%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%B0.jpg',
-  },
-  {
-    id: 5,
-    title: 'Хоррор-квест “ПРЯТКИ”',
-    description: 'Залез — нашёл — украл — принёс, всё просто, не так ли ….?',
-    imgBg: 'strike',
-    posterUrl: 'https://paintball-odessa.com/wp-content/uploads/2019/05/blog.jpg',
-  },
-  {
-    id: 6,
-    title: 'Хоррор-квест “ПРЯТКИ”',
-    description: 'Залез — нашёл — украл — принёс, всё просто, не так ли ….?',
-    imgBg: 'strike',
-    posterUrl: 'http://realgames.com.ua/wp-content/uploads/brizy/10/assets/images/iW=352&iH=352&oX=0&oY=7&cW=352&cH=345/-%D0%BA%D0%B2%D0%B5%D1%81%D1%82.jpg',
+    posterUrlJpg: straikBallJpg,
+    posterUrlWebp: straikBallWebP,
+    tag: 'TOP',
   },
 ];
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import MapBox from '../MapBox/MapBox';
+// import MapBox from '../MapBox/MapBox';
 
 import styled from 'styled-components';
 
@@ -10,6 +10,7 @@ import './contact-form.scss';
 import Input from '../ui/Input';
 import Icon from '../ui/Icon';
 import Button from '../ui/Button';
+import map from '../../images/map.png';
 
 const StyledForm = styled.form`
   border-radius: 4px;
@@ -47,9 +48,9 @@ class ContactForm extends Component {
 
             <a className="contacts__link" href="https://www.google.com/maps/place/%D0%B7%D0%B0%D0%B2%D0%BE%D0%B4+%22%D0%91%D0%B8%D0%BE%D1%81%D1%82%D0%B8%D0%BC%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80%22/@46.5063207,30.6980114,17z/data=!4m12!1m6!3m5!1s0x40c62e2592cddf41:0x5f72b9aac64fe588!2z0LfQsNCy0L7QtCAi0JHQuNC-0YHRgtC40LzRg9C70Y_RgtC-0YAi!8m2!3d46.506317!4d30.7002001!3m4!1s0x40c62e2592cddf41:0x5f72b9aac64fe588!8m2!3d46.506317!4d30.7002001">
                 Хаджибеевская дорога 2,
-              <span className="text-color-yellow test-relative">
+              <h4 className="text-color-yellow test-relative">
                 завод «Биостимулятор»
-              </span>
+              </h4>
             </a>
 
             <a className="contacts__link" href="/">+38 093 543 4241</a>
@@ -75,7 +76,9 @@ class ContactForm extends Component {
               </li>
             </ul>
           </div>
-          <MapBox />
+          <div className="contacts__map">
+            <img src={map} alt="map" />
+          </div>
           <StyledForm>
             <Title level={3}>
               Жду звонка

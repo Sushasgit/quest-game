@@ -2,6 +2,8 @@ nav {
     display: flex;
     align-items: center;
     z-index: 100;
+    background-color: #242424;
+    padding: 10px;
 }
 
 .navbar {
@@ -43,8 +45,7 @@ nav {
 .frstbar,.scndbar,.thrdbar {
     transition: all 0.35s linear;
     transform: rotate(0deg);
-    // transform-origin: 10% 50%;
-  }
+}
 
   .icon.is-active .frstbar {
     transform: rotate(45deg);

@@ -1,74 +1,136 @@
-
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 
-import logo from '../../images/logo-real.png';
+import { TimelineLite, Power2, Power1 } from 'gsap';
+import Observed from 'react-observed';
+
+import {
+  LargeAndUp,
+  MediumAndDown,
+} from '../../utils/break-points';
 
 import './banner.scss';
-import Menu from '../Menu';
-
-const Layer = styled.div`
-  transform: translate3d(0px,${props => (Math.round(props.position) ? Math.round(props.position) : '0')}px, 0px);
-`;
-
-const LayerPosition = styled.div` &&{
-  transform: translate3d(${props => (Math.round(props.positionX) ? Math.round(props.positionX) : '0')}px, ${props => (Math.round(props.positionY) ? Math.round(props.positionY) : '0')}px, 0px)
- scale(${props => props.scaleX ? props.scaleX : '1'});
-    
-  background-position: 
-    ${props => (props.bottom ? 'bottom' : 'top')} 
-    ${props => (props.rightSide ? 'right' : 'left')} 
-    ${props => (props.posY ? Math.round(props.posY) : '0')}px;}
-`;
 
 class Banner extends Component {
   constructor(props) {
     super(props);
+    this.animateMe = React.createRef();
+    this.theTween = new TimelineLite({ paused: true });
+    this.preLoadedImage = React.createRef();
+  }
 
-    this.state = {};
+  componentDidMount() {
+    if (this.preLoadedImage) {
+      this.animate();
+      this.theTween.play();
+    }
+  }
+
+  animate() {
+    this.theTween
+      .to('.part05', 4, { y: '-=120' }, 0).delay(2.5)
+      .to('.part04', 5.75, { y: '-=70' }, 0).delay(3)
+      .to('.part03', 5.8, { y: '+=120' }, 3)
+      .to('.part02', 6, { y: '+=40' }, 3)
+      .to('.l8', 1.5, { scale: 1.1 }, 0)
+      .delay(3)
+      .to('.part01', 5, { y: '+=40' }, 7)
+      .delay(4)
+      .to('.part06', 3, { y: '-=60' }, 0)
+      .delay(2)
+      .to('.sun', 5, {
+        bezier: {
+          values: [
+            { x: 0, y: 0 },
+            { x: -150, y: 0 },
+            { x: -350, y: 350 },
+          ],
+        },
+        ease: Power2.easeOut,
+      }, 0)
+      .delay(2)
+      .to('h1', 2, { autoAlpha: 1, y: '+=50' }, 0)
+      .delay(2)
+      .to('.l11', 3, {
+        bezier: {
+          type: 'soft',
+          values: [
+            { x: 900, y: 30 },
+            { x: 700, y: 100 },
+            { x: 500, y: 0 },
+            { x: 300, y: 100 },
+            { x: 100, y: 180 }],
+          autoRotate: false,
+          ease: Power1.easeInOut,
+        },
+      })
+      .to('.l12', 0.6, { rotation: 20 }, '-=3')
+      .to('.l13', 1, { rotation: -30, ease: Power1.easeInOut }, '-=2.4');
+  }
+
+  clearAnimate() {
+    this.theTween.restart(true, false);
   }
 
   render() {
-    const { posY } = this.context;
+    const { title, children } = this.props;
     return (
-      <div className="banner">
-        <LayerPosition posY={posY} positionY={posY} className="banner__layer parallax l10" />
-        <LayerPosition posY={posY} positionY={posY * 1.9} positionX={posY * 1.10} scaleX={posY / 300 + 1} className="banner__layer parallax l12" />
-        <Layer position={posY * 20 / 100}>
-            <h1 className="neon">
-              Территория реальных игр
-            </h1>
-        </Layer>
-        <LayerPosition posY={posY} positionY={posY } positionX={posY * 3} scaleX={posY / 270 + 1} className="banner__layer parallax l11" />
-        <LayerPosition posY={posY} positionY={posY * 0.83} positionX={posY * -1.42} scaleX={posY / 270 + 1} className="banner__layer parallax l13" />
-        <LayerPosition
-          bottom
-          rightSide
-          posY={posY * -1}
-          position={posY * 4 / 100}
-          className="banner__layer parallax l8"
-        />
-        <Layer position={posY * 80 / 100} className="banner__layer parallax l7" />
-        <Layer position={posY * 60 / 100} className="banner__layer parallax l6" />
-        <LayerPosition bottom posY={posY * 3} positionY={posY * 55 / 100} className="banner__layer parallax l5" />
-        <Layer position={posY * 35 / 100} className="banner__layer parallax l4" />
-        <Layer position={posY * 25 / 100} className="banner__layer parallax l3" />
-        <Layer position={posY * 10 / 100} className="banner__layer parallax l2" />
-        <Layer position={posY * 1 / 100} className="banner__layer parallax l1">
-          <a className="logo-link" href="/">
-            <img src={logo} alt="logo" />
-          </a>
-          <Menu />
-        </Layer>
-      </div>
+      <React.Fragment>
+        <Observed
+          intersectionRatio={0.45}
+          onEnter={() => { this.animate(); }}
+          onExit={() => { this.clearAnimate(); }}
+          options={{
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.9,
+          }}
+        >
+          {({ mapRef }) => (
+            <React.Fragment>
+              <LargeAndUp>
+                <div className="banner">
+                  <div id="arizona" ref={mapRef}>
+                    <div ref={this.animateMe} id="wrapper">
+                      <div className="sun banner__layer l10" />
+                      <div className="banner__layer l12" />
+                      <div className="banner__layer l11" />
+                      <div className="banner__layer l13" />
+                      <div className="banner__layer l8" />
+                      <div className="banner__layer l7" />
+                      <div className="banner__layer l6" />
+                      <div className="parts part05 banner__layer l5" />
+                      <div className="parts part04 banner__layer l4" />
+                      <div className="parts part03 banner__layer l3" />
+                      <div className="parts part02 banner__layer l2" />
+                      <div ref={this.preLoadedImage} className="parts part01 banner__layer l1" />
+                      <div id="night" />
+                      <div id="sun" />
+                    </div>
+                    <h1 className="neon">
+                      Real Games
+                      {' '}
+                      {title}
+                    </h1>
+                  </div>
+                  {children}
+                </div>
+              </LargeAndUp>
+              <MediumAndDown>
+                <div className="small-devices">
+                  {children}
+                </div>
+              </MediumAndDown>
+            </React.Fragment>
+          )}
+        </Observed>
+      </React.Fragment>
     );
   }
 }
 
-Banner.contextTypes = {
-  posX: PropTypes.number,
-  posY: PropTypes.number,
+Banner.propTypes = {
+  title: PropTypes.string.isRequired,
 };
 
 
