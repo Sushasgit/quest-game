@@ -1,12 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Banner from '../components/Banner/Banner';
-
-// import imgTest from '../images/banner-img.png';
-
 const AdvantagesBox = styled.div`
-  background-color: #242424;
   width: 100%;
   height: 100%;
   position: relative;
