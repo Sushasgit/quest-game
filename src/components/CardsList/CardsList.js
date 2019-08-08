@@ -32,9 +32,8 @@ const CardsList = () => (
     <ul className="cards">
       {
         CARDS_DATA.map(item => (
-          <li>
-
-            <Link to="/hideandseek" className="cards__item" key={item.id}>
+          <li key={item.id}>
+            <Link to="/hideandseek" className="cards__item">
               <h3 className="card__title">
                 {item.title}
               </h3>
