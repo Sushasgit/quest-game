@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-import '../Calendar.css';
+import './calendar.scss';
 import Week from './parts/Week';
 import Day from './parts/Day';
 
@@ -22,6 +22,7 @@ class CalendarFix extends Component {
   }
 
   componentWillMount() {
+
     this.firstDayOfMonth();
     this.firstDayInNextMonth();
     this.prevMonthQuantityDay();
@@ -161,6 +162,7 @@ class CalendarFix extends Component {
     };
 
   onDayClick = (e, day, week) => {
+    console.log(this.state.currentMonth)
     this.setState({
       clickedWeek: week,
       clickedDay: day,

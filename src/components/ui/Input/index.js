@@ -7,9 +7,9 @@ const StyledLabel = styled.label`
     display: inline-block;
     position: absolute;
     left: 15px;
-    top: 9px;
+    top: 5px;
     transition: all 150ms ease-in;
-    
+    font-size: 0.7em;
     color: #fff;
 
     transform: ${props => (props.active ? 'translateY(-35px)' : 'none')};
@@ -19,7 +19,6 @@ const StyledLabel = styled.label`
 const StyledInput = styled.input`
     width: 100%;
     height: 40px;
-    font-size: 0.5em;
     background-color: transparent;
     border-top: none;
     border-left: none;

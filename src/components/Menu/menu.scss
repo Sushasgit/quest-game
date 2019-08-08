@@ -27,9 +27,12 @@
 
 .menu {
   position: fixed;
-  right: 20px;
+  right: 13px;
   top: 160px;
   font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+  padding: 19px;
+  z-index: 150;
 
   &--desktop {
     @media (max-width: 850px)  {
@@ -38,12 +41,14 @@
   }
 
   &--mobile {
+    margin: 0;
+    padding: 0;
     display: none;
     @media (max-width: 850px)  {
-      left:20px;
-      top: 20px;
-      // width: 80px;
+      left:0;
+      top: 0;
       display: inline-block;
+      width: 100%;
     }
   }
 }
@@ -66,7 +71,7 @@
   margin-right: 10px;
   margin-bottom: 10px;
   background: transparent;
-  box-shadow: 0px 0px 78px 4px rgba(102, 102, 0, 0.73);
+  box-shadow: 0px 0px 20px 4px rgba(102, 102, 0, 0.73);
 }
 
 .menu__link span {

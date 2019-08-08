@@ -1,77 +1,214 @@
-
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { withTheme } from 'styled-components';
+import { TimelineLite, Power2, Power1, Sine, Back} from 'gsap';
+import Observed from 'react-observed';
 
-import logo from '../../images/logo-real.png';
+import test from '../../images/test.svg';
+import {
+  LargeAndUp,
+  MediumAndDown,
+} from '../../utils/break-points';
 
 import './banner.scss';
-import Menu from '../Menu';
+import Title from '../ui/Title';
+import Icon from '../ui/Icon';
 
-const Layer = styled.div`
-  transform: translate3d(0px,${props => (Math.round(props.position) ? Math.round(props.position) : '0')}px, 0px);
-`;
+const TitleNeon = styled.span`
+  position: absolute;
+  text-align: center;
+  top: 250px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding:  0 20px;
+  font-size: 1.9em;
+  color: ${data => (data.theme && data.theme.themeType === 'dark' ? '#fff' : data.theme.textColor)};
+  text-shadow: 0 0 30px ${data => (data.theme ? data.theme.primaryBg : '#fff')};
+  font-family: 'FiraSans-Bold', sans-serif;
+  font-weight: 500;
+  line-height: 1em;
+  z-index: 150;
 
-const LayerPosition = styled.div` &&{
-  transform: translate3d(${props => (Math.round(props.positionX) ? Math.round(props.positionX) : '0')}px, ${props => (Math.round(props.positionY) ? Math.round(props.positionY) : '0')}px, 0px)
- scale(${props => props.scaleX ? props.scaleX : '1'});
-    
-  background-position: 
-    ${props => (props.bottom ? 'bottom' : 'top')} 
-    ${props => (props.rightSide ? 'right' : 'left')} 
-    ${props => (props.posY ? Math.round(props.posY) : '0')}px;}
+&::after {
+  content: attr(data-text);
+  position: absolute;
+  z-index: -1;
+  color: #000;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding:  0 15px;
+  filter: blur(px); 
+}
+
+&::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #FFDC26;
+  z-index: -2;
+  opacity: .3;
+  filter: blur(80px);
+}
 `;
 
 class Banner extends Component {
   constructor(props) {
     super(props);
+    this.animateMe = React.createRef();
+    this.theTween = new TimelineLite({ paused: true });
+  }
 
-    this.state = {};
+  componentDidMount() {
+    this.animate();
+    this.theTween.play();
+  }
+
+  componentWillUpdate(nextProps) {
+    if (nextProps.theme && nextProps.theme.themeType !== this.props.theme.themeType) {
+      this.clearAnimate();
+      this.animate();
+      this.theTween.play();
+    }
+  }
+
+  animate() {
+    this.theTween
+    .to(".fly-1", 2.5, {
+      bezier: { type: "quadratic",
+        values: [{x:150,y:250},{x:450,y:100},{x:600,y:300}],
+        autoRotate:90
+      },
+      ease: Power1.easeInOut
+    },'T1')
+    .from(".fly-1",2.5,{scale:0,repeat:1,yoyo:true,ease:Sine.easeInOut},'T1')
+    .to(".fly-1",2, {
+      bezier: {type:"quadratic",
+        values: [{x:600,y:300},{x:450,y:400},{x:150,y:250}],
+        autoRotate:90
+      },
+      ease: Power1.easeInOut
+    },'T2')
+    .to(".fly-1",2.5,{scale:2.5,repeat:1,yoyo:true,ease:Sine.easeInOut},'T2')
+    .to('.fly-2', 0.6, { rotation: 20, yoyo:true, repeat: 3 }, '-=3')
+    // .to('.fly-3', 1, { rotation: 30, yoyo:true, repeat: 3, ease: Power1.easeInOut }, '-=2.4')
+    .to('.fly-3' , 1, { x:-800 , ease:Back.easeInOut })
+  .to('.fly-3' , 0.5, {  opacity:0 , ease:Power1.easeInOut })
+  .to('.fly-2' , 1, { y:-300 , ease:Back.easeInOut })
+  .to('.fly-2' , 0.5, {  opacity:0 , ease:Power1.easeInOut })
+      .to('.part05', 4, { y: '-=90' }, 0).delay(2.5)
+      .to('.part01', 5, { y: '-=120' }, 7)
+      .to('.part04', 5, { y: '-=90' }, 0).delay(3)
+      .to('.part03', 5.8, { y: '+=100' }, 3)
+      .to('.part02', 6, { y: '+=0' }, 3)
+      .to('.part08', 1.5, { scale: 1.1 }, 0)
+      .delay(3)
+      .to('.part06', 3, { y: '-=60' }, 0)
+      .to('.l-sun', 5, {
+        bezier: {
+          values: [
+            { x: 0, y: 0 },
+            { x: 150, y: 0 },
+            { x: 350, y: 550 },
+          ],
+        },
+        ease: Power2.easeOut,
+      }, 0)
+      .to('.neon', 2, { autoAlpha: 1, y: '+=50' }, 0)
+      .delay(2)
+      .to('.fly-1', 3, {
+        bezier: {
+          type: 'soft',
+          values: [
+            { x: 900, y: 30 },
+            { x: 700, y: 100 },
+            { x: 500, y: 0 },
+            { x: 300, y: 100 },
+            { x: 100, y: 180 }],
+          autoRotate: false,
+          ease: Power1.easeInOut,
+        },
+      })
+  }
+
+  clearAnimate() {
+    this.theTween.restart(true, false);
   }
 
   render() {
-    const { posY } = this.context;
+    const { title, children, theme } = this.props;
     return (
-      <div className="banner">
-        <LayerPosition posY={posY} positionY={posY} className="banner__layer parallax l10" />
-        <LayerPosition posY={posY} positionY={posY * 1.9} positionX={posY * 1.10} scaleX={posY / 300 + 1} className="banner__layer parallax l12" />
-        <Layer position={posY * 20 / 100}>
-          <div className="box">
-            <h1 className="neon">
-              Территория реальных игр
-            </h1>
-          </div>
-        </Layer>
-        <LayerPosition posY={posY} positionY={posY } positionX={posY * 3} scaleX={posY / 270 + 1} className="banner__layer parallax l11" />
-        <LayerPosition posY={posY} positionY={posY * 0.83} positionX={posY * -1.42} scaleX={posY / 270 + 1} className="banner__layer parallax l13" />
-        <LayerPosition
-          bottom
-          rightSide
-          posY={posY * -1}
-          position={posY * 4 / 100}
-          className="banner__layer parallax l8"
-        />
-        <Layer position={posY * 80 / 100} className="banner__layer parallax l7" />
-        <Layer position={posY * 60 / 100} className="banner__layer parallax l6" />
-        <LayerPosition bottom posY={posY * 3} positionY={posY * 55 / 100} className="banner__layer parallax l5" />
-        <Layer position={posY * 35 / 100} className="banner__layer parallax l4" />
-        <Layer position={posY * 25 / 100} className="banner__layer parallax l3" />
-        <Layer position={posY * 10 / 100} className="banner__layer parallax l2" />
-        <Layer position={posY * 1 / 100} className="banner__layer parallax l1">
-          <a className="logo-link" href="/">
-            <img src={logo} alt="logo" />
-          </a>
-          <Menu />
-        </Layer>
-      </div>
+      <React.Fragment>
+        <Observed
+          intersectionRatio={0.45}
+          onEnter={() => { this.animate(); }}
+          onExit={() => { this.clearAnimate(); }}
+          options={{
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.9,
+          }}
+        >
+          {({ mapRef }) => (
+            <React.Fragment>
+              <LargeAndUp>
+                <div style={theme.themeType === 'light' ? { background: `url(${test})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat' } : { backgroundColor: theme.primaryBg }} className="banner">
+                  <div style={{ color: theme.primaryBg }} id="banner__inner" ref={mapRef}>
+                    <div ref={this.animateMe} id="wrapper">
+                      <Icon name="bg-layer6" className="part05 banner__layer" />
+                      <Icon name="bg-man" className="l-man part08 banner__layer" />
+                      {/* <Icon name="bg-layer4" className="part04 banner__layer" /> */}
+                      <Icon name="bg-layer3" className="l3 part03 banner__layer" />
+                      <Icon name="bg-layer2" className="part02 banner__layer" />
+                      {
+                        theme.themeType === 'dark' ? (
+                          <div className="moon">
+                            <Icon name="moon" className="l-sun" />
+                            <Icon name="bat-1" className="fly fly-1" />
+                            <Icon name="bat-2" className="fly fly-2" />
+                            <Icon name="bat-3" className="fly fly-3" />
+                          </div>
+                        ) : (
+                          <div className="sun">
+                            <Icon name="sun" className="l-sun" />
+                            <Icon name="bird-1" className="fly fly-1" />
+                            <Icon name="bird-2" className="fly fly-2" />
+                            <Icon name="bird-3" className="fly fly-3" />
+                          </div>
+                        )
+                      }
+                      <div id="night" />
+                      {/* <div id="sun" /> */}
+                    </div>
+                    <Title primary level={2}>
+                      <TitleNeon className="neon">
+                        {title}
+                      </TitleNeon>
+                    </Title>
+                  </div>
+                  {children}
+                </div>
+              </LargeAndUp>
+              <MediumAndDown>
+                <div className="small-devices">
+                  {children}
+                </div>
+              </MediumAndDown>
+            </React.Fragment>
+          )}
+        </Observed>
+      </React.Fragment>
     );
   }
 }
 
-Banner.contextTypes = {
-  posX: PropTypes.number,
-  posY: PropTypes.number,
+Banner.propTypes = {
+  title: PropTypes.string.isRequired,
 };
 
 
-export default Banner;
+export default withTheme(Banner);

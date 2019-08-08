@@ -5,8 +5,14 @@ import './menu.scss';
 import { Link } from 'react-router-dom';
 import BurgerMenu from '../BurgerMenu';
 
+import logo from '../../images/logo-real.png';
+
 const Menu = () => (
   <React.Fragment>
+    <a className="logo-link" href="/">
+      Real Games
+      <img src={logo} alt="logo" />
+    </a>
     <ul className="menu menu--desktop">
       <li className="menu__link">
         <Link to="/prices">
@@ -65,6 +71,9 @@ const Menu = () => (
 
     <div className="menu menu--mobile">
       <BurgerMenu />
+      <a className="logo-link" href="/">
+        <img src={logo} alt="logo" />
+      </a>
     </div>
   </React.Fragment>
 );

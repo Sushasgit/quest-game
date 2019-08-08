@@ -25,15 +25,49 @@ const defaultProps = {
 };
 
 const StyledButton = styled.button`
-    display: block;
+    display: inline-block;
+    padding: 15px;
+    font-family: 'FiraSans-Bold', sans-serif;
+    margin-bottom: 12px;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    line-height: 100%;
+    letter-spacing: 0.05em;
+    width: min-content;
+    position: relative;
+    z-index: 1;
+    border: 1px solid red;
     background-color: transparent;
-    color: #FFDC26;
-    border-radius: 4px;
-    padding: 12px 20px;
-    max-width: 100%;
-    width: 100%;
-    font-size: 0.6em;
-    border: 2px solid #FFDC26;
+    color: red;
+
+    &::before, &::after {
+        display: inline-block;
+        content: '';
+        border: 1px solid #fff500;
+        position: absolute;
+
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        transition: opacity 0.5s, transform 1s ease;
+        z-index: 0;
+    }
+
+    &:hover {
+        border: 1px solid transparent;
+    }
+
+    &:hover::after {
+        opacity: 1;
+        transform: rotate(-3deg);
+    }
+
+    &:hover::before{
+        opacity: 1;
+        transform: rotate(3deg);
+    }
 `;
 
 const ContentWrapper = styled.span`
