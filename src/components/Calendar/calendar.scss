@@ -45,7 +45,7 @@ h2{
 
 }
 
-.current-day .date-number{
+.future_day.date-number{
     border-radius: 50%;
     box-sizing: border-box;
     border: 1px solid #ffdc26;
@@ -133,20 +133,15 @@ div.empty-slot{
     cursor: no-drop;
 
 }
-div.future-day{
+.future_day{
     color: #414141;
     background-color: #202020;
-}
-
-.available-day{
     cursor: pointer;
-    background-color: #242424;
-    color: #fff;
     position: relative;
   &:hover {
     .calendar_data_day {
-      width: 5vw;
-      height: 5vw;
+      width: 6vw;
+      height: 6vw;
       max-width: 50px;
       max-height: 50px;
       border: solid 1px #fff500;
@@ -158,6 +153,11 @@ div.future-day{
       color: #202020;
     }
   }
+}
+
+.current_month_day{
+    background-color: #242424;
+    color: #fff;
 }
 
 .calendar_container{
@@ -178,8 +178,8 @@ div.future-day{
 .current-today:before{
   content: "";
   display: block;
-  width: 5vw;
-  height: 5vw;
+  width: 6vw;
+  height: 6vw;
   max-width: 50px;
   max-height: 50px;
   border-radius: 50%;
@@ -187,34 +187,20 @@ div.future-day{
   position: absolute;
 }
 
-.available-day, .empty-slot{
+.future_day, .empty-slot{
     width: 8vw;
     height: 8vw;
     min-width: 40px;
     min-height: 40px;
     max-width: 105px;
     max-height: 105px;
-    border-bottom: 1px solid #373737;
-    border-right: 1px solid #373737;
+    border: 1px solid #373737;
     display: flex;
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
 }
 
-.date-number{
-    text-align: center;
-}
-.available-day:hover .date-number{
-    width: 45%;
-    height: 45%;
-    background-color: #ffdc26;
-    border-radius: 50%;
-    color: #202020;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 .weekdays{
     display: flex;
     background-color: #404040;
@@ -301,5 +287,8 @@ div.future-day{
 .calendar_order_list{
   height: 470px;
   background-color: #404040;
+  width: calc(8vw * 7);
+  min-width: 100%;
+  max-width: 720px;
 }
 
