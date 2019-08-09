@@ -4,6 +4,20 @@ import PropTypes from 'prop-types';
 import { ReactComponent as Marker } from './svg/marker.svg';
 import { ReactComponent as Instagram } from './svg/instagram.svg';
 import { ReactComponent as Facebook } from './svg/facebook.svg';
+import { ReactComponent as BgLayer1 } from './svg/bg-layer1.svg';
+import { ReactComponent as BgLayer2 } from './svg/bg-layer2.svg';
+import { ReactComponent as BgLayer3 } from './svg/bg-layer3.svg';
+import { ReactComponent as BgLayer4 } from './svg/bg-layer4.svg';
+import { ReactComponent as BgLayer5 } from './svg/bg-layer5.svg';
+import { ReactComponent as BgLayer6 } from './svg/bg-layer6.svg';
+import { ReactComponent as Bird1 } from './svg/bird-1.svg';
+import { ReactComponent as Bird2 } from './svg/bird-2.svg';
+import { ReactComponent as Bird3 } from './svg/bird-3.svg';
+import { ReactComponent as Sun } from './svg/sun.svg';
+import { ReactComponent as Moon } from './svg/moon.svg';
+import { ReactComponent as Bat1 } from './svg/bat-1.svg';
+import { ReactComponent as Bat2 } from './svg/bat-2.svg';
+import { ReactComponent as Bat3 } from './svg/bat-3.svg';
 
 const Icon = (props) => {
   switch (props.name) {
@@ -13,6 +27,34 @@ const Icon = (props) => {
       return <Instagram />;
     case 'facebook':
       return <Facebook />;
+    case 'bg-layer1':
+      return <BgLayer1 className={props.className} />;
+    case 'bg-layer2':
+      return <BgLayer2 className={props.className} />;
+    case 'bg-layer3':
+      return <BgLayer3 className={props.className} />;
+    case 'bg-layer4':
+      return <BgLayer4 className={props.className} />;
+    case 'bg-man':
+      return <BgLayer5 className={props.className} />;
+    case 'bg-layer6':
+      return <BgLayer6 className={props.className} />;
+    case 'bird-1':
+      return <Bird1 className={props.className} />;
+    case 'bird-2':
+      return <Bird2 className={props.className} />;
+    case 'bird-3':
+      return <Bird3 className={props.className} />;
+    case 'sun':
+      return <Sun className={props.className} />;
+    case 'moon':
+      return <Moon className={props.className} />;
+    case 'bat-1':
+      return <Bat1 className={props.className} />;
+    case 'bat-2':
+      return <Bat2 className={props.className} />;
+    case 'bat-3':
+      return <Bat3 className={props.className} />;
     default:
       return <Marker />;
   }

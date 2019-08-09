@@ -4,7 +4,6 @@
 }
 
 .cards {
-    background-color: #242424;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -63,7 +62,6 @@
         color: #fff;
         font-size: 1em;
         font-weight: 700;
-        background-color: #242424;
         opacity: 0.9;
         margin: 20px 0 -80px 0;
         line-height: 1.8em;
@@ -71,7 +69,6 @@
     }
 
     &__link {
-        background-color: #242424;
         align-self: flex-end;
         margin-left: auto;
         opacity: 0.9;

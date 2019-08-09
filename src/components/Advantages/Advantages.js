@@ -9,6 +9,7 @@ import ContactForm from '../ContactForm';
 
 import './advantages.scss';
 import Title from '../ui/Title';
+import BackgroundWrapper from '../ui/BackgroundWrapper';
 
 
 const Description = styled.p`
@@ -45,17 +46,17 @@ const ListItemDesc = styled.p`
   line-height: 30px;
 `;
 
-const AdvantagesBox = styled.div`
-  background-color: #242424;
-  width: 100%;
-  height: 100%;
-  position: relative;
-  z-index: 100;
-`;
+// const AdvantagesBox = styled.div`
+//   width: 100%;
+//   height: 100%;
+//   position: relative;
+//   z-index: 100;
+//   background-color: ${props => (props.theme ? props.theme.primaryBg : '#fff')}
+// `;
 
 const Advantages = () => (
   <React.Fragment>
-    <AdvantagesBox className="bg bg--buildings">
+    <BackgroundWrapper withBuildings>
       <section className="wrapper">
         <Title primary level={2}>
           Real Games
@@ -83,13 +84,13 @@ const Advantages = () => (
         <AdvantagesPlace />
       </section>
       <div className="test-bg" />
-      <section className="bg bg--buildings">
+      <BackgroundWrapper withBuildings>
         <CardsList />
-      </section>
-      <section className="bg">
+      </BackgroundWrapper>
+      <BackgroundWrapper className="bg">
         <ContactForm />
-      </section>
-    </AdvantagesBox>
+      </BackgroundWrapper>
+    </BackgroundWrapper>
   </React.Fragment>
 );
 

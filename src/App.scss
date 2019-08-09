@@ -38,17 +38,6 @@ img {
   max-width: 100%;
 }
 
-#arizona{
-  position: fixed;
-  height:auto;
-  width:100%;
-  left:0;
-  top:0;
-  bottom: 0;
-  right: 0;
-  overflow:visible;
-}
-
 #night{
   position: absolute;
   width: 100%;
@@ -86,33 +75,6 @@ li {
 
     &--lg {
         max-width: 1700px;
-    }
-}
-
-.bg {
-    background: #242424;
-    padding: 40px 0 0;
-
-    &--yellow {
-        padding: 15px;
-    }
-
-    &--buildings {
-        position: relative;
-
-        &::before {
-            content: '';
-            background:url(./images/l1.svg);
-            top: -110px;
-            right: 0;
-            left: 0;
-            bottom: 0;
-            background-repeat: repeat-x;
-            position: absolute;
-            width: 100%;
-            min-height: 200px;
-            background-position: top left;
-        }
     }
 }
 
@@ -154,6 +116,13 @@ li {
     position: fixed;
     right: 20px;
     top: 20px;
+    display: flex;
+    align-items: center;
+    color: #FFDC26;
+    font-family: 'FiraSans-Bold', sans-serif;
+    text-decoration: none;
+    font-size: 1.2em;
+    text-transform: uppercase;
 
     @media (max-width: 850px)  {
       right: 10px;
@@ -163,7 +132,7 @@ li {
   
   .logo-link img {
     max-width: 50px;
-
+    margin-left: 15px;
     @media (max-width: 850px)  {
       max-width: 40px;
     }

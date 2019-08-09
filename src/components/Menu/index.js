@@ -10,6 +10,7 @@ import logo from '../../images/logo-real.png';
 const Menu = () => (
   <React.Fragment>
     <a className="logo-link" href="/">
+      Real Games
       <img src={logo} alt="logo" />
     </a>
     <ul className="menu menu--desktop">

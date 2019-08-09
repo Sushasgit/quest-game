@@ -36,9 +36,9 @@ const StyledButton = styled.button`
     width: min-content;
     position: relative;
     z-index: 1;
-    border: 1px solid ${data => (data.theme.dark.colorYellow)};
+    border: 1px solid red;
     background-color: transparent;
-    color: ${data => (data.theme.dark.colorYellow)};
+    color: red;
 
     &::before, &::after {
         display: inline-block;

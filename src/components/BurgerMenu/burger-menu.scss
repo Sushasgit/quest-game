@@ -2,7 +2,6 @@ nav {
     display: flex;
     align-items: center;
     z-index: 100;
-    background-color: #242424;
     padding: 10px;
 }
 
@@ -16,7 +15,6 @@ nav {
     &__list {
         display: flex;
         align-items: center;
-        background-color: #242424;
         padding: 20px;
 
         @media (max-width: 500px)  {
