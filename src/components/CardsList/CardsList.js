@@ -33,7 +33,7 @@ const CardsList = () => (
       {
         CARDS_DATA.map(item => (
           <li key={item.id}>
-            <Link to="/hideandseek" className="cards__item">
+            <Link to="/dev" className="cards__item">
               <h3 className="card__title">
                 {item.title}
               </h3>

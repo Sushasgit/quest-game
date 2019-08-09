@@ -17,7 +17,7 @@ const BackgroundWrapper = ({
     z-index: 100;
     position: relative;
     background-color: ${data => (data.theme ? data.theme.primaryBg : '#fff')}
-    color: ${data => (data.theme ? data.theme.primaryBg : '#fff')}
+    color: ${data => (data.theme ? data.theme.textColor : '#fff')}
 `;
 
   const StyledWrapperBuldings = styled.div`

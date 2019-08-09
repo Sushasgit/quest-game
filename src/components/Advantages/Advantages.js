@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { withTheme } from 'styled-components';
 
 import { ADVANTAGES_DATA } from '../../utils/constants';
 
@@ -13,14 +13,13 @@ import BackgroundWrapper from '../ui/BackgroundWrapper';
 
 
 const Description = styled.p`
-  color: #fff;
   text-align: center;
   font-size: 1.2em;
   line-height: 1.8em;
 `;
 
 const ListItem = styled.li`
-  color: #fff;
+  color: ${data => (data.theme ? data.theme.textColor : '#fff')};
   text-align: center;
   font-size: 1em;
   line-height: 1.8em;
@@ -40,19 +39,10 @@ const ListItemTitle = styled.h3`
 `;
 
 const ListItemDesc = styled.p`
-  color: #fff;
   font-size: 18px;
   margin-top: 30px;
   line-height: 30px;
 `;
-
-// const AdvantagesBox = styled.div`
-//   width: 100%;
-//   height: 100%;
-//   position: relative;
-//   z-index: 100;
-//   background-color: ${props => (props.theme ? props.theme.primaryBg : '#fff')}
-// `;
 
 const Advantages = () => (
   <React.Fragment>
@@ -94,4 +84,4 @@ const Advantages = () => (
   </React.Fragment>
 );
 
-export default Advantages;
+export default withTheme(Advantages);
