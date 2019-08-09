@@ -11,7 +11,9 @@ const Home = React.lazy(() => import('./pages/Home'));
 const Prices = React.lazy(() => import('./pages/Prices'));
 const OurGames = React.lazy(() => import('./pages/OurGames'));
 const Development = React.lazy(() => import('./pages/Development'));
+const Calendar = React.lazy(() => import('./components/Calendar/index.js'));
 const HideAndSeek = React.lazy(() => import('./pages/HideAndSeek'));
+
 
 class App extends Component {
   constructor(props) {
@@ -52,6 +54,7 @@ class App extends Component {
             <Route path="/prices" component={Prices} />
             <Route path="/games" component={OurGames} />
             <Route path="/dev" component={Development} />
+            <Route path="/calendar" component={Calendar} />
             <Route path="/hideandseek" component={HideAndSeek} />
           </Router>
         </ThemeProvider>
