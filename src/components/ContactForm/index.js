@@ -58,19 +58,19 @@ class ContactForm extends Component {
 
             <ul className="contacts__list">
               <li>
-                <a className="link" href="/">
+                <a aria-label="Наш адрес" className="link" href="/">
                   <Icon name="marker" />
                 </a>
               </li>
 
               <li>
-                <a className="link" href="/">
+                <a aria-label="Instagram" className="link" href="/">
                   <Icon name="insta" />
                 </a>
               </li>
 
               <li>
-                <a className="link" href="/">
+                <a aria-label="Facebook" className="link" href="/">
                   <Icon name="facebook" />
                 </a>
               </li>

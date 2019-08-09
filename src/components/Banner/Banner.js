@@ -193,7 +193,6 @@ class Banner extends Component {
                       <Icon name="bg-layer3" className="l3 part03 banner__layer" />
                       <Icon name="bg-layer2" className="part02 banner__layer" />
                       <div className={`banner__planet-list ${theme.themeType !== 'dark' ? 'none' : ''}`}>
-                        <Icon name="bg-layer4" className="part04 banner__layer" />
                         <Icon name="moon" className="banner__planet banner__planet--moon" />
                         <Icon name="bat-1" className="banner__fly banner__fly--1" />
                         <Icon name="bat-2" className="banner__fly banner__fly--2" />

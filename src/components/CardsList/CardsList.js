@@ -24,6 +24,25 @@ const Tag = styled.span`
   background-position: top 200px left;
 `;
 
+const Description = styled.p`
+  color: ${data => (data.theme ? data.theme.textColor : '#fff')};
+  font-size: 1em;
+  font-weight: 700;
+  opacity: 0.9;
+  margin: 20px 0 -80px 0;
+  line-height: 1.8em;
+  text-align: center;
+`;
+
+const CardTitle = styled.h3`
+  color: ${data => (data.theme ? data.theme.titleColor : '#fff')};
+  font-size: 1.3em;
+  font-weight: 900;
+  text-align: center;
+  font-family: "FiraSans-Bold", sans-serif;
+  margin: 20px;
+`;
+
 const CardsList = () => (
   <div className="wrapper">
     <Title primary level={2}>
@@ -34,9 +53,9 @@ const CardsList = () => (
         CARDS_DATA.map(item => (
           <li key={item.id}>
             <Link to="/dev" className="cards__item">
-              <h3 className="card__title">
+              <CardTitle className="card__title">
                 {item.title}
-              </h3>
+              </CardTitle>
               {
                 item.tag ? (
                   <Tag data={item.tag} className="tag">
@@ -44,9 +63,9 @@ const CardsList = () => (
                   </Tag>
                 ) : null
               }
-              <p className="card__description">
+              <Description className="card__description">
                 {item.description}
-              </p>
+              </Description>
               <div
                 style={{
                   background: `url(${item.posterUrlJpg})`,

@@ -14,7 +14,7 @@ export const lightTheme = {
   themeType: 'light',
   textColor: '#333333',
   primaryBg: '#f3dac3',
-  titleColor: '#FFDC26',
+  titleColor: '#3d0f2e',
 
   toggleButton: {
     bgColor: '#242424',

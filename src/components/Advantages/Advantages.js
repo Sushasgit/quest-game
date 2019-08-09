@@ -10,12 +10,14 @@ import ContactForm from '../ContactForm';
 import './advantages.scss';
 import Title from '../ui/Title';
 import BackgroundWrapper from '../ui/BackgroundWrapper';
+import Icon from '../ui/Icon';
 
 
 const Description = styled.p`
   text-align: center;
   font-size: 1.2em;
   line-height: 1.8em;
+  color: ${data => (data.theme ? data.theme.textColor : '#fff')};
 `;
 
 const ListItem = styled.li`
@@ -44,8 +46,14 @@ const ListItemDesc = styled.p`
   line-height: 30px;
 `;
 
-const Advantages = () => (
+const ListItemIcon = styled(Icon)`
+  max-width: 125px;
+  color: ${data => (data.theme ? data.theme.titleColor : '#fff')}
+`;
+
+const Advantages = (props) => (
   <React.Fragment>
+    {console.log(props)}
     <BackgroundWrapper withBuildings>
       <section className="wrapper">
         <Title primary level={2}>
@@ -57,7 +65,8 @@ const Advantages = () => (
         <ul className="flex">
           {
             ADVANTAGES_DATA.map(item => (
-              <ListItem key={item.id} className={`activity activity--${item.bgImg}`}>
+              <ListItem key={item.id}>
+                <ListItemIcon name={item.bgImg} />
                 <ListItemTitle>
                   <span>{item.title}</span>
                 </ListItemTitle>

@@ -19,7 +19,7 @@ export default class BurgerMenu extends React.Component {
     const burgerMenuStyleClasses = `navbar__burger burger ${activeMenuStyleClass}`;
     return (
       <nav className="navbar">
-        <button type="button" className={burgerMenuStyleClasses} onClick={this.handleOpenMenu}>
+        <button aria-label="menu" type="button" className={burgerMenuStyleClasses} onClick={this.handleOpenMenu}>
           <svg width="60" height="35">
             <g className={`icon ${activeMenuStyleClass}`}>
               <rect className="frstbar" x="10" y="5" width="40" height="6" rx="3" ry="3" fill="#FFDC26" />
