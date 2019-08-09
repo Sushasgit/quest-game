@@ -127,21 +127,16 @@ h2{
   display: flex;
   flex-wrap: wrap;
 }
-div.empty-slot{
+.empty_slot{
   color: #414141;
   background-color: #202020;
   cursor: no-drop;
 
 }
-div.future-day{
+.future_day{
   color: #414141;
   background-color: #202020;
-}
-
-.available-day{
   cursor: pointer;
-  background-color: #242424;
-  color: #fff;
   position: relative;
   &:hover {
     .calendar_data_day {
@@ -158,6 +153,11 @@ div.future-day{
       color: #202020;
     }
   }
+}
+
+.current_month_day{
+  background-color: #242424;
+  color: #fff;
 }
 
 .calendar_container{
@@ -187,15 +187,14 @@ div.future-day{
   position: absolute;
 }
 
-.available-day, .empty-slot{
+.future_day, .empty_slot{
   width: 8vw;
   height: 8vw;
   min-width: 40px;
   min-height: 40px;
   max-width: 105px;
   max-height: 105px;
-  border-bottom: 1px solid #373737;
-  border-right: 1px solid #373737;
+  border: 1px solid #373737;
   display: flex;
   justify-content: center;
   align-items: center;

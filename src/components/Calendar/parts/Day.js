@@ -2,7 +2,7 @@ import React from 'react';
 
 const Day = (props) => {
   const currentDay = props.day.currentMonth ? 'current_month_day' : '';
-  const prevDay = props.day.empty ? 'empty-slot' : 'future_day';
+  const prevDay = props.day.empty ? 'empty_slot' : 'future_day';
   const todayInMonth = props.day.today ? 'current-today' : '';
   const clickDisable = props.day.click
     ? (
