@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import local from 'moment/locale/ru';
-import './Calendar.scss';
+import './calendar.scss';
 import { debuggerStatement } from '@babel/types';
 import Week from './parts/Week';
 import Day from './parts/Day';
