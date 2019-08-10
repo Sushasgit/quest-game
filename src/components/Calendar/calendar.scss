@@ -187,6 +187,10 @@ h2{
   position: absolute;
 }
 
+.checked.current-today:before{
+  border: solid 1px #fff;
+}
+
 .future_day, .empty_slot{
   width: 8vw;
   height: 8vw;
@@ -288,8 +292,29 @@ h2{
   }
 }
 
-.calendar_order_list{
-  height: 470px;
+.calendar_booking{
+  height: 300px;
   background-color: #404040;
+  width: inherit;
 }
 
+.checked.future_day:hover {
+  .calendar_data_day {
+    border: solid 1px #fff;
+    background-color: #fff;
+  }
+}
+
+.checked .calendar_data_day{
+  width: 5vw;
+  height: 5vw;
+  max-width: 50px;
+  max-height: 50px;
+  border: solid 1px #fff;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #202020;
+}
