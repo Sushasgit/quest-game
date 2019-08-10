@@ -8,7 +8,8 @@ const Title = ({ level, primary, ...props }) => {
     font-size: 1.8em;
     font-family: "FiraSans-Bold", sans-serif;
     text-align: center;
-    margin: 0;
+    margin: 0 0 25px 0;
+    padding: 1px;
 `;
   const { children } = props;
   return (

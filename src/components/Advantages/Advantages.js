@@ -26,7 +26,6 @@ const ListItem = styled.li`
   font-size: 1em;
   line-height: 1.8em;
   position: relative;
-  padding-top: 80px;
   background-position: top center;
   background-repeat: no-repeat;
   background-size: 80px 80px;

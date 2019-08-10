@@ -99,9 +99,6 @@ li {
     }
 }
 
-  .text-color-yellow {
-    color: #FFDC26;
-  }
   
   .test-bg {
     background: url(./images/horror-back.svg);
@@ -113,12 +110,11 @@ li {
   }
   
   .logo-link {
-    position: fixed;
+    position: absolute;
     right: 20px;
     top: 20px;
     display: flex;
     align-items: center;
-    color: #FFDC26;
     font-family: 'FiraSans-Bold', sans-serif;
     text-decoration: none;
     font-size: 1.2em;

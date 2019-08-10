@@ -11,21 +11,21 @@ import Button from '../ui/Button';
 import blood from '../../images/blood-tag.svg';
 
 const Tag = styled.span`
+  font-family: MontserratBold, sans-serif;
   background-image: url(${blood});
   background-size: contain;
   min-width: 50px;
   display: inline-block;
   min-height: 40px;
-  border: 2px solid ${props => (props.data === '18+' ? '#ff0000' : '#FFDC26')};
-  font-weight: 900;
+  border: 2px solid ${props => (props.data === 'TOP' ? props.theme.tags.top.borderColor : props.theme.tags.standard.borderColor)}
   border-radius: 4px;
   padding: 5px;
-  color: ${props => (props.data === 'TOP' ? '#FFDC26' : '#fff')}
+  color: ${props => (props.data === 'TOP' ? props.theme.tags.top.textColor : props.theme.tags.standard.textColor)}
   background-position: top 200px left;
 `;
 
 const Description = styled.p`
-  color: ${data => (data.theme ? data.theme.textColor : '#fff')};
+  color: ${props => (props.theme ? props.theme.textColor : '#fff')};
   font-size: 1em;
   font-weight: 700;
   opacity: 0.9;
@@ -35,7 +35,7 @@ const Description = styled.p`
 `;
 
 const CardTitle = styled.h3`
-  color: ${data => (data.theme ? data.theme.titleColor : '#fff')};
+  color: ${props => (props.theme ? props.theme.titleColor : '#fff')};
   font-size: 1.3em;
   font-weight: 900;
   text-align: center;

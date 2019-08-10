@@ -1,8 +1,13 @@
 import React from 'react';
-
+import styled from 'styled-components';
 import PopupMenu from './PopupMenu';
 
 import './burger-menu.scss';
+
+
+const BurgerButton = styled.button`
+  color: ${data => (data.theme ? data.theme.titleColor : '#fff')};
+`;
 
 export default class BurgerMenu extends React.Component {
   state = {
@@ -19,15 +24,15 @@ export default class BurgerMenu extends React.Component {
     const burgerMenuStyleClasses = `navbar__burger burger ${activeMenuStyleClass}`;
     return (
       <nav className="navbar">
-        <button aria-label="menu" type="button" className={burgerMenuStyleClasses} onClick={this.handleOpenMenu}>
+        <BurgerButton aria-label="menu" type="button" className={burgerMenuStyleClasses} onClick={this.handleOpenMenu}>
           <svg width="60" height="35">
             <g className={`icon ${activeMenuStyleClass}`}>
-              <rect className="frstbar" x="10" y="5" width="40" height="6" rx="3" ry="3" fill="#FFDC26" />
-              <rect className="scndbar" x="10" y="15" width="40" height="6" rx="3" ry="3" fill="#FFDC26" />
-              <rect className="thrdbar" x="10" y="25" width="40" height="6" rx="3" ry="3" fill="#FFDC26" />
+              <rect className="frstbar" x="10" y="5" width="40" height="6" rx="3" ry="3" fill="currentColor" />
+              <rect className="scndbar" x="10" y="15" width="40" height="6" rx="3" ry="3" fill="currentColor" />
+              <rect className="thrdbar" x="10" y="25" width="40" height="6" rx="3" ry="3" fill="currentColor" />
             </g>
           </svg>
-        </button>
+        </BurgerButton>
         {
             activeMenu ? (
               <PopupMenu
