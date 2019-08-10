@@ -1,7 +1,6 @@
 nav {
     display: flex;
     align-items: center;
-    z-index: 100;
     padding: 10px;
 }
 
@@ -12,30 +11,11 @@ nav {
         padding: 0;
     }
 
-    &__list {
-        display: flex;
-        align-items: center;
-        padding: 20px;
-
-        @media (max-width: 500px)  {
-            flex-direction: column;
-        }
-    }
-
     &__link {
-        &:not(:last-child) {
-            margin-right: 15px;
-        }
-
-        @media (max-width: 500px)  {
-            &:not(:last-child) {
-                margin-bottom: 15px;
-            }
-        }
+        margin: 10px;
     }
 
     &__link a {
-        color: #fff;
         text-decoration: none;
     }
 }

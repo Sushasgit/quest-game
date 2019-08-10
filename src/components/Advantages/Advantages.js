@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { withTheme } from 'styled-components';
 
 import { ADVANTAGES_DATA } from '../../utils/constants';
 
@@ -10,22 +10,22 @@ import ContactForm from '../ContactForm';
 import './advantages.scss';
 import Title from '../ui/Title';
 import BackgroundWrapper from '../ui/BackgroundWrapper';
+import Icon from '../ui/Icon';
 
 
 const Description = styled.p`
-  color: #fff;
   text-align: center;
   font-size: 1.2em;
   line-height: 1.8em;
+  color: ${data => (data.theme ? data.theme.textColor : '#fff')};
 `;
 
 const ListItem = styled.li`
-  color: #fff;
+  color: ${data => (data.theme ? data.theme.textColor : '#fff')};
   text-align: center;
   font-size: 1em;
   line-height: 1.8em;
   position: relative;
-  padding-top: 80px;
   background-position: top center;
   background-repeat: no-repeat;
   background-size: 80px 80px;
@@ -40,22 +40,19 @@ const ListItemTitle = styled.h3`
 `;
 
 const ListItemDesc = styled.p`
-  color: #fff;
   font-size: 18px;
   margin-top: 30px;
   line-height: 30px;
 `;
 
-// const AdvantagesBox = styled.div`
-//   width: 100%;
-//   height: 100%;
-//   position: relative;
-//   z-index: 100;
-//   background-color: ${props => (props.theme ? props.theme.primaryBg : '#fff')}
-// `;
+const ListItemIcon = styled(Icon)`
+  max-width: 125px;
+  color: ${data => (data.theme ? data.theme.titleColor : '#fff')}
+`;
 
-const Advantages = () => (
+const Advantages = (props) => (
   <React.Fragment>
+    {console.log(props)}
     <BackgroundWrapper withBuildings>
       <section className="wrapper">
         <Title primary level={2}>
@@ -67,7 +64,8 @@ const Advantages = () => (
         <ul className="flex">
           {
             ADVANTAGES_DATA.map(item => (
-              <ListItem key={item.id} className={`activity activity--${item.bgImg}`}>
+              <ListItem key={item.id}>
+                <ListItemIcon name={item.bgImg} />
                 <ListItemTitle>
                   <span>{item.title}</span>
                 </ListItemTitle>
@@ -94,4 +92,4 @@ const Advantages = () => (
   </React.Fragment>
 );
 
-export default Advantages;
+export default withTheme(Advantages);
