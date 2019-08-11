@@ -17,6 +17,45 @@
       right: 0;
       overflow: visible;
     }
+
+    &__moon,
+    &__sun {
+      position: relative;
+    }
+
+    &__fly {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      &--2 {
+        top: -100px;
+        left: 150px;
+        transform: scale(1.8);
+      }
+
+      &--3 {
+        position: absolute;
+        top: 0;
+        left: 400px;
+        right: 100px;
+        transform: scale(1.8);
+      }
+    }
+
+    &__planet-list {
+      position: relative;
+      top: 100px;
+    }
+
+    &__planet {
+      position: absolute;
+
+      
+      &--moon {
+        top: -20px;
+      }
+    }
 }
 
 .box {
@@ -35,10 +74,24 @@
 
 .small-devices {
   min-height: 400px;
-  background: url(../../images/mobile-banner.webp),
-  url(../../images/mobile-banner.png);
   background-size: cover;
   background-repeat: no-repeat;
+
+  &--light {
+    background:
+      url(../../images/mobile-banner.webp),
+      url(../../images/mobile-banner.png),
+      url(../../images//test.svg);
+      background-size: cover;
+  }
+
+  &--dark {
+    background: 
+      url(../../images/mobile-banner.webp),
+      url(../../images/mobile-banner.png),
+      url(../../images//dark-theme-mobile.svg);
+      background-size: cover;
+  }
 }
 
 
@@ -60,31 +113,13 @@
   z-index: 20;
 }
 
+// .l-sun {
+//   top: 0;
+//   z-index: 10;
+// }
 
-.sun, .moon {
-  position: relative;
-  min-height: 200px;
-  max-width: 600px;
 
-}
-
-.l-sun {
-  top: 0;
-  z-index: 10;
-}
-
-.fly-2 {
-  position: absolute;
-  top: 0;
-  right: 0;
-  transform: scale(1.8);
-}
-
-.fly-3 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 100px;
-  transform: scale(1.8);
+.none {
+  display: none;
 }
 

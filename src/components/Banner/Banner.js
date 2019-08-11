@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled, { withTheme } from 'styled-components';
-import { TimelineLite, Power2, Power1, Sine, Back} from 'gsap';
+import {
+  TimelineLite,
+  Power2,
+  Power1,
+  Sine,
+  Back,
+} from 'gsap';
 import Observed from 'react-observed';
 
 import test from '../../images/test.svg';
@@ -56,6 +62,11 @@ const TitleNeon = styled.span`
 }
 `;
 
+const TitleNeonMobile = styled(TitleNeon)`
+  font-size: 1.3em;
+  top: 200px;
+`;
+
 class Banner extends Component {
   constructor(props) {
     super(props);
@@ -69,58 +80,52 @@ class Banner extends Component {
   }
 
   componentWillUpdate(nextProps) {
-    if (nextProps.theme && nextProps.theme.themeType !== this.props.theme.themeType) {
+    const { theme } = this.props;
+    if (nextProps.theme && nextProps.theme.themeType !== theme.themeType) {
       this.clearAnimate();
       this.animate();
       this.theTween.play();
     }
   }
 
+
   animate() {
     this.theTween
-    .to(".fly-1", 2.5, {
-      bezier: { type: "quadratic",
-        values: [{x:150,y:250},{x:450,y:100},{x:600,y:300}],
-        autoRotate:90
-      },
-      ease: Power1.easeInOut
-    },'T1')
-    .from(".fly-1",2.5,{scale:0,repeat:1,yoyo:true,ease:Sine.easeInOut},'T1')
-    .to(".fly-1",2, {
-      bezier: {type:"quadratic",
-        values: [{x:600,y:300},{x:450,y:400},{x:150,y:250}],
-        autoRotate:90
-      },
-      ease: Power1.easeInOut
-    },'T2')
-    .to(".fly-1",2.5,{scale:2.5,repeat:1,yoyo:true,ease:Sine.easeInOut},'T2')
-    .to('.fly-2', 0.6, { rotation: 20, yoyo:true, repeat: 3 }, '-=3')
-    // .to('.fly-3', 1, { rotation: 30, yoyo:true, repeat: 3, ease: Power1.easeInOut }, '-=2.4')
-    .to('.fly-3' , 1, { x:-800 , ease:Back.easeInOut })
-  .to('.fly-3' , 0.5, {  opacity:0 , ease:Power1.easeInOut })
-  .to('.fly-2' , 1, { y:-300 , ease:Back.easeInOut })
-  .to('.fly-2' , 0.5, {  opacity:0 , ease:Power1.easeInOut })
-      .to('.part05', 4, { y: '-=90' }, 0).delay(2.5)
-      .to('.part01', 5, { y: '-=120' }, 7)
-      .to('.part04', 5, { y: '-=90' }, 0).delay(3)
-      .to('.part03', 5.8, { y: '+=100' }, 3)
-      .to('.part02', 6, { y: '+=0' }, 3)
-      .to('.part08', 1.5, { scale: 1.1 }, 0)
-      .delay(3)
-      .to('.part06', 3, { y: '-=60' }, 0)
-      .to('.l-sun', 5, {
+      .to('.banner__fly--1', 2.5, {
         bezier: {
+          type: 'quadratic',
           values: [
-            { x: 0, y: 0 },
-            { x: 150, y: 0 },
-            { x: 350, y: 550 },
-          ],
+            { x: 150, y: 250 },
+            { x: 450, y: 100 },
+            { x: 600, y: 300 }],
+          autoRotate: 90,
         },
-        ease: Power2.easeOut,
-      }, 0)
-      .to('.neon', 2, { autoAlpha: 1, y: '+=50' }, 0)
-      .delay(2)
-      .to('.fly-1', 3, {
+        ease: Power1.easeInOut,
+      }, 'T1')
+      .from('.banner__fly--1', 2.5, {
+        scale: 0,
+        repeat: 1,
+        yoyo: true,
+        ease: Sine.easeInOut,
+      }, 'T1')
+      .to('.banner__fly--1', 2, {
+        bezier: {
+          type: 'quadratic',
+          values: [
+            { x: 600, y: 300 },
+            { x: 450, y: 400 },
+            { x: 150, y: 250 }],
+          autoRotate: 90,
+        },
+        ease: Power1.easeInOut,
+      }, 'T2')
+      .to('.banner__fly--1', 2.5, {
+        scale: 1.5,
+        repeat: 1,
+        yoyo: true,
+        ease: Sine.easeInOut,
+      }, 'T2')
+      .to('.banner__fly--1', 3, {
         bezier: {
           type: 'soft',
           values: [
@@ -133,6 +138,30 @@ class Banner extends Component {
           ease: Power1.easeInOut,
         },
       })
+      .to('.banner__fly--2', 0.6, { rotation: 20, yoyo: true, repeat: 3 }, '-=3')
+      .to('.banner__fly--3', 1, { x: -800, ease: Back.easeInOut })
+      .to('.banner__fly--3', 0.5, { opacity: 0, ease: Power1.easeInOut })
+      .to('.banner__fly--2', 1, { y: -800, ease: Back.easeInOut })
+      .to('.banner__fly--2', 0.5, { opacity: 0, ease: Power1.easeInOut })
+
+      .to('.part05', 4, { y: '-=90' }, 0)
+      .to('.part01', 5, { y: '-=120' }, 7)
+      .to('.part04', 5, { y: '-=90' }, 0)
+      .to('.part03', 5.8, { y: '+=100' }, 0)
+      .to('.part02', 6, { y: '+=40' }, 3)
+      .to('.part08', 1.5, { scale: 1.1 }, 0)
+      .to('.part06', 3, { y: '-=60' }, 0)
+      .to('.banner__planet', 8, {
+        bezier: {
+          values: [
+            { x: 0, y: 0 },
+            { x: 150, y: 0 },
+            { x: 350, y: 550 },
+          ],
+        },
+        ease: Power2.easeOut,
+      }, 0)
+      .delay(4);
   }
 
   clearAnimate() {
@@ -161,28 +190,20 @@ class Banner extends Component {
                     <div ref={this.animateMe} id="wrapper">
                       <Icon name="bg-layer6" className="part05 banner__layer" />
                       <Icon name="bg-man" className="l-man part08 banner__layer" />
-                      {/* <Icon name="bg-layer4" className="part04 banner__layer" /> */}
                       <Icon name="bg-layer3" className="l3 part03 banner__layer" />
                       <Icon name="bg-layer2" className="part02 banner__layer" />
-                      {
-                        theme.themeType === 'dark' ? (
-                          <div className="moon">
-                            <Icon name="moon" className="l-sun" />
-                            <Icon name="bat-1" className="fly fly-1" />
-                            <Icon name="bat-2" className="fly fly-2" />
-                            <Icon name="bat-3" className="fly fly-3" />
-                          </div>
-                        ) : (
-                          <div className="sun">
-                            <Icon name="sun" className="l-sun" />
-                            <Icon name="bird-1" className="fly fly-1" />
-                            <Icon name="bird-2" className="fly fly-2" />
-                            <Icon name="bird-3" className="fly fly-3" />
-                          </div>
-                        )
-                      }
-                      <div id="night" />
-                      {/* <div id="sun" /> */}
+                      <div className={`banner__planet-list ${theme.themeType !== 'dark' ? 'none' : ''}`}>
+                        <Icon name="moon" className="banner__planet banner__planet--moon" />
+                        <Icon name="bat-1" className="banner__fly banner__fly--1" />
+                        <Icon name="bat-2" className="banner__fly banner__fly--2" />
+                        <Icon name="bat-3" className="banner__fly banner__fly--3" />
+                      </div>
+                      <div className={`banner__planet-list ${theme.themeType !== 'light' ? 'none' : ''}`}>
+                        <Icon name="sun" className="banner__planet" />
+                        <Icon name="bird-1" className="banner__fly banner__fly--1" />
+                        <Icon name="bird-2" className="banner__fly banner__fly--2" />
+                        <Icon name="bird-3" className="banner__fly banner__fly--3" />
+                      </div>
                     </div>
                     <Title primary level={2}>
                       <TitleNeon className="neon">
@@ -194,7 +215,12 @@ class Banner extends Component {
                 </div>
               </LargeAndUp>
               <MediumAndDown>
-                <div className="small-devices">
+                <div className={`small-devices ${theme.themeType === 'light' ? 'small-devices--light' : 'small-devices--dark'}`}>
+                  <Title primary level={2}>
+                    <TitleNeonMobile className="neon">
+                      {title}
+                    </TitleNeonMobile>
+                  </Title>
                   {children}
                 </div>
               </MediumAndDown>

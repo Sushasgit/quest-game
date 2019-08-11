@@ -1,7 +1,3 @@
-import peintball from '../images/paintball.svg';
-import masks from '../images/masks.svg';
-import team from '../images/team.svg';
-
 import hideAndSeekJpg from '../images/game.jpg';
 import hideAndSeekWebP from '../images/game.webp';
 import quadroJpg from '../images/quadro.jpg';
@@ -14,21 +10,18 @@ import straikBallWebP from '../images/straikball.webp';
 export const ADVANTAGES_DATA = [
   {
     id: 1,
-    imgSrc: peintball,
     bgImg: 'paintball',
     title: 'Пейнтбольные турниры',
     description: 'В нашем клубе большое внимание уделяется безопасности игры(подробный инструктаж, отличная экипировка, качественное судейство).',
   },
   {
     id: 2,
-    imgSrc: masks,
     bgImg: 'mask',
     title: 'Cценарные игры',
     description: 'В нашем клубе большое внимание уделяется безопасности игры(подробный инструктаж, отличная экипировка, качественное судейство).',
   },
   {
     id: 3,
-    imgSrc: team,
     bgImg: 'team',
     title: 'Корпоративы и тимбилдинги',
     description: 'В нашем клубе большое внимание уделяется безопасности игры(подробный инструктаж, отличная экипировка, качественное судейство).',

@@ -44,7 +44,15 @@ class App extends Component {
       <Suspense fallback={<img src={loader} alt="" />}>
         <GlobalStyles />
         <CheckBoxWrapper theme={theme} onChange={this.handleClick}>
-          <CheckBox theme={theme} id="checkbox" type="checkbox" defaultChecked={isDay} />
+          <CheckBox
+            role="switch"
+            aria-checked={isDay}
+            aria-labelledby="toggle"
+            theme={theme}
+            id="checkbox"
+            type="checkbox"
+            defaultChecked={isDay}
+          />
           <CheckBoxLabel htmlFor="checkbox" />
           Dark theme
         </CheckBoxWrapper>
