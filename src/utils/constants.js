@@ -92,5 +92,28 @@ export const CARDS_DATA = [
 export const WEEK_DAY_SHORT = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
 export const CALENDAR_ORDER_LIST = [
-
-    ]
+  {
+    id: 1,
+    available: true,
+    time: '22:00',
+    day: null,
+  },
+  {
+    id: 2,
+    available: true,
+    time: '00:00',
+    day1: null,
+  },
+  {
+    id: 3,
+    available: false,
+    time: '02:00',
+    day1: null,
+  },
+  {
+    id: 4,
+    available: true,
+    time: '04:00',
+    day1: null,
+  },
+];
