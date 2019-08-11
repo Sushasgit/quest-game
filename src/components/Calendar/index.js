@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import moment from 'moment';
+import 'moment/locale/ru';
 import './calendar.scss';
 import Week from './parts/Week';
 import Day from './parts/Day';
-
+import { CALENDAR_ORDER_LIST } from '../../utils/constants';
 import { WEEK_DAY_SHORT } from '../../utils/constants';
 
 class Calendar extends Component {
@@ -17,6 +18,7 @@ class Calendar extends Component {
       month: moment(dateContext).format('MMMM'),
       year: moment(dateContext).format('YYYY'),
       currentMonth: moment().format('MMMM'),
+      orderList: CALENDAR_ORDER_LIST,
     };
   }
 
@@ -57,7 +59,7 @@ class Calendar extends Component {
       } = this.state;
       const totalSlots = Array.from(Array(lengthArrayCalendar)
         .fill().map((_, idx) => ({
-          moment: moment(dateContextNew).add(idx, 'd').format(),
+          moment: moment(dateContextNew).add(idx, 'd').format('LL'),
           dayNam: moment(dateContextNew).add(idx, 'd').format('D'),
           empty: moment(moment(dateContextNew).add(idx, 'd').format('YYYY MM DD')).isBefore(today),
           today: moment(moment(dateContextNew).add(idx, 'd').format('YYYY MM DD')).isSame(today),
@@ -137,6 +139,18 @@ class Calendar extends Component {
     });
   };
 
+  // renderBookingBlock = () =>{
+  //   const { orderList, clickedDay } = this.state;
+  //   const bocking = orderList.forEach(item, i) =>{
+  //       if(item.available === true){
+  //           <li>
+  //               <span>item.time</span>
+  //               <button>Зарезервировать время</button>
+  //           </li>
+  //       }
+  //     }
+  // }
+
 
   render() {
     const {
@@ -147,6 +161,7 @@ class Calendar extends Component {
       clickedWeek,
       clickedDay,
       rows1,
+      orderList,
     } = this.state;
     const classNameNav = (currentMonth === month && currentYear === year ? 'page__left hidden__navigation' : 'page__left');
     const classNameNavButton = (currentMonth === month && currentYear === year ? 'hidden__button__back' : 'button__back');
@@ -212,11 +227,16 @@ class Calendar extends Component {
                   {
                     weekIndex === clickedWeek ? (
                       <div className="calendar_booking">
-                        <div className="calendar_order_list">
-                        Выбранный день:
-                        {' '}
-                        {' '}
-                        {clickedDay}
+                        <div className="calendar_order_list">s
+                          <h2 className="calendar_order_list_headline">
+                                Доступные места
+                                {' '}
+                                {clickedDay}
+                          </h2>
+                          <ul>
+                              <li>f</li>
+                          </ul>
+
                         </div>
                       </div>
                     ) : null

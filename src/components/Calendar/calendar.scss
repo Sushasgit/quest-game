@@ -2,9 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
 
-h2{
-  color: blue;
-}
+
 
 .calendar{
   font-family: 'Montserrat', sans-serif;
@@ -162,6 +160,7 @@ h2{
 
 .calendar_container{
   max-width: 720px;
+  width: min-content;
 }
 
 .calendar_data_day{
@@ -293,9 +292,9 @@ h2{
 }
 
 .calendar_booking{
-  height: 300px;
   background-color: #404040;
-  width: inherit;
+  display: flex;
+  justify-content: center;
 }
 
 .checked.future_day:hover {
@@ -317,4 +316,22 @@ h2{
   align-items: center;
   justify-content: center;
   color: #202020;
+}
+
+.checked.future_day{
+  background-color: #404040;
+  border-bottom: none;
+}
+
+.calendar_order_list{
+  background-color: #fff;
+  margin: 15px;
+  width: 100%;
+  border-radius: 3px;
+}
+
+.calendar_order_list_headline{
+  text-align: center;
+  color: #242424;
+  font-size: 16px;
 }
