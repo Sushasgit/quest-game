@@ -50,9 +50,8 @@ const ListItemIcon = styled(Icon)`
   color: ${data => (data.theme ? data.theme.titleColor : '#fff')}
 `;
 
-const Advantages = (props) => (
+const Advantages = () => (
   <React.Fragment>
-    {console.log(props)}
     <BackgroundWrapper withBuildings>
       <section className="wrapper">
         <Title primary level={2}>
