@@ -24,7 +24,6 @@ Title.defaultProps = {
 };
 
 Title.propTypes = {
-  children: PropTypes.string.isRequired,
   level: PropTypes.number.isRequired,
   primary: PropTypes.bool,
 };

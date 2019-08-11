@@ -35,10 +35,10 @@ const TagsList = styled.div`
   text-align: center;
 `;
 
-const HideAndSeek = () => {
+const StrikeBall = () => {
   return (
     <div className="wrap">
-      <Banner title="Экшен-игра «Прятки»">
+      <Banner title="Сценарный страйкбол">
         <Menu />
       </Banner>
       <BackgroundWrapper withBuildings>
@@ -96,4 +96,4 @@ const HideAndSeek = () => {
   );
 };
 
-export default HideAndSeek;
+export default StrikeBall;

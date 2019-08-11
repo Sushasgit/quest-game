@@ -10,6 +10,7 @@ import './contact-form.scss';
 import Input from '../ui/Input';
 import Icon from '../ui/Icon';
 import Button from '../ui/Button';
+import Footer from '../Footer';
 
 const StyledForm = styled.form`
   border-radius: 4px;
@@ -97,9 +98,7 @@ class ContactForm extends Component {
             </Button>
           </StyledForm>
         </div>
-        <footer className="footer">
-          @All rights reserved 2019
-        </footer>
+        <Footer />
       </React.Fragment>
     );
   }

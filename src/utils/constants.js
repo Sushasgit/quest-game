@@ -60,6 +60,7 @@ export const CARDS_DATA = [
     posterUrlJpg: hideAndSeekJpg,
     posterUrlWebp: hideAndSeekWebP,
     tag: '18+',
+    url: 'hideandseek',
   },
   {
     id: 2,
@@ -69,6 +70,7 @@ export const CARDS_DATA = [
     posterUrlJpg: peintBallJpg,
     posterUrlWebp: peintBallWebP,
     tag: 'для новичков',
+    url: 'paintball',
   },
   {
     id: 3,
@@ -77,6 +79,7 @@ export const CARDS_DATA = [
     imgBg: 'kvadro',
     posterUrlJpg: quadroJpg,
     posterUrlWebp: quadroWebP,
+    url: 'quadro',
   },
   {
     id: 4,
@@ -86,6 +89,7 @@ export const CARDS_DATA = [
     posterUrlJpg: straikBallJpg,
     posterUrlWebp: straikBallWebP,
     tag: 'TOP',
+    url: 'strike',
   },
 ];
 

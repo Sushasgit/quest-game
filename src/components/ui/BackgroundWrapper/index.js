@@ -16,12 +16,14 @@ const BackgroundWrapper = ({
     padding: 40px 0 0;
     z-index: 100;
     position: relative;
+    margin-top: -80px;
     background-color: ${data => (data.theme ? data.theme.primaryBg : '#fff')}
     color: ${data => (data.theme ? data.theme.textColor : '#fff')}
 `;
 
   const StyledWrapperBuldings = styled.div`
     padding: 40px 0 0;
+    margin-top: -80px;
     background-color: ${data => (data.theme ? data.theme.primaryBg : '#fff')}
     position: relative;
     z-index: 100;
@@ -56,7 +58,6 @@ BackgroundWrapper.defaultProps = {
 };
 
 BackgroundWrapper.propTypes = {
-  children: PropTypes.element.isRequired,
   withBuildings: PropTypes.bool,
   primary: PropTypes.bool,
   fixed: PropTypes.bool,
