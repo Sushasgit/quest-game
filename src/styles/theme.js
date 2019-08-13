@@ -26,6 +26,10 @@ export const darkTheme = {
     borderColor: '#373737',
     hoverColor: '#fff500',
     buttonTextColor: 'rgba(255, 255, 255, 0.25)',
+
+  input: {
+    color: '#ffff33',
+
   },
 
   tags: {
@@ -58,6 +62,7 @@ export const lightTheme = {
     bgForm: '#f7e5d4',
   },
 
+
   Calendar: {
     textColorEmpty: 'red',
     textColorAvailable: 'blue',
@@ -69,6 +74,9 @@ export const lightTheme = {
     borderColor: 'black',
     hoverColor: '#fff500',
     buttonTextColor: 'rgba(255, 255, 255, 0.25)',
+
+  input: {
+    color: '#3d0f2e',
   },
 
   tags: {
