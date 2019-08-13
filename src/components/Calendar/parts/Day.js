@@ -42,5 +42,5 @@ const Day = (props) => {
   return (
     clickDisable
   );
-};43434343434343434343434343434343434343434343434343434343434343434343
+};
 export default withTheme(Day);
