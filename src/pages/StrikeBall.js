@@ -35,65 +35,79 @@ const TagsList = styled.div`
   text-align: center;
 `;
 
-const StrikeBall = () => {
-  return (
-    <div className="wrap">
-      <Banner title="Сценарный страйкбол">
-        <Menu />
-      </Banner>
-      <BackgroundWrapper withBuildings>
-        <section className="wrapper">
-          <Title level={3}>
-          Задача команды
-          </Title>
-          <TagsList>
-            <Tag>
-              18+
-            </Tag>
-            <Tag>
-              TOP
-            </Tag>
-          </TagsList>
-          <Description>
+const StrikeBall = () => (
+  <div className="wrap">
+    <Banner title="Сценарный страйкбол">
+      <Menu />
+    </Banner>
+    <BackgroundWrapper withBuildings>
+      <section className="wrapper">
+        <Title level={3}>
+            Задача команды
+        </Title>
+        <TagsList>
+          <Tag>
+            18+
+          </Tag>
+          <Tag>
+            TOP
+          </Tag>
+        </TagsList>
+        <Description>
             Залез — нашёл — украл — принёс, всё просто, не так ли ….?
-          </Description>
-          <List>
-            <ListItem>
-              Не замеченными, найти, украсть и принести вещи, которые им покажут на фото
-            </ListItem>
-            <ListItem>При этом минуя охранников психопатов, которые умеют только две вещи: ловить и убивать</ListItem>
-            <ListItem>На всё про всё 75 минут !</ListItem>
-          </List>
+        </Description>
+        <List>
+          <ListItem>
+            Не замеченными, найти, украсть и принести вещи, которые им покажут на фото
+          </ListItem>
+          <ListItem>
+            При этом минуя охранников психопатов, которые умеют
+            только две вещи: ловить и убивать
+          </ListItem>
+          <ListItem>На всё про всё 75 минут !</ListItem>
+        </List>
 
-          <Title level={3}>
-            Особенности игры
-          </Title>
-          <List>
-            <ListItem>
-              2-4 актёра
-            </ListItem>
-            <ListItem>Спецэффекты, декорации и пара тонн реквизита</ListItem>
-            <ListItem>Для игры мы выдаём всё необходимое (камуфляж = штаны + куртка + перчатки, фонарик, игровое оборудование) С вас только прийти в спортивной обуви.</ListItem>
-            <ListItem>
-              3200м2 крытой, подготовленной и полностью безопасной игровой локации на территории завода «Биостимулятор»
-            </ListItem>
-            <ListItem>
-              Комфортная зона отдыха со всеми удобствами. (Столы, свет, туалет, музыка, холодильник, удобные кресла и лежаки, банкетный зал до 100 человек, гардероб, камера хранения, охраняемая парковка, бар, мангал)
-            </ListItem>
-            <ListItem>
-            ЦЕНА: 999 грн с команды до 4 участников, с каждого следующего участника — 250грн/чел. В игре может участвовать от 2-х до 10-ти человек.
-            </ListItem>
-          </List>
-          <Title level={3}>
-            Забронировать
-          </Title>
-            <Description>Предварительная регистрация ОБЯЗАТЕЛЬНА</Description>
-            <Calendar onDayClick={(e, day) => this.onDayClick(e,day)} />
-          </section>
-          <Footer />
-        </BackgroundWrapper>
-    </div>
-  );
-};
+        <Title level={3}>
+          Особенности игры
+        </Title>
+        <List>
+          <ListItem>
+            2-4 актёра
+          </ListItem>
+          <ListItem>
+            Спецэффекты, декорации и пара тонн реквизита
+          </ListItem>
+          <ListItem>
+            Для игры мы выдаём всё необходимое
+            (камуфляж = штаны + куртка + перчатки, фонарик, игровое оборудование)
+            С вас только прийти в спортивной обуви.
+          </ListItem>
+          <ListItem>
+            3200м2 крытой, подготовленной и полностью безопасной
+            игровой локации на территории завода «Биостимулятор»
+          </ListItem>
+          <ListItem>
+              Комфортная зона отдыха со всеми удобствами.
+              (Столы, свет, туалет, музыка, холодильник, удобные кресла и лежаки,
+              банкетный зал до 100 человек, гардероб, камера хранения,
+              охраняемая парковка, бар, мангал)
+          </ListItem>
+          <ListItem>
+              ЦЕНА: 999 грн с команды до 4 участников, с каждого
+              следующего участника — 250грн/чел. В игре может участвовать от 2-х до 10-ти человек.
+          </ListItem>
+        </List>
+        <Title level={3}>
+          Забронировать
+        </Title>
+        <Description>
+            Предварительная регистрация ОБЯЗАТЕЛЬНА
+        </Description>
+        <Calendar />
+      </section>
+      <Footer />
+    </BackgroundWrapper>
+  </div>
+);
 
 export default StrikeBall;

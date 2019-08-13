@@ -15,6 +15,10 @@ export const darkTheme = {
     bgForm: '#1c1c1c',
   },
 
+  input: {
+    color: '#ffff33',
+  },
+
   tags: {
     top: {
       borderColor: '#ff0000',
@@ -43,6 +47,10 @@ export const lightTheme = {
     textColor: '#333333',
     inputColor: '#3d0f2e',
     bgForm: '#f7e5d4',
+  },
+
+  input: {
+    color: '#3d0f2e',
   },
 
   tags: {

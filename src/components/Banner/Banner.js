@@ -23,7 +23,7 @@ import Icon from '../ui/Icon';
 const TitleNeon = styled.span`
   position: absolute;
   text-align: center;
-  top: 250px;
+  top: 200px;
   left: 50%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -63,8 +63,9 @@ const TitleNeon = styled.span`
 `;
 
 const TitleNeonMobile = styled(TitleNeon)`
-  font-size: 1.3em;
-  top: 200px;
+  font-size: 1.1em;
+  padding: 0;
+  top: 170px;
 `;
 
 class Banner extends Component {
@@ -232,8 +233,28 @@ class Banner extends Component {
   }
 }
 
+Banner.defaultProps = {
+  theme: null,
+  children: null,
+};
+
+
 Banner.propTypes = {
   title: PropTypes.string.isRequired,
+  theme: PropTypes.shape({
+    themeType: PropTypes.string,
+    textColor: PropTypes.string,
+    primaryBg: PropTypes.string,
+    titleColor: PropTypes.string,
+    toggleButton: PropTypes.object,
+    contactForm: PropTypes.object,
+    input: PropTypes.object,
+    tags: PropTypes.object,
+  }),
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+  ]),
 };
 
 

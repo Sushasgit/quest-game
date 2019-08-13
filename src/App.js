@@ -1,22 +1,20 @@
-import React, { Suspense, Component } from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components';
 
-import loader from './images/loader.svg';
 import GlobalStyles from './styles/global';
-import {darkTheme, lightTheme} from './styles/theme';
+import { darkTheme, lightTheme } from './styles/theme';
 import './App.scss';
-import PaintBall from './pages/PaintBall';
-import StrikeBall from './pages/StrikeBall';
-import Quadro from './pages/Quadro';
 
-const Home = React.lazy(() => import('./pages/Home'));
-const Prices = React.lazy(() => import('./pages/Prices'));
-const OurGames = React.lazy(() => import('./pages/OurGames'));
-const Development = React.lazy(() => import('./pages/Development'));
-const Calendar = React.lazy(() => import('./components/Calendar/index.js'));
-const HideAndSeek = React.lazy(() => import('./pages/HideAndSeek'));
+import asyncComponent from './components/AsyncComponent';
 
+const AsyncHome = asyncComponent(() => import('./pages/Home'));
+const AsyncPrices = asyncComponent(() => import('./pages/Prices'));
+const AsyncOurGames = asyncComponent(() => import('./pages/OurGames'));
+const AsyncPaintBall = asyncComponent(() => import('./pages/PaintBall'));
+const AsyncHideAndSeek = asyncComponent(() => import('./pages/HideAndSeek'));
+const AsyncStrikeBall = asyncComponent(() => import('./pages/StrikeBall'));
+const AsyncQuadro = asyncComponent(() => import('./pages/Quadro'));
 
 class App extends Component {
   constructor(props) {
@@ -24,7 +22,6 @@ class App extends Component {
     this.state = {
       isDay: true,
       theme: darkTheme,
-      title: 'Click the Sun to switch the theme'
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -36,21 +33,18 @@ class App extends Component {
     this.setState({
       isDay,
       theme: isDay ? darkTheme : lightTheme,
-    }, ()=> {
-      console.log(this.state)
     });
   }
 
   render() {
     const { theme, isDay } = this.state;
     return (
-      <Suspense fallback={<img src={loader} alt="" />}>
+      <React.Fragment>
         <GlobalStyles />
         <CheckBoxWrapper theme={theme} onChange={this.handleClick}>
           <CheckBox
             role="switch"
             aria-checked={isDay}
-            aria-labelledby="toggle"
             theme={theme}
             id="checkbox"
             type="checkbox"
@@ -61,18 +55,16 @@ class App extends Component {
         </CheckBoxWrapper>
         <ThemeProvider theme={theme}>
           <Router>
-            <Route exact path="/" component={Home} />
-            <Route path="/prices" component={Prices} />
-            <Route path="/games" component={OurGames} />
-            <Route path="/dev" component={Development} />
-            <Route path="/calendar" component={Calendar} />
-            <Route path="/hideandseek" component={HideAndSeek} />
-            <Route path="/paintball" component={PaintBall} />
-            <Route path="/strike" component={StrikeBall} />
-            <Route path="/quadro" component={Quadro} />
+            <Route exact path="/" component={AsyncHome} />
+            <Route path="/prices" component={AsyncPrices} />
+            <Route path="/games" component={AsyncOurGames} />
+            <Route path="/hideandseek" component={AsyncHideAndSeek} />
+            <Route path="/paintball" component={AsyncPaintBall} />
+            <Route path="/strike" component={AsyncStrikeBall} />
+            <Route path="/quadro" component={AsyncQuadro} />
           </Router>
         </ThemeProvider>
-      </Suspense>
+      </React.Fragment>
     );
   }
 }
