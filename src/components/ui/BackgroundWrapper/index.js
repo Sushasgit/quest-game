@@ -31,7 +31,7 @@ const BackgroundWrapper = ({
 
     & > svg {
         position: absolute;
-        top: -140px;
+        top: -110px;
         width: 100%;
     }
 `;

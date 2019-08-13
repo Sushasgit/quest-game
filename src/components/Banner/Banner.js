@@ -73,10 +73,12 @@ class Banner extends Component {
     super(props);
     this.animateMe = React.createRef();
     this.theTween = new TimelineLite({ paused: true });
+
+    this.animate = this.animate.bind(this);
   }
 
   componentDidMount() {
-    this.animate();
+    requestAnimationFrame(this.animate);
     this.theTween.play();
   }
 
@@ -84,7 +86,7 @@ class Banner extends Component {
     const { theme } = this.props;
     if (nextProps.theme && nextProps.theme.themeType !== theme.themeType) {
       this.clearAnimate();
-      this.animate();
+      requestAnimationFrame(this.animate);
       this.theTween.play();
     }
   }
@@ -151,6 +153,7 @@ class Banner extends Component {
       .to('.part03', 5.8, { y: '+=100' }, 0)
       .to('.part02', 6, { y: '+=40' }, 3)
       .to('.part08', 1.5, { scale: 1.1 }, 0)
+      .to('.part08', 1.5, { x: 800, ease: Back.easeInOut })
       .to('.part06', 3, { y: '-=60' }, 0)
       .to('.banner__planet', 8, {
         bezier: {
@@ -166,7 +169,7 @@ class Banner extends Component {
   }
 
   clearAnimate() {
-    this.theTween.restart(true, false);
+    requestAnimationFrame(() => { this.theTween.restart(true, false); });
   }
 
   render() {
