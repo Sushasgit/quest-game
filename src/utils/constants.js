@@ -1,7 +1,3 @@
-import peintball from '../images/paintball.svg';
-import masks from '../images/masks.svg';
-import team from '../images/team.svg';
-
 import hideAndSeekJpg from '../images/game.jpg';
 import hideAndSeekWebP from '../images/game.webp';
 import quadroJpg from '../images/quadro.jpg';
@@ -14,21 +10,18 @@ import straikBallWebP from '../images/straikball.webp';
 export const ADVANTAGES_DATA = [
   {
     id: 1,
-    imgSrc: peintball,
     bgImg: 'paintball',
     title: 'Пейнтбольные турниры',
     description: 'В нашем клубе большое внимание уделяется безопасности игры(подробный инструктаж, отличная экипировка, качественное судейство).',
   },
   {
     id: 2,
-    imgSrc: masks,
     bgImg: 'mask',
     title: 'Cценарные игры',
     description: 'В нашем клубе большое внимание уделяется безопасности игры(подробный инструктаж, отличная экипировка, качественное судейство).',
   },
   {
     id: 3,
-    imgSrc: team,
     bgImg: 'team',
     title: 'Корпоративы и тимбилдинги',
     description: 'В нашем клубе большое внимание уделяется безопасности игры(подробный инструктаж, отличная экипировка, качественное судейство).',
@@ -67,6 +60,7 @@ export const CARDS_DATA = [
     posterUrlJpg: hideAndSeekJpg,
     posterUrlWebp: hideAndSeekWebP,
     tag: '18+',
+    url: 'hideandseek',
   },
   {
     id: 2,
@@ -76,6 +70,7 @@ export const CARDS_DATA = [
     posterUrlJpg: peintBallJpg,
     posterUrlWebp: peintBallWebP,
     tag: 'для новичков',
+    url: 'paintball',
   },
   {
     id: 3,
@@ -84,6 +79,7 @@ export const CARDS_DATA = [
     imgBg: 'kvadro',
     posterUrlJpg: quadroJpg,
     posterUrlWebp: quadroWebP,
+    url: 'quadro',
   },
   {
     id: 4,
@@ -93,7 +89,35 @@ export const CARDS_DATA = [
     posterUrlJpg: straikBallJpg,
     posterUrlWebp: straikBallWebP,
     tag: 'TOP',
+    url: 'strike',
   },
 ];
 
 export const WEEK_DAY_SHORT = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+
+export const CALENDAR_ORDER_LIST = [
+  {
+    id: 1,
+    available: true,
+    time: '22:00 - 00:00',
+    day: null,
+  },
+  {
+    id: 2,
+    available: true,
+    time: '00:00 - 02:00',
+    day1: null,
+  },
+  {
+    id: 3,
+    available: false,
+    time: '02:00 - 04:00',
+    day1: null,
+  },
+  {
+    id: 4,
+    available: true,
+    time: '04:00 - 06:00',
+    day1: null,
+  },
+];

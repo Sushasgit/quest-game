@@ -4,24 +4,28 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { CARDS_DATA } from '../../utils/constants';
 import Title from '../ui/Title';
+import Tag from '../ui/Tag';
 
 import './cards-list.scss';
 import Button from '../ui/Button';
 
-import blood from '../../images/blood-tag.svg';
+const Description = styled.p`
+  color: ${props => (props.theme ? props.theme.textColor : '#fff')};
+  font-size: 1em;
+  font-weight: 700;
+  opacity: 0.9;
+  margin: 20px 0 -80px 0;
+  line-height: 1.8em;
+  text-align: center;
+`;
 
-const Tag = styled.span`
-  background-image: url(${blood});
-  background-size: contain;
-  min-width: 50px;
-  display: inline-block;
-  min-height: 40px;
-  border: 2px solid ${props => (props.data === '18+' ? '#ff0000' : '#FFDC26')};
+const CardTitle = styled.h3`
+  color: ${props => (props.theme ? props.theme.titleColor : '#fff')};
+  font-size: 1.3em;
   font-weight: 900;
-  border-radius: 4px;
-  padding: 5px;
-  color: ${props => (props.data === 'TOP' ? '#FFDC26' : '#fff')}
-  background-position: top 200px left;
+  text-align: center;
+  font-family: "FiraSans-Bold", sans-serif;
+  margin: 20px;
 `;
 
 const CardsList = () => (
@@ -33,20 +37,20 @@ const CardsList = () => (
       {
         CARDS_DATA.map(item => (
           <li key={item.id}>
-            <Link to="/hideandseek" className="cards__item">
-              <h3 className="card__title">
+            <Link to={`/${item.url}`} className="cards__item">
+              <CardTitle className="card__title">
                 {item.title}
-              </h3>
+              </CardTitle>
               {
                 item.tag ? (
-                  <Tag data={item.tag} className="tag">
+                  <Tag tag={item.tag}>
                     {`#${item.tag}`}
                   </Tag>
                 ) : null
               }
-              <p className="card__description">
+              <Description className="card__description">
                 {item.description}
-              </p>
+              </Description>
               <div
                 style={{
                   background: `url(${item.posterUrlJpg})`,

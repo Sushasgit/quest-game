@@ -4,10 +4,12 @@ import styled from 'styled-components';
 
 const Title = ({ level, primary, ...props }) => {
   const StyledHeading = styled[`h${level}`]`
-    color: ${data => (data.theme ? data.theme.textColor : '#fff')};
+    color: ${data => (data.theme ? data.theme.titleColor : '#fff')};
     font-size: 1.8em;
     font-family: "FiraSans-Bold", sans-serif;
     text-align: center;
+    margin: 0 0 25px 0;
+    padding: 1px;
 `;
   const { children } = props;
   return (
@@ -19,12 +21,16 @@ const Title = ({ level, primary, ...props }) => {
 
 Title.defaultProps = {
   primary: false,
+  children: null,
 };
 
 Title.propTypes = {
-  children: PropTypes.string.isRequired,
   level: PropTypes.number.isRequired,
   primary: PropTypes.bool,
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+  ]),
 };
 
 export default Title;

@@ -48,6 +48,7 @@
     "postcss-safe-parser": "4.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
+    "react-addons-perf": "^15.4.2",
     "react-app-polyfill": "^1.0.1",
     "react-dev-utils": "^9.0.1",
     "react-dom": "^16.8.6",
@@ -68,12 +69,13 @@
     "webpack": "4.29.6",
     "webpack-dev-server": "3.2.1",
     "webpack-manifest-plugin": "2.0.4",
+    "workbox-build": "^4.3.1",
     "workbox-webpack-plugin": "4.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -93,6 +95,7 @@
   },
   "devDependencies": {
     "eslint-config-airbnb": "^17.1.1",
+    "http-server": "^0.11.1",
     "imports-loader": "^0.8.0"
   },
   "jest": {

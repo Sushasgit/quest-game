@@ -36,36 +36,37 @@ const StyledButton = styled.button`
     width: min-content;
     position: relative;
     z-index: 1;
-    border: 1px solid red;
+    border: 1px solid ${data => (data.theme ? data.theme.titleColor : '#fff')};
     background-color: transparent;
-    color: red;
+    color: ${data => (data.theme ? data.theme.titleColor : '#fff')};
 
     &::before, &::after {
         display: inline-block;
         content: '';
-        border: 1px solid #fff500;
+        opacity: 0.3;
+        border: 1px solid ${data => (data.theme ? data.theme.titleColor : '#fff')};
         position: absolute;
 
         height: 100%;
         width: 100%;
         left: 0;
         top: 0;
-        opacity: 0;
         transition: opacity 0.5s, transform 1s ease;
         z-index: 0;
     }
 
     &:hover {
         border: 1px solid transparent;
+        opacity: 0.7;
     }
 
     &:hover::after {
-        opacity: 1;
+        opacity: 0.6;
         transform: rotate(-3deg);
     }
 
     &:hover::before{
-        opacity: 1;
+        opacity: 0.6;
         transform: rotate(3deg);
     }
 `;

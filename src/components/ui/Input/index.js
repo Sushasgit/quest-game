@@ -9,8 +9,8 @@ const StyledLabel = styled.label`
     left: 15px;
     top: 5px;
     transition: all 150ms ease-in;
-    font-size: 0.7em;
-    color: #fff;
+    font-size: 0.9em;
+    color: ${data => (data.theme ? data.theme.titleColor : '#fff')};
 
     transform: ${props => (props.active ? 'translateY(-35px)' : 'none')};
     text-shadow: ${props => (props.active ? '-2px -1px 5px rgba(255,220,38,0.79)' : 'none')};
@@ -23,7 +23,7 @@ const StyledInput = styled.input`
     border-top: none;
     border-left: none;
     border-right: none;
-    border: 1px solid #FFDC26;
+    border: 1px solid ${data => (data.theme ? data.theme.input.color : '#fff')};
 `;
 
 const InputBox = styled.div`
