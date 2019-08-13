@@ -6,6 +6,9 @@ import loader from './images/loader.svg';
 import GlobalStyles from './styles/global';
 import {darkTheme, lightTheme} from './styles/theme';
 import './App.scss';
+import PaintBall from './pages/PaintBall';
+import StrikeBall from './pages/StrikeBall';
+import Quadro from './pages/Quadro';
 
 const Home = React.lazy(() => import('./pages/Home'));
 const Prices = React.lazy(() => import('./pages/Prices'));
@@ -64,6 +67,9 @@ class App extends Component {
             <Route path="/dev" component={Development} />
             <Route path="/calendar" component={Calendar} />
             <Route path="/hideandseek" component={HideAndSeek} />
+            <Route path="/paintball" component={PaintBall} />
+            <Route path="/strike" component={StrikeBall} />
+            <Route path="/quadro" component={Quadro} />
           </Router>
         </ThemeProvider>
       </Suspense>
@@ -79,6 +85,7 @@ const CheckBoxWrapper = styled.div`
   color: ${props => props.theme.toggleButton.textColor};
   margin: 10px;
 `;
+
 const CheckBoxLabel = styled.label`
   position: absolute;
   top: 0;

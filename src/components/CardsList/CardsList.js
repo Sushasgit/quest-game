@@ -4,25 +4,10 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { CARDS_DATA } from '../../utils/constants';
 import Title from '../ui/Title';
+import Tag from '../ui/Tag';
 
 import './cards-list.scss';
 import Button from '../ui/Button';
-
-import blood from '../../images/blood-tag.svg';
-
-const Tag = styled.span`
-  font-family: MontserratBold, sans-serif;
-  background-image: url(${blood});
-  background-size: contain;
-  min-width: 50px;
-  display: inline-block;
-  min-height: 40px;
-  border: 2px solid ${props => (props.data === 'TOP' ? props.theme.tags.top.borderColor : props.theme.tags.standard.borderColor)}
-  border-radius: 4px;
-  padding: 5px;
-  color: ${props => (props.data === 'TOP' ? props.theme.tags.top.textColor : props.theme.tags.standard.textColor)}
-  background-position: top 200px left;
-`;
 
 const Description = styled.p`
   color: ${props => (props.theme ? props.theme.textColor : '#fff')};
@@ -52,13 +37,13 @@ const CardsList = () => (
       {
         CARDS_DATA.map(item => (
           <li key={item.id}>
-            <Link to="/dev" className="cards__item">
+            <Link to={`/${item.url}`} className="cards__item">
               <CardTitle className="card__title">
                 {item.title}
               </CardTitle>
               {
                 item.tag ? (
-                  <Tag data={item.tag} className="tag">
+                  <Tag tag={item.tag}>
                     {`#${item.tag}`}
                   </Tag>
                 ) : null

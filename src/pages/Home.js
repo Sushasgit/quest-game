@@ -18,8 +18,9 @@ class Home extends Component {
           <Banner title={'Територрия реальных игр'}>
             <Menu />
           </Banner>
-          <Advantages />
+       
         </div>
+        <Advantages />
       </React.Fragment>
     );
   }
