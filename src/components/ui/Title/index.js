@@ -21,11 +21,16 @@ const Title = ({ level, primary, ...props }) => {
 
 Title.defaultProps = {
   primary: false,
+  children: null,
 };
 
 Title.propTypes = {
   level: PropTypes.number.isRequired,
   primary: PropTypes.bool,
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+  ]),
 };
 
 export default Title;

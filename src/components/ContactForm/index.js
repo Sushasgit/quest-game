@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// import MapBox from '../MapBox/MapBox';
 
 import styled, { withTheme } from 'styled-components';
 
-// import arrow from '../../images/right-arrow.svg';
 import Title from '../ui/Title';
 import './contact-form.scss';
 import Input from '../ui/Input';

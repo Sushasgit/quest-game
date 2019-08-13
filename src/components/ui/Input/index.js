@@ -23,7 +23,7 @@ const StyledInput = styled.input`
     border-top: none;
     border-left: none;
     border-right: none;
-    border: 1px solid ${data => (data.theme ? data.theme.titleColor : '#fff')};
+    border: 1px solid ${data => (data.theme ? data.theme.input.color : '#fff')};
 `;
 
 const InputBox = styled.div`

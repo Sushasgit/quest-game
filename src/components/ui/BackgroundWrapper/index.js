@@ -55,12 +55,19 @@ BackgroundWrapper.defaultProps = {
   primary: false,
   fixed: false,
   withBuildings: false,
+  children: null,
 };
 
 BackgroundWrapper.propTypes = {
   withBuildings: PropTypes.bool,
   primary: PropTypes.bool,
   fixed: PropTypes.bool,
+
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+    PropTypes.array,
+  ]),
 };
 
 export default BackgroundWrapper;
