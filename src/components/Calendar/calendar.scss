@@ -1,14 +1,11 @@
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
-
-
-
 .calendar{
   font-family: 'Montserrat', sans-serif;
   display: flex;
   justify-content: center;
-  background-color: #262626;
+  //background-color: #262626;
   padding: 55px;
   min-width: 270px;
 }
@@ -29,7 +26,7 @@
   display: block;
   width: 48px;
   height: 2px;
-  background-color: #fff;
+  //background-color: #fff;
   position: relative;
 }
 
@@ -61,7 +58,7 @@
   position: absolute;
   width: 6px;
   height: 2px;
-  background-color: #fff;
+  //background-color: #fff;
   transform: translateY(-1.5px) translateX(-1px) rotate(-45deg);
 
 }
@@ -72,7 +69,7 @@
   position: absolute;
   width: 6px;
   height: 2px;
-  background-color: #fff;
+  //background-color: #fff;
   transform: translateY(1.5px) translateX(-1px) rotate(45deg);
 
 }
@@ -84,7 +81,7 @@
   right: 0;
   width: 6px;
   height: 2px;
-  background-color: #fff;
+  //background-color: #fff;
   transform: translateY(-1.5px) translateX(1px) rotate(45deg);
 
 }
@@ -96,7 +93,7 @@
   right: 0;
   width: 6px;
   height: 2px;
-  background-color: #fff;
+  //background-color: #fff;
   transform: translateY(1.5px) translateX(1px) rotate(-45deg);
 
 }
@@ -110,13 +107,10 @@
   justify-content: space-between;
   align-items: center;
   height: 100px;
-  color: #fff;
-  background-color: #202020;
-  border-top: 1px solid #373737;
-  border-left: 1px solid #373737;
-  border-right: 1px solid #373737;
   max-height: 99px;
+  box-sizing: border-box;
 }
+
 .label_month, .label_year{
   padding: 6px;
 }
@@ -127,13 +121,13 @@
 }
 .empty_slot{
   color: #414141;
-  background-color: #202020;
+  //background-color: #202020;
   cursor: no-drop;
 
 }
 .future_day{
   color: #414141;
-  background-color: #202020;
+  //background-color: #202020;
   cursor: pointer;
   position: relative;
   &:hover {
@@ -190,29 +184,31 @@
   border: solid 1px #fff;
 }
 
-.future_day, .empty_slot{
-  width: 8vw;
-  height: 8vw;
-  min-width: 40px;
-  min-height: 40px;
-  max-width: 105px;
-  max-height: 105px;
-  border: 1px solid #373737;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-}
+//.future_day, .empty_slot{
+//  width: 8vw;
+//  height: 8vw;
+//  min-width: 40px;
+//  min-height: 40px;
+//  max-width: 105px;
+//  max-height: 105px;
+//  //border: 1px solid #373737;
+//  display: flex;
+//  justify-content: center;
+//  align-items: center;
+//  box-sizing: border-box;
+//
+//}
 
-.date-number{
-  text-align: center;
-}
+//.date-number{
+//  text-align: center;
+//}
 
 .weekdays{
   display: flex;
-  background-color: #404040;
   height: 60px;
   max-width: 720px;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .week {
@@ -220,22 +216,18 @@
 }
 
 .week-day{
-  width: 8vw;
   height: 58px;
-  min-width: 40px;
+  min-width: 39px;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-top: 1px solid #373737;
-  border-bottom: 1px solid #373737;
   box-sizing: border-box;
-  color: #999;
 }
 
-.week-day:last-child{
-  border-right:1px solid #373737;
-}
+//.week-day:last-child{
+//  border-right:1px solid #373737;
+//}
 
 .button__back{
   background: none;
@@ -244,11 +236,10 @@
   cursor: pointer;
   font-size: 12px;
   color: rgba(255, 255, 255, 0.25);
-  padding-top: 8px;
   border: none;
 }
 
-.button-back:hover{
+.button__back:hover{
   color: rgba(255, 255, 255, 0.5);
 }
 
@@ -256,23 +247,16 @@
   display: none;
 }
 
-@media (max-width: 850px) {
-  .page__right, .page__left {
-    margin: 0px 15px;
-    width: 3vw;
-  }
-
-  .calendar_container {
-    padding: 10px;
-  }
-}
 
 @media (max-width: 850px) {
   .page__right, .page__left {
     margin: 0 12px;
   }
   .weekdays{
-    height: 55px;
+    height: 45px;
+  }
+  .calendar_container {
+    padding: 10px;
   }
 }
 

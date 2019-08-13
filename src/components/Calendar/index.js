@@ -2,10 +2,49 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import 'moment/locale/ru';
 import './calendar.scss';
+import styled, { withTheme } from 'styled-components';
 import Week from './parts/Week';
 import Day from './parts/Day';
 import { CALENDAR_ORDER_LIST } from '../../utils/constants';
 import { WEEK_DAY_SHORT } from '../../utils/constants';
+
+const CalendarWrapper = styled.div`
+  background-color: ${data => (data.theme.Calendar.bgColorCalendar)};font-family: 'Montserrat', sans-serif;
+}
+`;
+
+const NavigationMonth = styled.i`
+  background-color: ${data => (data.theme.Calendar.textColorAvailable)};
+  &::before {
+    background-color: ${data => (data.theme.Calendar.textColorAvailable)};
+    };
+  &::after{
+    background-color: ${data => (data.theme.Calendar.textColorAvailable)};
+    }
+`;
+
+const WeekDay = styled.div`
+   color: ${data => (data.theme.Calendar.textColorDayWeek)};
+`;
+
+const WeekDays = styled.div`
+   background-color: ${data => (data.theme.Calendar.bgWeekDays)};
+   border: 2px solid ${data => (data.theme.Calendar.borderColor)};
+`;
+const CalendarNavigation = styled.div`
+  background-color: ${data => (data.theme.Calendar.bgEmpty)};
+  border-top: 2px solid ${data => (data.theme.Calendar.borderColor)};;
+  border-left: 2px solid ${data => (data.theme.Calendar.borderColor)};
+  border-right: 2px solid ${data => (data.theme.Calendar.borderColor)};
+  color: ${data => (data.theme.Calendar.textColorAvailable)};
+`;
+
+const CalendarBooking = styled.div`
+  border-bottom: 2px solid ${data => (data.theme.Calendar.borderColor)};
+  border-left: 2px solid ${data => (data.theme.Calendar.borderColor)};
+  border-right: 2px solid ${data => (data.theme.Calendar.borderColor)};
+`;
+
 
 class Calendar extends Component {
   constructor(props) {
@@ -18,7 +57,6 @@ class Calendar extends Component {
       month: moment(dateContext).format('MMMM'),
       year: moment(dateContext).format('YYYY'),
       currentMonth: moment().format('MMMM'),
-      orderList: CALENDAR_ORDER_LIST,
     };
   }
 
@@ -46,6 +84,7 @@ class Calendar extends Component {
     setMomentToStart =() => {
       const { dateContext, dayPrevMonth } = this.state;
       const dateContextNew = moment(dateContext).date(1).subtract(dayPrevMonth, 'day');
+        console.log('calendar', CalendarWrapper)
       this.setState({
         dateContextNew,
       }, () => {
@@ -117,6 +156,7 @@ class Calendar extends Component {
       year: dateContext.format('Y'),
       month: dateContext.format('MMMM'),
       clickedWeek: null,
+      clickedDay: null,
     }, () => {
       this.lengthArrayCalendar();
     });
@@ -133,24 +173,8 @@ class Calendar extends Component {
       : {
         clickedWeek: week,
         clickedDay: day,
-      }, () => {
-        console.log(this.state.checked);
-        console.log(this.state.moment)
-    });
+      });
   };
-
-  // renderBookingBlock = () =>{
-  //   const { orderList, clickedDay } = this.state;
-  //   const bocking = orderList.forEach(item, i) =>{
-  //       if(item.available === true){
-  //           <li>
-  //               <span>item.time</span>
-  //               <button>Зарезервировать время</button>
-  //           </li>
-  //       }
-  //     }
-  // }
-
 
   render() {
     const {
@@ -161,20 +185,19 @@ class Calendar extends Component {
       clickedWeek,
       clickedDay,
       rows1,
-      orderList,
     } = this.state;
     const classNameNav = (currentMonth === month && currentYear === year ? 'page__left hidden__navigation' : 'page__left');
     const classNameNavButton = (currentMonth === month && currentYear === year ? 'hidden__button__back' : 'button__back');
     return (
-      <div className="calendar">
-        <div className="calendar_container">
-          <div className="calendar_navigation">
+      <CalendarWrapper className="calendar">
+          <div className="calendar_container">
+          <CalendarNavigation className="calendar_navigation">
             <button
               type="button"
               className={classNameNav}
               onClick={() => { this.navigationMonth('prev'); }}
             >
-              <i className="month__prev" />
+              <NavigationMonth className="month__prev" />
             </button>
             <div className="selected__month__year">
               {this.renderMonthNav()}
@@ -198,16 +221,16 @@ class Calendar extends Component {
               className="page__right"
               onClick={() => { this.navigationMonth('next'); }}
             >
-              <i className="month__next" />
+              <NavigationMonth className="month__next" />
             </button>
-          </div>
-          <div className="weekdays">
+          </CalendarNavigation>
+          <WeekDays className="weekdays">
             {
                 WEEK_DAY_SHORT.map(day => (
-                  <div key={day} className="week-day">{day}</div>
+                  <WeekDay key={day} className="week-day">{day}</WeekDay>
                 ))
               }
-          </div>
+          </WeekDays>
           {
               rows1 && rows1.map((week, weekIndex) => (
                 <div key={weekIndex}>
@@ -226,27 +249,42 @@ class Calendar extends Component {
                   </Week>
                   {
                     weekIndex === clickedWeek ? (
-                      <div className="calendar_booking">
-                        <div className="calendar_order_list">s
+                      <CalendarBooking className="calendar_booking">
+                        <div className="calendar_order_list">
                           <h2 className="calendar_order_list_headline">
                                 Доступные места
                                 {' '}
                                 {clickedDay}
                           </h2>
                           <ul>
-                              <li>f</li>
+                            {
+                              CALENDAR_ORDER_LIST.map((item, i) => (
+                                  <li>
+                                      <span>{item.time}</span>
+                                    {item.available
+                                      ? <div>
+                                          <span>Это время доступно для резервирования</span>
+                                          <button>Зарезервировать время</button>
+                                        </div>
+                                      : <div>
+                                          <span>Это время уже зарезервироввано</span>
+                                          <button>Недоступно</button>
+                                        </div>}
+                                  </li>
+                              ))
+                            }
                           </ul>
 
                         </div>
-                      </div>
+                      </CalendarBooking>
                     ) : null
                   }
                 </div>
               ))}
-        </div>
-      </div>
+          </div>
+      </CalendarWrapper>
     );
   }
 }
 
-export default Calendar;
+export default withTheme(Calendar);

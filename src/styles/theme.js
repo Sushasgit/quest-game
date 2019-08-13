@@ -15,8 +15,21 @@ export const darkTheme = {
     bgForm: '#1c1c1c',
   },
 
+  Calendar: {
+    textColorEmpty: '#414141',
+    textColorAvailable: '#fff',
+    textColorDayWeek: '#999',
+    bgEmpty: '#202020',
+    bgAvailable: '#242424',
+    bgWeekDays: '#404040',
+    bgColorCalendar: '#262626',
+    borderColor: '#373737',
+    hoverColor: '#fff500',
+    buttonTextColor: 'rgba(255, 255, 255, 0.25)',
+  },
+
   input: {
-    color: '#ffff33',
+    color: '#3d0f2e',
   },
 
   tags: {
@@ -47,6 +60,20 @@ export const lightTheme = {
     textColor: '#333333',
     inputColor: '#3d0f2e',
     bgForm: '#f7e5d4',
+  },
+
+
+  Calendar: {
+    textColorEmpty: 'red',  
+    textColorAvailable: 'blue',
+    textColorDayWeek: 'green',
+    bgEmpty: '#938575',
+    bgAvailable: '#242424',
+    bgWeekDays: '#deb495',
+    bgColorCalendar: '#fbf2ea',
+    borderColor: 'black',
+    hoverColor: '#fff500',
+    buttonTextColor: 'rgba(255, 255, 255, 0.25)',
   },
 
   input: {
