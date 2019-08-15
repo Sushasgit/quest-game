@@ -16,20 +16,20 @@ const CalendarWrapper = styled.div`
 const NavigationMonth = styled.i`
   background-color: ${data => (data.theme.Calendar.textColorAvailable)};
   &::before {
-    background-color: ${data => (data.theme.Calendar.textColorAvailable)};
+    background-color: inherit;
     };
   &::after{
-    background-color: ${data => (data.theme.Calendar.textColorAvailable)};
+    background-color: inherit;
     }
 `;
 
 const WeekDay = styled.div`
-   color: ${data => (data.theme.Calendar.textColorDayWeek)};
 `;
 
 const WeekDays = styled.div`
    background-color: ${data => (data.theme.Calendar.bgWeekDays)};
    border: 2px solid ${data => (data.theme.Calendar.borderColor)};
+   color: ${data => (data.theme.Calendar.textColorDayWeek)};
 `;
 const CalendarNavigation = styled.div`
   background-color: ${data => (data.theme.Calendar.bgEmpty)};
@@ -84,12 +84,30 @@ class Calendar extends Component {
     setMomentToStart =() => {
       const { dateContext, dayPrevMonth } = this.state;
       const dateContextNew = moment(dateContext).date(1).subtract(dayPrevMonth, 'day');
-        console.log('calendar', CalendarWrapper)
+      console.log('calendar', CalendarWrapper);
       this.setState({
         dateContextNew,
       }, () => {
         this.generateTotalSlots();
       });
+    };
+
+    detectDayType = (dateContextNew, dateContext, today, idx) => {
+      const empty = (moment(moment(dateContextNew).add(idx, 'd').format('YYYY MM DD')).isBefore(today));
+      const todayDay = (moment(moment(dateContextNew).add(idx, 'd').format('YYYY MM DD')).isSame(today));
+      const daysDisplayMoth = (moment(moment(dateContextNew).add(idx, 'd').format('YYYY MM DD')).isSame(moment(dateContext).format('YYYY MM DD'), 'month')
+           && moment(moment(dateContextNew).add(idx, 'd').format('YYYY MM DD')).isSameOrAfter(today));
+      let dayType;
+      if (empty) {
+        dayType = 'emptyDay';
+      } else if (todayDay){
+        dayType = 'todayDay';
+      } else if (!todayDay && daysDisplayMoth){
+        dayType = 'daysDisplayMoth';
+      } else if (!empty && !todayDay && !daysDisplayMoth){
+        dayType = 'otherDays';
+      }
+      return (dayType)
     };
 
     generateTotalSlots = () => {
@@ -100,18 +118,31 @@ class Calendar extends Component {
         .fill().map((_, idx) => ({
           moment: moment(dateContextNew).add(idx, 'd').format('LL'),
           dayNam: moment(dateContextNew).add(idx, 'd').format('D'),
-          empty: moment(moment(dateContextNew).add(idx, 'd').format('YYYY MM DD')).isBefore(today),
-          today: moment(moment(dateContextNew).add(idx, 'd').format('YYYY MM DD')).isSame(today),
-          currentMonth: moment(moment(dateContextNew).add(idx, 'd').format('YYYY MM DD')).isSame(moment(dateContext).format('YYYY MM DD'), 'month')
-              && moment(moment(dateContextNew).add(idx, 'd').format('YYYY MM DD')).isSameOrAfter(today),
-          click: moment(moment(dateContextNew).add(idx, 'd').format('YYYY MM DD')).isSameOrAfter(today),
+          dayType: this.detectDayType(dateContextNew, dateContext, today, idx),
+          //empty: moment(moment(dateContextNew).add(idx, 'd').format('YYYY MM DD')).isBefore(today),
+          //today: moment(moment(dateContextNew).add(idx, 'd').format('YYYY MM DD')).isSame(today),
+          //currentMonth: moment(moment(dateContextNew).add(idx, 'd').format('YYYY MM DD')).isSame(moment(dateContext).format('YYYY MM DD'), 'month')
+           //   && moment(moment(dateContextNew).add(idx, 'd').format('YYYY MM DD')).isSameOrAfter(today),
+          // click: moment(moment(dateContextNew).add(idx, 'd').format('YYYY MM DD')).isSameOrAfter(today),
         })));
       this.setState({
         totalSlots,
       }, () => {
+        console.log(totalSlots);
         this.generateCalendarWeeks();
       });
     };
+
+    // generateTotalSlotsWithTypeDay = () => {
+    //   const { totalSlots } = this.state;
+    //   const TotalSlotsWithTypeDay = totalSlots.map((item, i) => item = (item.empty) ? { type: 'empty', moment: item.moment, dayNam: item.dayNam } : '');
+    //   this.setState({
+    //     TotalSlotsWithTypeDay,
+    //   }, () => {
+    //     console.log(this.state.TotalSlotsWithTypeDay);
+    //   });
+    // };
+
 
     generateCalendarWeeks = () => {
       const { totalSlots } = this.state;
@@ -163,6 +194,7 @@ class Calendar extends Component {
   };
 
   onDayClick = (e, day, week) => {
+    debugger
     const { clickedWeek, clickedDay } = this.state;
     this.setState(clickedWeek === week && clickedDay === day
       ? prevState => ({
@@ -190,7 +222,7 @@ class Calendar extends Component {
     const classNameNavButton = (currentMonth === month && currentYear === year ? 'hidden__button__back' : 'button__back');
     return (
       <CalendarWrapper className="calendar">
-          <div className="calendar_container">
+        <div className="calendar_container">
           <CalendarNavigation className="calendar_navigation">
             <button
               type="button"
@@ -253,24 +285,28 @@ class Calendar extends Component {
                         <div className="calendar_order_list">
                           <h2 className="calendar_order_list_headline">
                                 Доступные места
-                                {' '}
-                                {clickedDay}
+                            {' '}
+                            {clickedDay}
                           </h2>
                           <ul>
                             {
                               CALENDAR_ORDER_LIST.map((item, i) => (
-                                  <li>
-                                      <span>{item.time}</span>
-                                    {item.available
-                                      ? <div>
-                                          <span>Это время доступно для резервирования</span>
-                                          <button>Зарезервировать время</button>
-                                        </div>
-                                      : <div>
-                                          <span>Это время уже зарезервироввано</span>
-                                          <button>Недоступно</button>
-                                        </div>}
-                                  </li>
+                                <li>
+                                  <span>{item.time}</span>
+                                  {item.available
+                                    ? (
+                                      <div>
+                                        <span>Это время доступно для резервирования</span>
+                                        <button>Зарезервировать время</button>
+                                      </div>
+                                    )
+                                    : (
+                                      <div>
+                                        <span>Это время уже зарезервироввано</span>
+                                        <button>Недоступно</button>
+                                      </div>
+                                    )}
+                                </li>
                               ))
                             }
                           </ul>
@@ -281,7 +317,7 @@ class Calendar extends Component {
                   }
                 </div>
               ))}
-          </div>
+        </div>
       </CalendarWrapper>
     );
   }

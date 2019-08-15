@@ -1,46 +1,99 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
-import moment from "../index";
-const AllDay = styled.div`
+
+
+const CurrentDay = styled.div`
+  background-color: ${data => (data.theme.Calendar.bgAvailable)};
+  border-right: 2px solid ${data => (data.theme.Calendar.borderColor)};
+  border-bottom: 2px solid ${data => (data.theme.Calendar.borderColor)};
+  color: ${data => (data.theme.Calendar.textColorAvailable)};
+    &:first-child{
+    border-left: 2px solid ${data => (data.theme.Calendar.borderColor)};
+  };
+}`;
+
+const EmptyDay = styled.div`
   background-color: ${data => (data.theme.Calendar.bgEmpty)};
   border-right: 2px solid ${data => (data.theme.Calendar.borderColor)};
   border-bottom: 2px solid ${data => (data.theme.Calendar.borderColor)};
-  width: 8vw;
-  height: 8vw;
-  min-width: 40px;
-  min-height: 40px;
-  max-width: 105px;
-  max-height: 105px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
+  color: ${data => (data.theme.Calendar.textColorEmpty)};
     &:first-child{
     border-left: 2px solid ${data => (data.theme.Calendar.borderColor)};
-    };
-}
-`;
+  };
+}`;
+
+const TodayInMonth = styled.div`
+  background-color: ${data => (data.theme.Calendar.bgAvailable)};
+  border-right: 2px solid ${data => (data.theme.Calendar.borderColor)};
+  border-bottom: 2px solid ${data => (data.theme.Calendar.borderColor)};
+  color: ${data => (data.theme.Calendar.textColorAvailable)};
+    &:first-child{
+    border-left: 2px solid ${data => (data.theme.Calendar.borderColor)};
+  };
+}`;
+
+const CheckDay = styled.div`
+  background-color: red;
+  border-right: 2px solid ${data => (data.theme.Calendar.borderColor)};
+  border-bottom: 2px solid ${data => (data.theme.Calendar.borderColor)};
+  color: ${data => (data.theme.Calendar.textColorAvailable)};
+    &:first-child{
+    border-left: 2px solid ${data => (data.theme.Calendar.borderColor)};
+  };
+}`;
+
+const OtherDay = styled.div`
+  background-color: ${data => (data.theme.Calendar.bgEmpty)};
+  border-right: 2px solid ${data => (data.theme.Calendar.borderColor)};
+  border-bottom: 2px solid ${data => (data.theme.Calendar.borderColor)};
+  color: ${data => (data.theme.Calendar.textColorEmpty)};
+    &:first-child{
+    border-left: 2px solid ${data => (data.theme.Calendar.borderColor)};
+  };
+}`;
 
 
 const Day = (props) => {
-
-  const currentDay = props.day.currentMonth ? 'current_month_day' : '';
-  const prevDay = props.day.empty ? 'empty_slot' : 'future_day';
-  const todayInMonth = props.day.today ? 'current-today' : '';
-  const active = props.clickedDay === props.day.moment ? 'checked' : '';
-  const clickDisable = props.day.click
-    ? (
-      <AllDay onClick={(e) => { props.onDayClick(e, props.day.moment, props.week, props.day.month, props.day.click, props.clickedDay); }} className={`${currentDay} ${prevDay} ${todayInMonth} ${active}`}>
+  let displayDay;
+  displayDay = (props.clickedDay === props.day.moment) ? (
+    <CheckDay onClick={(e) => { props.onDayClick(e, props.day.moment, props.week, props.day.month, props.day.click, props.clickedDay); }} className="checked">
+      <span className="calendar_data_day">{props.day.dayNam}</span>
+    </CheckDay>
+  ) : '';
+  switch (props.day.dayType) {
+    case 'emptyDay': displayDay = (
+      <EmptyDay className="empty_slot">
         <span className="calendar_data_day">{props.day.dayNam}</span>
-      </AllDay>
-    )
-    : (
-      <AllDay className={`${prevDay}`}>
-        <span className="calendar_data_day">{props.day.dayNam}</span>
-      </AllDay>
+      </EmptyDay>
     );
+      break;
+    case 'todayDay': displayDay = (
+      <TodayInMonth onClick={(e) => { props.onDayClick(e, props.day.moment, props.week, props.day.month, props.day.click, props.clickedDay); }} className="current-today">
+        <span className="calendar_data_day">{props.day.dayNam}</span>
+      </TodayInMonth>
+    );
+      break;
+    case 'daysDisplayMoth': displayDay = (
+      <CurrentDay onClick={(e) => { props.onDayClick(e, props.day.moment, props.week, props.day.month, props.day.click, props.clickedDay); }} className="current_month_day">
+        <span className="calendar_data_day">{props.day.dayNam}</span>
+      </CurrentDay>
+    );
+      break;
+    case 'otherDays': displayDay = (
+      <OtherDay onClick={(e) => { props.onDayClick(e, props.day.moment, props.week, props.day.month, props.day.click, props.clickedDay); }} className="otherDay">
+        <span className="calendar_data_day">{props.day.dayNam}</span>
+      </OtherDay>
+    );
+      break;
+    default: displayDay = (props.clickedDay === props.day.moment) ? (
+      <CheckDay onClick={(e) => { props.onDayClick(e, props.day.moment, props.week, props.day.month, props.day.click, props.clickedDay); }} className="checked">
+        <span className="calendar_data_day">{props.day.dayNam}</span>
+      </CheckDay>
+    ) : '';
+  }
   return (
-    clickDisable
+    displayDay
   );
 };
+
 export default withTheme(Day);

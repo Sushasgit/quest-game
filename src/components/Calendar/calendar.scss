@@ -147,10 +147,6 @@
   }
 }
 
-.current_month_day{
-  background-color: #242424;
-  color: #fff;
-}
 
 .calendar_container{
   max-width: 720px;
@@ -184,20 +180,18 @@
   border: solid 1px #fff;
 }
 
-//.future_day, .empty_slot{
-//  width: 8vw;
-//  height: 8vw;
-//  min-width: 40px;
-//  min-height: 40px;
-//  max-width: 105px;
-//  max-height: 105px;
-//  //border: 1px solid #373737;
-//  display: flex;
-//  justify-content: center;
-//  align-items: center;
-//  box-sizing: border-box;
-//
-//}
+.future_day, .empty_slot, .current_month_day, .current-today, .otherDay, .checked{
+  width: 8vw;
+  height: 8vw;
+  min-width: 40px;
+  min-height: 40px;
+  max-width: 105px;
+  max-height: 105px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
 
 //.date-number{
 //  text-align: center;

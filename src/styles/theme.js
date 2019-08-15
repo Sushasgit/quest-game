@@ -68,7 +68,7 @@ export const lightTheme = {
     textColorAvailable: 'blue',
     textColorDayWeek: 'green',
     bgEmpty: '#938575',
-    bgAvailable: '#242424',
+    bgAvailable: 'pink',
     bgWeekDays: '#deb495',
     bgColorCalendar: '#fbf2ea',
     borderColor: 'black',
