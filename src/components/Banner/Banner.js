@@ -91,7 +91,6 @@ class Banner extends Component {
     }
   }
 
-
   animate() {
     this.theTween
       .to('.banner__fly--1', 2.5, {
@@ -146,14 +145,17 @@ class Banner extends Component {
       .to('.banner__fly--3', 0.5, { opacity: 0, ease: Power1.easeInOut })
       .to('.banner__fly--2', 1, { y: -800, ease: Back.easeInOut })
       .to('.banner__fly--2', 0.5, { opacity: 0, ease: Power1.easeInOut })
-
       .to('.part05', 4, { y: '-=90' }, 0)
+      .to('.neon', 2, {
+        autoAlpha: 1,
+        y: '+=150',
+      }, 0)
+      .to('.neon', 4.5, { scale: 1.1 }, 1.5)
       .to('.part01', 5, { y: '-=120' }, 7)
       .to('.part04', 5, { y: '-=90' }, 0)
       .to('.part03', 5.8, { y: '+=100' }, 0)
       .to('.part02', 6, { y: '+=40' }, 3)
-      .to('.part08', 1.5, { scale: 1.1 }, 0)
-      .to('.part08', 1.5, { x: 800, ease: Back.easeInOut })
+      .to('.part08', 1.5, { scale: 1.3 }, 0)
       .to('.part06', 3, { y: '-=60' }, 0)
       .to('.banner__planet', 8, {
         bezier: {
