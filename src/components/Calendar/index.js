@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-import 'moment/locale/ru';
+//import 'moment/locale/ru';
 import './calendar.scss';
 import styled, { withTheme } from 'styled-components';
 import Week from './parts/Week';
@@ -20,6 +20,12 @@ const NavigationMonth = styled.i`
     };
   &::after{
     background-color: inherit;
+    }
+`;
+
+const ButtonNavigation = styled.button`
+    &:hover .month__next, &:hover .month__prev{
+    background-color: ${data => (data.theme.Calendar.hoverColor)};
     }
 `;
 
@@ -43,6 +49,10 @@ const CalendarBooking = styled.div`
   border-bottom: 2px solid ${data => (data.theme.Calendar.borderColor)};
   border-left: 2px solid ${data => (data.theme.Calendar.borderColor)};
   border-right: 2px solid ${data => (data.theme.Calendar.borderColor)};
+  background-color: ${data => (data.theme.Calendar.bgWeekDays)};
+`;
+const CalendarOrderList = styled.div`
+  background-color: ${data => (data.theme.Calendar.textColorAvailable)};
 `;
 
 
@@ -84,7 +94,6 @@ class Calendar extends Component {
     setMomentToStart =() => {
       const { dateContext, dayPrevMonth } = this.state;
       const dateContextNew = moment(dateContext).date(1).subtract(dayPrevMonth, 'day');
-      console.log('calendar', CalendarWrapper);
       this.setState({
         dateContextNew,
       }, () => {
@@ -100,14 +109,14 @@ class Calendar extends Component {
       let dayType;
       if (empty) {
         dayType = 'emptyDay';
-      } else if (todayDay){
+      } else if (todayDay) {
         dayType = 'todayDay';
-      } else if (!todayDay && daysDisplayMoth){
+      } else if (!todayDay && daysDisplayMoth) {
         dayType = 'daysDisplayMoth';
-      } else if (!empty && !todayDay && !daysDisplayMoth){
+      } else if (!empty && !todayDay && !daysDisplayMoth) {
         dayType = 'otherDays';
       }
-      return (dayType)
+      return (dayType);
     };
 
     generateTotalSlots = () => {
@@ -119,30 +128,13 @@ class Calendar extends Component {
           moment: moment(dateContextNew).add(idx, 'd').format('LL'),
           dayNam: moment(dateContextNew).add(idx, 'd').format('D'),
           dayType: this.detectDayType(dateContextNew, dateContext, today, idx),
-          //empty: moment(moment(dateContextNew).add(idx, 'd').format('YYYY MM DD')).isBefore(today),
-          //today: moment(moment(dateContextNew).add(idx, 'd').format('YYYY MM DD')).isSame(today),
-          //currentMonth: moment(moment(dateContextNew).add(idx, 'd').format('YYYY MM DD')).isSame(moment(dateContext).format('YYYY MM DD'), 'month')
-           //   && moment(moment(dateContextNew).add(idx, 'd').format('YYYY MM DD')).isSameOrAfter(today),
-          // click: moment(moment(dateContextNew).add(idx, 'd').format('YYYY MM DD')).isSameOrAfter(today),
         })));
       this.setState({
         totalSlots,
       }, () => {
-        console.log(totalSlots);
         this.generateCalendarWeeks();
       });
     };
-
-    // generateTotalSlotsWithTypeDay = () => {
-    //   const { totalSlots } = this.state;
-    //   const TotalSlotsWithTypeDay = totalSlots.map((item, i) => item = (item.empty) ? { type: 'empty', moment: item.moment, dayNam: item.dayNam } : '');
-    //   this.setState({
-    //     TotalSlotsWithTypeDay,
-    //   }, () => {
-    //     console.log(this.state.TotalSlotsWithTypeDay);
-    //   });
-    // };
-
 
     generateCalendarWeeks = () => {
       const { totalSlots } = this.state;
@@ -194,7 +186,6 @@ class Calendar extends Component {
   };
 
   onDayClick = (e, day, week) => {
-    debugger
     const { clickedWeek, clickedDay } = this.state;
     this.setState(clickedWeek === week && clickedDay === day
       ? prevState => ({
@@ -224,13 +215,13 @@ class Calendar extends Component {
       <CalendarWrapper className="calendar">
         <div className="calendar_container">
           <CalendarNavigation className="calendar_navigation">
-            <button
+            <ButtonNavigation
               type="button"
               className={classNameNav}
               onClick={() => { this.navigationMonth('prev'); }}
             >
               <NavigationMonth className="month__prev" />
-            </button>
+            </ButtonNavigation>
             <div className="selected__month__year">
               {this.renderMonthNav()}
               {this.renderYearNav()}
@@ -248,13 +239,13 @@ class Calendar extends Component {
                 {' '}
               </button>
             </div>
-            <button
+            <ButtonNavigation
               type="button"
               className="page__right"
               onClick={() => { this.navigationMonth('next'); }}
             >
               <NavigationMonth className="month__next" />
-            </button>
+            </ButtonNavigation>
           </CalendarNavigation>
           <WeekDays className="weekdays">
             {
@@ -282,7 +273,7 @@ class Calendar extends Component {
                   {
                     weekIndex === clickedWeek ? (
                       <CalendarBooking className="calendar_booking">
-                        <div className="calendar_order_list">
+                        <CalendarOrderList className="calendar_order_list">
                           <h2 className="calendar_order_list_headline">
                                 Доступные места
                             {' '}
@@ -311,7 +302,7 @@ class Calendar extends Component {
                             }
                           </ul>
 
-                        </div>
+                        </CalendarOrderList>
                       </CalendarBooking>
                     ) : null
                   }

@@ -64,11 +64,11 @@ export const lightTheme = {
 
 
   Calendar: {
-    textColorEmpty: 'red',  
-    textColorAvailable: 'blue',
+    textColorEmpty: 'red',
+    textColorAvailable: '#000000',
     textColorDayWeek: 'green',
     bgEmpty: '#938575',
-    bgAvailable: 'pink',
+    bgAvailable: '#deb495',
     bgWeekDays: '#deb495',
     bgColorCalendar: '#fbf2ea',
     borderColor: 'black',
