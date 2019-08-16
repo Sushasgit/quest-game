@@ -5,7 +5,6 @@
   font-family: 'Montserrat', sans-serif;
   display: flex;
   justify-content: center;
-  //background-color: #262626;
   padding: 55px;
   min-width: 270px;
 }
@@ -26,31 +25,18 @@
   display: block;
   width: 48px;
   height: 2px;
-  //background-color: #fff;
   position: relative;
 }
 
 .page__right:hover .month__next,
-.page__left:hover .month__prev,
-.page__left:hover .month__prev:before,
-.page__left:hover .month__prev:after,
-.page__right:hover .month__next:before,
-.page__right:hover .month__next:after{
-  background-color: #ffdc26;
-
+.page__left:hover .month__prev
+//.page__left:hover .month__prev:before,
+//.page__left:hover .month__prev:after,
+//.page__right:hover .month__next:before,
+//.page__right:hover .month__next:after
+  {
+  //background-color: #fff500;
 }
-
-.current-day .date-number{
-  border-radius: 50%;
-  box-sizing: border-box;
-  border: 1px solid #ffdc26;
-  width: 45%;
-  height: 45%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 
 .month__prev:before{
   content: "";
@@ -58,7 +44,6 @@
   position: absolute;
   width: 6px;
   height: 2px;
-  //background-color: #fff;
   transform: translateY(-1.5px) translateX(-1px) rotate(-45deg);
 
 }
@@ -69,7 +54,6 @@
   position: absolute;
   width: 6px;
   height: 2px;
-  //background-color: #fff;
   transform: translateY(1.5px) translateX(-1px) rotate(45deg);
 
 }
@@ -81,7 +65,6 @@
   right: 0;
   width: 6px;
   height: 2px;
-  //background-color: #fff;
   transform: translateY(-1.5px) translateX(1px) rotate(45deg);
 
 }
@@ -93,7 +76,6 @@
   right: 0;
   width: 6px;
   height: 2px;
-  //background-color: #fff;
   transform: translateY(1.5px) translateX(1px) rotate(-45deg);
 
 }
@@ -119,15 +101,8 @@
   display: flex;
   flex-wrap: wrap;
 }
-.empty_slot{
-  color: #414141;
-  //background-color: #202020;
-  cursor: no-drop;
 
-}
-.future_day{
-  color: #414141;
-  //background-color: #202020;
+.current-today, .current_month_day, .otherDay{
   cursor: pointer;
   position: relative;
   &:hover {
@@ -136,21 +111,14 @@
       height: 5vw;
       max-width: 50px;
       max-height: 50px;
-      border: solid 1px #fff500;
-      background-color: #fff500;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #202020;
     }
   }
 }
 
-.current_month_day{
-  background-color: #242424;
-  color: #fff;
-}
 
 .calendar_container{
   max-width: 720px;
@@ -176,32 +144,23 @@
   max-width: 50px;
   max-height: 50px;
   border-radius: 50%;
-  border: solid 1px #fff500;
   position: absolute;
 }
 
-.checked.current-today:before{
-  border: solid 1px #fff;
+
+
+.future_day, .empty_slot, .current_month_day, .current-today, .otherDay, .checked{
+  width: 8vw;
+  height: 8vw;
+  min-width: 40px;
+  min-height: 40px;
+  max-width: 105px;
+  max-height: 105px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
 }
-
-//.future_day, .empty_slot{
-//  width: 8vw;
-//  height: 8vw;
-//  min-width: 40px;
-//  min-height: 40px;
-//  max-width: 105px;
-//  max-height: 105px;
-//  //border: 1px solid #373737;
-//  display: flex;
-//  justify-content: center;
-//  align-items: center;
-//  box-sizing: border-box;
-//
-//}
-
-//.date-number{
-//  text-align: center;
-//}
 
 .weekdays{
   display: flex;
@@ -225,10 +184,6 @@
   box-sizing: border-box;
 }
 
-//.week-day:last-child{
-//  border-right:1px solid #373737;
-//}
-
 .button__back{
   background: none;
   display: flex;
@@ -246,7 +201,6 @@
 .hidden__button__back{
   display: none;
 }
-
 
 @media (max-width: 850px) {
   .page__right, .page__left {
@@ -266,6 +220,10 @@
     align-items: center;
   }
 
+  .calendar{
+    padding: 5px;
+  }
+
   .label_month, .label_year, .button__back{
     padding: 2px;
   }
@@ -276,16 +234,9 @@
 }
 
 .calendar_booking{
-  background-color: #404040;
+  //background-color: #404040;
   display: flex;
   justify-content: center;
-}
-
-.checked.future_day:hover {
-  .calendar_data_day {
-    border: solid 1px #fff;
-    background-color: #fff;
-  }
 }
 
 .checked .calendar_data_day{
@@ -293,22 +244,17 @@
   height: 5vw;
   max-width: 50px;
   max-height: 50px;
-  border: solid 1px #fff;
-  background-color: #fff;
+  //border: solid 1px #fff;
+  //background-color: #fff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #202020;
+  //color: #202020;
 }
 
-.checked.future_day{
-  background-color: #404040;
-  border-bottom: none;
-}
 
 .calendar_order_list{
-  background-color: #fff;
   margin: 15px;
   width: 100%;
   border-radius: 3px;
@@ -316,6 +262,6 @@
 
 .calendar_order_list_headline{
   text-align: center;
-  color: #242424;
+  color: inherit;
   font-size: 16px;
 }
