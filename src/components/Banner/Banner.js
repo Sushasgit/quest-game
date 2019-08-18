@@ -19,6 +19,7 @@ import {
 import './banner.scss';
 import Title from '../ui/Title';
 import Icon from '../ui/Icon';
+import { handleSwitchMan } from '../../utils/func';
 
 const TitleNeon = styled.span`
   position: absolute;
@@ -28,7 +29,7 @@ const TitleNeon = styled.span`
   transform: translate(-50%, -50%);
   margin: 0;
   padding:  0 20px;
-  font-size: 1.9em;
+  font-size: 1.4em;
   color: ${data => (data.theme && data.theme.themeType === 'dark' ? '#fff' : data.theme.textColor)};
   text-shadow: 0 0 30px ${data => (data.theme ? data.theme.primaryBg : '#fff')};
   font-family: 'FiraSans-Bold', sans-serif;
@@ -155,7 +156,7 @@ class Banner extends Component {
       .to('.part04', 5, { y: '-=90' }, 0)
       .to('.part03', 5.8, { y: '+=100' }, 0)
       .to('.part02', 6, { y: '+=40' }, 3)
-      .to('.part08', 1.5, { scale: 1.3 }, 0)
+      .to('.part08', 1.5, { scale: 1.1 }, 0)
       .to('.part06', 3, { y: '-=60' }, 0)
       .to('.banner__planet', 8, {
         bezier: {
@@ -175,7 +176,7 @@ class Banner extends Component {
   }
 
   render() {
-    const { title, children, theme } = this.props;
+    const { title, children, theme, type } = this.props;
     return (
       <React.Fragment>
         <Observed
@@ -195,7 +196,7 @@ class Banner extends Component {
                   <div style={{ color: theme.primaryBg }} id="banner__inner" ref={mapRef}>
                     <div ref={this.animateMe} id="wrapper">
                       <Icon name="bg-layer6" className="part05 banner__layer" />
-                      <Icon name="bg-man" className="l-man part08 banner__layer" />
+                      {handleSwitchMan(type)}
                       <Icon name="bg-layer3" className="l3 part03 banner__layer" />
                       <Icon name="bg-layer2" className="part02 banner__layer" />
                       <div className={`banner__planet-list ${theme.themeType !== 'dark' ? 'none' : ''}`}>

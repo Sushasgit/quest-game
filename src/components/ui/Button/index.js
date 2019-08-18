@@ -37,7 +37,7 @@ const StyledButton = styled.button`
     position: relative;
     z-index: 1;
     border: 1px solid ${data => (data.theme ? data.theme.titleColor : '#fff')};
-    background-color: transparent;
+    background-color: rgba(0,0,0,.5);
     color: ${data => (data.theme ? data.theme.titleColor : '#fff')};
 
     &::before, &::after {
