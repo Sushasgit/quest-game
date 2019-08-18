@@ -10,6 +10,7 @@ const Title = ({ level, primary, ...props }) => {
     text-align: center;
     margin: 0 0 25px 0;
     padding: 1px;
+    line-height: 1.2em;
 `;
   const { children } = props;
   return (

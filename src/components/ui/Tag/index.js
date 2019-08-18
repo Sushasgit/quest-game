@@ -10,7 +10,7 @@ const StyledTag = styled.span`
   background-size: contain;
   min-width: 50px;
   display: inline-block;
-  min-height: 40px;
+  min-height: 30px;
   border: 2px solid ${props => (props.data === 'TOP' ? props.theme.tags.top.borderColor : props.theme.tags.standard.borderColor)}
   border-radius: 4px;
   padding: 5px;

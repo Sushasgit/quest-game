@@ -21,6 +21,8 @@ import { ReactComponent as Bat3 } from './svg/bat-3.svg';
 import { ReactComponent as Paintball } from './svg/paintball.svg';
 import { ReactComponent as Mask } from './svg/masks.svg';
 import { ReactComponent as Team } from './svg/team.svg';
+import { ReactComponent as StrikeMan } from './svg/strike-man.svg';
+import { ReactComponent as Quadro } from './svg/quadro.svg';
 
 const Icon = (props) => {
   switch (props.name) {
@@ -62,6 +64,10 @@ const Icon = (props) => {
       return <Mask className={props.className} />;
     case 'team':
       return <Team className={props.className} />;
+    case 'strikeMan':
+      return <StrikeMan className={props.className} />;
+    case 'quadro':
+      return <Quadro className={props.className} />;
     default:
       return <Marker className={props.className} />;
   }

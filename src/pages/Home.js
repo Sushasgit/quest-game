@@ -10,7 +10,7 @@ import Menu from '../components/Menu';
 const Home = () => (
   <React.Fragment>
     <div className="wrap">
-      <Banner title="Територрия реальных игр'">
+      <Banner title="Территория реальных игр">
         <Menu />
       </Banner>
     </div>

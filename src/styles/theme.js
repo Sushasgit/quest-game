@@ -43,6 +43,13 @@ export const darkTheme = {
       textColor: '#FFDC26',
     },
   },
+
+  tabs: {
+    bgColor: '#000',
+    tabItemColor: '#FFDC26',
+    activeTabBg: '#FFDC26',
+    activeTabColor: '#000',
+  },
 };
 
 export const lightTheme = {
@@ -91,6 +98,12 @@ export const lightTheme = {
       borderColor: '#3d0f2e',
       textColor: '#3d0f2e',
     },
+  },
+  tabs: {
+    bgColor: '#000',
+    tabItemColor: '#FFDC26',
+    activeTabBg: '#FFDC26',
+    activeTabColor: '#000',
   },
 };
 

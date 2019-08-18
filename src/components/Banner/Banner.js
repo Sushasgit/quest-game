@@ -19,6 +19,7 @@ import {
 import './banner.scss';
 import Title from '../ui/Title';
 import Icon from '../ui/Icon';
+import { handleSwitchMan } from '../../utils/func';
 
 const TitleNeon = styled.span`
   position: absolute;
@@ -28,7 +29,7 @@ const TitleNeon = styled.span`
   transform: translate(-50%, -50%);
   margin: 0;
   padding:  0 20px;
-  font-size: 1.9em;
+  font-size: 1.4em;
   color: ${data => (data.theme && data.theme.themeType === 'dark' ? '#fff' : data.theme.textColor)};
   text-shadow: 0 0 30px ${data => (data.theme ? data.theme.primaryBg : '#fff')};
   font-family: 'FiraSans-Bold', sans-serif;
@@ -73,10 +74,12 @@ class Banner extends Component {
     super(props);
     this.animateMe = React.createRef();
     this.theTween = new TimelineLite({ paused: true });
+
+    this.animate = this.animate.bind(this);
   }
 
   componentDidMount() {
-    this.animate();
+    requestAnimationFrame(this.animate);
     this.theTween.play();
   }
 
@@ -84,11 +87,10 @@ class Banner extends Component {
     const { theme } = this.props;
     if (nextProps.theme && nextProps.theme.themeType !== theme.themeType) {
       this.clearAnimate();
-      this.animate();
+      requestAnimationFrame(this.animate);
       this.theTween.play();
     }
   }
-
 
   animate() {
     this.theTween
@@ -144,8 +146,12 @@ class Banner extends Component {
       .to('.banner__fly--3', 0.5, { opacity: 0, ease: Power1.easeInOut })
       .to('.banner__fly--2', 1, { y: -800, ease: Back.easeInOut })
       .to('.banner__fly--2', 0.5, { opacity: 0, ease: Power1.easeInOut })
-
       .to('.part05', 4, { y: '-=90' }, 0)
+      .to('.neon', 2, {
+        autoAlpha: 1,
+        y: '+=150',
+      }, 0)
+      .to('.neon', 4.5, { scale: 1.1 }, 1.5)
       .to('.part01', 5, { y: '-=120' }, 7)
       .to('.part04', 5, { y: '-=90' }, 0)
       .to('.part03', 5.8, { y: '+=100' }, 0)
@@ -166,11 +172,11 @@ class Banner extends Component {
   }
 
   clearAnimate() {
-    this.theTween.restart(true, false);
+    requestAnimationFrame(() => { this.theTween.restart(true, false); });
   }
 
   render() {
-    const { title, children, theme } = this.props;
+    const { title, children, theme, type } = this.props;
     return (
       <React.Fragment>
         <Observed
@@ -190,7 +196,7 @@ class Banner extends Component {
                   <div style={{ color: theme.primaryBg }} id="banner__inner" ref={mapRef}>
                     <div ref={this.animateMe} id="wrapper">
                       <Icon name="bg-layer6" className="part05 banner__layer" />
-                      <Icon name="bg-man" className="l-man part08 banner__layer" />
+                      {handleSwitchMan(type)}
                       <Icon name="bg-layer3" className="l3 part03 banner__layer" />
                       <Icon name="bg-layer2" className="part02 banner__layer" />
                       <div className={`banner__planet-list ${theme.themeType !== 'dark' ? 'none' : ''}`}>
