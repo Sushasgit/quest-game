@@ -100,6 +100,7 @@
 .selected__month__year{
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .current-today, .current_month_day, .otherDay{
@@ -244,13 +245,10 @@
   height: 5vw;
   max-width: 50px;
   max-height: 50px;
-  //border: solid 1px #fff;
-  //background-color: #fff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  //color: #202020;
 }
 
 
@@ -262,6 +260,5 @@
 
 .calendar_order_list_headline{
   text-align: center;
-  color: inherit;
   font-size: 16px;
 }

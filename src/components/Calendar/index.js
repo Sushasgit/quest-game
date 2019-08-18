@@ -48,11 +48,12 @@ const CalendarNavigation = styled.div`
 const CalendarBooking = styled.div`
   border-bottom: 2px solid ${data => (data.theme.Calendar.borderColor)};
   border-left: 2px solid ${data => (data.theme.Calendar.borderColor)};
-  border-right: 2px solid ${data => (data.theme.Calendar.borderColor)};
+  border-right: 2px solid borderColor
   background-color: ${data => (data.theme.Calendar.bgWeekDays)};
 `;
 const CalendarOrderList = styled.div`
   background-color: ${data => (data.theme.Calendar.textColorAvailable)};
+  color: ${data => (data.theme.Calendar.borderColor)};
 `;
 
 
