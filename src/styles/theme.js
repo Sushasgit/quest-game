@@ -16,7 +16,7 @@ export const darkTheme = {
   },
 
   Calendar: {
-    textColorEmpty: '#414141',
+    textColorEmpty: '#e1d8c9',
     textColorAvailable: '#fff',
     textColorDayWeek: '#999',
     bgEmpty: '#202020',
@@ -71,16 +71,17 @@ export const lightTheme = {
 
 
   Calendar: {
-    textColorEmpty: 'red',
-    textColorAvailable: '#000000',
-    textColorDayWeek: 'green',
-    bgEmpty: '#938575',
-    bgAvailable: '#deb495',
-    bgWeekDays: '#deb495',
+    textColorEmpty: '#c7b79b',
+    textColorAvailable: '#fff',
+    textColorDayWeek: '#312f2d',
+    bgEmpty: '#907b7f',
+    bgAvailable: '#bebebe',
+    bgWeekDays: '#f7e1c5',
     bgColorCalendar: '#fbf2ea',
-    borderColor: 'black',
-    hoverColor: '#fff500',
+    borderColor: '#2a2827',
+    hoverColor: '#ff0',
     buttonTextColor: 'rgba(255, 255, 255, 0.25)',
+    butt:'#514541',
   },
 
   input: {

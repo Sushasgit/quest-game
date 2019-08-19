@@ -100,6 +100,7 @@
 .selected__month__year{
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .current-today, .current_month_day, .otherDay{
@@ -234,7 +235,6 @@
 }
 
 .calendar_booking{
-  //background-color: #404040;
   display: flex;
   justify-content: center;
 }
@@ -244,13 +244,10 @@
   height: 5vw;
   max-width: 50px;
   max-height: 50px;
-  //border: solid 1px #fff;
-  //background-color: #fff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  //color: #202020;
 }
 
 
@@ -258,10 +255,78 @@
   margin: 15px;
   width: 100%;
   border-radius: 3px;
+  padding: 10px;
 }
 
 .calendar_order_list_headline{
   text-align: center;
-  color: inherit;
   font-size: 16px;
+}
+
+.item_time{
+  font-size: 20px;
+  line-height: 22px;
+  position: relative;
+  left: -20px;
+  margin-left: 40px;
+  height: 26px;
+  &:before{
+    content: '';
+    display: block;
+    position: absolute;
+    left: -22px;
+
+    background: url("../../images/gallery/clock.svg") no-repeat center;
+    background-size: 60%;
+    width: 22px;
+    height: 22px;
+  }
+
+}
+
+.li_item_time{
+  border-top: 1px solid #999;
+  display: flex;
+  font-size: 12px;
+  flex-direction: column;
+  padding: 15px;
+  &:hover{
+    background-color: #f7f7f7;
+  }
+}
+
+.available_item_time{
+  font-size: 9px;
+  min-width: 50%;
+}
+
+.book_item_time{
+  display: flex;
+  justify-content: space-between;
+}
+
+.button_book{
+  width: 12vw;
+  min-width: 125px;
+  border-radius: 15px;
+  height: 30px;
+  background-color: #ff0;
+  &:not(.disable):hover{
+    background-color: #242424;
+    color: #fff;
+  }
+  &.disable{
+    background-color: #f7e1c5;
+    border: none;
+  }
+}
+
+@media (max-width: 800px) {
+  .book_item_time {
+    flex-direction: column;
+    align-items: center;
+  }
+  .li_item_time{
+    align-items: center;
+  }
 }

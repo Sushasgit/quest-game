@@ -48,11 +48,12 @@ const CalendarNavigation = styled.div`
 const CalendarBooking = styled.div`
   border-bottom: 2px solid ${data => (data.theme.Calendar.borderColor)};
   border-left: 2px solid ${data => (data.theme.Calendar.borderColor)};
-  border-right: 2px solid ${data => (data.theme.Calendar.borderColor)};
+  border-right: 2px solid borderColor
   background-color: ${data => (data.theme.Calendar.bgWeekDays)};
 `;
 const CalendarOrderList = styled.div`
   background-color: ${data => (data.theme.Calendar.textColorAvailable)};
+  color: ${data => (data.theme.Calendar.borderColor)};
 `;
 
 
@@ -232,7 +233,7 @@ class Calendar extends Component {
                   this.navigationMonth('toCurrentMonth');
                 }}
               >
-                  Вернуться в
+                  Back to
                 {' '}
                 {' '}
                 {currentMonth}
@@ -282,19 +283,19 @@ class Calendar extends Component {
                           <ul>
                             {
                               CALENDAR_ORDER_LIST.map((item, i) => (
-                                <li>
-                                  <span>{item.time}</span>
+                                <li className="li_item_time">
+                                  <span className="item_time">{item.time}</span>
                                   {item.available
                                     ? (
-                                      <div>
-                                        <span>Это время доступно для резервирования</span>
-                                        <button>Зарезервировать время</button>
+                                      <div className="book_item_time">
+                                        <span className="available_item_time">доступно для резервирования</span>
+                                        <button className="button_book">Зарезервировать</button>
                                       </div>
                                     )
                                     : (
-                                      <div>
-                                        <span>Это время уже зарезервироввано</span>
-                                        <button>Недоступно</button>
+                                      <div className="book_item_time">
+                                        <span className="available_item_time">уже зарезервировано</span>
+                                        <button disabled="disabled" className="button_book disable">Недоступно</button>
                                       </div>
                                     )}
                                 </li>
