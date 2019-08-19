@@ -286,11 +286,13 @@
 
 .li_item_time{
   border-top: 1px solid #999;
-  margin-bottom: 10px;
   display: flex;
   font-size: 12px;
   flex-direction: column;
-  padding: 10px;
+  padding: 15px;
+  &:hover{
+    background-color: #f7f7f7;
+  }
 }
 
 .available_item_time{
@@ -304,11 +306,15 @@
 }
 
 .button_book{
-  width: 13vw;
+  width: 12vw;
   min-width: 125px;
-  border-radius: 12px;
-  height: 26px;
+  border-radius: 15px;
+  height: 30px;
   background-color: #ff0;
+  &:not(.disable):hover{
+    background-color: #242424;
+    color: #fff;
+  }
   &.disable{
     background-color: #f7e1c5;
     border: none;
