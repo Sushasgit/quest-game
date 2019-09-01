@@ -99,25 +99,29 @@ export const CALENDAR_ORDER_LIST = [
   {
     id: 1,
     available: true,
-    time: '22:00 - 00:00',
+    timeNight: '22:00 - 00:00',
+    timeDay: '10:00 - 12:00',
     day: null,
   },
   {
     id: 2,
     available: true,
-    time: '00:00 - 02:00',
+    timeNight: '00:00 - 02:00',
+    timeDay: '12:00 - 14:00',
     day1: null,
   },
   {
     id: 3,
     available: false,
-    time: '02:00 - 04:00',
+    timeNight: '02:00 - 04:00',
+    timeDay: '14:00 - 16:00',
     day1: null,
   },
   {
     id: 4,
     available: true,
-    time: '04:00 - 06:00',
+    timeNight: '04:00 - 06:00',
+    timeDay: '16:00 - 18:00',
     day1: null,
   },
 ];

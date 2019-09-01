@@ -274,7 +274,7 @@
   margin: 15px;
   width: 100%;
   border-radius: 3px;
-  padding: 10px;
+  padding: 10px 10px 0 10px;
   opacity: 0;
   animation-duration: 2s;
   animation-delay: 1s;
@@ -401,17 +401,20 @@
   border:1px solid #373737;
 
   &_form{
-    width: 40vw;
-    height: 50vw;
+    width: 38vw;
+    max-width: 605px;
+    height: 42vw;
+    min-height:470px;
     position: absolute;
-    left:calc(50% - 20vw);
-    top:calc(50% - 23vw);
+    left:calc(50% - 19vw);
+    top:calc(50% - 21vw);
     background-color: #202020;
     border-radius: 4px;
     color: #e1d8c9;
 
     &_wrap{
       width: 32vw;
+      max-width: 485px;
       margin: 0 auto;
     }
   }

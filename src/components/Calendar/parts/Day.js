@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
-
+import axios from 'axios';
 
 const CurrentDay = styled.div`
   background-color: ${data => (data.theme.Calendar.bgAvailable)};
@@ -114,8 +114,23 @@ const OtherDay = styled.div`
   };
 }`;
 
+const data = {
+  req: 'get-all',
+};
+
+const config = {
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded',
+  },
+};
 
 const Day = (props) => {
+  axios.post('https://iamwerby.com/api/events/',
+    'req=get-all', config).then((res) => {
+    // console.log('res', JSON.stringify(requestBody));
+    console.log('resdata', (res.data));
+  });
+
   let displayDay;
   const active = props.clickedDay === props.day.moment ? 'checked' : '';
   switch (props.day.dayType) {
@@ -138,7 +153,7 @@ const Day = (props) => {
     );
       break;
     default: displayDay = (
-          <OtherDay onClick={(e) => { props.onDayClick(e, props.day.moment, props.week, props.day.month, props.day.click, props.clickedDay); }} className={`${'otherDay'} ${active}`}>
+      <OtherDay onClick={(e) => { props.onDayClick(e, props.day.moment, props.week, props.day.month, props.day.click, props.clickedDay); }} className={`${'otherDay'} ${active}`}>
         <span className="calendar_data_day">{props.day.dayNam}</span>
       </OtherDay>
     );

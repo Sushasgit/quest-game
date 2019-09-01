@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-// import 'moment/locale/ru';
+import 'moment/locale/ru';
 import './calendar.scss';
 import styled, { withTheme } from 'styled-components';
 import Week from './parts/Week';
@@ -8,6 +8,7 @@ import Day from './parts/Day';
 import { CALENDAR_ORDER_LIST } from '../../utils/constants';
 import { WEEK_DAY_SHORT } from '../../utils/constants';
 import Button from '../ui/Button';
+import axios from 'axios';
 import {
   LargeAndUp,
   MediumAndDown,
@@ -288,6 +289,7 @@ class Calendar extends Component {
                           onClose={(e) => this.setState({ isOpenBookingTime: false })}
                           day={clickedDay}
                           time={checkTime}
+                          kindEvent={this.props.kindEvent}
                         />
                         <CalendarOrderList className="calendar_order_list">
                           <LargeAndUp>
@@ -301,14 +303,13 @@ class Calendar extends Component {
                               {
                               CALENDAR_ORDER_LIST.map((item, i) => (
                                 <li className="li_item_time">
-                                  <span className="item_time">{item.time}</span>
+                                  <span className="item_time">{this.props.kindEvent === 'HideAndSeek' ? item.timeNight : item.timeDay }</span>
                                   {item.available
                                     ? (
-
                                       <div className="book_item_time">
                                         <span className="available_item_time">доступно для резервирования</span>
                                         <Button
-                                          onClick={e => this.setState({ isOpenBookingTime: true, checkTime: item.time })}
+                                          onClick={e => this.setState({ isOpenBookingTime: true, checkTime: this.props.kindEvent === 'HideAndSeek' ? item.timeNight : item.timeDay })}
                                         >
                                           Зарезервировать
                                         </Button>
@@ -341,11 +342,11 @@ class Calendar extends Component {
                                       {item.available
                                         ? (
                                           <Button
-                                            onClick={() => { console.log(item.time); }}
+                                            onClick={() => { console.log(item.timeNight); }}
                                             className="button_book_small_device"
                                           >
                                             <div className="button_book_small_device_content">
-                                              <span className="item_time_small_device">{item.time}</span>
+                                              <span className="item_time_small_device">{this.props.kindEvent === 'HideAndSeek' ? item.timeNight : item.timeDay}</span>
                                               <span className="available_item_time_small_device">доступно для резервирования</span>
                                             </div>
                                           </Button>
@@ -356,7 +357,7 @@ class Calendar extends Component {
                                             className="button_book_small_device"
                                           >
                                             <div className="button_book_small_device_content">
-                                              <span className="item_time_small_device">{item.time}</span>
+                                              <span className="item_time_small_device">{this.props.kindEvent === 'HideAndSeek' ? item.timeNight : item.timeDay}</span>
                                               <span className="available_item_time_small_device">уже зарезервировано</span>
                                             </div>
                                           </Button>
