@@ -16,7 +16,8 @@ export const darkTheme = {
   },
 
   Calendar: {
-    textColorEmpty: '#e1d8c9',
+    textColorEmpty: '#414141',
+    textColorOrderList: '#e1d8c9',
     textColorAvailable: '#fff',
     textColorDayWeek: '#999',
     bgEmpty: '#202020',

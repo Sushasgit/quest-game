@@ -1,8 +1,8 @@
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
-
+//@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Hind&display=swap');
 .calendar{
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Hind', sans-serif;
   display: flex;
   justify-content: center;
   padding: 55px;
@@ -19,6 +19,11 @@
   cursor: pointer;
   padding: 0;
   border: none;
+}
+
+.page__right{
+  display: flex;
+  justify-content: flex-end;
 }
 
 .month__next, .month__prev{
@@ -234,9 +239,24 @@
   }
 }
 
-.calendar_booking{
+.calendar_booking {
   display: flex;
   justify-content: center;
+  transition: height 5s linear;
+  height: max-content;
+  animation-duration: 2s;
+  animation-name: block-height;
+  position: marker;
+}
+
+@keyframes block-height {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: 548px;
+  }
 }
 
 .checked .calendar_data_day{
@@ -250,18 +270,35 @@
   justify-content: center;
 }
 
-
 .calendar_order_list{
   margin: 15px;
   width: 100%;
   border-radius: 3px;
   padding: 10px;
+  opacity: 0;
+  animation-duration: 2s;
+  animation-delay: 1s;
+  animation-name: block-opacity;
+  animation-fill-mode: forwards;
+  &_headline{
+    text-align: center;
+    font-size: 16px;
+  }
+  &_ul{
+    margin-bottom: 0;
+  }
 }
 
-.calendar_order_list_headline{
-  text-align: center;
-  font-size: 16px;
+@keyframes block-opacity {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
+
 
 .item_time{
   font-size: 20px;
@@ -281,6 +318,10 @@
     width: 22px;
     height: 22px;
   }
+  &_small_device{
+    font-size: 16px;
+    color: #e1d8c9;
+  }
 
 }
 
@@ -290,14 +331,22 @@
   font-size: 12px;
   flex-direction: column;
   padding: 15px;
+  &_small_device{
+    padding-top: 10px;
+  }
   &:hover{
-    background-color: #f7f7f7;
+    background-color: #0e0e0c;
   }
 }
 
 .available_item_time{
   font-size: 9px;
   min-width: 50%;
+  &_small_device{
+    margin: 8px 0 6px 0;
+    font-size: 8px;
+  }
+
 }
 
 .book_item_time{
@@ -305,23 +354,7 @@
   justify-content: space-between;
 }
 
-.button_book{
-  width: 12vw;
-  min-width: 125px;
-  border-radius: 15px;
-  height: 30px;
-  background-color: #ff0;
-  &:not(.disable):hover{
-    background-color: #242424;
-    color: #fff;
-  }
-  &.disable{
-    background-color: #f7e1c5;
-    border: none;
-  }
-}
-
-@media (max-width: 800px) {
+@media (max-width: 960px) {
   .book_item_time {
     flex-direction: column;
     align-items: center;
@@ -329,4 +362,81 @@
   .li_item_time{
     align-items: center;
   }
+  .calendar_booking{
+    animation-duration: 2s;
+    animation-name: block-height-media ;
+  }
+}
+
+@keyframes block-height-media {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: 415px;
+  }
+}
+
+.button_book_small_device{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 55px;
+  &_content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.booking_popup{
+  position: fixed;
+  top:0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(255,255,255,0.3);
+  z-index: 20;
+  border:1px solid #373737;
+
+  &_form{
+    width: 40vw;
+    height: 50vw;
+    position: absolute;
+    left:calc(50% - 20vw);
+    top:calc(50% - 23vw);
+    background-color: #202020;
+    border-radius: 4px;
+    color: #e1d8c9;
+
+    &_wrap{
+      width: 32vw;
+      margin: 0 auto;
+    }
+  }
+
+  &_Button_close{
+    height: 3vw;
+    width: 3vw;
+    box-sizing: border-box;
+    position: absolute;
+    right: 0;
+    background: none;
+    border: none;
+
+    &:hover{
+      color: #fff;
+    }
+  }
+
+    &_time:before{
+      content: "";
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: url("../../images/calendar_icon.svg") no-repeat;
+      background-size: 20px 20px;
+      margin-right: 20px;
+    }
 }
