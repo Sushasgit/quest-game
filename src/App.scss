@@ -88,15 +88,16 @@ li {
   }
   
   .logo-link {
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    display: flex;
     align-items: center;
-    font-family: 'FiraSans-Bold', sans-serif;
+    font-family: 'MontserratBold';
     text-decoration: none;
-    font-size: 1.2em;
+    font-size: 2em;
     text-transform: uppercase;
+    justify-content: center;
+    max-height: 200px;
+    width: 100%;
+    position: relative;
+    z-index: 100;
 
     @media (max-width: 850px)  {
       right: 10px;
@@ -104,12 +105,9 @@ li {
     }
   }
   
-  .logo-link img {
-    max-width: 50px;
+  .logo-link svg {
+    max-width: 2em;
     margin-left: 15px;
-    @media (max-width: 850px)  {
-      max-width: 40px;
-    }
   }
 
   .wrap {

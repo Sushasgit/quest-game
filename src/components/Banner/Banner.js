@@ -10,7 +10,7 @@ import {
 } from 'gsap';
 import Observed from 'react-observed';
 
-import test from '../../images/test.svg';
+import test2 from '../../images/test2.svg';
 import {
   LargeAndUp,
   MediumAndDown,
@@ -30,8 +30,8 @@ const TitleNeon = styled.span`
   margin: 0;
   padding:  0 20px;
   font-size: 1.4em;
-  color: ${data => (data.theme && data.theme.themeType === 'dark' ? '#fff' : data.theme.textColor)};
-  text-shadow: 0 0 30px ${data => (data.theme ? data.theme.primaryBg : '#fff')};
+  color: ${data => (data.theme && data.theme.themeType === 'dark' ? '#fff' : '#fff')};
+  text-shadow: 0 0 30px ${data => (data.theme ? '#333' : '#52d6f5')};
   font-family: 'FiraSans-Bold', sans-serif;
   font-weight: 500;
   line-height: 1em;
@@ -192,7 +192,7 @@ class Banner extends Component {
           {({ mapRef }) => (
             <React.Fragment>
               <LargeAndUp>
-                <div style={theme.themeType === 'light' ? { background: `url(${test})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat' } : { backgroundColor: theme.primaryBg }} className="banner">
+                <div style={theme.themeType === 'light' ? { background: `url(${test2})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat' } : { backgroundColor: theme.primaryBg }} className="banner">
                   <div style={{ color: theme.primaryBg }} id="banner__inner" ref={mapRef}>
                     <div ref={this.animateMe} id="wrapper">
                       <Icon name="bg-layer6" className="part05 banner__layer" />
@@ -206,7 +206,7 @@ class Banner extends Component {
                         <Icon name="bat-3" className="banner__fly banner__fly--3" />
                       </div>
                       <div className={`banner__planet-list ${theme.themeType !== 'light' ? 'none' : ''}`}>
-                        <Icon name="sun" className="banner__planet" />
+                        {/* <Icon name="sun" className="banner__planet" /> */}
                         <Icon name="bird-1" className="banner__fly banner__fly--1" />
                         <Icon name="bird-2" className="banner__fly banner__fly--2" />
                         <Icon name="bird-3" className="banner__fly banner__fly--3" />
