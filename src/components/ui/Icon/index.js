@@ -23,6 +23,7 @@ import { ReactComponent as Mask } from './svg/masks.svg';
 import { ReactComponent as Team } from './svg/team.svg';
 import { ReactComponent as StrikeMan } from './svg/strike-man.svg';
 import { ReactComponent as Quadro } from './svg/quadro.svg';
+import { ReactComponent as Logo } from './svg/logo.svg';
 
 const Icon = (props) => {
   switch (props.name) {
@@ -68,13 +69,20 @@ const Icon = (props) => {
       return <StrikeMan className={props.className} />;
     case 'quadro':
       return <Quadro className={props.className} />;
+    case 'logo':
+      return <Logo className={props.className} />;
     default:
       return <Marker className={props.className} />;
   }
 };
 
+Icon.defaultProps = {
+  className: '',
+};
+
 Icon.propTypes = {
   name: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };
 
 

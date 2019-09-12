@@ -55,9 +55,9 @@ export const darkTheme = {
 
 export const lightTheme = {
   themeType: 'light',
-  textColor: '#333333',
-  primaryBg: '#fbf2ea',
-  titleColor: '#3d0f2e',
+  textColor: '#363638',
+  primaryBg: '#f6f6f6',
+  titleColor: '#363638',
 
   toggleButton: {
     bgColor: '#242424',
@@ -67,7 +67,7 @@ export const lightTheme = {
   contactForm: {
     textColor: '#333333',
     inputColor: '#3d0f2e',
-    bgForm: '#f7e5d4',
+    bgForm: '#e6e6e6',
   },
 
 
@@ -82,7 +82,7 @@ export const lightTheme = {
     borderColor: '#2a2827',
     hoverColor: '#ff0',
     buttonTextColor: 'rgba(255, 255, 255, 0.25)',
-    butt:'#514541',
+    butt: '#514541',
   },
 
   input: {
