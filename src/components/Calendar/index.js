@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-//import 'moment/locale/ru';
+// import 'moment/locale/ru';
 import './calendar.scss';
 import styled, { withTheme } from 'styled-components';
 import Week from './parts/Week';
 import Day from './parts/Day';
 import { CALENDAR_ORDER_LIST } from '../../utils/constants';
 import { WEEK_DAY_SHORT } from '../../utils/constants';
+import Button from '../ui/Button';
+import {
+  LargeAndUp,
+  MediumAndDown,
+} from '../../utils/break-points';
+import BookingTime from './parts/BookingTime';
 
 const CalendarWrapper = styled.div`
-  background-color: ${data => (data.theme.Calendar.bgColorCalendar)};font-family: 'Montserrat', sans-serif;
+  background-color: ${data => (data.theme.Calendar.bgColorCalendar)};font-family: 'Hind', sans-serif;
 }
 `;
 
@@ -48,12 +54,12 @@ const CalendarNavigation = styled.div`
 const CalendarBooking = styled.div`
   border-bottom: 2px solid ${data => (data.theme.Calendar.borderColor)};
   border-left: 2px solid ${data => (data.theme.Calendar.borderColor)};
-  border-right: 2px solid borderColor
+  border-right: 2px solid ${data => (data.theme.Calendar.borderColor)};
   background-color: ${data => (data.theme.Calendar.bgWeekDays)};
 `;
 const CalendarOrderList = styled.div`
-  background-color: ${data => (data.theme.Calendar.textColorAvailable)};
-  color: ${data => (data.theme.Calendar.borderColor)};
+  background-color: ${data => (data.theme.Calendar.bgEmpty)};
+  color: ${data => (data.theme.Calendar.textColorOrderList)};
 `;
 
 
@@ -68,6 +74,7 @@ class Calendar extends Component {
       month: moment(dateContext).format('MMMM'),
       year: moment(dateContext).format('YYYY'),
       currentMonth: moment().format('MMMM'),
+      isOpenBookingTime: false,
     };
   }
 
@@ -209,6 +216,8 @@ class Calendar extends Component {
       clickedWeek,
       clickedDay,
       rows1,
+      isOpenBookingTime,
+      checkTime,
     } = this.state;
     const classNameNav = (currentMonth === month && currentYear === year ? 'page__left hidden__navigation' : 'page__left');
     const classNameNavButton = (currentMonth === month && currentYear === year ? 'hidden__button__back' : 'button__back');
@@ -273,35 +282,90 @@ class Calendar extends Component {
                   </Week>
                   {
                     weekIndex === clickedWeek ? (
-                      <CalendarBooking className="calendar_booking">
+                      <CalendarBooking className="block calendar_booking">
+                        <BookingTime
+                          isOpen={isOpenBookingTime}
+                          onClose={(e) => this.setState({ isOpenBookingTime: false })}
+                          day={clickedDay}
+                          time={checkTime}
+                        />
                         <CalendarOrderList className="calendar_order_list">
-                          <h2 className="calendar_order_list_headline">
+                          <LargeAndUp>
+                            <h2 className="calendar_order_list_headline">
                                 Доступные места
-                            {' '}
-                            {clickedDay}
-                          </h2>
-                          <ul>
-                            {
+                              {' '}
+                              {clickedDay}
+                            </h2>
+                            <ul className="calendar_order_list_ul">
+
+                              {
                               CALENDAR_ORDER_LIST.map((item, i) => (
                                 <li className="li_item_time">
                                   <span className="item_time">{item.time}</span>
                                   {item.available
                                     ? (
+
                                       <div className="book_item_time">
                                         <span className="available_item_time">доступно для резервирования</span>
-                                        <button className="button_book">Зарезервировать</button>
+                                        <Button
+                                          onClick={e => this.setState({ isOpenBookingTime: true, checkTime: item.time })}
+                                        >
+                                          Зарезервировать
+                                        </Button>
                                       </div>
                                     )
                                     : (
                                       <div className="book_item_time">
                                         <span className="available_item_time">уже зарезервировано</span>
-                                        <button disabled="disabled" className="button_book disable">Недоступно</button>
+                                        <Button
+                                          onClick={() => { console.log(item.time); }}
+                                        >
+                                          Недоступно
+                                        </Button>
                                       </div>
                                     )}
                                 </li>
                               ))
                             }
-                          </ul>
+                            </ul>
+                          </LargeAndUp>
+                          <MediumAndDown>
+                            <BookingTime />
+                            <h2 className="calendar_order_list_headline">
+                              {clickedDay}
+                            </h2>
+                            <ul>
+                              {
+                                  CALENDAR_ORDER_LIST.map((item, i) => (
+                                    <li className="li_item_time_small_device">
+                                      {item.available
+                                        ? (
+                                          <Button
+                                            onClick={() => { console.log(item.time); }}
+                                            className="button_book_small_device"
+                                          >
+                                            <div className="button_book_small_device_content">
+                                              <span className="item_time_small_device">{item.time}</span>
+                                              <span className="available_item_time_small_device">доступно для резервирования</span>
+                                            </div>
+                                          </Button>
+                                        )
+                                        : (
+                                          <Button
+                                            onClick={() => { console.log(item.time); }}
+                                            className="button_book_small_device"
+                                          >
+                                            <div className="button_book_small_device_content">
+                                              <span className="item_time_small_device">{item.time}</span>
+                                              <span className="available_item_time_small_device">уже зарезервировано</span>
+                                            </div>
+                                          </Button>
+                                        )}
+                                    </li>
+                                  ))
+                              }
+                            </ul>
+                          </MediumAndDown>
 
                         </CalendarOrderList>
                       </CalendarBooking>
