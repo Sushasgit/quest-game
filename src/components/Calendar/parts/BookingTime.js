@@ -4,6 +4,7 @@ import Input from '../../ui/Input';
 import Button from '../../ui/Button';
 import Title from '../../ui/Title';
 import { CARDS_DATA } from '../../../utils/constants';
+import { LargeAndUp, MediumAndDown } from '../../../utils/break-points';
 
 
 const HeadlineBlock = styled.div`
@@ -11,7 +12,7 @@ const HeadlineBlock = styled.div`
   display:flex;
   justify-content: space-between;
   align-items: center;
-  height: 3vw;
+  height: 30px;
   box-sizing: border-box;
   position: relative;
   border-radius: 4px 4px 0 0;
@@ -29,6 +30,7 @@ const TextFieldOnForm = styled.div`
   margin-top: 15px
   margin-top: 15px
   text-align: center;
+  height: 26px;
 }`;
 
 const InfoOrder = styled.div`
@@ -45,8 +47,7 @@ const InfoOrder = styled.div`
 const InputBlock = styled.div`
   display: flex;
   flex-direction: column;
-  height: 18vw;
-  min-height:215px
+  height:215px;
   justify-content:space-between;
   padding-top: 20px;
 }`;
@@ -54,7 +55,7 @@ const InputBlock = styled.div`
 const ButtonBlock = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 3vw;
+  margin-top: 30px;
 }`;
 
 
