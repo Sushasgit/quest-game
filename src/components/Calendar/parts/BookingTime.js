@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
+
 import Input from '../../ui/Input';
 import Button from '../../ui/Button';
-import styled from "styled-components";
 
 
 const HeadlineBlock = styled.div`
-  background-color: ${data => (data.theme.Calendar.hoverColor)};
+  background-color: ${data => (data.theme.calendar.hoverColor)};
   display:flex;
   justify-content: space-between;
   align-items: center;
@@ -16,13 +17,13 @@ const HeadlineBlock = styled.div`
 }`;
 
 const Headline = styled.span`
-  color: ${data => (data.theme.Calendar.bgAvailable)};
+  color: ${data => (data.theme.calendar.bgAvailable)};
   font-size:14px;
   margin-left:10px;
 }`;
 
 const TextFieldOnForm = styled.div`
-  color: ${data => (data.theme.Calendar.textColorOrderList)};
+  color: ${data => (data.theme.calendar.textColorOrderList)};
   font-size:16px;
   margin-top: 15px
   margin-top: 15px
@@ -36,8 +37,8 @@ const InfoOrder = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${data => (data.theme.Calendar.bgWeekDays)};
-  color: ${data => (data.theme.Calendar.textColorDayWeek)};
+  background-color: ${data => (data.theme.calendar.bgWeekDays)};
+  color: ${data => (data.theme.calendar.textColorDayWeek)};
 }`;
 
 const InputBlock = styled.div`

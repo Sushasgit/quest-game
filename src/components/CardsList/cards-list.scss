@@ -73,10 +73,6 @@
         transform: translate3d(0,50%,0);
     }
 
-    // &:hover &::before {
-    //     opacity: 1;
-    // }
-
     &:not(:last-child) {
         margin-right: 10px;
     }
@@ -90,40 +86,36 @@
         display: block;
     }
 
-    &--kvadro::after {
+    &--additionalEntertainment::after,
+    &--actionGames::after,
+    &--straikball::after, 
+    &--paintball::after {
         content: '';
         position: absolute;
-        background: url(../../images/kvadro.svg);
-        background-size: 265px;
-        background-repeat: no-repeat;
         width: 100%;
         height: 200px;
-        left: 0;
-        bottom: 0;
     }
 
-    &--man::after {
-        content: '';
-        position: absolute;
-        background: url(../../images/l8.svg);
+    &--additionalEntertainment::after {
+        background: url(../../images/kvadro.svg) no-repeat;
         background-size: 265px;
-        background-repeat: no-repeat;
-        width: 100%;
-        height: 200px;
-        left: 0;
-        bottom: 0;
+        left: -40px;
+        bottom: -58px;
     }
 
-    &--strike::after {
-        content: '';
-        position: absolute;
-        background: url(../../images/strike.svg);
+    &--actionGames::after {
+        background: url(../../images/l8.svg) no-repeat;
         background-size: 265px;
-        background-repeat: no-repeat;
-        width: 100%;
-        height: 200px;
-        left: 0;
-        bottom: 0;
+        left: -40px;
+        bottom: -58px;
+    }
+
+    &--straikball::after, 
+    &--paintball::after {
+        background: url(../../images/strike.svg) no-repeat;
+        background-size: 265px;
+        left: -64px;
+        bottom: -58px;
     }
 }
 

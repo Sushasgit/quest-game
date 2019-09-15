@@ -176,7 +176,12 @@ class Banner extends Component {
   }
 
   render() {
-    const { title, children, theme, type } = this.props;
+    const {
+      title,
+      children,
+      theme,
+      type,
+    } = this.props;
     return (
       <React.Fragment>
         <Observed

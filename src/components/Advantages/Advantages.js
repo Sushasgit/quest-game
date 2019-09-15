@@ -1,18 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled, { withTheme } from 'styled-components';
-
-import { ADVANTAGES_DATA } from '../../utils/constants';
 
 import AdvantagesPlace from './AdvantagesPlace';
 import CardsList from '../CardsList/CardsList';
 import ContactForm from '../ContactForm';
-
-import './advantages.scss';
 import Title from '../ui/Title';
 import BackgroundWrapper from '../ui/BackgroundWrapper';
 import Icon from '../ui/Icon';
 import OurClients from '../OurClients';
 import Locations from '../Locations';
+
+import './advantages.scss';
 
 const Description = styled.p`
   text-align: center;
@@ -40,18 +39,12 @@ const ListItemTitle = styled.h3`
   margin: 20px 0;
 `;
 
-const ListItemDesc = styled.p`
-  font-size: 18px;
-  margin-top: 30px;
-  line-height: 30px;
-`;
-
 const ListItemIcon = styled(Icon)`
   max-width: 70px;
   color: ${data => (data.theme ? data.theme.titleColor : '#fff')}
 `;
 
-const Advantages = ({ services, gamesList, ourLocations }) => (
+const Advantages = ({ services, gamesList, ourLocations, theme }) => (
   <React.Fragment>
     <BackgroundWrapper withBuildings>
       <CardsList gamesList={gamesList} />
@@ -85,7 +78,10 @@ const Advantages = ({ services, gamesList, ourLocations }) => (
       <section className="flex wrapper">
         <AdvantagesPlace />
       </section>
-      <div className="test-bg" />
+      <div
+        style={{ filter: theme.themeType === 'light' ? 'grayscale(1)' : 'none' }}
+        className="test-bg"
+      />
       <BackgroundWrapper withBuildings>
         <OurClients games={gamesList} />
       </BackgroundWrapper>
@@ -95,5 +91,20 @@ const Advantages = ({ services, gamesList, ourLocations }) => (
     </BackgroundWrapper>
   </React.Fragment>
 );
+
+Advantages.propTypes = {
+  gamesList: PropTypes.shape({
+    title: PropTypes.string,
+    games: PropTypes.array,
+  }).isRequired,
+  ourLocations: PropTypes.shape({
+    title: PropTypes.string,
+    games: PropTypes.array,
+  }).isRequired,
+  services: PropTypes.shape({
+    title: PropTypes.string,
+    games: PropTypes.array,
+  }).isRequired,
+};
 
 export default withTheme(Advantages);

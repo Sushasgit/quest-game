@@ -15,12 +15,12 @@ import {
 import BookingTime from './parts/BookingTime';
 
 const CalendarWrapper = styled.div`
-  background-color: ${data => (data.theme.Calendar.bgColorCalendar)};font-family: 'Hind', sans-serif;
+  background-color: ${data => (data.theme.calendar.bgColorCalendar)};font-family: 'Hind', sans-serif;
 }
 `;
 
 const NavigationMonth = styled.i`
-  background-color: ${data => (data.theme.Calendar.textColorAvailable)};
+  background-color: ${data => (data.theme.calendar.textColorAvailable)};
   &::before {
     background-color: inherit;
     };
@@ -31,7 +31,7 @@ const NavigationMonth = styled.i`
 
 const ButtonNavigation = styled.button`
     &:hover .month__next, &:hover .month__prev{
-    background-color: ${data => (data.theme.Calendar.hoverColor)};
+    background-color: ${data => (data.theme.calendar.hoverColor)};
     }
 `;
 
@@ -39,27 +39,27 @@ const WeekDay = styled.div`
 `;
 
 const WeekDays = styled.div`
-   background-color: ${data => (data.theme.Calendar.bgWeekDays)};
-   border: 2px solid ${data => (data.theme.Calendar.borderColor)};
-   color: ${data => (data.theme.Calendar.textColorDayWeek)};
+   background-color: ${data => (data.theme.calendar.bgWeekDays)};
+   border: 2px solid ${data => (data.theme.calendar.borderColor)};
+   color: ${data => (data.theme.calendar.textColorDayWeek)};
 `;
 const CalendarNavigation = styled.div`
-  background-color: ${data => (data.theme.Calendar.bgEmpty)};
-  border-top: 2px solid ${data => (data.theme.Calendar.borderColor)};;
-  border-left: 2px solid ${data => (data.theme.Calendar.borderColor)};
-  border-right: 2px solid ${data => (data.theme.Calendar.borderColor)};
-  color: ${data => (data.theme.Calendar.textColorAvailable)};
+  background-color: ${data => (data.theme.calendar.bgEmpty)};
+  border-top: 2px solid ${data => (data.theme.calendar.borderColor)};;
+  border-left: 2px solid ${data => (data.theme.calendar.borderColor)};
+  border-right: 2px solid ${data => (data.theme.calendar.borderColor)};
+  color: ${data => (data.theme.calendar.textColorAvailable)};
 `;
 
 const CalendarBooking = styled.div`
-  border-bottom: 2px solid ${data => (data.theme.Calendar.borderColor)};
-  border-left: 2px solid ${data => (data.theme.Calendar.borderColor)};
-  border-right: 2px solid ${data => (data.theme.Calendar.borderColor)};
-  background-color: ${data => (data.theme.Calendar.bgWeekDays)};
+  border-bottom: 2px solid ${data => (data.theme.calendar.borderColor)};
+  border-left: 2px solid ${data => (data.theme.calendar.borderColor)};
+  border-right: 2px solid ${data => (data.theme.calendar.borderColor)};
+  background-color: ${data => (data.theme.calendar.bgWeekDays)};
 `;
 const CalendarOrderList = styled.div`
-  background-color: ${data => (data.theme.Calendar.bgEmpty)};
-  color: ${data => (data.theme.Calendar.textColorOrderList)};
+  background-color: ${data => (data.theme.calendar.bgEmpty)};
+  color: ${data => (data.theme.calendar.textColorOrderList)};
 `;
 
 
