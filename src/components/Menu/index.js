@@ -1,39 +1,26 @@
 import React from 'react';
-import styled from 'styled-components';
-import './menu.scss';
-
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
 import BurgerMenu from '../BurgerMenu';
 
-import logo from '../../images/logo-real.png';
-
-const StyledLogo = styled.a`
-  color: ${data => (data.theme ? data.theme.titleColor : '#fff')};
-
-  &:hover {
-    opacity: 0.3;
-  }
-`;
+import './menu.scss';
 
 const StyledLink = styled(Link)`
-  color: ${data => (data.theme ? data.theme.titleColor : '#fff')};
-  background-color: ${data => (data.theme ? data.theme.primaryBg : '#fff')};
-  box-shadow: 0px 0px 4px 4px ${data => (data.theme ? data.theme.titleColor : '#fff')};
+  color: ${props => (props.theme ? props.theme.menu.textColor : '#fff')};
+  background-color: ${props => (props.theme ? props.theme.menu.bgColor : '#fff')};
+  box-shadow: 0px 0px 4px 4px ${props => (props.theme ? props.theme.menu.textColor : '#fff')};
   &:hover {
     opacity: 0.4;
   }
 `;
 
 const LinkTitle = styled.span`
-  color: ${data => (data.theme ? data.theme.titleColor : '#fff')};
+  color: ${props => (props.theme ? props.theme.menu.titleColor : '#fff')};
 `;
 
 const Menu = () => (
   <React.Fragment>
-    <StyledLogo className="logo-link" href="/">
-      Real Games
-      <img src={logo} alt="logo" />
-    </StyledLogo>
     <ul className="menu menu--desktop">
       <li className="menu__link">
         <StyledLink to="/prices">

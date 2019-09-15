@@ -1,11 +1,10 @@
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
-
+//@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Hind&display=swap');
 .calendar{
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Hind', sans-serif;
   display: flex;
   justify-content: center;
-  //background-color: #262626;
   padding: 55px;
   min-width: 270px;
 }
@@ -22,35 +21,27 @@
   border: none;
 }
 
+.page__right{
+  display: flex;
+  justify-content: flex-end;
+}
+
 .month__next, .month__prev{
   display: block;
   width: 48px;
   height: 2px;
-  //background-color: #fff;
   position: relative;
 }
 
 .page__right:hover .month__next,
-.page__left:hover .month__prev,
-.page__left:hover .month__prev:before,
-.page__left:hover .month__prev:after,
-.page__right:hover .month__next:before,
-.page__right:hover .month__next:after{
-  background-color: #ffdc26;
-
+.page__left:hover .month__prev
+//.page__left:hover .month__prev:before,
+//.page__left:hover .month__prev:after,
+//.page__right:hover .month__next:before,
+//.page__right:hover .month__next:after
+  {
+  //background-color: #fff500;
 }
-
-.current-day .date-number{
-  border-radius: 50%;
-  box-sizing: border-box;
-  border: 1px solid #ffdc26;
-  width: 45%;
-  height: 45%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 
 .month__prev:before{
   content: "";
@@ -58,7 +49,6 @@
   position: absolute;
   width: 6px;
   height: 2px;
-  //background-color: #fff;
   transform: translateY(-1.5px) translateX(-1px) rotate(-45deg);
 
 }
@@ -69,7 +59,6 @@
   position: absolute;
   width: 6px;
   height: 2px;
-  //background-color: #fff;
   transform: translateY(1.5px) translateX(-1px) rotate(45deg);
 
 }
@@ -81,7 +70,6 @@
   right: 0;
   width: 6px;
   height: 2px;
-  //background-color: #fff;
   transform: translateY(-1.5px) translateX(1px) rotate(45deg);
 
 }
@@ -93,7 +81,6 @@
   right: 0;
   width: 6px;
   height: 2px;
-  //background-color: #fff;
   transform: translateY(1.5px) translateX(1px) rotate(-45deg);
 
 }
@@ -118,16 +105,10 @@
 .selected__month__year{
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
-.empty_slot{
-  color: #414141;
-  //background-color: #202020;
-  cursor: no-drop;
 
-}
-.future_day{
-  color: #414141;
-  //background-color: #202020;
+.current-today, .current_month_day, .otherDay{
   cursor: pointer;
   position: relative;
   &:hover {
@@ -136,21 +117,14 @@
       height: 5vw;
       max-width: 50px;
       max-height: 50px;
-      border: solid 1px #fff500;
-      background-color: #fff500;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #202020;
     }
   }
 }
 
-.current_month_day{
-  background-color: #242424;
-  color: #fff;
-}
 
 .calendar_container{
   max-width: 720px;
@@ -176,32 +150,23 @@
   max-width: 50px;
   max-height: 50px;
   border-radius: 50%;
-  border: solid 1px #fff500;
   position: absolute;
 }
 
-.checked.current-today:before{
-  border: solid 1px #fff;
+
+
+.future_day, .empty_slot, .current_month_day, .current-today, .otherDay, .checked{
+  width: 8vw;
+  height: 8vw;
+  min-width: 40px;
+  min-height: 40px;
+  max-width: 105px;
+  max-height: 105px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
 }
-
-//.future_day, .empty_slot{
-//  width: 8vw;
-//  height: 8vw;
-//  min-width: 40px;
-//  min-height: 40px;
-//  max-width: 105px;
-//  max-height: 105px;
-//  //border: 1px solid #373737;
-//  display: flex;
-//  justify-content: center;
-//  align-items: center;
-//  box-sizing: border-box;
-//
-//}
-
-//.date-number{
-//  text-align: center;
-//}
 
 .weekdays{
   display: flex;
@@ -225,10 +190,6 @@
   box-sizing: border-box;
 }
 
-//.week-day:last-child{
-//  border-right:1px solid #373737;
-//}
-
 .button__back{
   background: none;
   display: flex;
@@ -246,7 +207,6 @@
 .hidden__button__back{
   display: none;
 }
-
 
 @media (max-width: 850px) {
   .page__right, .page__left {
@@ -266,6 +226,10 @@
     align-items: center;
   }
 
+  .calendar{
+    padding: 5px;
+  }
+
   .label_month, .label_year, .button__back{
     padding: 2px;
   }
@@ -275,16 +239,23 @@
   }
 }
 
-.calendar_booking{
-  background-color: #404040;
+.calendar_booking {
   display: flex;
   justify-content: center;
+  transition: height 5s linear;
+  height: max-content;
+  animation-duration: 2s;
+  animation-name: block-height;
+  position: marker;
 }
 
-.checked.future_day:hover {
-  .calendar_data_day {
-    border: solid 1px #fff;
-    background-color: #fff;
+@keyframes block-height {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: 548px;
   }
 }
 
@@ -293,29 +264,206 @@
   height: 5vw;
   max-width: 50px;
   max-height: 50px;
-  border: solid 1px #fff;
-  background-color: #fff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #202020;
-}
-
-.checked.future_day{
-  background-color: #404040;
-  border-bottom: none;
 }
 
 .calendar_order_list{
-  background-color: #fff;
   margin: 15px;
   width: 100%;
   border-radius: 3px;
+  padding: 10px 10px 0 10px;
+  opacity: 0;
+  animation-duration: 2s;
+  animation-delay: 1s;
+  animation-name: block-opacity;
+  animation-fill-mode: forwards;
+  &_headline{
+    text-align: center;
+    font-size: 16px;
+  }
+  &_ul{
+    margin-bottom: 0;
+  }
 }
 
-.calendar_order_list_headline{
-  text-align: center;
-  color: #242424;
-  font-size: 16px;
+@keyframes block-opacity {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+.item_time{
+  font-size: 20px;
+  line-height: 22px;
+  position: relative;
+  left: -20px;
+  margin-left: 40px;
+  height: 26px;
+  &:before{
+    content: '';
+    display: block;
+    position: absolute;
+    left: -22px;
+
+    background: url("../../images/gallery/clock.svg") no-repeat center;
+    background-size: 60%;
+    width: 22px;
+    height: 22px;
+  }
+  &_small_device{
+    font-size: 16px;
+    color: #e1d8c9;
+  }
+
+}
+
+.li_item_time{
+  border-top: 1px solid #999;
+  display: flex;
+  font-size: 12px;
+  flex-direction: column;
+  padding: 15px;
+  &_small_device{
+    padding-top: 10px;
+  }
+  &:hover{
+    background-color: #0e0e0c;
+  }
+}
+
+.available_item_time{
+  font-size: 9px;
+  min-width: 50%;
+  &_small_device{
+    margin: 8px 0 6px 0;
+    font-size: 8px;
+  }
+
+}
+
+.book_item_time{
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 960px) {
+  .book_item_time {
+    flex-direction: column;
+    align-items: center;
+  }
+  .li_item_time{
+    align-items: center;
+  }
+  .calendar_booking{
+    animation-duration: 2s;
+    animation-name: block-height-media ;
+  }
+}
+
+@keyframes block-height-media {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: 415px;
+  }
+}
+
+.button_book_small_device{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 55px;
+  &_content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.booking_popup{
+  position: fixed;
+  top:0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(255,255,255,0.3);
+  z-index: 20;
+  border:1px solid #373737;
+
+  &_form{
+    width: 38vw;
+    max-width: 605px;
+    min-width: 450px;
+    height:500px;
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate( -50%, -50%);
+    background-color: #202020;
+    border-radius: 4px;
+    color: #e1d8c9;
+
+    &_wrap{
+      width: 32vw;
+      max-width: 520px;
+      min-width: 350px;
+      margin: 0 auto;
+    }
+  }
+
+  &_Button_close{
+    height: 20px;
+    width: 20px;
+    box-sizing: border-box;
+    position: absolute;
+    right: 0;
+    background: none;
+    border: none;
+
+    &:hover{
+      color: #fff;
+    }
+  }
+
+    &_time:before{
+      content: "";
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: url("../../images/calendar_icon.svg") no-repeat;
+      background-size: 20px 20px;
+      margin-right: 20px;
+    }
+}
+
+@media (max-width: 960px) {
+  .booking_popup {
+    &_form {
+      min-width: 70vw;
+      height: 490px;
+
+      &_wrap {
+        min-width: 90%;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .booking_popup {
+    &_form {
+      min-width: 90%;
+    }
+  }
 }

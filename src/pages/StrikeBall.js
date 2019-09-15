@@ -37,7 +37,7 @@ const TagsList = styled.div`
 
 const StrikeBall = () => (
   <div className="wrap">
-    <Banner title="Сценарный страйкбол">
+    <Banner type="strike" title="Сценарный страйкбол">
       <Menu />
     </Banner>
     <BackgroundWrapper withBuildings>
@@ -103,7 +103,7 @@ const StrikeBall = () => (
         <Description>
             Предварительная регистрация ОБЯЗАТЕЛЬНА
         </Description>
-        <Calendar />
+        <Calendar kindEvent={'strikeBall'} />
       </section>
       <Footer />
     </BackgroundWrapper>

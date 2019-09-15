@@ -23,7 +23,9 @@ const StyledInput = styled.input`
     border-top: none;
     border-left: none;
     border-right: none;
-    border: 1px solid ${data => (data.theme ? data.theme.input.color : '#fff')};
+    font-size: 1em;
+    color: ${data => (data.theme ? data.theme.titleColor : '#fff')};
+    border: 1px solid ${data => (data.theme ? data.theme.contactForm.inputColor : '#fff')};
 `;
 
 const InputBox = styled.div`

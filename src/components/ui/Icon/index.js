@@ -21,6 +21,13 @@ import { ReactComponent as Bat3 } from './svg/bat-3.svg';
 import { ReactComponent as Paintball } from './svg/paintball.svg';
 import { ReactComponent as Mask } from './svg/masks.svg';
 import { ReactComponent as Team } from './svg/team.svg';
+import { ReactComponent as StrikeMan } from './svg/strike-man.svg';
+import { ReactComponent as Quadro } from './svg/quadro.svg';
+import { ReactComponent as Logo } from './svg/logo.svg';
+import { ReactComponent as Cake } from './svg/cake.svg';
+import { ReactComponent as Mustache } from './svg/mustache.svg';
+import { ReactComponent as Rent } from './svg/rent.svg';
+import { ReactComponent as Graduation } from './svg/graduation.svg';
 
 const Icon = (props) => {
   switch (props.name) {
@@ -62,13 +69,32 @@ const Icon = (props) => {
       return <Mask className={props.className} />;
     case 'team':
       return <Team className={props.className} />;
+    case 'strikeMan':
+      return <StrikeMan className={props.className} />;
+    case 'quadro':
+      return <Quadro className={props.className} />;
+    case 'logo':
+      return <Logo className={props.className} />;
+    case 'cake':
+      return <Cake className={props.className} />;
+    case 'mustache':
+      return <Mustache className={props.className} />;
+    case 'rent':
+      return <Rent className={props.className} />;
+    case 'graduate':
+      return <Graduation className={props.className} />;
     default:
       return <Marker className={props.className} />;
   }
 };
 
+Icon.defaultProps = {
+  className: '',
+};
+
 Icon.propTypes = {
   name: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };
 
 

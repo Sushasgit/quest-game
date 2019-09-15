@@ -3,46 +3,64 @@ import moment from 'moment';
 import 'moment/locale/ru';
 import './calendar.scss';
 import styled, { withTheme } from 'styled-components';
+import axios from 'axios';
 import Week from './parts/Week';
 import Day from './parts/Day';
 import { CALENDAR_ORDER_LIST } from '../../utils/constants';
 import { WEEK_DAY_SHORT } from '../../utils/constants';
+import Button from '../ui/Button';
+import {
+  LargeAndUp,
+  MediumAndDown,
+} from '../../utils/break-points';
+import BookingTime from './parts/BookingTime';
 
 const CalendarWrapper = styled.div`
-  background-color: ${data => (data.theme.Calendar.bgColorCalendar)};font-family: 'Montserrat', sans-serif;
+  background-color: ${data => (data.theme.calendar.bgColorCalendar)};font-family: 'Hind', sans-serif;
 }
 `;
 
 const NavigationMonth = styled.i`
-  background-color: ${data => (data.theme.Calendar.textColorAvailable)};
+  background-color: ${data => (data.theme.calendar.textColorAvailable)};
   &::before {
-    background-color: ${data => (data.theme.Calendar.textColorAvailable)};
+    background-color: inherit;
     };
   &::after{
-    background-color: ${data => (data.theme.Calendar.textColorAvailable)};
+    background-color: inherit;
+    }
+`;
+
+const ButtonNavigation = styled.button`
+    &:hover .month__next, &:hover .month__prev{
+    background-color: ${data => (data.theme.calendar.hoverColor)};
     }
 `;
 
 const WeekDay = styled.div`
-   color: ${data => (data.theme.Calendar.textColorDayWeek)};
 `;
 
 const WeekDays = styled.div`
-   background-color: ${data => (data.theme.Calendar.bgWeekDays)};
-   border: 2px solid ${data => (data.theme.Calendar.borderColor)};
+   background-color: ${data => (data.theme.calendar.bgWeekDays)};
+   border: 2px solid ${data => (data.theme.calendar.borderColor)};
+   color: ${data => (data.theme.calendar.textColorDayWeek)};
 `;
 const CalendarNavigation = styled.div`
-  background-color: ${data => (data.theme.Calendar.bgEmpty)};
-  border-top: 2px solid ${data => (data.theme.Calendar.borderColor)};;
-  border-left: 2px solid ${data => (data.theme.Calendar.borderColor)};
-  border-right: 2px solid ${data => (data.theme.Calendar.borderColor)};
-  color: ${data => (data.theme.Calendar.textColorAvailable)};
+  background-color: ${data => (data.theme.calendar.bgEmpty)};
+  border-top: 2px solid ${data => (data.theme.calendar.borderColor)};;
+  border-left: 2px solid ${data => (data.theme.calendar.borderColor)};
+  border-right: 2px solid ${data => (data.theme.calendar.borderColor)};
+  color: ${data => (data.theme.calendar.textColorAvailable)};
 `;
 
 const CalendarBooking = styled.div`
-  border-bottom: 2px solid ${data => (data.theme.Calendar.borderColor)};
-  border-left: 2px solid ${data => (data.theme.Calendar.borderColor)};
-  border-right: 2px solid ${data => (data.theme.Calendar.borderColor)};
+  border-bottom: 2px solid ${data => (data.theme.calendar.borderColor)};
+  border-left: 2px solid ${data => (data.theme.calendar.borderColor)};
+  border-right: 2px solid ${data => (data.theme.calendar.borderColor)};
+  background-color: ${data => (data.theme.calendar.bgWeekDays)};
+`;
+const CalendarOrderList = styled.div`
+  background-color: ${data => (data.theme.calendar.bgEmpty)};
+  color: ${data => (data.theme.calendar.textColorOrderList)};
 `;
 
 
@@ -57,6 +75,7 @@ class Calendar extends Component {
       month: moment(dateContext).format('MMMM'),
       year: moment(dateContext).format('YYYY'),
       currentMonth: moment().format('MMMM'),
+      isOpenBookingTime: false,
     };
   }
 
@@ -84,12 +103,29 @@ class Calendar extends Component {
     setMomentToStart =() => {
       const { dateContext, dayPrevMonth } = this.state;
       const dateContextNew = moment(dateContext).date(1).subtract(dayPrevMonth, 'day');
-        console.log('calendar', CalendarWrapper)
       this.setState({
         dateContextNew,
       }, () => {
         this.generateTotalSlots();
       });
+    };
+
+    detectDayType = (dateContextNew, dateContext, today, idx) => {
+      const empty = (moment(moment(dateContextNew).add(idx, 'd').format('YYYY MM DD')).isBefore(today));
+      const todayDay = (moment(moment(dateContextNew).add(idx, 'd').format('YYYY MM DD')).isSame(today));
+      const daysDisplayMoth = (moment(moment(dateContextNew).add(idx, 'd').format('YYYY MM DD')).isSame(moment(dateContext).format('YYYY MM DD'), 'month')
+           && moment(moment(dateContextNew).add(idx, 'd').format('YYYY MM DD')).isSameOrAfter(today));
+      let dayType;
+      if (empty) {
+        dayType = 'emptyDay';
+      } else if (todayDay) {
+        dayType = 'todayDay';
+      } else if (!todayDay && daysDisplayMoth) {
+        dayType = 'daysDisplayMoth';
+      } else if (!empty && !todayDay && !daysDisplayMoth) {
+        dayType = 'otherDays';
+      }
+      return (dayType);
     };
 
     generateTotalSlots = () => {
@@ -100,11 +136,7 @@ class Calendar extends Component {
         .fill().map((_, idx) => ({
           moment: moment(dateContextNew).add(idx, 'd').format('LL'),
           dayNam: moment(dateContextNew).add(idx, 'd').format('D'),
-          empty: moment(moment(dateContextNew).add(idx, 'd').format('YYYY MM DD')).isBefore(today),
-          today: moment(moment(dateContextNew).add(idx, 'd').format('YYYY MM DD')).isSame(today),
-          currentMonth: moment(moment(dateContextNew).add(idx, 'd').format('YYYY MM DD')).isSame(moment(dateContext).format('YYYY MM DD'), 'month')
-              && moment(moment(dateContextNew).add(idx, 'd').format('YYYY MM DD')).isSameOrAfter(today),
-          click: moment(moment(dateContextNew).add(idx, 'd').format('YYYY MM DD')).isSameOrAfter(today),
+          dayType: this.detectDayType(dateContextNew, dateContext, today, idx),
         })));
       this.setState({
         totalSlots,
@@ -185,20 +217,22 @@ class Calendar extends Component {
       clickedWeek,
       clickedDay,
       rows1,
+      isOpenBookingTime,
+      checkTime,
     } = this.state;
     const classNameNav = (currentMonth === month && currentYear === year ? 'page__left hidden__navigation' : 'page__left');
     const classNameNavButton = (currentMonth === month && currentYear === year ? 'hidden__button__back' : 'button__back');
     return (
       <CalendarWrapper className="calendar">
-          <div className="calendar_container">
+        <div className="calendar_container">
           <CalendarNavigation className="calendar_navigation">
-            <button
+            <ButtonNavigation
               type="button"
               className={classNameNav}
               onClick={() => { this.navigationMonth('prev'); }}
             >
               <NavigationMonth className="month__prev" />
-            </button>
+            </ButtonNavigation>
             <div className="selected__month__year">
               {this.renderMonthNav()}
               {this.renderYearNav()}
@@ -209,20 +243,20 @@ class Calendar extends Component {
                   this.navigationMonth('toCurrentMonth');
                 }}
               >
-                  Вернуться в
+                  Back to
                 {' '}
                 {' '}
                 {currentMonth}
                 {' '}
               </button>
             </div>
-            <button
+            <ButtonNavigation
               type="button"
               className="page__right"
               onClick={() => { this.navigationMonth('next'); }}
             >
               <NavigationMonth className="month__next" />
-            </button>
+            </ButtonNavigation>
           </CalendarNavigation>
           <WeekDays className="weekdays">
             {
@@ -249,39 +283,99 @@ class Calendar extends Component {
                   </Week>
                   {
                     weekIndex === clickedWeek ? (
-                      <CalendarBooking className="calendar_booking">
-                        <div className="calendar_order_list">
-                          <h2 className="calendar_order_list_headline">
+                      <CalendarBooking className="block calendar_booking">
+                        <BookingTime
+                          isOpen={isOpenBookingTime}
+                          onClose={e => this.setState({ isOpenBookingTime: false })}
+                          day={clickedDay}
+                          time={checkTime}
+                          kindEvent={this.props.kindEvent}
+                        />
+                        <CalendarOrderList className="calendar_order_list">
+                          <LargeAndUp>
+                            <h2 className="calendar_order_list_headline">
                                 Доступные места
-                                {' '}
-                                {clickedDay}
-                          </h2>
-                          <ul>
-                            {
+                              {' '}
+                              {clickedDay}
+                            </h2>
+                            <ul className="calendar_order_list_ul">
+
+                              {
                               CALENDAR_ORDER_LIST.map((item, i) => (
-                                  <li>
-                                      <span>{item.time}</span>
-                                    {item.available
-                                      ? <div>
-                                          <span>Это время доступно для резервирования</span>
-                                          <button>Зарезервировать время</button>
-                                        </div>
-                                      : <div>
-                                          <span>Это время уже зарезервироввано</span>
-                                          <button>Недоступно</button>
-                                        </div>}
-                                  </li>
+                                <li className="li_item_time">
+                                  <span className="item_time">{this.props.kindEvent === 'HideAndSeek' ? item.timeNight : item.timeDay }</span>
+                                  {item.available
+                                    ? (
+                                      <div className="book_item_time">
+                                        <span className="available_item_time">доступно для резервирования</span>
+                                        <Button
+                                          onClick={e => this.setState({
+                                            isOpenBookingTime: true,
+                                            checkTime: this.props.kindEvent === 'HideAndSeek'
+                                              ? item.timeNight : item.timeDay,
+                                          })}
+                                        >
+                                          Зарезервировать
+                                        </Button>
+                                      </div>
+                                    )
+                                    : (
+                                      <div className="book_item_time">
+                                        <span className="available_item_time">уже зарезервировано</span>
+                                        <Button>
+                                          Недоступно
+                                        </Button>
+                                      </div>
+                                    )}
+                                </li>
                               ))
                             }
-                          </ul>
-
-                        </div>
+                            </ul>
+                          </LargeAndUp>
+                          <MediumAndDown>
+                            <h2 className="calendar_order_list_headline">
+                              {clickedDay}
+                            </h2>
+                            <ul>
+                              {
+                                  CALENDAR_ORDER_LIST.map((item, i) => (
+                                    <li className="li_item_time_small_device">
+                                      {item.available
+                                        ? (
+                                          <Button
+                                              onClick={e => this.setState({
+                                                isOpenBookingTime: true,
+                                                checkTime: this.props.kindEvent === 'HideAndSeek'
+                                                    ? item.timeNight : item.timeDay,
+                                              })}
+                                            className="button_book_small_device"
+                                          >
+                                            <div className="button_book_small_device_content">
+                                              <span className="item_time_small_device">{this.props.kindEvent === 'HideAndSeek' ? item.timeNight : item.timeDay}</span>
+                                              <span className="available_item_time_small_device">доступно для резервирования</span>
+                                            </div>
+                                          </Button>
+                                        )
+                                        : (
+                                          <Button className="button_book_small_device">
+                                            <div className="button_book_small_device_content">
+                                              <span className="item_time_small_device">{this.props.kindEvent === 'HideAndSeek' ? item.timeNight : item.timeDay}</span>
+                                              <span className="available_item_time_small_device">уже зарезервировано</span>
+                                            </div>
+                                          </Button>
+                                        )}
+                                    </li>
+                                  ))
+                              }
+                            </ul>
+                          </MediumAndDown>
+                        </CalendarOrderList>
                       </CalendarBooking>
                     ) : null
                   }
                 </div>
               ))}
-          </div>
+        </div>
       </CalendarWrapper>
     );
   }

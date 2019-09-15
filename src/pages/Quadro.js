@@ -57,7 +57,7 @@ const Advantage = styled.article`
 
 const Quadro = () => (
   <div className="wrap">
-    <Banner title="Квадроциклы и багги">
+    <Banner type="quadro" title="Квадроциклы и багги">
       <Menu />
     </Banner>
     <BackgroundWrapper withBuildings>
@@ -149,7 +149,7 @@ const Quadro = () => (
         <Description>
           Предварительная регистрация ОБЯЗАТЕЛЬНА
         </Description>
-        <Calendar />
+        <Calendar kindEvent={'quadro'} />
       </section>
       <Footer />
     </BackgroundWrapper>

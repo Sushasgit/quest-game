@@ -1,0 +1,304 @@
+{
+    "mainTitle": "Территория реальных игр",
+    "ourGames": {
+        "title": "Наши игры",
+        "games": [
+            {
+                "id": 1,
+                "type": "paintball",
+                "subTitle": "Пейнтбол",
+                "gameTypes": [
+                    {
+                        "id": 1,
+                        "title": "Детский Пейнтбол",
+                        "tags": [
+                            {
+                                "id": 1,
+                                "title": "6-11 лет"
+                            }
+                        ],
+                        "posterImg": "https://iamwerby.com/static/media/index.199606dc.jpg"
+                    },
+                    {
+                        "id": 2,
+                        "title": "Пейнтбол",
+                        "tags": [
+                            {
+                                "id": 1,
+                                "title": "12+"
+                            }
+                        ],
+                        "posterImg": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHikPZMX_KzZyYo2lZmFOFpGTD2jym9zTSpTrCehWoAk8OLcKq"
+                    },
+                    {
+                        "id": 3,
+                        "title": "Ночной пейнтбол",
+                        "tags": [
+                            {
+                                "id": 1,
+                                "title": "12+"
+                            }
+                        ],
+                        "posterImg": "https://i.ytimg.com/vi/Je5MV8XCE9I/maxresdefault.jpg"
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "type": "straikball",
+                "subTitle": "Страйкбол",
+                "gameTypes": [
+                    {
+                        "id": 1,
+                        "title": "Пистолетный",
+                        "tags": [
+                            {
+                                "id": 1,
+                                "title": "12+"
+                            }
+                        ],
+                        "posterImg": "http://realgames.com.ua/wp-content/uploads/2018/12/%D0%9F%D0%B8%D1%81%D1%82%D0%BE%D0%BB%D0%B5%D1%82%D0%BD%D1%8B%D0%B9-%D1%81%D1%82%D1%80%D0%B0%D0%B9%D0%BA%D0%B1%D0%BE%D0%BB.jpg"
+                    },
+                    {
+                        "id": 2,
+                        "title": "Автоматный",
+                        "tags": [
+                            {
+                                "id": 1,
+                                "title": "16+"
+                            }
+                        ],
+                        "posterImg": "https://scontent-ort2-1.cdninstagram.com/vp/44cd6687b9dcb46fdb839fbed30a734f/5D8FCEFA/t51.2885-15/e35/s480x480/61122176_348485065853223_2478699903176329175_n.jpg?_nc_ht=scontent-ort2-1.cdninstagram.com"
+                    },
+                    {
+                        "id": 3,
+                        "title": "Ночной",
+                        "tags": [
+                            {
+                                "id": 1,
+                                "title": "16+"
+                            }
+                        ],
+                        "posterImg": "http://playpaintball.com.ua/images/arena10/night3.jpg"
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "type": "actionGames",
+                "subTitle": "Экшн Игры",
+                "gameTypes": [
+                    {
+                        "id": 1,
+                        "title": "Трэш Прятки",
+                        "tags": [
+                            {
+                                "id": 1,
+                                "title": "18+"
+                            }
+                        ],
+                        "posterImg": "https://iamwerby.com/static/media/game.f36b5e31.jpg"
+                    },
+                    {
+                        "id": 2,
+                        "title": "Объект 107",
+                        "tags": [
+                            {
+                                "id": 1,
+                                "title": "18+"
+                            }
+                        ],
+                        "posterImg": "https://cdn.pixabay.com/photo/2018/04/20/22/18/factory-building-3337207__480.jpg"
+                    },
+                    {
+                        "id": 3,
+                        "title": "Победа или смерть",
+                        "tags": [
+                            {
+                                "id": 1,
+                                "title": "18+"
+                            }
+                        ],
+                        "posterImg": "https://images11.cosmopolitan.ru/upload/img_cache/03c/03c824297d21cd5fac991f9b8c878398_fitted_740x700.jpg"
+                    },
+                    {
+                        "id": 4,
+                        "title": "Прятки",
+                        "tags": [
+                            {
+                                "id": 1,
+                                "title": "12+"
+                            }
+                        ],
+                        "posterImg": "https://cdn.pixabay.com/photo/2016/02/19/10/14/hiding-1209131_1280.jpg"
+                    },
+                    {
+                        "id": 5,
+                        "title": "Школа шпионов",
+                        "tags": [
+                            {
+                                "id": 1,
+                                "title": "10+"
+                            }
+                        ],
+                        "posterImg": "https://cdn.pixabay.com/photo/2015/10/19/10/32/binoculars-995779_1280.jpg"
+                    },
+                    {
+                        "id": 6,
+                        "title": "Форт Боярд",
+                        "tags": [
+                            {
+                                "id": 1,
+                                "title": "10+"
+                            }
+                        ],
+                        "posterImg": "https://cdn.pixabay.com/photo/2016/07/29/17/42/lost-places-1555076_1280.jpg"
+                    }
+                ]
+            },
+            {
+                "id": 4,
+                "type": "additionalEntertainment",
+                "subTitle": "Развлечения",
+                "gameTypes": [
+                    {
+                        "id": 1,
+                        "title": "Квадроциклы/Багги",
+                        "tags": [],
+                        "posterImg": "https://iamwerby.com/static/media/quadro.7699194d.jpg"
+                    },
+                    {
+                        "id": 2,
+                        "title": "Тир",
+                        "tags": [],
+                        "posterImg": "https://cdn.pixabay.com/photo/2015/06/20/18/24/year-market-816032_1280.jpg"
+                    },
+                    {
+                        "id": 1,
+                        "title": "Открытые (сборные) мероприятия",
+                        "tags": [],
+                        "posterImg": "https://media.gettyimages.com/photos/paitball-team-picture-id926927832?s=2048x2048"
+                    }
+                ]
+            }
+        ],
+        "locations": [
+            {
+                "id": 1,
+                "title": "Т2 (зона отдыха)",
+                "posterImg": ""
+            },
+            {
+                "id": 2,
+                "title": "Таблеточный Цех",
+                "posterImg": ""
+            },
+            {
+                "id": 3,
+                "title": "Склад(3200 м2)",
+                "posterImg": ""
+            },
+            {
+                "id": 4,
+                "title": "Т7 (оружейка,разделки)",
+                "posterImg": ""
+            },
+            {
+                "id": 5,
+                "title": "Лаборатория (3200 м2)",
+                "posterImg": ""
+            },
+            {
+                "id": 6,
+                "title": "Виварий",
+                "posterImg": ""
+            },
+            {
+                "id": 7,
+                "title": "Трасса квадроциклы",
+                "posterImg": ""
+            },
+            {
+                "id": 8,
+                "title": "Игровое Оборудование",
+                "posterImg": ""
+            }
+        ],
+        "services": [
+            {
+                "id": 1,
+                "iconName": "team",
+                "title": "Корпаративы/Тимбилднги"
+            },
+            {
+                "id": 2,
+                "iconName": "cake",
+                "title": "Дни рождения"
+            },
+            {
+                "id": 3,
+                "iconName": "mustache",
+                "title": "Мальчишники"
+            },
+            {
+                "id": 4,
+                "iconName": "mask",
+                "title": "Реалити розыгрыши"
+            },
+            {
+                "id": 5,
+                "iconName": "rent",
+                "title": "Аренда локаций"
+            },
+            {
+                "id": 6,
+                "iconName": "paintball",
+                "title": "Турниры"
+            },
+            {
+                "id": 7,
+                "iconName": "graduate",
+                "title": "Выпускные"
+            }
+        ]
+    },
+    "ourLocations": {
+        "title": "Локации",
+        "list": [
+            {
+                "id": 1,
+                "title": "Т2 - зона отдыха"
+            },
+            {
+                "id": 2,
+                "title": "Таблеточный Цех",
+                "label": "3200 м2"
+            },
+            {
+                "id": 3,
+                "title": "Таблеточный Цех",
+                "label": "3200 м2"
+            },
+            {
+                "id": 4,
+                "title": "Склад",
+                "label": "3200 м2"
+            },
+            {
+                "id": 5,
+                "title": "Т7 - оружейка,разделки",
+                "label": ""
+            },
+            {
+                "id": 6,
+                "title": "Виварий",
+                "label": ""
+            },
+            {
+                "id": 7,
+                "title": "Трасса квадроциклы",
+                "label": ""
+            }
+        ]
+    }
+}
