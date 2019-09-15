@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
 
-
 const CurrentDay = styled.div`
   background-color: ${data => (data.theme.calendar.bgAvailable)};
   border-right: 2px solid ${data => (data.theme.calendar.borderColor)};
@@ -114,7 +113,6 @@ const OtherDay = styled.div`
   };
 }`;
 
-
 const Day = (props) => {
   let displayDay;
   const active = props.clickedDay === props.day.moment ? 'checked' : '';
@@ -138,7 +136,7 @@ const Day = (props) => {
     );
       break;
     default: displayDay = (
-          <OtherDay onClick={(e) => { props.onDayClick(e, props.day.moment, props.week, props.day.month, props.day.click, props.clickedDay); }} className={`${'otherDay'} ${active}`}>
+      <OtherDay onClick={(e) => { props.onDayClick(e, props.day.moment, props.week, props.day.month, props.day.click, props.clickedDay); }} className={`${'otherDay'} ${active}`}>
         <span className="calendar_data_day">{props.day.dayNam}</span>
       </OtherDay>
     );

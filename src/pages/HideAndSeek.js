@@ -98,7 +98,7 @@ const HideAndSeek = () => (
           Забронировать
         </Title>
         <Description>Предварительная регистрация ОБЯЗАТЕЛЬНА</Description>
-        <Calendar />
+        <Calendar kindEvent={'HideAndSeek'} />
       </section>
       <Footer />
     </BackgroundWrapper>

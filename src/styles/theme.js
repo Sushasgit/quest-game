@@ -38,7 +38,7 @@ export const darkTheme = {
     bgEmpty: '#202020',
     bgAvailable: '#242424',
     bgWeekDays: '#404040',
-    bgColorCalendar: '#262626',
+    bgColorCalendar: '#242424',
     borderColor: '#373737',
     hoverColor: '#fff500',
     buttonTextColor: 'rgba(255, 255, 255, 0.25)',

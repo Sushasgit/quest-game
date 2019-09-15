@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-// import 'moment/locale/ru';
+import 'moment/locale/ru';
 import './calendar.scss';
 import styled, { withTheme } from 'styled-components';
+import axios from 'axios';
 import Week from './parts/Week';
 import Day from './parts/Day';
 import { CALENDAR_ORDER_LIST } from '../../utils/constants';
@@ -285,9 +286,10 @@ class Calendar extends Component {
                       <CalendarBooking className="block calendar_booking">
                         <BookingTime
                           isOpen={isOpenBookingTime}
-                          onClose={(e) => this.setState({ isOpenBookingTime: false })}
+                          onClose={e => this.setState({ isOpenBookingTime: false })}
                           day={clickedDay}
                           time={checkTime}
+                          kindEvent={this.props.kindEvent}
                         />
                         <CalendarOrderList className="calendar_order_list">
                           <LargeAndUp>
@@ -301,14 +303,17 @@ class Calendar extends Component {
                               {
                               CALENDAR_ORDER_LIST.map((item, i) => (
                                 <li className="li_item_time">
-                                  <span className="item_time">{item.time}</span>
+                                  <span className="item_time">{this.props.kindEvent === 'HideAndSeek' ? item.timeNight : item.timeDay }</span>
                                   {item.available
                                     ? (
-
                                       <div className="book_item_time">
                                         <span className="available_item_time">доступно для резервирования</span>
                                         <Button
-                                          onClick={e => this.setState({ isOpenBookingTime: true, checkTime: item.time })}
+                                          onClick={e => this.setState({
+                                            isOpenBookingTime: true,
+                                            checkTime: this.props.kindEvent === 'HideAndSeek'
+                                              ? item.timeNight : item.timeDay,
+                                          })}
                                         >
                                           Зарезервировать
                                         </Button>
@@ -317,9 +322,7 @@ class Calendar extends Component {
                                     : (
                                       <div className="book_item_time">
                                         <span className="available_item_time">уже зарезервировано</span>
-                                        <Button
-                                          onClick={() => { console.log(item.time); }}
-                                        >
+                                        <Button>
                                           Недоступно
                                         </Button>
                                       </div>
@@ -330,7 +333,6 @@ class Calendar extends Component {
                             </ul>
                           </LargeAndUp>
                           <MediumAndDown>
-                            <BookingTime />
                             <h2 className="calendar_order_list_headline">
                               {clickedDay}
                             </h2>
@@ -341,22 +343,23 @@ class Calendar extends Component {
                                       {item.available
                                         ? (
                                           <Button
-                                            onClick={() => { console.log(item.time); }}
+                                              onClick={e => this.setState({
+                                                isOpenBookingTime: true,
+                                                checkTime: this.props.kindEvent === 'HideAndSeek'
+                                                    ? item.timeNight : item.timeDay,
+                                              })}
                                             className="button_book_small_device"
                                           >
                                             <div className="button_book_small_device_content">
-                                              <span className="item_time_small_device">{item.time}</span>
+                                              <span className="item_time_small_device">{this.props.kindEvent === 'HideAndSeek' ? item.timeNight : item.timeDay}</span>
                                               <span className="available_item_time_small_device">доступно для резервирования</span>
                                             </div>
                                           </Button>
                                         )
                                         : (
-                                          <Button
-                                            onClick={() => { console.log(item.time); }}
-                                            className="button_book_small_device"
-                                          >
+                                          <Button className="button_book_small_device">
                                             <div className="button_book_small_device_content">
-                                              <span className="item_time_small_device">{item.time}</span>
+                                              <span className="item_time_small_device">{this.props.kindEvent === 'HideAndSeek' ? item.timeNight : item.timeDay}</span>
                                               <span className="available_item_time_small_device">уже зарезервировано</span>
                                             </div>
                                           </Button>
@@ -366,7 +369,6 @@ class Calendar extends Component {
                               }
                             </ul>
                           </MediumAndDown>
-
                         </CalendarOrderList>
                       </CalendarBooking>
                     ) : null

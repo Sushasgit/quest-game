@@ -149,7 +149,7 @@ const Quadro = () => (
         <Description>
           Предварительная регистрация ОБЯЗАТЕЛЬНА
         </Description>
-        <Calendar />
+        <Calendar kindEvent={'quadro'} />
       </section>
       <Footer />
     </BackgroundWrapper>
