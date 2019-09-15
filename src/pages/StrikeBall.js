@@ -103,7 +103,7 @@ const StrikeBall = () => (
         <Description>
             Предварительная регистрация ОБЯЗАТЕЛЬНА
         </Description>
-        <Calendar />
+        <Calendar kindEvent={'strikeBall'} />
       </section>
       <Footer />
     </BackgroundWrapper>

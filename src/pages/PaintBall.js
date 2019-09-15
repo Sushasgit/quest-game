@@ -240,7 +240,7 @@ const PaintBall = () => (
           <Title level={3}>
             Забронировать
           </Title>
-          <Calendar />
+          <Calendar kindEvent={'paintBall'} />
         </div>
       </section>
       <Footer />
