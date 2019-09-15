@@ -1,136 +1,119 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
-import axios from 'axios';
 
 const CurrentDay = styled.div`
-  background-color: ${data => (data.theme.Calendar.bgAvailable)};
-  border-right: 2px solid ${data => (data.theme.Calendar.borderColor)};
-  border-bottom: 2px solid ${data => (data.theme.Calendar.borderColor)};
-  color: ${data => (data.theme.Calendar.textColorAvailable)};
+  background-color: ${data => (data.theme.calendar.bgAvailable)};
+  border-right: 2px solid ${data => (data.theme.calendar.borderColor)};
+  border-bottom: 2px solid ${data => (data.theme.calendar.borderColor)};
+  color: ${data => (data.theme.calendar.textColorAvailable)};
     &:first-child{
-    border-left: 2px solid ${data => (data.theme.Calendar.borderColor)};
+    border-left: 2px solid ${data => (data.theme.calendar.borderColor)};
   };
    &:hover {
     .calendar_data_day {
-      border: solid 1px ${data => (data.theme.Calendar.hoverColor)};;
-      background-color: ${data => (data.theme.Calendar.hoverColor)};;
-      color: ${data => (data.theme.Calendar.bgEmpty)};;
+      border: solid 1px ${data => (data.theme.calendar.hoverColor)};;
+      background-color: ${data => (data.theme.calendar.hoverColor)};;
+      color: ${data => (data.theme.calendar.bgEmpty)};;
     }
    };
    &.checked{
-    background-color: ${data => (data.theme.Calendar.bgWeekDays)};
+    background-color: ${data => (data.theme.calendar.bgWeekDays)};
     border-bottom: none;
         & .calendar_data_day{
-        background-color: ${data => (data.theme.Calendar.textColorAvailable)};
-        border: solid 1px ${data => (data.theme.Calendar.textColorAvailable)};
-        color: ${data => (data.theme.Calendar.bgEmpty)};
+        background-color: ${data => (data.theme.calendar.textColorAvailable)};
+        border: solid 1px ${data => (data.theme.calendar.textColorAvailable)};
+        color: ${data => (data.theme.calendar.bgEmpty)};
         }
   };
   &.checked:hover {
     .calendar_data_day {
-      border: ${data => (data.theme.Calendar.textColorAvailable)};
-      background-color: ${data => (data.theme.Calendar.textColorAvailable)};
+      border: ${data => (data.theme.calendar.textColorAvailable)};
+      background-color: ${data => (data.theme.calendar.textColorAvailable)};
     } 
   };
 }`;
 
 const EmptyDay = styled.div`
-  background-color: ${data => (data.theme.Calendar.bgEmpty)};
-  border-right: 2px solid ${data => (data.theme.Calendar.borderColor)};
-  border-bottom: 2px solid ${data => (data.theme.Calendar.borderColor)};
+  background-color: ${data => (data.theme.calendar.bgEmpty)};
+  border-right: 2px solid ${data => (data.theme.calendar.borderColor)};
+  border-bottom: 2px solid ${data => (data.theme.calendar.borderColor)};
   cursor: no-drop;
-  color: ${data => (data.theme.Calendar.textColorEmpty)};
+  color: ${data => (data.theme.calendar.textColorEmpty)};
     &:first-child{
-    border-left: 2px solid ${data => (data.theme.Calendar.borderColor)};
+    border-left: 2px solid ${data => (data.theme.calendar.borderColor)};
   };
 }`;
 
 const TodayInMonth = styled.div`
-  background-color: ${data => (data.theme.Calendar.bgAvailable)};
-  border-right: 2px solid ${data => (data.theme.Calendar.borderColor)};
-  border-bottom: 2px solid ${data => (data.theme.Calendar.borderColor)};
-  color: ${data => (data.theme.Calendar.textColorAvailable)};
+  background-color: ${data => (data.theme.calendar.bgAvailable)};
+  border-right: 2px solid ${data => (data.theme.calendar.borderColor)};
+  border-bottom: 2px solid ${data => (data.theme.calendar.borderColor)};
+  color: ${data => (data.theme.calendar.textColorAvailable)};
     &:first-child{
-    border-left: 2px solid ${data => (data.theme.Calendar.borderColor)};
+    border-left: 2px solid ${data => (data.theme.calendar.borderColor)};
   };
   &.checked.current-today:before{
-    border: solid 1px ${data => (data.theme.Calendar.textColorAvailable)};
+    border: solid 1px ${data => (data.theme.calendar.textColorAvailable)};
    }
   &:before{
-    border: solid 1px ${data => (data.theme.Calendar.hoverColor)};
+    border: solid 1px ${data => (data.theme.calendar.hoverColor)};
   };
   &:hover {
     .calendar_data_day {
-      border: solid 1px ${data => (data.theme.Calendar.hoverColor)};
-      background-color: ${data => (data.theme.Calendar.hoverColor)};
-      color: ${data => (data.theme.Calendar.bgEmpty)};
+      border: solid 1px ${data => (data.theme.calendar.hoverColor)};
+      background-color: ${data => (data.theme.calendar.hoverColor)};
+      color: ${data => (data.theme.calendar.bgEmpty)};
     }
   };
   &.checked{
-    background-color: ${data => (data.theme.Calendar.bgWeekDays)};
+    background-color: ${data => (data.theme.calendar.bgWeekDays)};
     border-bottom: none;
         & .calendar_data_day{
-        background-color: ${data => (data.theme.Calendar.textColorAvailable)};
-        border: solid 1px ${data => (data.theme.Calendar.textColorAvailable)};
-        color: ${data => (data.theme.Calendar.bgEmpty)};
+        background-color: ${data => (data.theme.calendar.textColorAvailable)};
+        border: solid 1px ${data => (data.theme.calendar.textColorAvailable)};
+        color: ${data => (data.theme.calendar.bgEmpty)};
         }
   }
   &.checked:hover {
    .calendar_data_day {
-    border: ${data => (data.theme.Calendar.textColorAvailable)};
-    background-color: ${data => (data.theme.Calendar.textColorAvailable)};
+    border: ${data => (data.theme.calendar.textColorAvailable)};
+    background-color: ${data => (data.theme.calendar.textColorAvailable)};
    }
   };
 }`;
 
 const OtherDay = styled.div`
-  background-color: ${data => (data.theme.Calendar.bgEmpty)};
-  border-right: 2px solid ${data => (data.theme.Calendar.borderColor)};
-  border-bottom: 2px solid ${data => (data.theme.Calendar.borderColor)};
-  color: ${data => (data.theme.Calendar.textColorEmpty)};
+  background-color: ${data => (data.theme.calendar.bgEmpty)};
+  border-right: 2px solid ${data => (data.theme.calendar.borderColor)};
+  border-bottom: 2px solid ${data => (data.theme.calendar.borderColor)};
+  color: ${data => (data.theme.calendar.textColorEmpty)};
     &:first-child{
-    border-left: 2px solid ${data => (data.theme.Calendar.borderColor)};
+    border-left: 2px solid ${data => (data.theme.calendar.borderColor)};
   };
   &:hover {
     .calendar_data_day {
-      border: solid 1px ${data => (data.theme.Calendar.hoverColor)};;
-      background-color: ${data => (data.theme.Calendar.hoverColor)};;
-      color: ${data => (data.theme.Calendar.bgEmpty)};;
+      border: solid 1px ${data => (data.theme.calendar.hoverColor)};;
+      background-color: ${data => (data.theme.calendar.hoverColor)};;
+      color: ${data => (data.theme.calendar.bgEmpty)};;
     }
   };
   &.checked{
-    background-color: ${data => (data.theme.Calendar.bgWeekDays)};
+    background-color: ${data => (data.theme.calendar.bgWeekDays)};
     border-bottom: none;
         & .calendar_data_day{
-            background-color: ${data => (data.theme.Calendar.textColorAvailable)};
-            border: solid 1px ${data => (data.theme.Calendar.textColorAvailable)};
-            color: ${data => (data.theme.Calendar.bgEmpty)};
+            background-color: ${data => (data.theme.calendar.textColorAvailable)};
+            border: solid 1px ${data => (data.theme.calendar.textColorAvailable)};
+            color: ${data => (data.theme.calendar.bgEmpty)};
         }
   };
   &.checked:hover {
   .calendar_data_day {
-    border: ${data => (data.theme.Calendar.textColorAvailable)};
-    background-color: ${data => (data.theme.Calendar.textColorAvailable)};
+    border: ${data => (data.theme.calendar.textColorAvailable)};
+    background-color: ${data => (data.theme.calendar.textColorAvailable)};
   };
 }`;
 
-const data = {
-  req: 'get-all',
-};
-
-const config = {
-  headers: {
-    'Content-Type': 'application/x-www-form-urlencoded',
-  },
-};
-
 const Day = (props) => {
-  axios.post('https://iamwerby.com/api/events/',
-    'req=get-all', config).then((res) => {
-    // console.log('res', JSON.stringify(requestBody));
-    console.log('resdata', (res.data));
-  });
-
   let displayDay;
   const active = props.clickedDay === props.day.moment ? 'checked' : '';
   switch (props.day.dayType) {

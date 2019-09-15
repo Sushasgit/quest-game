@@ -1,13 +1,13 @@
 import React from 'react';
-import styled from 'styled-components';
-
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { CARDS_DATA } from '../../utils/constants';
+import styled, { withTheme } from 'styled-components';
+
 import Title from '../ui/Title';
 import Tag from '../ui/Tag';
+import Button from '../ui/Button';
 
 import './cards-list.scss';
-import Button from '../ui/Button';
 
 const Description = styled.p`
   color: ${props => (props.theme ? props.theme.textColor : '#fff')};
@@ -20,56 +20,83 @@ const Description = styled.p`
 `;
 
 const CardTitle = styled.h3`
-  color: ${props => (props.theme ? props.theme.titleColor : '#fff')};
-  font-size: 1.3em;
-  font-weight: 900;
-  text-align: center;
-  font-family: "FiraSans-Bold", sans-serif;
+  color: ${props => (props.theme ? props.theme.gameCards.title : '#fff')};
+  font-size: 24px;
+  text-align: left;
   margin: 20px;
+  text-shadow: 3px 4px 5px ${props => (props.theme.themeType === 'dark' ? '#000' : 'none')};;
+  position: relative;
 `;
 
-const CardsList = () => (
+const CardsList = ({ gamesList, theme }) => (
   <div className="wrapper">
-    <Title primary level={2}>
-      Наши игры
-    </Title>
-    <ul className="cards">
-      {
-        CARDS_DATA.map(item => (
-          <li key={item.id}>
-            <Link to={`/${item.url}`} className="cards__item">
-              <CardTitle className="card__title">
-                {item.title}
-              </CardTitle>
-              {
-                item.tag ? (
-                  <Tag tag={item.tag}>
-                    {`#${item.tag}`}
-                  </Tag>
-                ) : null
-              }
-              <Description className="card__description">
-                {item.description}
-              </Description>
-              <div
-                style={{
-                  background: `url(${item.posterUrlJpg})`,
-                  backgroundSize: 'cover',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundPosition: '100% 100%',
-                }}
-                className={`card card--${item.imgBg}`}
-              >
-                <Button className="card__link">
-                  Подробнее
-                </Button>
-              </div>
-            </Link>
-          </li>
-        ))
-      }
-    </ul>
+    {
+      gamesList ? (
+        <Title primary level={2}>
+          {gamesList.title}
+        </Title>
+      ) : null
+    }
+
+    {
+        console.log(gamesList)
+    }
+
+    {
+      gamesList && gamesList.games.map(item => (
+        <div key={item.id} className="game-card">
+          <Title primary level={2}>
+            {item.subTitle}
+          </Title>
+          <ul className="cards">
+            {
+                item.gameTypes.map(game => (
+                  <li key={game.id}>
+                    <Link to={`/${game.url}`} className="cards__item">
+                      <CardTitle className="card__title">
+                        {game.title}
+                        {
+                            game.tags ? (
+                              game.tags.map(tag => (
+                                <Tag tag={tag.title}>
+                                  {`#${tag.title}`}
+                                </Tag>
+                              ))
+                            ) : null
+                        }
+                      </CardTitle>
+                      <div
+                        style={{
+                          background: `url(${game.posterImg})`,
+                          backgroundSize: 'cover',
+                          backgroundRepeat: 'no-repeat',
+                          backgroundPosition: '100% 100%',
+                          filter: theme.themeType === 'light' ? 'grayscale(1)' : 'none',
+                        }}
+                        className={`card card--${item.type}`}
+                      />
+                      <Button className="card__link">
+                        Подробнее
+                      </Button>
+                    </Link>
+                  </li>
+                ))
+            }
+          </ul>
+        </div>
+      ))
+    }
   </div>
 );
 
-export default CardsList;
+CardsList.propTypes = {
+  gamesList: PropTypes.shape({
+    title: PropTypes.string,
+    games: PropTypes.array,
+  }).isRequired,
+  theme: PropTypes.shape({
+    themeType: PropTypes.string,
+  }).isRequired,
+};
+
+export default withTheme(CardsList);

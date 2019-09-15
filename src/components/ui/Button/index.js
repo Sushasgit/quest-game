@@ -26,19 +26,19 @@ const defaultProps = {
 
 const StyledButton = styled.button`
     display: inline-block;
+    font-family: 'MontserratBold', Arial;
     padding: 15px;
-    font-family: 'FiraSans-Bold', sans-serif;
     margin-bottom: 12px;
-    font-size: 0.8em;
+    font-size: 14px;
     text-transform: uppercase;
     line-height: 100%;
     letter-spacing: 0.05em;
     width: min-content;
     position: relative;
     z-index: 1;
-    border: 1px solid ${data => (data.theme ? data.theme.titleColor : '#fff')};
-    background-color: rgba(0,0,0,.5);
-    color: ${data => (data.theme ? data.theme.titleColor : '#fff')};
+    border: 1px solid ${props => (props.theme ? props.theme.primaryBtnText : '#fff')};
+    background-color:  ${props => (props.theme ? props.theme.primaryBtn : '#fff')};
+    color: ${props => (props.theme ? props.theme.primaryBtnText : '#fff')};
 
     &::before, &::after {
         display: inline-block;
@@ -93,6 +93,7 @@ const Button = ({
   submitting,
   renderSpinner,
   children,
+  handleClick,
   as,
   ...rest
 }) => (
@@ -101,6 +102,7 @@ const Button = ({
     sizing={sizing}
     btntype={btntype}
     {...rest}
+    onClick={handleClick}
   >
     {submitting && (
       <SpinnerWrapper>
