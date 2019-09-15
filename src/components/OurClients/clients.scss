@@ -1,0 +1,40 @@
+.card-client {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: relative;
+    // mask-image: url(../../images/card-bg.svg);
+    mask-repeat: round;
+    background-size: contain;
+    // min-height: 450px;
+    background-repeat: no-repeat;
+    padding: 10px;
+    // background-color: #000;
+    max-width: 300px;
+}
+
+.card-client img {
+    width: 200px;
+    max-height: 80px;
+    object-fit: contain;
+}
+
+.list {
+    display: flex;
+    position:relative;
+    max-width: 1300px;
+    flex-wrap: wrap;
+    padding-bottom: 80px;
+    justify-content: center;
+    margin: 0 auto;
+
+    & > * {
+        flex: 1 0 200px;
+        margin: 10px;
+    }
+}
+
+.box {
+    overflow: hidden;
+}

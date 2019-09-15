@@ -15,6 +15,8 @@ export const darkTheme = {
     bgForm: '#1c1c1c',
   },
 
+  gameCards: '#fff',
+
   Calendar: {
     textColorEmpty: '#414141',
     textColorOrderList: '#e1d8c9',

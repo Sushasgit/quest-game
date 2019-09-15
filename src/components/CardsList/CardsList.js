@@ -20,55 +20,73 @@ const Description = styled.p`
 `;
 
 const CardTitle = styled.h3`
-  color: ${props => (props.theme ? props.theme.titleColor : '#fff')};
-  font-size: 1.3em;
-  font-weight: 900;
-  text-align: center;
+  color: ${props => (props.theme ? props.theme.gameCards : '#fff')};
+  font-size: 1em;
+  text-align: left;
   font-family: "FiraSans-Bold", sans-serif;
   margin: 20px;
+  text-shadow: 3px 4px 5px #000;
+  position: relative;
 `;
 
-const CardsList = () => (
+const CardsList = ({ gamesList }) => (
   <div className="wrapper">
-    <Title primary level={2}>
-      Наши игры
-    </Title>
-    <ul className="cards">
+    {
+      gamesList ? (
+        <Title primary level={2}>
+          {gamesList.title}
+        </Title>
+      ) : null
+    }
+
+    {
+      gamesList && gamesList.games.map(item => (
+        <div className="game-card">
+          <Title primary level={2}>
+            {item.subTitle}
+          </Title>
+          <ul className="cards">
       {
-        CARDS_DATA.map(item => (
+        item.gameTypes.map(item => (
           <li key={item.id}>
             <Link to={`/${item.url}`} className="cards__item">
               <CardTitle className="card__title">
                 {item.title}
-              </CardTitle>
-              {
-                item.tag ? (
-                  <Tag tag={item.tag}>
-                    {`#${item.tag}`}
+                {
+                item.tags ? (
+                  item.tags.map(tag => (
+                  <Tag tag={tag.title}>
+                    {`#${tag.title}`}
                   </Tag>
+                  ))
+                  
                 ) : null
               }
+              </CardTitle>
               <Description className="card__description">
                 {item.description}
               </Description>
               <div
                 style={{
-                  background: `url(${item.posterUrlJpg})`,
+                  background: `url(${item.posterImg})`,
                   backgroundSize: 'cover',
                   backgroundRepeat: 'no-repeat',
                   backgroundPosition: '100% 100%',
                 }}
                 className={`card card--${item.imgBg}`}
               >
-                <Button className="card__link">
+              </div>
+              <Button className="card__link">
                   Подробнее
                 </Button>
-              </div>
             </Link>
           </li>
         ))
       }
     </ul>
+        </div>
+      ))
+    }
   </div>
 );
 

@@ -93,6 +93,7 @@ const Button = ({
   submitting,
   renderSpinner,
   children,
+  handleClick,
   as,
   ...rest
 }) => (
@@ -101,6 +102,7 @@ const Button = ({
     sizing={sizing}
     btntype={btntype}
     {...rest}
+    onClick={handleClick}
   >
     {submitting && (
       <SpinnerWrapper>

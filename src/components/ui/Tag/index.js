@@ -17,6 +17,11 @@ const StyledTag = styled.span`
   color: ${props => (props.data === 'TOP' ? props.theme.tags.top.textColor : props.theme.tags.standard.textColor)}
   background-position: top 200px left;
   margin-right: 15px;
+  position: absolute;
+  top: -37px;
+  transform: rotate(22deg);
+  right: 150px;
+  font-size: 16px;
 `;
 
 const Tag = ({ tag, primary, ...props }) => {

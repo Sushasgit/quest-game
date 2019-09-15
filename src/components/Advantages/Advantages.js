@@ -11,7 +11,8 @@ import './advantages.scss';
 import Title from '../ui/Title';
 import BackgroundWrapper from '../ui/BackgroundWrapper';
 import Icon from '../ui/Icon';
-
+import OurClients from '../OurClients';
+import Locations from '../Locations';
 
 const Description = styled.p`
   text-align: center;
@@ -32,7 +33,7 @@ const ListItem = styled.li`
 `;
 
 const ListItemTitle = styled.h3`
-  font-size: 1.2em;
+  font-size: 22px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,13 +47,19 @@ const ListItemDesc = styled.p`
 `;
 
 const ListItemIcon = styled(Icon)`
-  max-width: 125px;
+  max-width: 70px;
   color: ${data => (data.theme ? data.theme.titleColor : '#fff')}
 `;
 
-const Advantages = () => (
+const Advantages = ({ services, gamesList, ourLocations }) => (
   <React.Fragment>
     <BackgroundWrapper withBuildings>
+      <CardsList gamesList={gamesList} />
+    </BackgroundWrapper>
+    <BackgroundWrapper>
+      <Locations locations={ourLocations} />
+    </BackgroundWrapper>
+    <BackgroundWrapper>
       <section className="wrapper">
         <Title primary level={2}>
           Real Games
@@ -60,18 +67,16 @@ const Advantages = () => (
         <Description>
           9 лет опыта в организации разных мероприятий, 6 лет из них по направлению «экстрим».
         </Description>
-        <ul className="flex">
+        <ul className="flex flex--sm">
           {
-            ADVANTAGES_DATA.map(item => (
+            services && services.map(item => (
               <ListItem key={item.id}>
-                <ListItemIcon name={item.bgImg} />
+                <div className="advantagesIcon">
+                  <ListItemIcon name={item.iconName} />
+                </div>
                 <ListItemTitle>
                   <span>{item.title}</span>
                 </ListItemTitle>
-
-                <ListItemDesc>
-                  {item.description}
-                </ListItemDesc>
               </ListItem>
             ))
           }
@@ -82,7 +87,7 @@ const Advantages = () => (
       </section>
       <div className="test-bg" />
       <BackgroundWrapper withBuildings>
-        <CardsList />
+        <OurClients games={gamesList} />
       </BackgroundWrapper>
       <BackgroundWrapper className="bg">
         <ContactForm />
