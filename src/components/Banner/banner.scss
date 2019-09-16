@@ -73,27 +73,32 @@
 }
 
 .small-devices {
-  min-height: 400px;
+  min-height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
+  background-color: #424242;
 
   &--light {
     background:
-      url(../../images/mobile-banner.webp),
-      url(../../images/mobile-banner.png),
-      url(../../images//test.svg);
-      background-size: cover;
+      url(../../images/mobile-banner-2.png),
+      url(../../images/mobile-banner-3.png),
+      url(../../images/mobile-banner-4.png);
+      background-size: cover, cover, cover, 200px auto;
   }
 
   &--dark {
-    background: 
-      url(../../images/mobile-banner.webp),
-      url(../../images/mobile-banner.png),
-      url(../../images//dark-theme-mobile.svg);
-      background-size: cover;
+    background:
+    url(../../images/mobile-banner-2.png),
+    url(../../images/mobile-banner-3.png),
+    url(../../images/mobile-banner-4.png);
+    background-size: auto 300px, auto 500px, 300px auto;
+    background-position:
+    bottom 70px center,
+    bottom 70px center,
+    bottom 70px right;
+    background-repeat: no-repeat;
   }
 }
-
 
 //Новый баннер
 

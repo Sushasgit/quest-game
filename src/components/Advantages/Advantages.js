@@ -12,6 +12,7 @@ import OurClients from '../OurClients';
 import Locations from '../Locations';
 
 import './advantages.scss';
+import UpcomingEvents from '../UpcomingEvents';
 
 const Description = styled.p`
   text-align: center;
@@ -44,10 +45,18 @@ const ListItemIcon = styled(Icon)`
   color: ${data => (data.theme ? data.theme.titleColor : '#fff')}
 `;
 
+// const Background = styled(BackgroundWrapper)`
+//   position: absolute;
+//   margin: 0;
+// `;
+
 const Advantages = ({ services, gamesList, ourLocations, theme }) => (
   <React.Fragment>
     <BackgroundWrapper withBuildings>
       <CardsList gamesList={gamesList} />
+    </BackgroundWrapper>
+    <BackgroundWrapper>
+      <UpcomingEvents />
     </BackgroundWrapper>
     <BackgroundWrapper>
       <Locations locations={ourLocations} />

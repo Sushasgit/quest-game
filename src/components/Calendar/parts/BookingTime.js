@@ -77,6 +77,7 @@ kind = () => {
 };
 
 render() {
+  console.log(this.props)
   let Booking = (
     <div className="booking_popup">
       <form className="booking_popup_form">

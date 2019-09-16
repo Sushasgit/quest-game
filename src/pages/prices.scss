@@ -1,0 +1,25 @@
+.price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & > * {
+        width: calc(50% - 20px);
+        margin: 20px;
+    }
+    &__header {
+        svg {
+            max-width: 300px;
+        }
+    }
+
+    &__card {
+        box-shadow: 0 0 10px 0 rgba(44,50,77,.07);
+        border-radius: 6px;
+        background-color: #333;
+        max-width: 475px;
+        padding: 20px;
+        text-align: center;
+        position: relative;
+    }
+}
