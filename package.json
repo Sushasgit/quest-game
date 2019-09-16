@@ -50,6 +50,7 @@
     "react": "^16.8.6",
     "react-addons-perf": "^15.4.2",
     "react-app-polyfill": "^1.0.1",
+    "react-connect-elements": "^0.1.1",
     "react-dev-utils": "^9.0.1",
     "react-dom": "^16.8.6",
     "react-gsap": "^1.2.0",
