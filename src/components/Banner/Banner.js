@@ -22,45 +22,46 @@ import Icon from '../ui/Icon';
 import { handleSwitchMan } from '../../utils/func';
 
 const TitleNeon = styled.span`
-  position: absolute;
-  text-align: center;
-  top: 290px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0;
-  padding:  0 20px;
-  font-size: 50px;
-  color: ${data => (data.theme && data.theme.themeType === 'dark' ? '#fff' : '#fff')};
-  text-shadow: 0 0 30px ${data => (data.theme ? '#333' : '#52d6f5')};
-  font-family: 'FiraSans-Bold', sans-serif;
-  font-weight: 500;
-  line-height: 1em;
-  z-index: 150;
+//   position: absolute;
+//   text-align: center;
+//   top: 290px;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   margin: 0;
+//   padding:  0 20px;
+//   font-size: 60px;
+//   color: ${data => (data.theme && data.theme.themeType === 'dark' ? '#fff' : '#fff')};
+//   text-shadow: 0 0 30px ${data => (data.theme ? '#333' : '#52d6f5')};
+//   font-family: 'FiraSans-Bold', sans-serif;
+//   font-weight: 500;
+//   line-height: 1em;
+//   z-index: 150;
+//   font-family: 'Jura', sans-serif;
 
-&::after {
-  content: attr(data-text);
-  position: absolute;
-  z-index: -1;
-  color: #000;
-  top: 0;
-  left: 0;
-  margin: 0;
-  padding:  0 15px;
-  filter: blur(px); 
-}
+// &::after {
+//   content: attr(data-text);
+//   position: absolute;
+//   z-index: -1;
+//   color: #000;
+//   top: 0;
+//   left: 0;
+//   margin: 0;
+//   padding:  0 15px;
+//   filter: blur(px); 
+// }
 
-&::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #000;
-  z-index: -2;
-  opacity: .3;
-  filter: blur(80px);
-}
+// &::before {
+//   content: '';
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   background: #000;
+//   z-index: -2;
+//   opacity: .3;
+//   filter: blur(80px);
+// }
 `;
 
 const TitleNeonMobile = styled(TitleNeon)`
@@ -254,10 +255,10 @@ class Banner extends Component {
                         <Icon name="bird-3" className="banner__fly banner__fly--3" />
                       </div>
                     </div>
-                    <Title primary level={2}>
-                      <TitleNeon className="neon">
+                    <Title className="title" primary level={2}>
+                      <span className="glitch">
                         {title}
-                      </TitleNeon>
+                      </span>
                     </Title>
                   </div>
                   {children}
@@ -278,6 +279,17 @@ class Banner extends Component {
                       <TitleNeonMobile className="neon">
                         {title}
                       </TitleNeonMobile>
+                      <symbol id="s-text">
+		<text text-anchor="middle" x="50%" y="80%">Montserrat</text>
+	</symbol>
+
+	<g class = "g-ants">
+		<use xlink:href="#s-text" class="text-copy"></use>
+		<use xlink:href="#s-text" class="text-copy"></use>
+		<use xlink:href="#s-text" class="text-copy"></use>
+		<use xlink:href="#s-text" class="text-copy"></use>
+		<use xlink:href="#s-text" class="text-copy"></use>
+	</g>
                     </Title>
                     {children}
                   </div>

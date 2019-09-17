@@ -54,6 +54,8 @@
     "react-dev-utils": "^9.0.1",
     "react-dom": "^16.8.6",
     "react-gsap": "^1.2.0",
+    "react-image-gallery": "^0.9.1",
+    "react-lightbox-component": "^1.2.1",
     "react-observed": "^1.0.3",
     "react-router-dom": "^5.0.1",
     "react-scripts": "^3.0.1",

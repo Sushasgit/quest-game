@@ -272,37 +272,142 @@
         "list": [
             {
                 "id": 1,
-                "title": "Т2 - зона отдыха"
+                "title": "Т2 - зона отдыха",
+                "src": "https://i.pinimg.com/originals/9d/3b/b8/9d3bb87b5a289f50cca6f05623d84723.jpg",
+                "images": [
+                    {
+                      "original": "http://lorempixel.com/1000/600/nature/1/",
+                      "thumbnail": "http://lorempixel.com/250/150/nature/1/"
+                    },
+                    {
+                      "original": "http://lorempixel.com/1000/600/nature/2/",
+                      "thumbnail": "http://lorempixel.com/250/150/nature/2/"
+                    },
+                    {
+                      "original": "http://lorempixel.com/1000/600/nature/3/",
+                      "thumbnail": "http://lorempixel.com/250/150/nature/3/"
+                    }
+                  ]
             },
             {
                 "id": 2,
-                "title": "Таблеточный Цех",
-                "label": "3200 м2"
+                "title": "Склад",
+                "label": "3200 м2",
+                "src": "https://image.shutterstock.com/image-photo/abandoned-factory-building-260nw-1240878142.jpg",
+                "images": [
+                    {
+                      "original": "https://ak9.picdn.net/shutterstock/videos/18524099/thumb/11.jpg",
+                      "thumbnail": "https://ak9.picdn.net/shutterstock/videos/18524099/thumb/11.jpg"
+                    },
+                    {
+                      "original": "https://ak9.picdn.net/shutterstock/videos/18524099/thumb/11.jpg",
+                      "thumbnail": "https://ak9.picdn.net/shutterstock/videos/18524099/thumb/11.jpg"
+                    },
+                    {
+                      "original": "https://ak9.picdn.net/shutterstock/videos/18524099/thumb/11.jpg",
+                      "thumbnail": "https://ak9.picdn.net/shutterstock/videos/18524099/thumb/11.jpg"
+                    }
+                  ]
             },
             {
                 "id": 3,
                 "title": "Таблеточный Цех",
-                "label": "3200 м2"
+                "label": "3200 м2",
+                "src": "https://i.pinimg.com/originals/9d/3b/b8/9d3bb87b5a289f50cca6f05623d84723.jpg",
+                "images": [
+                    {
+                      "original": "http://lorempixel.com/1000/600/nature/1/",
+                      "thumbnail": "http://lorempixel.com/250/150/nature/1/"
+                    },
+                    {
+                      "original": "http://lorempixel.com/1000/600/nature/2/",
+                      "thumbnail": "http://lorempixel.com/250/150/nature/2/"
+                    },
+                    {
+                      "original": "http://lorempixel.com/1000/600/nature/3/",
+                      "thumbnail": "http://lorempixel.com/250/150/nature/3/"
+                    }
+                  ]
             },
             {
                 "id": 4,
-                "title": "Склад",
-                "label": "3200 м2"
+                "title": "Лаборатория",
+                "label": "3200 м2",
+                "src": "https://ak4.picdn.net/shutterstock/videos/11155844/thumb/1.jpg",
+                "images": [
+                    {
+                      "original": "http://lorempixel.com/1000/600/nature/1/",
+                      "thumbnail": "http://lorempixel.com/250/150/nature/1/"
+                    },
+                    {
+                      "original": "http://lorempixel.com/1000/600/nature/2/",
+                      "thumbnail": "http://lorempixel.com/250/150/nature/2/"
+                    },
+                    {
+                      "original": "http://lorempixel.com/1000/600/nature/3/",
+                      "thumbnail": "http://lorempixel.com/250/150/nature/3/"
+                    }
+                  ]
             },
             {
                 "id": 5,
                 "title": "Т7 - оружейка,разделки",
-                "label": ""
+                "label": "",
+                "src": "https://ak9.picdn.net/shutterstock/videos/18524099/thumb/11.jpg",
+                "images": [
+                    {
+                      "original": "https://ak9.picdn.net/shutterstock/videos/18524099/thumb/11.jpg",
+                      "thumbnail": "https://ak9.picdn.net/shutterstock/videos/18524099/thumb/11.jpg"
+                    },
+                    {
+                      "original": "https://ak9.picdn.net/shutterstock/videos/18524099/thumb/11.jpg",
+                      "thumbnail": "https://ak9.picdn.net/shutterstock/videos/18524099/thumb/11.jpg"
+                    },
+                    {
+                      "original": "https://ak9.picdn.net/shutterstock/videos/18524099/thumb/11.jpg",
+                      "thumbnail": "https://ak9.picdn.net/shutterstock/videos/18524099/thumb/11.jpg"
+                    }
+                  ]
             },
             {
                 "id": 6,
                 "title": "Виварий",
-                "label": ""
+                "label": "",
+                "src": "https://staticdelivery.nexusmods.com/images/1151/17671759-1542984063.jpg",
+                "images": [
+                    {
+                      "original": "https://ak9.picdn.net/shutterstock/videos/18524099/thumb/11.jpg",
+                      "thumbnail": "https://ak9.picdn.net/shutterstock/videos/18524099/thumb/11.jpg"
+                    },
+                    {
+                      "original": "https://ak9.picdn.net/shutterstock/videos/18524099/thumb/11.jpg",
+                      "thumbnail": "https://ak9.picdn.net/shutterstock/videos/18524099/thumb/11.jpg"
+                    },
+                    {
+                      "original": "https://ak9.picdn.net/shutterstock/videos/18524099/thumb/11.jpg",
+                      "thumbnail": "https://ak9.picdn.net/shutterstock/videos/18524099/thumb/11.jpg"
+                    }
+                  ]
             },
             {
                 "id": 7,
                 "title": "Трасса квадроциклы",
-                "label": ""
+                "label": "",
+                "src": "https://forum.atvclub.ru/index.php?attachments/606551/",
+                "images": [
+                    {
+                      "original": "http://lorempixel.com/1000/600/nature/1/",
+                      "thumbnail": "http://lorempixel.com/250/150/nature/1/"
+                    },
+                    {
+                      "original": "http://lorempixel.com/1000/600/nature/2/",
+                      "thumbnail": "http://lorempixel.com/250/150/nature/2/"
+                    },
+                    {
+                      "original": "http://lorempixel.com/1000/600/nature/3/",
+                      "thumbnail": "http://lorempixel.com/250/150/nature/3/"
+                    }
+                  ]
             }
         ]
     }

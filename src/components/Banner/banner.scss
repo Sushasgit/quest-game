@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,600&display=swap');
 .banner {
     height: 100vh;
     overflow: hidden;
@@ -113,3 +114,19 @@
   display: none;
 }
 
+.title {
+    color: #202020;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+}
+
+.glitch {
+    position: relative;display: block;
+    margin: 11px 0 17px 0;
+    font-size: 80px;
+    line-height: 80px;
+    color: #f1ebe5;
+    text-shadow: 0 13.36px 8.896px #c4b59d,0 -2px 1px #fff;
+    letter-spacing: -4px;
+}
+  
