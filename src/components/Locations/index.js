@@ -96,11 +96,19 @@ class Locations extends Component {
     };
   }
 
+  componentDidMount() {
+    window.addEventListener('resize', this.debounce(this.onVisible, 200, false), false);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.debounce(this.onVisible, 200, false), false);
+  }
+
    debounce = (func, wait, immediate) => {
      let timeout;
      return () => {
-       const context = this; const
-         args = this;
+       const context = this;
+       const args = this;
        const later = () => {
          timeout = null;
          if (!immediate) func.apply(context, args);
@@ -123,16 +131,13 @@ class Locations extends Component {
   };
 
 connect = () => {
-  window.addEventListener('resize', this.debounce(this.onVisible,
-    200, false), false);
-
-
   // window.addEventListener('resize', () => {
   //   this.setState({
   //     visible: false,
   //   }, ()=>{this.setState({ visible: true})});
   // });
-  return (this.state.visible
+  return (
+      this.state.visible
     ? (
       <ConnectElements
         selector=".els"
