@@ -32,6 +32,10 @@
     & > * {
         flex: 1 0 200px;
         margin: 10px;
+
+        @media(max-width: 450px) {
+            flex: none;
+        }
     }
 }
 

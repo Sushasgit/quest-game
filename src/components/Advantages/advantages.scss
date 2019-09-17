@@ -28,6 +28,28 @@
     bottom: 5px;
     right: 5px;
   }
+
+  &__place {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    & > * {
+      width: 20%;
+
+      @media(max-width: 1276px) {
+        width: 33%;
+      }
+
+      @media(max-width: 870px) {
+        width: 50%;
+      }
+
+      @media(max-width: 450px) {
+        width: 100%;
+      }
+    }
+  }
 }
 
 .advantagesIcon {

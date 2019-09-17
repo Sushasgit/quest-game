@@ -42,7 +42,7 @@ const OurClients = () => (
         <li className="card-client">
             <img src={quarnuts} />
         </li>
-    </ul>s
+    </ul>
     </React.Fragment>
 );
 

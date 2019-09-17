@@ -9,16 +9,17 @@ import Title from '../ui/Title';
 import BackgroundWrapper from '../ui/BackgroundWrapper';
 import Icon from '../ui/Icon';
 import OurClients from '../OurClients';
-import Locations from '../Locations';
+// import Locations from '../Locations';
+import UpcomingEvents from '../UpcomingEvents';
 
 import './advantages.scss';
-import UpcomingEvents from '../UpcomingEvents';
 
 const Description = styled.p`
   text-align: center;
   font-size: 1.2em;
   line-height: 1.8em;
   color: ${data => (data.theme ? data.theme.textColor : '#fff')};
+  margin: 40px;
 `;
 
 const ListItem = styled.li`
@@ -58,18 +59,18 @@ const Advantages = ({ services, gamesList, ourLocations, theme }) => (
     <BackgroundWrapper>
       <UpcomingEvents />
     </BackgroundWrapper>
-    <BackgroundWrapper>
+    {/* <BackgroundWrapper>
       <Locations locations={ourLocations} />
-    </BackgroundWrapper>
+    </BackgroundWrapper> */}
     <BackgroundWrapper>
       <section className="wrapper">
         <Title primary level={2}>
-          Real Games
+          Наши услуги
         </Title>
         <Description>
           9 лет опыта в организации разных мероприятий, 6 лет из них по направлению «экстрим».
         </Description>
-        <ul className="flex flex--sm">
+        <ul className="advantage__place">
           {
             services && services.map(item => (
               <ListItem key={item.id}>
@@ -84,6 +85,9 @@ const Advantages = ({ services, gamesList, ourLocations, theme }) => (
           }
         </ul>
       </section>
+      <Title primary level={2}>
+          Преимущества
+        </Title>
       <section className="flex wrapper">
         <AdvantagesPlace />
       </section>

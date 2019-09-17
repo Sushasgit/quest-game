@@ -10,6 +10,7 @@ const Events = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 
     & svg {
         max-width: 500px;   
@@ -18,6 +19,7 @@ const Events = styled.div`
   & > * {
       width: 50%;
   }
+}
 `;
 
 const Description = styled.p`
@@ -28,7 +30,7 @@ const Description = styled.p`
 
 const UpcomingEvents = () => {
     return (
-        <Events className="wrapper">
+        <Events className="wrapper events">
             <div className="events__info">
                 <Title level={2}>
                     Не получается собрать компанию чтобы поиграть?
