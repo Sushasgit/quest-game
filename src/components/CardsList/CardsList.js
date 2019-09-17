@@ -9,16 +9,6 @@ import Button from '../ui/Button';
 
 import './cards-list.scss';
 
-const Description = styled.p`
-  color: ${props => (props.theme ? props.theme.textColor : '#fff')};
-  font-size: 1em;
-  font-weight: 700;
-  opacity: 0.9;
-  margin: 20px 0 -80px 0;
-  line-height: 1.8em;
-  text-align: center;
-`;
-
 const CardTitle = styled.h3`
   color: ${props => (props.theme ? props.theme.gameCards.title : '#fff')};
   font-size: 24px;
@@ -26,6 +16,11 @@ const CardTitle = styled.h3`
   margin: 20px;
   text-shadow: 3px 4px 5px ${props => (props.theme.themeType === 'dark' ? '#000' : 'none')};;
   position: relative;
+  line-height: 24px;
+`;
+
+const TagStyled = styled(Tag)`
+  margin-top: 15px;
 `;
 
 const CardsList = ({ gamesList, theme }) => (
@@ -36,10 +31,6 @@ const CardsList = ({ gamesList, theme }) => (
           {gamesList.title}
         </Title>
       ) : null
-    }
-
-    {
-        console.log(gamesList)
     }
 
     {
@@ -55,7 +46,8 @@ const CardsList = ({ gamesList, theme }) => (
                     <Link to={`/${game.url}`} className="cards__item">
                       <CardTitle className="card__title">
                         {game.title}
-                        {
+                      </CardTitle>
+                      {
                             game.tags ? (
                               game.tags.map(tag => (
                                 <Tag tag={tag.title}>
@@ -64,7 +56,6 @@ const CardsList = ({ gamesList, theme }) => (
                               ))
                             ) : null
                         }
-                      </CardTitle>
                       <div
                         style={{
                           background: `url(${game.posterImg})`,

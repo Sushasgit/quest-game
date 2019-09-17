@@ -24,12 +24,12 @@ import { handleSwitchMan } from '../../utils/func';
 const TitleNeon = styled.span`
   position: absolute;
   text-align: center;
-  top: 200px;
+  top: 290px;
   left: 50%;
   transform: translate(-50%, -50%);
   margin: 0;
   padding:  0 20px;
-  font-size: 1.4em;
+  font-size: 50px;
   color: ${data => (data.theme && data.theme.themeType === 'dark' ? '#fff' : '#fff')};
   text-shadow: 0 0 30px ${data => (data.theme ? '#333' : '#52d6f5')};
   font-family: 'FiraSans-Bold', sans-serif;
@@ -56,7 +56,7 @@ const TitleNeon = styled.span`
   left: 0;
   width: 100%;
   height: 100%;
-  background: #FFDC26;
+  background: #000;
   z-index: -2;
   opacity: .3;
   filter: blur(80px);
@@ -64,9 +64,32 @@ const TitleNeon = styled.span`
 `;
 
 const TitleNeonMobile = styled(TitleNeon)`
-  font-size: 1.1em;
+  font-size: 40px;
   padding: 0;
-  top: 170px;
+  top: 320px;
+  line-height: 46px;
+`;
+
+const SocialLinks = styled.div`
+    position: absolute;
+    right: 5px;
+    width: 110px;
+    top: 15px;
+    z-index: 300;
+
+    & a {
+        color: ${data => (data.theme ? data.theme.titleColor : '#fff')};
+        margin-left: 10px;
+        transition: opacity 0.3s linear;
+
+        &:hover {
+            opacity: 0.6;
+        }
+    }
+
+    & svg {
+        max-width: 40px;
+    }
 `;
 
 class Banner extends Component {
@@ -147,10 +170,6 @@ class Banner extends Component {
       .to('.banner__fly--2', 1, { y: -800, ease: Back.easeInOut })
       .to('.banner__fly--2', 0.5, { opacity: 0, ease: Power1.easeInOut })
       .to('.part05', 4, { y: '-=90' }, 0)
-      .to('.neon', 2, {
-        autoAlpha: 1,
-        y: '+=150',
-      }, 0)
       .to('.neon', 4.5, { scale: 1.1 }, 1.5)
       .to('.part01', 5, { y: '-=120' }, 7)
       .to('.part04', 5, { y: '-=90' }, 0)
@@ -197,7 +216,25 @@ class Banner extends Component {
           {({ mapRef }) => (
             <React.Fragment>
               <LargeAndUp>
-                <div style={theme.themeType === 'light' ? { background: `url(${test2})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat' } : { backgroundColor: theme.primaryBg }} className="banner">
+                <div
+                  style={
+                      theme.themeType === 'light' ? {
+                        background: `url(${test2})`,
+                        backgroundSize: 'cover',
+                        backgroundRepeat: 'no-repeat',
+                      } : {
+                        backgroundColor: theme.primaryBg,
+                      }}
+                  className="banner"
+                >
+                  <SocialLinks>
+                    <a href="#">
+                        <Icon name="insta" />
+                    </a>
+                    <a href="#">
+                        <Icon name="facebook" />
+                    </a>
+                  </SocialLinks>
                   <div style={{ color: theme.primaryBg }} id="banner__inner" ref={mapRef}>
                     <div ref={this.animateMe} id="wrapper">
                       <Icon name="bg-layer6" className="part05 banner__layer" />
@@ -227,13 +264,23 @@ class Banner extends Component {
                 </div>
               </LargeAndUp>
               <MediumAndDown>
-                <div className={`small-devices ${theme.themeType === 'light' ? 'small-devices--light' : 'small-devices--dark'}`}>
-                  <Title primary level={2}>
-                    <TitleNeonMobile className="neon">
-                      {title}
-                    </TitleNeonMobile>
-                  </Title>
-                  {children}
+                <SocialLinks>
+                    <a href="#">
+                        <Icon name="insta" />
+                    </a>
+                    <a href="#">
+                        <Icon name="facebook" />
+                    </a>
+                </SocialLinks>
+                <div style={{ backgroundColor: `${theme.primaryBg}` }}>
+                  <div className={`small-devices ${theme.themeType === 'light' ? 'small-devices--light' : 'small-devices--dark'}`}>
+                    <Title primary level={2}>
+                      <TitleNeonMobile className="neon">
+                        {title}
+                      </TitleNeonMobile>
+                    </Title>
+                    {children}
+                  </div>
                 </div>
               </MediumAndDown>
             </React.Fragment>

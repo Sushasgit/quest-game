@@ -1,0 +1,24 @@
+.events {
+    &__info {
+        h2 {
+            text-align: left;
+
+            @media(max-width: 932px) {
+                text-align: center;
+            }
+        }
+
+        p {
+            @media(max-width: 932px) {
+                margin-top: 50px;
+            }
+        }
+    }
+
+    & > * {
+        @media(max-width: 932px) {
+            width: 100%;
+            text-align: center;
+        }
+    }
+}

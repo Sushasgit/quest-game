@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import Icon from '../Icon';
 
@@ -8,6 +8,7 @@ const BackgroundWrapper = ({
   primary,
   fixed,
   withBuildings,
+  mobileBanner,
   ...props
 }) => {
   const StyledWrapper = styled.div`
@@ -29,17 +30,23 @@ const BackgroundWrapper = ({
     z-index: 100;
     color: ${data => (data.theme ? data.theme.primaryBg : '#fff')}
 
+    @media (max-width: 961px)  {
+      margin-top: ${data => (data.mobileBanner ? '0' : '-80px')};
+    }
+
     & > svg {
         position: absolute;
         top: -110px;
         width: 100%;
     }
+
+
 `;
 
   const { children } = props;
   return (
     withBuildings ? (
-      <StyledWrapperBuldings>
+      <StyledWrapperBuldings className={css('buildings')}>
         <Icon name="bg-layer1" />
         {children}
       </StyledWrapperBuldings>

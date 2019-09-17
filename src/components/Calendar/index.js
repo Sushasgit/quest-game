@@ -309,7 +309,7 @@ class Calendar extends Component {
                                       <div className="book_item_time">
                                         <span className="available_item_time">доступно для резервирования</span>
                                         <Button
-                                          onClick={e => this.setState({
+                                          handleClick={e => this.setState({
                                             isOpenBookingTime: true,
                                             checkTime: this.props.kindEvent === 'HideAndSeek'
                                               ? item.timeNight : item.timeDay,

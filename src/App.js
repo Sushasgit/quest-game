@@ -7,6 +7,7 @@ import { darkTheme, lightTheme } from './styles/theme';
 import './App.scss';
 
 import asyncComponent from './components/AsyncComponent';
+import Icon from './components/ui/Icon';
 
 const AsyncHome = asyncComponent(() => import('./pages/Home'));
 const AsyncPrices = asyncComponent(() => import('./pages/Prices'));
@@ -15,6 +16,56 @@ const AsyncPaintBall = asyncComponent(() => import('./pages/PaintBall'));
 const AsyncHideAndSeek = asyncComponent(() => import('./pages/HideAndSeek'));
 const AsyncStrikeBall = asyncComponent(() => import('./pages/StrikeBall'));
 const AsyncQuadro = asyncComponent(() => import('./pages/Quadro'));
+
+const CheckBoxWrapper = styled.div`
+  position: fixed;
+  z-index: 100;
+  display: flex;
+  alignItems: center;
+  color: ${props => props.theme.toggleButton.textColor};
+  margin: 10px;
+`;
+
+const CheckBoxLabel = styled.label`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 42px;
+    height: 26px;
+    border-radius: 15px;
+    background: #bebebe;
+    cursor: pointer;
+    &::after {
+        content: "";
+        display: block;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        margin: 3px;
+        background: #ffffff;
+        box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        transition: 0.2s;
+  }
+`;
+const CheckBox = styled.input`
+    opacity: 0;
+    z-index: 1;
+    border-radius: 15px;
+    width: 42px;
+    height: 26px;
+    &:checked + ${CheckBoxLabel} {
+        background: ${props => props.theme.toggleButton.bgColor};
+    &::after {
+        content: "";
+        display: block;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        margin-left: 21px;
+        transition: 0.2s;
+    }
+  }
+`;
 
 class App extends Component {
   constructor(props) {
@@ -68,55 +119,5 @@ class App extends Component {
     );
   }
 }
-
-const CheckBoxWrapper = styled.div`
-  position: fixed;
-  z-index: 100;
-  display: flex;
-  alignItems: center;
-  color: ${props => props.theme.toggleButton.textColor};
-  margin: 10px;
-`;
-
-const CheckBoxLabel = styled.label`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 42px;
-  height: 26px;
-  border-radius: 15px;
-  background: #bebebe;
-  cursor: pointer;
-  &::after {
-    content: "";
-    display: block;
-    border-radius: 50%;
-    width: 18px;
-    height: 18px;
-    margin: 3px;
-    background: #ffffff;
-    box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.2);
-    transition: 0.2s;
-  }
-`;
-const CheckBox = styled.input`
-  opacity: 0;
-  z-index: 1;
-  border-radius: 15px;
-  width: 42px;
-  height: 26px;
-  &:checked + ${CheckBoxLabel} {
-    background: ${props => props.theme.toggleButton.bgColor};
-    &::after {
-      content: "";
-      display: block;
-      border-radius: 50%;
-      width: 18px;
-      height: 18px;
-      margin-left: 21px;
-      transition: 0.2s;
-    }
-  }
-`;
 
 export default App;
