@@ -5,6 +5,7 @@ import ConnectElements from 'react-connect-elements';
 import Title from '../ui/Title';
 import Icon from '../ui/Icon';
 import { addCoordinates } from '../../utils/func';
+import RippedCard from '../ui/RippedCard';
 
 import './location.scss';
 import moment from '../Calendar';
@@ -22,9 +23,6 @@ const Location = styled.div`
 
 const FotoBox = styled.div`
     position: absolute;
-    width:100px;
-    height:100px;
-    background-color:red;
     bottom: ${props => (props.positionBottom ? `${props.positionBottom}px` : 0)};
     left: ${props => (props.positionLeft ? `${props.positionLeft}%` : 0)};
 `;
@@ -47,25 +45,25 @@ const coordinate = [
     'item.x': 12,
     'item.x2': 12,
     'item.y': 80,
-    'item.y2': 340,
+    'item.y2': 540,
   },
   {
     'item.x': 24,
     'item.x2': 24,
     'item.y': 100,
-    'item.y2': 240,
+    'item.y2': 340,
   },
   {
     'item.x': 36,
     'item.x2': 36,
     'item.y': 240,
-    'item.y2': 80,
+    'item.y2': 70,
   },
   {
     'item.x': 48,
     'item.x2': 45,
     'item.y': 200,
-    'item.y2': 340,
+    'item.y2': 440,
   },
   {
     'item.x': 60,
@@ -131,31 +129,26 @@ class Locations extends Component {
   };
 
 connect = () => {
-  // window.addEventListener('resize', () => {
-  //   this.setState({
-  //     visible: false,
-  //   }, ()=>{this.setState({ visible: true})});
-  // });
   return (
-      this.state.visible
-    ? (
-      <ConnectElements
-        selector=".els"
-        overlay={10}
-        strokeWidth={2}
-        color="#FFDC26"
-        elements={[
-          { from: '.element0', to: '.element100' },
-          { from: '.element1', to: '.element101' },
-          { from: '.element2', to: '.element102' },
-          { from: '.element3', to: '.element103' },
-          { from: '.element4', to: '.element104' },
-          { from: '.element5', to: '.element105' },
-          { from: '.element6', to: '.element106' },
-        ]}
-      />
-    )
-    : ''
+    this.state.visible
+      ? (
+        <ConnectElements
+          selector=".els"
+          overlay={10}
+          strokeWidth={2}
+          color="#FFDC26"
+          elements={[
+            { from: '.element0', to: '.element100' },
+            { from: '.element1', to: '.element101' },
+            { from: '.element2', to: '.element102' },
+            { from: '.element3', to: '.element103' },
+            { from: '.element4', to: '.element104' },
+            { from: '.element5', to: '.element105' },
+            { from: '.element6', to: '.element106' },
+          ]}
+        />
+      )
+      : ''
   );
 };
 
@@ -181,13 +174,17 @@ render() {
                               >
                                 <LocationName>
                                   {`T ${index + 1}`}
+                                  <h4>test</h4>
                                 </LocationName>
                               </Location>
                               <FotoBox
                                 positionLeft={coordinate[index]['item.x2']}
                                 positionBottom={coordinate[index]['item.y2']}
                                 className={`${'element element'}${100 + index}`}
-                              />
+                              >
+                            
+                                <RippedCard size="sm" img={item.src} />
+                              </FotoBox>
                             </>
                           ))
                         }
