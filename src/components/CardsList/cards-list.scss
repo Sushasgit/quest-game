@@ -26,6 +26,7 @@
         @media (max-width: 700px)  {
             width: 100%;
             max-width: 100%;
+            margin-bottom: 0;
         }
     }
     &__item {
@@ -34,8 +35,6 @@
         display: inline-block;
         width:100%;
         position: relative;
-        // padding: 10px 0;
-
         &:hover {
             .card::before {
                 opacity: 1;

@@ -15,14 +15,26 @@ const StyledForm = styled.form`
   padding: 25px 25px 0;
   max-width: 100%;
   text-align: center;
+  max-width: 50%;
   color: ${data => (data.theme ? data.theme.titleColor : '#fff')};
 
   background-color: ${data => (data.theme ? data.theme.contactForm.bgForm : '#fff')};
+
+  @media(max-width: 700px) {
+    max-width: 100%;
+  }
 
   & > *:not(last-child) {
     margin-bottom: 40px;
   }
 `;
+
+const TitleForm = styled.h3`
+  font-size: 30px;
+  color: ${data => (data.theme ? data.theme.titleColor : '#fff')};
+  text-align: center;
+`;
+
 
 const StyledLink = styled.a`
   color: ${data => (data.theme ? data.theme.titleColor : '#fff')};
@@ -84,9 +96,9 @@ class ContactForm extends Component {
             </ul>
           </div>
           <StyledForm>
-            <Title level={3}>
+            <TitleForm level={3}>
               Жду звонка
-            </Title>
+            </TitleForm>
             <Input name="Name" />
             <Input name="Phone" />
             <Input name="Email" />

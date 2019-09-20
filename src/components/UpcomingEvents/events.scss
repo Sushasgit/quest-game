@@ -9,6 +9,9 @@
         }
 
         p {
+            font-size: 22px;
+            line-height: 36px;
+
             @media(max-width: 932px) {
                 margin-top: 50px;
             }

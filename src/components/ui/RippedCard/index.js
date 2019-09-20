@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import styled, { withTheme } from 'styled-components';
+import { withTheme } from 'styled-components';
 
 import './card.scss';
 
@@ -29,29 +30,30 @@ const RippedCard = ({
         className={`card card--${type} card--${size}`}
       />
     ) : (
-      <button
+      <Link
         aria-label={title}
         type="button"
         onClick={() => {
           handleOpenGallery(id, images);
         }}
-        className="locations-list__btn"
+        className="card__btn"
+        to={`gallery/${id}`}
       >
-        <img src={img} alt={title} />
-      </button>
+        <img className={`card card--${type} card--${size}`} src={img} alt={title} />
+      </Link>
     )
   );
 };
 
 RippedCard.defaultProps = {
-  view: 'game',
+  view: '',
   title: '',
   type: '',
   handleOpenGallery: () => {},
 };
 
 RippedCard.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.string,
   view: PropTypes.string,
   title: PropTypes.string,
   img: PropTypes.string.isRequired,

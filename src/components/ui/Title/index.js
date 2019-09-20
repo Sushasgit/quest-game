@@ -7,7 +7,7 @@ const Title = ({ level, primary, ...props }) => {
     color: ${data => (data.theme ? data.theme.titleColor : '#fff')};
     font-size: 36px;
     text-align: center;
-    margin: 0 0 25px 0;
+    margin: 40px 0 25px 0;
     padding: 1px;
     font-family: 'MontserratBold';
     line-height: 1.2em;

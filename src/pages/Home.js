@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Advantages from '../components/Advantages/Advantages';
 
-import Banner from '../components/Banner/Banner';
+import Banner from '../components/Banner';
 import Menu from '../components/Menu';
 import Icon from '../components/ui/Icon';
 

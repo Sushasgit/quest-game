@@ -22,8 +22,8 @@ import LocationSmallDevices from '../Locations/LocationSmallDevices';
 
 const Description = styled.p`
   text-align: center;
-  font-size: 1.2em;
-  line-height: 1.8em;
+  font-size: 22px;
+  line-height: 36px;
   color: ${data => (data.theme ? data.theme.textColor : '#fff')};
   margin: 40px;
 `;
@@ -31,7 +31,7 @@ const Description = styled.p`
 const ListItem = styled.li`
   color: ${data => (data.theme ? data.theme.textColor : '#fff')};
   text-align: center;
-  font-size: 1em;
+  font-size: 16px;
   line-height: 1.8em;
   position: relative;
   background-position: top center;
@@ -40,7 +40,6 @@ const ListItem = styled.li`
 `;
 
 const ListItemTitle = styled.h3`
-  font-size: 22px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -125,10 +124,7 @@ Advantages.propTypes = {
     title: PropTypes.string,
     games: PropTypes.array,
   }).isRequired,
-  services: PropTypes.shape({
-    title: PropTypes.string,
-    games: PropTypes.array,
-  }).isRequired,
+  services: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default withTheme(Advantages);

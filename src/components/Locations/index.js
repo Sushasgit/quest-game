@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled, { withTheme } from 'styled-components';
 import ConnectElements from 'react-connect-elements';
+
 import Title from '../ui/Title';
 import Icon from '../ui/Icon';
-import { addCoordinates } from '../../utils/func';
 import RippedCard from '../ui/RippedCard';
 
+import { COORDINATES_LOCATION } from '../../utils/constants';
+
 import './location.scss';
-import moment from '../Calendar';
 
 const LocationBox = styled.div`
     position: relative;
@@ -21,6 +22,12 @@ const Location = styled.div`
     left: ${props => (props.positionLeft ? `${props.positionLeft}%` : 0)};
 `;
 
+const TitleLocation = styled.div`
+    color: ${props => (props.theme.titleColor)};
+    margin-left: 15px;
+    font-size: 18px;
+`;
+
 const FotoBox = styled.div`
     position: absolute;
     bottom: ${props => (props.positionBottom ? `${props.positionBottom}px` : 0)};
@@ -28,63 +35,18 @@ const FotoBox = styled.div`
 `;
 
 const LocationName = styled.div`
-  background-color: ${data => (data.theme ? data.theme.primaryBg : '#fff')};
-  box-shadow: 0px 0px 4px 4px ${data => (data.theme ? '#333' : '#fff')};
-  color: ${props => (props.theme ? props.theme.gameCards : '#fff')};
-  border: 2px solid
-  font-size: 1em;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  padding: 10px;
-  position: relative;
+    background-color: ${data => (data.theme ? data.theme.primaryBg : '#fff')};
+    box-shadow: 0px 0px 4px 4px ${data => (data.theme ? '#333' : '#fff')};
+    color: ${props => (props.theme ? props.theme.gameCards : '#fff')};
+    border: 2px solid;
+    font-size: 1em;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 22px;
+    line-height: 60px;
+    text-align: center;
 `;
-
-const coordinate = [
-  {
-    'item.x': 12,
-    'item.x2': 12,
-    'item.y': 80,
-    'item.y2': 540,
-  },
-  {
-    'item.x': 24,
-    'item.x2': 24,
-    'item.y': 100,
-    'item.y2': 340,
-  },
-  {
-    'item.x': 36,
-    'item.x2': 36,
-    'item.y': 240,
-    'item.y2': 70,
-  },
-  {
-    'item.x': 48,
-    'item.x2': 45,
-    'item.y': 200,
-    'item.y2': 440,
-  },
-  {
-    'item.x': 60,
-    'item.x2': 60,
-    'item.y': 400,
-    'item.y2': 200,
-  },
-  {
-    'item.x': 72,
-    'item.x2': 75,
-    'item.y': 300,
-    'item.y2': 80,
-  },
-  {
-    'item.x': 84,
-    'item.x2': 84,
-    'item.y': 240,
-    'item.y2': 350,
-  },
-];
-
 
 class Locations extends Component {
   constructor(props) {
@@ -129,8 +91,9 @@ class Locations extends Component {
   };
 
 connect = () => {
+  const { visible } = this.state;
   return (
-    this.state.visible
+    visible
       ? (
         <ConnectElements
           selector=".els"
@@ -158,120 +121,70 @@ render() {
     (
       <LocationBox>
         {
-                  locations ? (
-                    <div className="els">
-                      <Title primary level={2}>
-                        {locations.title}
-                      </Title>
-
-                      {
-                          locations.list.map((item, index) => (
-                            <>
-                              <Location
-                                positionLeft={coordinate[index]['item.x']}
-                                positionBottom={coordinate[index]['item.y']}
-                                className={`${'element element'}${index}`}
-                              >
-                                <LocationName>
-                                  {`T ${index + 1}`}
-                                  <h4>test</h4>
-                                </LocationName>
-                              </Location>
-                              <FotoBox
-                                positionLeft={coordinate[index]['item.x2']}
-                                positionBottom={coordinate[index]['item.y2']}
-                                className={`${'element element'}${100 + index}`}
-                              >
-                            
-                                <RippedCard size="sm" img={item.src} />
-                              </FotoBox>
-                            </>
-                          ))
-                        }
-
-                      {this.connect()}
-                    </div>
-                  ) : null
+            locations ? (
+              <div className="els">
+                <Title primary level={2}>
+                  {locations.title}
+                </Title>
+                <ul className="location-names wrapper">
+                  {
+                    locations.list.map((item, index) => (
+                      <li key={item.id} className="location-names__item">
+                        <LocationName>
+                          {`T ${index + 1}`}
+                        </LocationName>
+                        <TitleLocation>
+                          {item.title}
+                        </TitleLocation>
+                      </li>
+                    ))
                 }
+                </ul>
+                <div className="location-scheme">
+                  {
+                    locations.list.map((item, index) => (
+                      <article key={item.id}>
+                        <Location
+                          positionLeft={COORDINATES_LOCATION[index]['item.x']}
+                          positionBottom={COORDINATES_LOCATION[index]['item.y']}
+                          className={`${'element element'}${index}`}
+                        >
+                          <LocationName>
+                            {`T ${index + 1}`}
+                          </LocationName>
+                        </Location>
+                        <FotoBox
+                          positionLeft={COORDINATES_LOCATION[index]['item.x2']}
+                          positionBottom={COORDINATES_LOCATION[index]['item.y2']}
+                          className={`${'element element'}${100 + index}`}
+                        >
+                          <RippedCard
+                            id={item.id}
+                            images={item.images}
+                            size="sm"
+                            img={item.src}
+                          />
+                        </FotoBox>
+                      </article>
+                    ))
+                  }
+                </div>
+                { this.connect() }
+              </div>
+            ) : null
+        }
         <Icon name="bg-layer6" className="factory-building" />
       </LocationBox>
     ));
 }
 }
 
+Locations.defaultProps = {
+  locations: [],
+};
 
-// const REF = () => {
-//   let conect = null;
-//   setTimeout(() => {
-//     conect = (
-//       <ConnectElements
-//         selector=".els"
-//         overlay={10}
-//         strokeWidth={2}
-//         color="#FFDC26"
-//         elements={[
-//           { from: '.element0', to: '.element100' },
-//           { from: '.element1', to: '.element101' },
-//           { from: '.element2', to: '.element102' },
-//           { from: '.element3', to: '.element103' },
-//           { from: '.element4', to: '.element104' },
-//           { from: '.element5', to: '.element105' },
-//           { from: '.element6', to: '.element106' },
-//         ]}
-//       />
-//     );
-//   }, 2000);
-//   return (conect);
-// };
-
-// const Locations = ({ locations }) => (
-//   <LocationBox>
-//     {
-//         locations ? (
-//           <div className="els">
-//             <Title primary level={2}>
-//               {locations.title}
-//             </Title>
-//
-//             {
-//                 locations.list.map((item, index) => (
-//                   <>
-//                     <Location positionLeft={coordinate[index]['item.x']} positionBottom={coordinate[index]['item.y']} className={`${'element element'}${index}`}>
-//                       <LocationName>
-//                         {`T ${index + 1}`}
-//                       </LocationName>
-//                     </Location>
-//                     <FotoBox positionLeft={coordinate[index]['item.x2']} positionBottom={coordinate[index]['item.y2']} className={`${'element element'}${100 + index}`} />
-//                   </>
-//                 ))
-//             }
-//             <ConnectElements
-//                 selector=".els"
-//                 overlay={10}
-//                 strokeWidth={2}
-//                 color="#FFDC26"
-//                 elements={[
-//                   { from: '.element0', to: '.element100' },
-//                   { from: '.element1', to: '.element101' },
-//                   { from: '.element2', to: '.element102' },
-//                   { from: '.element3', to: '.element103' },
-//                   { from: '.element4', to: '.element104' },
-//                   { from: '.element5', to: '.element105' },
-//                   { from: '.element6', to: '.element106' },
-//                 ]}
-//             />
-//           </div>
-//         ) : null
-//       }
-//     <Icon name="bg-layer6" className="factory-building" />
-//   </LocationBox>
-// );
-//
-// Locations.propTypes = {
-//   locations: PropTypes.exact({
-//     title: PropTypes.string,
-//     list: PropTypes.array,
-//   }).isRequired,
-// };
+Locations.propTypes = {
+  locations: PropTypes.oneOfType([]),
+};
 
 export default withTheme(Locations);
