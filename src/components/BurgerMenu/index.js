@@ -9,7 +9,7 @@ const BurgerButton = styled.button`
   color: ${data => (data.theme ? data.theme.titleColor : '#fff')};
 `;
 
-export default class BurgerMenu extends React.Component {
+class BurgerMenu extends React.Component {
   state = {
     activeMenu: false,
   }
@@ -45,3 +45,5 @@ export default class BurgerMenu extends React.Component {
     );
   }
 }
+
+export default BurgerMenu;

@@ -1,21 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Banner from '../components/Banner/Banner';
+import Banner from '../components/Banner';
 import Menu from '../components/Menu';
-import {Tabs} from '../components/ui/Tabs';
+import { Tabs } from '../components/ui/Tabs';
 import BackgroundWrapper from '../components/ui/BackgroundWrapper';
 import Title from '../components/ui/Title';
 import handDark from '../images/hand-dark.svg';
 import handLight from '../images/hand-light.svg';
-
-const Description = styled.p`
-  text-align: center;
-  font-size: 1.2em;
-  line-height: 1.8em;
-  margin: 40px 0;
-  color: ${data => (data.theme ? data.theme.textColor : '#fff')};
-`;
 
 const List = styled.ul`
   color: ${data => (data.theme ? data.theme.textColor : '#fff')};
@@ -31,34 +23,6 @@ const ListItem = styled.li`
   background-position: 0;
   margin-bottom: 15px;
   line-height: 1.7em;
-`;
-
-const TagsList = styled.div`
-  text-align: center;
-`;
-
-const Advantage = styled.article`
-  color: ${data => (data.theme ? data.theme.textColor : '#fff')};
-  background: ${data => (data.theme ? data.theme.primaryBg : '#fff')};
-
-
-  &::before{
-    border-top: 5px solid ${data => (data.theme ? data.theme.titleColor : '#fff')};
-    border-left: 5px solid ${data => (data.theme ? data.theme.titleColor : '#fff')};
-  }
-
-  &::after {
-    border-bottom: 5px solid ${data => (data.theme ? data.theme.titleColor : '#fff')};
-    border-right: 5px solid ${data => (data.theme ? data.theme.titleColor : '#fff')};
-  }
-`;
-
-const ArticleDescription = styled.p`
-  text-align: left;
-  margin: 0;
-  color: ${data => (data.theme ? data.theme.textColor : '#fff')};
-  line-height: 1.7em;
-  font-size: 1em;
 `;
 
 const Row = styled.article`
@@ -82,11 +46,11 @@ const OurGames = () => (
         <Menu />
       </Banner>
       <BackgroundWrapper withBuildings>
-      <Tabs
-      activeTab={{
-        id: "tab1"
-      }}
-    >
+        <Tabs
+          activeTab={{
+            id: "tab1"
+          }}
+        >
       <Tabs.Tab id="tab1" title="Пйентбол">
       <Row>
           <div>

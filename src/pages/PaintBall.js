@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Banner from '../components/Banner/Banner';
+
+import Banner from '../components/Banner';
 import Menu from '../components/Menu';
 import BackgroundWrapper from '../components/ui/BackgroundWrapper';
 import Title from '../components/ui/Title';
@@ -11,10 +12,10 @@ import handLight from '../images/hand-light.svg';
 import Calendar from '../components/Calendar';
 import Footer from '../components/Footer';
 
-import '../components/Advantages/advantages.scss';
-
 import gallary1 from '../images/gallery/quadro-gallery.jpg';
 import gallary2 from '../images/gallery/quadro-gallery2.jpg';
+
+import '../components/Advantages/advantages.scss';
 
 const Description = styled.p`
   text-align: center;

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,600&display=swap');
 .banner {
     height: 100vh;
     overflow: hidden;
@@ -113,3 +114,33 @@
   display: none;
 }
 
+.glitch {
+    position: relative;
+    text-shadow: -15px 5px 20px #eff0f0;
+    color: #eff0f0;
+    top: 290px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    letter-spacing: -0.05px;
+    font-family: 'Montserrat Alternates', sans-serif;
+    user-select: none;
+    font-size: 65px;
+    transition: all 0.25s ease-out;
+    text-align: center;
+    z-index: 100;
+    max-width: 45%;
+    line-height: 65px;
+    text-align: center;
+
+    @media(max-width: 950px) {
+        max-width: 100%;
+        font-size: 35px;
+        line-height: 35px;
+        top: 250px;
+        margin: 0;
+    }
+}
+
+.glitch:hover {
+    text-shadow: -16px 6px 15px #ced0d3;
+}

@@ -7,7 +7,7 @@ const StyledFooter = styled.footer`
     padding-top: 20px;
     padding-bottom: 10px;
     margin-top: 10px;
-    font-size: 0.9em;
+    font-size: 16px;
     color: ${props => props.theme.titleColor};
     background-color: ${props => props.theme.primaryBg};
 `;

@@ -31,6 +31,7 @@ import { ReactComponent as Graduation } from './svg/graduation.svg';
 import { ReactComponent as PaintballImg } from './svg/paintball-price.svg';
 import { ReactComponent as Events } from './svg/upcoming-events.svg';
 import { ReactComponent as Party } from './svg/party.svg';
+import { ReactComponent as Phone } from './svg/phone.svg';
 
 const Icon = (props) => {
   switch (props.name) {
@@ -92,6 +93,8 @@ const Icon = (props) => {
       return <Events className={props.className} />;
     case 'party':
       return <Party className={props.className} />;
+    case 'phone':
+      return <Phone className={props.className} />;
     default:
       return <Marker className={props.className} />;
   }
@@ -105,6 +108,5 @@ Icon.propTypes = {
   name: PropTypes.string.isRequired,
   className: PropTypes.string,
 };
-
 
 export default Icon;

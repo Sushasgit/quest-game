@@ -39,8 +39,6 @@ const BackgroundWrapper = ({
         top: -110px;
         width: 100%;
     }
-
-
 `;
 
   const { children } = props;

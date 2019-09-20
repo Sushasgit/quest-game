@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Banner from '../components/Banner/Banner';
+import Banner from '../components/Banner';
 import Menu from '../components/Menu';
 import BackgroundWrapper from '../components/ui/BackgroundWrapper';
 import Title from '../components/ui/Title';
