@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "Цены",
+        "iconName": "priceMenu",
+        "url": "/prices"
+    },
+    {
+        "id": 2,
+        "name": "Игры",
+        "iconName": "gameMenu",
+        "url": "/games"
+    },
+    {
+        "id": 3,
+        "name": "Галерея",
+        "iconName": "galery",
+        "url": "/galery"
+    }
+]

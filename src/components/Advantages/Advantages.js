@@ -44,6 +44,7 @@ const ListItemTitle = styled.h3`
   align-items: center;
   justify-content: center;
   margin: 20px 0;
+  font-size: 18px;
 `;
 
 const ListItemIcon = styled(Icon)`
@@ -84,7 +85,7 @@ const Advantages = ({ services, gamesList, ourLocations, theme }) => (
           {
             services && services.map(item => (
               <ListItem key={item.id}>
-                <div className="advantagesIcon">
+                <div className="advantage__icon">
                   <ListItemIcon name={item.iconName} />
                 </div>
                 <ListItemTitle>
@@ -97,7 +98,7 @@ const Advantages = ({ services, gamesList, ourLocations, theme }) => (
       </section>
       <Title primary level={2}>
           Преимущества
-        </Title>
+      </Title>
       <section className="flex wrapper">
         <AdvantagesPlace />
       </section>

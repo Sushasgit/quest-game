@@ -12,7 +12,7 @@ import Icon from './components/ui/Icon';
 import './App.scss';
 
 const AsyncHome = asyncComponent(() => import('./pages/Home'));
-// const AsyncPrices = asyncComponent(() => import('./pages/Prices'));
+const AsyncPrices = asyncComponent(() => import('./pages/Prices'));
 const AsyncOurGames = asyncComponent(() => import('./pages/OurGames'));
 const AsyncPaintBall = asyncComponent(() => import('./pages/PaintBall'));
 const AsyncHideAndSeek = asyncComponent(() => import('./pages/HideAndSeek'));
@@ -73,7 +73,7 @@ const CheckBox = styled.input`
 const PhoneIcon = styled.a`
     position: fixed;
     bottom: 14px;
-    right: 68px;
+    right: 60px;
     color: ${props => props.theme.titleColor};
     z-index: 300;
 
@@ -98,7 +98,8 @@ class App extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
+  handleClick(e) {
+    e.preventDefault();
     const isDay = !this.state.isDay;
 
     this.setState({
@@ -112,7 +113,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <GlobalStyles />
-        <CheckBoxWrapper theme={theme} onChange={this.handleClick}>
+        <CheckBoxWrapper theme={theme} onChange={(e) => { this.handleClick(e); }}>
           <CheckBox
             role="switch"
             aria-checked={isDay}
@@ -127,7 +128,7 @@ class App extends Component {
         <ThemeProvider theme={theme}>
           <Router>
             <Route exact path="/" component={AsyncHome} />
-            {/* <Route path="/prices" component={AsyncPrices} /> */}
+            <Route path="/prices" component={AsyncPrices} />
             <Route path="/games" component={AsyncOurGames} />
             <Route path="/hideandseek" component={AsyncHideAndSeek} />
             <Route path="/paintball" component={AsyncPaintBall} />

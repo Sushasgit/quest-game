@@ -23,9 +23,10 @@ const Location = styled.div`
 `;
 
 const TitleLocation = styled.div`
-    color: ${props => (props.theme.titleColor)};
+    color: ${props => (props.theme.textColor)};
     margin-left: 15px;
     font-size: 18px;
+    font-family: 'MontserratBold';
 `;
 
 const FotoBox = styled.div`
@@ -92,22 +93,23 @@ class Locations extends Component {
 
 connect = () => {
   const { visible } = this.state;
+  const { theme } = this.props;
   return (
     visible
       ? (
         <ConnectElements
-          selector=".els"
+          selector=".locations"
           overlay={10}
           strokeWidth={2}
-          color="#FFDC26"
+          color={theme.titleColor}
           elements={[
-            { from: '.element0', to: '.element100' },
-            { from: '.element1', to: '.element101' },
-            { from: '.element2', to: '.element102' },
-            { from: '.element3', to: '.element103' },
-            { from: '.element4', to: '.element104' },
-            { from: '.element5', to: '.element105' },
-            { from: '.element6', to: '.element106' },
+            { from: '.location0', to: '.location100' },
+            { from: '.location1', to: '.location101' },
+            { from: '.location2', to: '.location102' },
+            { from: '.location3', to: '.location103' },
+            { from: '.location4', to: '.location104' },
+            { from: '.location5', to: '.location105' },
+            { from: '.location6', to: '.location106' },
           ]}
         />
       )
@@ -122,14 +124,14 @@ render() {
       <LocationBox>
         {
             locations ? (
-              <div className="els">
+              <div className="locations">
                 <Title primary level={2}>
                   {locations.title}
                 </Title>
-                <ul className="location-names wrapper">
+                <ul className="locations__list wrapper">
                   {
                     locations.list.map((item, index) => (
-                      <li key={item.id} className="location-names__item">
+                      <li key={item.id} className="locations__name">
                         <LocationName>
                           {`T ${index + 1}`}
                         </LocationName>
@@ -140,14 +142,14 @@ render() {
                     ))
                 }
                 </ul>
-                <div className="location-scheme">
+                <div className="locations__scheme">
                   {
                     locations.list.map((item, index) => (
                       <article key={item.id}>
                         <Location
                           positionLeft={COORDINATES_LOCATION[index]['item.x']}
                           positionBottom={COORDINATES_LOCATION[index]['item.y']}
-                          className={`${'element element'}${index}`}
+                          className={`${'location location'}${index}`}
                         >
                           <LocationName>
                             {`T ${index + 1}`}
@@ -156,7 +158,7 @@ render() {
                         <FotoBox
                           positionLeft={COORDINATES_LOCATION[index]['item.x2']}
                           positionBottom={COORDINATES_LOCATION[index]['item.y2']}
-                          className={`${'element element'}${100 + index}`}
+                          className={`${'location location'}${100 + index}`}
                         >
                           <RippedCard
                             id={item.id}

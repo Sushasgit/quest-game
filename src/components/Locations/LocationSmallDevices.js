@@ -6,6 +6,7 @@ import Title from '../ui/Title';
 
 
 import './location.scss';
+import Button from '../ui/Button';
 
 const LocationName = styled.div`
     background-color: ${data => (data.theme ? data.theme.primaryBg : '#fff')};
@@ -39,70 +40,51 @@ const LocationName = styled.div`
 `;
 
 const TitleLocation = styled.h4`
-  color: ${props => (props.theme.titleColor)};
+  color: ${props => (props.theme.textColor)};
   font-size: 16px;
 
   @media(max-width: 502px) {
-    font-size: 18px;
+    font-size: 25px;
     position: absolute;
     left: 100px;
-    top: 15px;
+    top: 0;
   }
 `;
 
 class LocationSmallDevices extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      gallery: {
-        isOpen: false,
-        id: null,
-        images: [],
-      },
-    };
+  render() {
+    const { locations } = this.props;
+    return (
+      <>
+        <Title primary level={2}>
+          {locations.title}
+        </Title>
+        <ul className="locations-list wrapper">
+          {
+            locations.list.map((item, index) => (
+              <>
+                <li key={item.id} className="locations-list__item">
+                  <LocationName>
+                    {`T ${index + 1}`}
+                  </LocationName>
+                  <TitleLocation>
+                    {item.title}
+                  </TitleLocation>
+                  <RippedCard
+                    size="sm"
+                    id={item.id}
+                    images={item.images}
+                    img={item.src}
+                  />
+                </li>
+                <Button primary>Перейти</Button>
+              </>
+            ))
+          }
+        </ul>
+      </>
+    );
   }
-
-    handleOpenGallery = (id, images) => {
-      this.setState({
-        gallery: {
-          id,
-          isOpen: true,
-          images,
-        },
-      });
-    }
-
-    render() {
-      const { locations } = this.props;
-      const { gallery } = this.state;
-      return (
-        <>
-          <Title primary level={2}>
-            {locations.title}
-          </Title>
-          <ul className="locations-list wrapper">
-            {
-                locations.list.map((item, index) => (
-                  <li key={item.id} className="locations-list__item">
-                    <LocationName>
-                      {`T ${index + 1}`}
-                    </LocationName>
-                    <TitleLocation>{item.title}</TitleLocation>
-                    <RippedCard
-                      size="sm"
-                      id={item.id}
-                      images={item.images}
-                      handleOpenGallery={this.handleOpenGallery}
-                      img={item.src}
-                    />
-                  </li>
-                ))
-              }
-          </ul>
-        </>
-      );
-    }
 }
 
 export default LocationSmallDevices;

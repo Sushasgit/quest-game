@@ -71,7 +71,7 @@ export const darkTheme = {
 export const lightTheme = {
   themeType: 'light',
   textColor: '#363638',
-  primaryBg: '#f6f6f6',
+  primaryBg: '#dadada',
   titleColor: '#363638',
 
   toggleButton: {
