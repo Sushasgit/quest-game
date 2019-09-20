@@ -26,6 +26,6 @@ export const hideAt = (breakpoints) => {
 export const Breakpoint = ({ min, max, children }) => {
   const Component = hideAt({ min, max });
   return <Component>{children}</Component>;
-}
+};
 
 export default makeResponsiveComponent;

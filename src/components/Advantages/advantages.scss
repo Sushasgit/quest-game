@@ -3,7 +3,7 @@
   padding: 20px;
   margin-top: 0;
   text-align: center;
-  font-size: 0.8em;
+  font-size: 16px;
 
   @media (max-width: 700px)  {
     font-size: 1em;
@@ -27,6 +27,28 @@
     position: absolute;
     bottom: 5px;
     right: 5px;
+  }
+
+  &__place {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    & > * {
+      width: 20%;
+
+      @media(max-width: 1276px) {
+        width: 33%;
+      }
+
+      @media(max-width: 870px) {
+        width: 50%;
+      }
+
+      @media(max-width: 450px) {
+        width: 100%;
+      }
+    }
   }
 }
 

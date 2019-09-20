@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,600&display=swap');
 .banner {
     height: 100vh;
     overflow: hidden;
@@ -73,29 +74,25 @@
 }
 
 .small-devices {
-  min-height: 400px;
+  min-height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
+  background-color: #424242;
 
+  &--dark,
   &--light {
     background:
-      url(../../images/mobile-banner.webp),
-      url(../../images/mobile-banner.png),
-      url(../../images//test.svg);
-      background-size: cover;
-  }
-
-  &--dark {
-    background: 
-      url(../../images/mobile-banner.webp),
-      url(../../images/mobile-banner.png),
-      url(../../images//dark-theme-mobile.svg);
-      background-size: cover;
+    url(../../images/mobile-banner-2.png),
+    url(../../images/mobile-banner-3.png),
+    url(../../images/mobile-banner-4.png);
+    background-size: auto 300px, auto 500px, 300px auto;
+    background-position:
+    bottom 70px center,
+    bottom 70px center,
+    bottom 70px right -150px;
+    background-repeat: no-repeat;
   }
 }
-
-
-//Новый баннер
 
 .l3 {
   right: 0;
@@ -113,17 +110,37 @@
   z-index: 20;
 }
 
-// .l-sun {
-//   top: 0;
-//   z-index: 10;
-// }
-
-// background-color: #ffffff;
-// background-attachment: fixed;
-// background-size: cover;
-
-
 .none {
   display: none;
 }
 
+.glitch {
+    position: relative;
+    text-shadow: -15px 5px 20px #eff0f0;
+    color: #eff0f0;
+    top: 290px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    letter-spacing: -0.05px;
+    font-family: 'Montserrat Alternates', sans-serif;
+    user-select: none;
+    font-size: 65px;
+    transition: all 0.25s ease-out;
+    text-align: center;
+    z-index: 100;
+    max-width: 45%;
+    line-height: 65px;
+    text-align: center;
+
+    @media(max-width: 950px) {
+        max-width: 100%;
+        font-size: 35px;
+        line-height: 35px;
+        top: 250px;
+        margin: 0;
+    }
+}
+
+.glitch:hover {
+    text-shadow: -16px 6px 15px #ced0d3;
+}

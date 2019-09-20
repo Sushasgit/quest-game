@@ -28,6 +28,10 @@ import { ReactComponent as Cake } from './svg/cake.svg';
 import { ReactComponent as Mustache } from './svg/mustache.svg';
 import { ReactComponent as Rent } from './svg/rent.svg';
 import { ReactComponent as Graduation } from './svg/graduation.svg';
+import { ReactComponent as PaintballImg } from './svg/paintball-price.svg';
+import { ReactComponent as Events } from './svg/upcoming-events.svg';
+import { ReactComponent as Party } from './svg/party.svg';
+import { ReactComponent as Phone } from './svg/phone.svg';
 
 const Icon = (props) => {
   switch (props.name) {
@@ -83,6 +87,14 @@ const Icon = (props) => {
       return <Rent className={props.className} />;
     case 'graduate':
       return <Graduation className={props.className} />;
+    case 'painballImg':
+      return <PaintballImg className={props.className} />;
+    case 'events':
+      return <Events className={props.className} />;
+    case 'party':
+      return <Party className={props.className} />;
+    case 'phone':
+      return <Phone className={props.className} />;
     default:
       return <Marker className={props.className} />;
   }
@@ -96,6 +108,5 @@ Icon.propTypes = {
   name: PropTypes.string.isRequired,
   className: PropTypes.string,
 };
-
 
 export default Icon;

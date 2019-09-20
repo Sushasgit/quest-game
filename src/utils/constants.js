@@ -125,3 +125,48 @@ export const CALENDAR_ORDER_LIST = [
     day1: null,
   },
 ];
+
+export const COORDINATES_LOCATION = [
+  {
+    'item.x': 12,
+    'item.x2': 2,
+    'item.y': 80,
+    'item.y2': 240,
+  },
+  {
+    'item.x': 20,
+    'item.x2': 8,
+    'item.y': 280,
+    'item.y2': 450,
+  },
+  {
+    'item.x': 37,
+    'item.x2': 22,
+    'item.y': 310,
+    'item.y2': 70,
+  },
+  {
+    'item.x': 48,
+    'item.x2': 31,
+    'item.y': 250,
+    'item.y2': 440,
+  },
+  {
+    'item.x': 70,
+    'item.x2': 54,
+    'item.y': 580,
+    'item.y2': 350,
+  },
+  {
+    'item.x': 57,
+    'item.x2': 65,
+    'item.y': 80,
+    'item.y2': 180,
+  },
+  {
+    'item.x': 93,
+    'item.x2': 77,
+    'item.y': 240,
+    'item.y2': 400,
+  },
+];

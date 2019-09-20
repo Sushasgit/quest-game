@@ -82,7 +82,6 @@ li {
     }
 }
 
-  
   .test-bg {
     background: url(./images/horror-back.svg);
     background-attachment: fixed;
@@ -97,16 +96,20 @@ li {
     font-family: 'MontserratBold';
     text-decoration: none;
     font-size: 2em;
-    text-transform: uppercase;
+    top: 0;
     justify-content: center;
     max-height: 200px;
     width: 100%;
-    position: relative;
+    position: absolute;
     z-index: 100;
 
     @media (max-width: 850px)  {
       right: 10px;
-      top: 50px;
+      top: 0px;
+    }
+
+    @media (max-width: 690px)  {
+      top: 100px;
     }
   }
   

@@ -15,19 +15,4 @@ export const handleSwitchMan = (type) => {
   }
 };
 
-export const addCoordinates = (array) => {
-  array.forEach((item, index) => {
-    if (index % 2 === 0 && index !== array.length - 1) {
-      item.x = (index + 1) * 12;
-      item.y = (index+1) * 80;
-    } else if (index === array.length - 1) {
-      item.x = (index) * 14;
-      item.y = (index) * 40;
-    } else {
-      item.x = (index+1) * 12;
-      item.y = (index+1) * 50;
-    }
-  });
-};
-
 export default handleSwitchMan;

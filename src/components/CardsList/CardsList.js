@@ -8,16 +8,7 @@ import Tag from '../ui/Tag';
 import Button from '../ui/Button';
 
 import './cards-list.scss';
-
-const Description = styled.p`
-  color: ${props => (props.theme ? props.theme.textColor : '#fff')};
-  font-size: 1em;
-  font-weight: 700;
-  opacity: 0.9;
-  margin: 20px 0 -80px 0;
-  line-height: 1.8em;
-  text-align: center;
-`;
+import RippedCard from '../ui/RippedCard';
 
 const CardTitle = styled.h3`
   color: ${props => (props.theme ? props.theme.gameCards.title : '#fff')};
@@ -26,6 +17,7 @@ const CardTitle = styled.h3`
   margin: 20px;
   text-shadow: 3px 4px 5px ${props => (props.theme.themeType === 'dark' ? '#000' : 'none')};;
   position: relative;
+  line-height: 24px;
 `;
 
 const CardsList = ({ gamesList, theme }) => (
@@ -39,41 +31,33 @@ const CardsList = ({ gamesList, theme }) => (
     }
 
     {
-        console.log(gamesList)
-    }
-
-    {
-      gamesList && gamesList.games.map(item => (
-        <div key={item.id} className="game-card">
+      gamesList && gamesList.games.map((item, index) => (
+        <div key={index} className="game-card">
           <Title primary level={2}>
             {item.subTitle}
           </Title>
           <ul className="cards">
             {
-                item.gameTypes.map(game => (
-                  <li key={game.id}>
+                item.gameTypes.map((game, index) => (
+                  <li key={index}>
                     <Link to={`/${game.url}`} className="cards__item">
                       <CardTitle className="card__title">
                         {game.title}
-                        {
+                      </CardTitle>
+                      {
                             game.tags ? (
                               game.tags.map(tag => (
-                                <Tag tag={tag.title}>
+                                <Tag key={tag.id} tag={tag.title}>
                                   {`#${tag.title}`}
                                 </Tag>
                               ))
                             ) : null
                         }
-                      </CardTitle>
-                      <div
-                        style={{
-                          background: `url(${game.posterImg})`,
-                          backgroundSize: 'cover',
-                          backgroundRepeat: 'no-repeat',
-                          backgroundPosition: '100% 100%',
-                          filter: theme.themeType === 'light' ? 'grayscale(1)' : 'none',
-                        }}
-                        className={`card card--${item.type}`}
+
+                      <RippedCard
+                        view="game"
+                        img={game.posterImg}
+                        type={item.type}
                       />
                       <Button className="card__link">
                         Подробнее

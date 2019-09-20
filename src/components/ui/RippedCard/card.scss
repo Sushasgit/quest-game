@@ -1,0 +1,97 @@
+.card {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: relative;
+    mask-image: url(../../../images/card-bg.svg);
+    mask-repeat: round;
+    background-size: contain;
+    min-height: 250px;
+    background-repeat: no-repeat;
+    padding: 0 50px;
+    margin-top: -34px;
+
+    &--sm {
+        min-height: 180px;
+        width: 200px;
+        margin-right: 0;
+        cursor: pointer;
+        padding: 0;
+
+        @media(max-width: 502px) {
+            width: 100%;
+        }
+    }
+
+    &__btn {
+        background: none;
+        border: none;
+    }
+    &::before {
+        content: '';
+        position: absolute;
+        top: -75px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        mask-image: url(../../../images/card-bg.svg);
+        mask-repeat: round;
+        background: linear-gradient(to bottom, rgba(72,76,97,0) 0%, rgba(153, 153, 0, 0.7) 70%);
+        background-repeat: no-repeat;
+        opacity: 0;
+        transition: opacity 0.35s, transform 0.35s;
+        transform: translate3d(0,50%,0);
+    }
+
+    &:hover {
+        &::before {
+            opacity: 1;
+        }
+    }
+
+    &:not(:last-child) {
+        margin-right: 10px;
+    }
+
+    &__link {
+        align-self: flex-end;
+        margin-left: auto;
+        opacity: 0.9;
+        margin-top: auto;
+        margin-left: auto;
+        display: block;
+    }
+
+    &--additionalEntertainment::after,
+    &--actionGames::after,
+    &--straikball::after, 
+    &--paintball::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 200px;
+    }
+
+    &--additionalEntertainment::after {
+        background: url(../../../images/kvadro.svg) no-repeat;
+        background-size: 265px;
+        left: -40px;
+        bottom: -58px;
+    }
+
+    &--actionGames::after {
+        background: url(../../../images/l8.svg) no-repeat;
+        background-size: 265px;
+        left: -40px;
+        bottom: -58px;
+    }
+
+    &--straikball::after, 
+    &--paintball::after {
+        background: url(../../../images/strike.svg) no-repeat;
+        background-size: 265px;
+        left: -64px;
+        bottom: -58px;
+    }
+}

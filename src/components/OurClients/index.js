@@ -13,37 +13,37 @@ import Title from '../ui/Title';
 import './clients.scss';
 
 const OurClients = () => (
-    <React.Fragment>
-        <Title primary level={2}>
-            Гости проекта
-        </Title>
-        <ul className="list">
-        <li className="card-client" >
-            <img src={provectus} />
-        </li>
-        <li className="card-client">
-            <img src={netpeak} />
-        </li>
-        <li className="card-client">
-            <img src={lux} />
-        </li>
-        <li className="card-client">
-            <img src={serpstat} />
-        </li>
-        <li className="card-client">
-            <img src={chapps} />
-        </li>
-        <li className="card-client">
-            <img src={southPort} />
-        </li>
-        <li className="card-client">
-            <img src={hilty} />
-        </li>
-        <li className="card-client">
-            <img src={quarnuts} />
-        </li>
-    </ul>s
-    </React.Fragment>
+  <React.Fragment>
+    <Title primary level={2}>
+        Гости проекта
+    </Title>
+    <ul className="list">
+      <li className="card-client">
+        <img src={provectus} alt="Provectus logo" />
+      </li>
+      <li className="card-client">
+        <img src={netpeak} alt="Netpeak logo" />
+      </li>
+      <li className="card-client">
+        <img src={lux} alt="Lux logo" />
+      </li>
+      <li className="card-client">
+        <img src={serpstat} alt="Serpstat logo" />
+      </li>
+      <li className="card-client">
+        <img src={chapps} alt="Chapps logo" />
+      </li>
+      <li className="card-client">
+        <img src={southPort} alt="South port logo" />
+      </li>
+      <li className="card-client">
+        <img src={hilty} alt="Hilty logo" />
+      </li>
+      <li className="card-client">
+        <img src={quarnuts} alt="Quarnuts logo" />
+      </li>
+    </ul>
+  </React.Fragment>
 );
 
 export default OurClients;
