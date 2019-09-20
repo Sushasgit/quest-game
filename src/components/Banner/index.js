@@ -150,6 +150,7 @@ class Banner extends Component {
       children,
       theme,
       type,
+      main,
     } = this.props;
     return (
       <React.Fragment>
@@ -189,7 +190,7 @@ class Banner extends Component {
                       } : {
                         backgroundColor: theme.primaryBg,
                       }}
-                  className="banner"
+                  className={`${main ? 'banner banner--main' : 'banner'}`}
                 >
                   <div
                     style={{ color: theme.primaryBg }}
@@ -247,10 +248,10 @@ class Banner extends Component {
                         />
                       </div>
                     </div>
-                    <h2 className="glitch">
+                    <h2 className={`${main ? 'banner__title banner__title--main' : 'banner__title '}`}>
                       {title}
                     </h2>
-            
+
                   </div>
                   {children}
                 </div>
@@ -266,7 +267,7 @@ class Banner extends Component {
                 </SocialLinks>
                 <div style={{ backgroundColor: `${theme.primaryBg}` }}>
                   <div className={`small-devices ${theme.themeType === 'light' ? 'small-devices--light' : 'small-devices--dark'}`}>
-                    <h2 className="glitch">
+                    <h2 className={`${main ? 'banner__title banner__title--main' : 'banner__title '}`}>
                       {title}
                     </h2>
                     {children}

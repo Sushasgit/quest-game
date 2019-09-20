@@ -2,14 +2,30 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 150px;
+
+    @media(max-width: 1144px) {
+        flex-wrap: wrap;
+        padding-top: 80px;
+    }
 
     & > * {
         width: calc(50% - 20px);
         margin: 20px;
+
+        @media(max-width: 1144px) {
+            width: calc(100% - 20px);
+            margin: 80px 20px;
+        }
     }
     &__header {
         svg {
             max-width: 300px;
+            position: absolute;
+            top: -173px;
+            z-index: -1;
+            left: 50%;
+            transform: translateX(-50%);      
         }
     }
 
@@ -18,8 +34,13 @@
         border-radius: 6px;
         background-color: #333;
         max-width: 475px;
-        padding: 20px;
         text-align: center;
         position: relative;
+        padding: 40px 20px;
+        min-height: 600px;
+
+        @media(max-width: 1144px) {
+           min-height: auto;
+        }
     }
 }

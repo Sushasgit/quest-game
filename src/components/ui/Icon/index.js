@@ -32,6 +32,11 @@ import { ReactComponent as PaintballImg } from './svg/paintball-price.svg';
 import { ReactComponent as Events } from './svg/upcoming-events.svg';
 import { ReactComponent as Party } from './svg/party.svg';
 import { ReactComponent as Phone } from './svg/phone.svg';
+import { ReactComponent as KidsParty } from './svg/kids-party.svg';
+import { ReactComponent as ActionGame } from './svg/actionGamePrice.svg';
+import { ReactComponent as Galery } from './svg/galery.svg';
+import { ReactComponent as GameMenu } from './svg/games-menu.svg';
+import { ReactComponent as PriceMenu } from './svg/price-menu.svg';
 
 const Icon = (props) => {
   switch (props.name) {
@@ -87,7 +92,7 @@ const Icon = (props) => {
       return <Rent className={props.className} />;
     case 'graduate':
       return <Graduation className={props.className} />;
-    case 'painballImg':
+    case 'paintballPrice':
       return <PaintballImg className={props.className} />;
     case 'events':
       return <Events className={props.className} />;
@@ -95,6 +100,16 @@ const Icon = (props) => {
       return <Party className={props.className} />;
     case 'phone':
       return <Phone className={props.className} />;
+    case 'kidBalls':
+      return <KidsParty className={props.className} />;
+    case 'actionGamesPrice':
+      return <ActionGame className={props.className} />;
+    case 'galery':
+      return <Galery className={props.className} />;
+    case 'gameMenu':
+      return <GameMenu className={props.className} />;
+    case 'priceMenu':
+      return <PriceMenu className={props.className} />;
     default:
       return <Marker className={props.className} />;
   }

@@ -3,11 +3,6 @@
   padding: 20px;
   margin-top: 0;
   text-align: center;
-  font-size: 16px;
-
-  @media (max-width: 700px)  {
-    font-size: 1em;
-  }
 
   &:before {
     display: block;
@@ -27,6 +22,11 @@
     position: absolute;
     bottom: 5px;
     right: 5px;
+
+    @media(max-width: 870px) {
+      width: 30px;
+      height: 30px;
+    }
   }
 
   &__place {
@@ -42,11 +42,28 @@
       }
 
       @media(max-width: 870px) {
-        width: 50%;
+        width: 31%;
       }
 
       @media(max-width: 450px) {
-        width: 100%;
+        width: 40%;
+      }
+    }
+  }
+
+  &__icon {
+    background: #353131cc;
+    padding: 20px;
+    border-radius: 19px;
+    max-width: 150px;
+    margin: 0 auto;
+    font-size: 16px;
+  
+    @media(max-width: 870px) {
+      max-width: 100px;
+  
+      svg {
+        max-width: 40px;
       }
     }
   }
@@ -58,4 +75,13 @@
   border-radius: 19px;
   max-width: 150px;
   margin: 0 auto;
+  font-size: 16px;
+
+  @media(max-width: 870px) {
+    max-width: 120px;
+    font-size: 14px;
+    svg {
+      max-width: 40px;
+    }
+  }
 }
