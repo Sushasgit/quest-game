@@ -8,6 +8,7 @@ const TabsListStyled = styled.ul`
   list-style: none;
   margin: 0;
   text-align: center;
+  font-size: 18px;
 `;
 
 const TabItemSyled = styled.li`

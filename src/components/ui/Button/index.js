@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import {
   node,
@@ -13,20 +14,19 @@ const propTypes = {
   submitting: bool,
   btnType: string,
   sizing: string,
-  renderSpinner: node,
-  as: oneOfType([oneOf(['a', 'button']), func]),
+  renderSpinner: node
 };
 
 const defaultProps = {
   sizing: 'm',
   btnType: 'default',
   submitting: false,
-  as: 'button',
 };
 
-const StyledButton = styled.button`
+const StyledButton = styled(Link)`
     display: inline-block;
     font-family: 'MontserratBold', Arial;
+    text-decoration: none;
     padding: 15px;
     margin-bottom: 12px;
     font-size: 14px;

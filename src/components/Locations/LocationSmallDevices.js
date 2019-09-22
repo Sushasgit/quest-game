@@ -44,47 +44,44 @@ const TitleLocation = styled.h4`
   font-size: 16px;
 
   @media(max-width: 502px) {
-    font-size: 25px;
+    font-size: 18px;
     position: absolute;
-    left: 100px;
+    left: 80px;
     top: 0;
   }
 `;
 
-class LocationSmallDevices extends React.Component {
-  render() {
-    const { locations } = this.props;
-    return (
-      <>
-        <Title primary level={2}>
-          {locations.title}
-        </Title>
-        <ul className="locations-list wrapper">
-          {
-            locations.list.map((item, index) => (
-              <>
-                <li key={item.id} className="locations-list__item">
-                  <LocationName>
-                    {`T ${index + 1}`}
-                  </LocationName>
-                  <TitleLocation>
-                    {item.title}
-                  </TitleLocation>
-                  <RippedCard
-                    size="sm"
-                    id={item.id}
-                    images={item.images}
-                    img={item.src}
-                  />
-                </li>
-                <Button primary>Перейти</Button>
-              </>
-            ))
-          }
-        </ul>
-      </>
-    );
-  }
-}
+const LocationSmallDevices = ({ locations }) => (
+  <>
+    <Title primary level={2}>
+      {locations.title}
+    </Title>
+    <ul className="locations-list wrapper">
+      {
+        locations.list.map((item, index) => (
+          <React.Fragment key={item.id}>
+            <li key={item.id} className="locations-list__item">
+              <LocationName>
+                {`T ${index + 1}`}
+              </LocationName>
+              <TitleLocation>
+                {item.title}
+              </TitleLocation>
+              <RippedCard
+                size="sm"
+                id={item.id}
+                images={item.images}
+                img={item.src}
+              />
+            </li>
+            <Button to={`gallery/${item.id}`}>
+              Перейти
+            </Button>
+          </React.Fragment>
+        ))
+      }
+    </ul>
+  </>
+);
 
 export default LocationSmallDevices;

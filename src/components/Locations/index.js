@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled, { withTheme } from 'styled-components';
 import ConnectElements from 'react-connect-elements';
@@ -14,12 +15,7 @@ import './location.scss';
 const LocationBox = styled.div`
     position: relative;
     overflow: hidden;
-`;
-
-const Location = styled.div`
-    position: absolute;
-    bottom: ${props => (props.positionBottom ? `${props.positionBottom}px` : 0)};
-    left: ${props => (props.positionLeft ? `${props.positionLeft}%` : 0)};
+    padding: 40px 0;
 `;
 
 const TitleLocation = styled.div`
@@ -35,10 +31,26 @@ const FotoBox = styled.div`
     left: ${props => (props.positionLeft ? `${props.positionLeft}%` : 0)};
 `;
 
-const LocationName = styled.div`
+const Location = styled.div`
+    position: absolute;
+    bottom: ${props => (props.positionBottom ? `${props.positionBottom}px` : 0)};
+    left: ${props => (props.positionLeft ? `${props.positionLeft}%` : 0)};
+    transition: transform 3s;
+
+    &:hover ~ ${FotoBox} { 
+        transform: scale(1.5);
+        transition: all 0.3s ease-in;
+        filter: hue-rotate(185deg);
+    }
+`;
+
+
+const LocationName = styled(Link)`
     background-color: ${data => (data.theme ? data.theme.primaryBg : '#fff')};
     box-shadow: 0px 0px 4px 4px ${data => (data.theme ? '#333' : '#fff')};
-    color: ${props => (props.theme ? props.theme.gameCards : '#fff')};
+    color: ${props => (props.theme ? props.theme.textColor : '#fff')};
+    display: inline-block;
+    text-decoration: none;
     border: 2px solid;
     font-size: 1em;
     width: 60px;
@@ -47,6 +59,13 @@ const LocationName = styled.div`
     font-size: 22px;
     line-height: 60px;
     text-align: center;
+    transition: all .3s linear;
+
+    &:hover, 
+    &:focus {
+        color: ${props => (props.theme ? props.theme.primaryBg : '#fff')};
+        background-color: ${props => (props.theme ? props.theme.titleColor : '#fff')};
+    }
 `;
 
 class Locations extends Component {
@@ -151,7 +170,7 @@ render() {
                           positionBottom={COORDINATES_LOCATION[index]['item.y']}
                           className={`${'location location'}${index}`}
                         >
-                          <LocationName>
+                          <LocationName to={`gallery/${item.id}`}>
                             {`T ${index + 1}`}
                           </LocationName>
                         </Location>

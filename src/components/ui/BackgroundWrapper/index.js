@@ -14,7 +14,7 @@ const BackgroundWrapper = ({
   const StyledWrapper = styled.div`
     height: 100%;
     width: 100%;
-    padding: 40px 0 0;
+    padding: 40px 0 40px;
     z-index: 100;
     position: relative;
     margin-top: -80px;

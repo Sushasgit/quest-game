@@ -14,6 +14,7 @@ import priceData from '../../data/prices.json';
 
 import './prices.scss';
 import Logo from '../../components/ui/Logo';
+import Footer from '../../components/Footer';
 
 const PriceList = styled.ul`
   color: ${data => (data.theme ? data.theme.textColor : '#fff')};
@@ -94,6 +95,7 @@ const Prices = () => {
                         ))
                     }
                 </PriceList>
+                <Footer />
                 </Tabs.Tab>
               </React.Fragment>
             ))

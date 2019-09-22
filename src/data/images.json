@@ -1,0 +1,100 @@
+[
+    {
+        "src": "https://iamwerby.com/images/gallery/gallery_1.jpg",
+        "thumbnail": "https://iamwerby.com/images/gallery/gallery_1.jpg",
+        "thumbnailWidth": 320,
+        "thumbnailHeight": 174
+    },
+
+    {
+        "src": "https://iamwerby.com/images/gallery/gallery_2.jpg",
+        "thumbnail": "https://iamwerby.com/images/gallery/gallery_2.jpg",
+        "thumbnailWidth": 200,
+        "thumbnailHeight": 80
+    },
+
+    {
+        "src": "https://iamwerby.com/images/gallery/gallery_3.jpg",
+        "thumbnail": "https://iamwerby.com/images/gallery/gallery_3.jpg",
+        "thumbnailWidth": 170,
+        "thumbnailHeight": 80
+    },
+    {
+        "src": "https://iamwerby.com/images/gallery/gallery_4.jpg",
+        "thumbnail": "https://iamwerby.com/images/gallery/gallery_4.jpg",
+        "thumbnailWidth": 170,
+        "thumbnailHeight": 120
+    },
+    {
+        "src": "https://iamwerby.com/images/gallery/gallery_4.jpg",
+        "thumbnail": "https://iamwerby.com/images/gallery/gallery_4.jpg",
+        "thumbnailWidth": 140,
+        "thumbnailHeight": 120
+    },
+    {
+        "src": "https://iamwerby.com/images/gallery/gallery_6.jpg",
+        "thumbnail": "https://iamwerby.com/images/gallery/gallery_6.jpg",
+        "thumbnailWidth": 180,
+        "thumbnailHeight": 120
+    },
+    {
+        "src": "https://iamwerby.com/images/gallery/gallery_7.jpg",
+        "thumbnail": "https://iamwerby.com/images/gallery/gallery_7.jpg",
+        "thumbnailWidth": 140,
+        "thumbnailHeight": 120
+    },
+    {
+        "src": "https://iamwerby.com/images/gallery/gallery_8.jpg",
+        "thumbnail": "https://iamwerby.com/images/gallery/gallery_8.jpg",
+        "thumbnailWidth": 190,
+        "thumbnailHeight": 120
+    },
+    {
+        "src": "https://iamwerby.com/images/gallery/gallery_9.jpg",
+        "thumbnail": "https://iamwerby.com/images/gallery/gallery_9.jpg",
+        "thumbnailWidth": 140,
+        "thumbnailHeight": 120
+    },
+    {
+        "src": "https://iamwerby.com/images/gallery/gallery_10.jpg",
+        "thumbnail": "https://iamwerby.com/images/gallery/gallery_10.jpg",
+        "thumbnailWidth": 140,
+        "thumbnailHeight": 120
+    },
+    {
+        "src": "https://iamwerby.com/images/gallery/gallery_11.jpg",
+        "thumbnail": "https://iamwerby.com/images/gallery/gallery_11.jpg",
+        "thumbnailWidth": 110,
+        "thumbnailHeight": 120
+    },
+    {
+        "src": "https://iamwerby.com/images/gallery/gallery_12.jpg",
+        "thumbnail": "https://iamwerby.com/images/gallery/gallery_12.jpg",
+        "thumbnailWidth": 140,
+        "thumbnailHeight": 120
+    },
+    {
+        "src": "https://iamwerby.com/images/gallery/gallery_13s.jpg",
+        "thumbnail": "https://iamwerby.com/images/gallery/gallery_13.jpg",
+        "thumbnailWidth": 220,
+        "thumbnailHeight": 120
+    },
+    {
+        "src": "https://iamwerby.com/images/gallery/gallery_14.jpg",
+        "thumbnail": "https://iamwerby.com/images/gallery/gallery_14.jpg",
+        "thumbnailWidth": 220,
+        "thumbnailHeight": 120
+    },
+    {
+        "src": "https://iamwerby.com/images/gallery/gallery_15.jpg",
+        "thumbnail": "https://iamwerby.com/images/gallery/gallery_15.jpg",
+        "thumbnailWidth": 240,
+        "thumbnailHeight": 120
+    },
+    {
+        "src": "https://iamwerby.com/images/gallery/gallery_16.jpg",
+        "thumbnail": "https://iamwerby.com/images/gallery/gallery_16.jpg",
+        "thumbnailWidth": 140,
+        "thumbnailHeight": 120
+    }
+]
