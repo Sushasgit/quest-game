@@ -8,8 +8,8 @@ const StyledLogo = styled.a`
   align-items: center;
 `;
 
-const Logo = () => (
-  <StyledLogo className="logo-link" href="/">
+const Logo = ({ main }) => (
+  <StyledLogo className={`${main ? 'logo-link logo-link--main' : 'logo-link'}`} href="/">
     <Icon name="logo" />
         Real Games
   </StyledLogo>

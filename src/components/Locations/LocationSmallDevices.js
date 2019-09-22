@@ -6,6 +6,7 @@ import Title from '../ui/Title';
 
 
 import './location.scss';
+import Button from '../ui/Button';
 
 const LocationName = styled.div`
     background-color: ${data => (data.theme ? data.theme.primaryBg : '#fff')};
@@ -39,70 +40,48 @@ const LocationName = styled.div`
 `;
 
 const TitleLocation = styled.h4`
-  color: ${props => (props.theme.titleColor)};
+  color: ${props => (props.theme.textColor)};
   font-size: 16px;
 
   @media(max-width: 502px) {
     font-size: 18px;
     position: absolute;
-    left: 100px;
-    top: 15px;
+    left: 80px;
+    top: 0;
   }
 `;
 
-class LocationSmallDevices extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      gallery: {
-        isOpen: false,
-        id: null,
-        images: [],
-      },
-    };
-  }
-
-    handleOpenGallery = (id, images) => {
-      this.setState({
-        gallery: {
-          id,
-          isOpen: true,
-          images,
-        },
-      });
-    }
-
-    render() {
-      const { locations } = this.props;
-      const { gallery } = this.state;
-      return (
-        <>
-          <Title primary level={2}>
-            {locations.title}
-          </Title>
-          <ul className="locations-list wrapper">
-            {
-                locations.list.map((item, index) => (
-                  <li key={item.id} className="locations-list__item">
-                    <LocationName>
-                      {`T ${index + 1}`}
-                    </LocationName>
-                    <TitleLocation>{item.title}</TitleLocation>
-                    <RippedCard
-                      size="sm"
-                      id={item.id}
-                      images={item.images}
-                      handleOpenGallery={this.handleOpenGallery}
-                      img={item.src}
-                    />
-                  </li>
-                ))
-              }
-          </ul>
-        </>
-      );
-    }
-}
+const LocationSmallDevices = ({ locations }) => (
+  <>
+    <Title primary level={2}>
+      {locations.title}
+    </Title>
+    <ul className="locations-list wrapper">
+      {
+        locations.list.map((item, index) => (
+          <React.Fragment key={item.id}>
+            <li key={item.id} className="locations-list__item">
+              <LocationName>
+                {`T ${index + 1}`}
+              </LocationName>
+              <TitleLocation>
+                {item.title}
+              </TitleLocation>
+              <RippedCard
+                size="sm"
+                id={item.id}
+                images={item.images}
+                img={item.src}
+              />
+            </li>
+            <Button to={`gallery/${item.id}`}>
+              Перейти
+            </Button>
+          </React.Fragment>
+        ))
+      }
+    </ul>
+  </>
+);
 
 export default LocationSmallDevices;

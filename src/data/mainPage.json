@@ -11,6 +11,7 @@
                     {
                         "id": 1,
                         "title": "Детский Пейнтбол",
+                        "url": "/game/kids",
                         "tags": [
                             {
                                 "id": 1,
@@ -22,6 +23,7 @@
                     {
                         "id": 2,
                         "title": "Пейнтбол",
+                        "url": "/game/paintball",
                         "tags": [
                             {
                                 "id": 1,
@@ -33,6 +35,7 @@
                     {
                         "id": 3,
                         "title": "Ночной пейнтбол",
+                        "url": "/game/nightPaintball",
                         "tags": [
                             {
                                 "id": 1,
@@ -51,6 +54,7 @@
                     {
                         "id": 1,
                         "title": "Пистолетный",
+                        "url": "/game/straikballGun",
                         "tags": [
                             {
                                 "id": 1,
@@ -62,6 +66,7 @@
                     {
                         "id": 2,
                         "title": "Автоматный",
+                        "url": "/game/straikballMachineGun",
                         "tags": [
                             {
                                 "id": 1,
@@ -73,6 +78,7 @@
                     {
                         "id": 3,
                         "title": "Ночной",
+                        "url": "/game/straikballNight",
                         "tags": [
                             {
                                 "id": 1,
@@ -91,6 +97,7 @@
                     {
                         "id": 1,
                         "title": "Трэш Прятки",
+                        "url": "/game/hideAndSeek",
                         "tags": [
                             {
                                 "id": 1,
@@ -102,6 +109,7 @@
                     {
                         "id": 2,
                         "title": "Объект 107",
+                        "url": "/game/object107",
                         "tags": [
                             {
                                 "id": 1,
@@ -113,6 +121,7 @@
                     {
                         "id": 3,
                         "title": "Победа или смерть",
+                        "url": "/game/winOrDie",
                         "tags": [
                             {
                                 "id": 1,
@@ -124,6 +133,7 @@
                     {
                         "id": 4,
                         "title": "Прятки",
+                        "url": "game/kidHide",
                         "tags": [
                             {
                                 "id": 1,
@@ -135,6 +145,7 @@
                     {
                         "id": 5,
                         "title": "Школа шпионов",
+                        "url": "/game/schoolSpy",
                         "tags": [
                             {
                                 "id": 1,
@@ -146,6 +157,7 @@
                     {
                         "id": 6,
                         "title": "Форт Боярд",
+                        "url": "game/ford",
                         "tags": [
                             {
                                 "id": 1,
@@ -164,18 +176,21 @@
                     {
                         "id": 1,
                         "title": "Квадроциклы/Багги",
+                        "url": "game/quadro",
                         "tags": [],
                         "posterImg": "https://iamwerby.com/static/media/quadro.7699194d.jpg"
                     },
                     {
                         "id": 2,
                         "title": "Тир",
+                        "url": "game/range",
                         "tags": [],
                         "posterImg": "https://cdn.pixabay.com/photo/2015/06/20/18/24/year-market-816032_1280.jpg"
                     },
                     {
                         "id": 1,
                         "title": "Открытые (сборные) мероприятия",
+                        "url": "game/gatherings",
                         "tags": [],
                         "posterImg": "https://media.gettyimages.com/photos/paitball-team-picture-id926927832?s=2048x2048"
                     }

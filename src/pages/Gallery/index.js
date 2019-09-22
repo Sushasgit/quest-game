@@ -11,6 +11,7 @@ import Menu from '../../components/Menu';
 import Logo from '../../components/ui/Logo';
 
 import data from '../../data/mainPage.json';
+import generalGallery from '../../data/generalGallery.json';
 
 import './gallery.scss';
 
@@ -24,7 +25,7 @@ class GalleryModal extends Component {
   render() {
     const { match } = this.props;
     const id = match.params.id;
-    const location = data.ourLocations.list.find(item => item.id === +id);
+    const location = id === 'all' ? generalGallery : data.ourLocations.list.find(item => item.id === +id);
     return (
       <div className="wrap">
         <Banner title="Галерея">

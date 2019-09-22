@@ -28,14 +28,14 @@ const PopupMenu = ({ onClick, mobile }) => {
   return (
     <NavbarList className="navbar__list">
       <li className={styleClasses}>
-        <LinkStyled onClick={onClick} to="/">Корпоративы</LinkStyled>
+        <LinkStyled onClick={onClick} to="/prices">Цены</LinkStyled>
       </li>
       <li className={styleClasses}>
-        <LinkStyled onClick={onClick} to="/">Цены</LinkStyled>
+        <LinkStyled onClick={onClick} to="/games">Игры</LinkStyled>
       </li>
 
       <li className={styleClasses}>
-        <LinkStyled onClick={onClick} to="/">Контакты</LinkStyled>
+        <LinkStyled onClick={onClick} to="/gallery/all">Галерея</LinkStyled>
       </li>
     </NavbarList>
   );

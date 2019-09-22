@@ -19,8 +19,8 @@ const StyledLogo = styled.a`
 const Home = () => (
   <React.Fragment>
     <div className="wrap">
-      <Banner title={data.mainTitle}>
-        <StyledLogo className="logo-link" href="/">
+      <Banner main title={data.mainTitle}>
+        <StyledLogo main className="logo-link" href="/">
           <Icon name="logo" />
             Real Games
         </StyledLogo>

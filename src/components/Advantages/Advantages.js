@@ -11,6 +11,8 @@ import Icon from '../ui/Icon';
 import OurClients from '../OurClients';
 import Locations from '../Locations';
 import UpcomingEvents from '../UpcomingEvents';
+import LocationSmallDevices from '../Locations/LocationSmallDevices';
+import Description from '../ui/Description';
 
 import {
   LargeAndUp,
@@ -18,25 +20,16 @@ import {
 } from '../../utils/break-points';
 
 import './advantages.scss';
-import LocationSmallDevices from '../Locations/LocationSmallDevices';
-
-const Description = styled.p`
-  text-align: center;
-  font-size: 22px;
-  line-height: 36px;
-  color: ${data => (data.theme ? data.theme.textColor : '#fff')};
-  margin: 40px;
-`;
 
 const ListItem = styled.li`
   color: ${data => (data.theme ? data.theme.textColor : '#fff')};
   text-align: center;
   font-size: 16px;
-  line-height: 1.8em;
   position: relative;
   background-position: top center;
   background-repeat: no-repeat;
   background-size: 80px 80px;
+//   background-color: #000;
 `;
 
 const ListItemTitle = styled.h3`
@@ -48,18 +41,18 @@ const ListItemTitle = styled.h3`
 
 const ListItemIcon = styled(Icon)`
   max-width: 70px;
-  color: ${data => (data.theme ? data.theme.titleColor : '#fff')}
+  color: ${data => (data.theme.themeType === 'light' ? data.theme.primaryBg : data.theme.titleColor)}
 `;
 
-// const Background = styled(BackgroundWrapper)`
-//   position: absolute;
-//   margin: 0;
-// `;
-
-const Advantages = ({ services, gamesList, ourLocations, theme }) => (
+const Advantages = ({
+  services,
+  gamesList,
+  ourLocations,
+  theme,
+}) => (
   <React.Fragment>
     <BackgroundWrapper withBuildings>
-      <CardsList gamesList={gamesList} />
+      <CardsList main gamesList={gamesList} />
     </BackgroundWrapper>
     <BackgroundWrapper>
       <UpcomingEvents />
@@ -77,14 +70,14 @@ const Advantages = ({ services, gamesList, ourLocations, theme }) => (
         <Title primary level={2}>
           Наши услуги
         </Title>
-        <Description>
+        <Description align="center">
           9 лет опыта в организации разных мероприятий, 6 лет из них по направлению «экстрим».
         </Description>
         <ul className="advantage__place">
           {
             services && services.map(item => (
               <ListItem key={item.id}>
-                <div className="advantagesIcon">
+                <div className="advantage__icon">
                   <ListItemIcon name={item.iconName} />
                 </div>
                 <ListItemTitle>
@@ -97,7 +90,7 @@ const Advantages = ({ services, gamesList, ourLocations, theme }) => (
       </section>
       <Title primary level={2}>
           Преимущества
-        </Title>
+      </Title>
       <section className="flex wrapper">
         <AdvantagesPlace />
       </section>

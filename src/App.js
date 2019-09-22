@@ -5,20 +5,17 @@ import styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from './styles/global';
 import { darkTheme, lightTheme } from './styles/theme';
 
-
 import asyncComponent from './components/AsyncComponent';
 import Icon from './components/ui/Icon';
-// import Icon from './components/ui/Icon';
+import ScrollToTop from './components/ScrollToTop';
+
 import './App.scss';
 
 const AsyncHome = asyncComponent(() => import('./pages/Home'));
-// const AsyncPrices = asyncComponent(() => import('./pages/Prices'));
+const AsyncPrices = asyncComponent(() => import('./pages/Prices'));
 const AsyncOurGames = asyncComponent(() => import('./pages/OurGames'));
-const AsyncPaintBall = asyncComponent(() => import('./pages/PaintBall'));
-const AsyncHideAndSeek = asyncComponent(() => import('./pages/HideAndSeek'));
-const AsyncStrikeBall = asyncComponent(() => import('./pages/StrikeBall'));
-const AsyncQuadro = asyncComponent(() => import('./pages/Quadro'));
 const AsyncGallery = asyncComponent(() => import('./pages/Gallery'));
+const AsyncKids = asyncComponent(() => import('./pages/GamePage'));
 
 const CheckBoxWrapper = styled.div`
   position: fixed;
@@ -73,7 +70,7 @@ const CheckBox = styled.input`
 const PhoneIcon = styled.a`
     position: fixed;
     bottom: 14px;
-    right: 68px;
+    right: 60px;
     color: ${props => props.theme.titleColor};
     z-index: 300;
 
@@ -98,7 +95,8 @@ class App extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
+  handleClick(e) {
+    e.preventDefault();
     const isDay = !this.state.isDay;
 
     this.setState({
@@ -111,8 +109,9 @@ class App extends Component {
     const { theme, isDay } = this.state;
     return (
       <React.Fragment>
+
         <GlobalStyles />
-        <CheckBoxWrapper theme={theme} onChange={this.handleClick}>
+        <CheckBoxWrapper theme={theme} onChange={(e) => { this.handleClick(e); }}>
           <CheckBox
             role="switch"
             aria-checked={isDay}
@@ -126,14 +125,13 @@ class App extends Component {
         </CheckBoxWrapper>
         <ThemeProvider theme={theme}>
           <Router>
-            <Route exact path="/" component={AsyncHome} />
-            {/* <Route path="/prices" component={AsyncPrices} /> */}
-            <Route path="/games" component={AsyncOurGames} />
-            <Route path="/hideandseek" component={AsyncHideAndSeek} />
-            <Route path="/paintball" component={AsyncPaintBall} />
-            <Route path="/strike" component={AsyncStrikeBall} />
-            <Route path="/quadro" component={AsyncQuadro} />
-            <Route path="/gallery/:id" component={AsyncGallery} />
+            <ScrollToTop>
+              <Route exact path="/" component={AsyncHome} />
+              <Route path="/prices" component={AsyncPrices} />
+              <Route path="/games" component={AsyncOurGames} />
+              <Route path="/gallery/:id" component={AsyncGallery} />
+              <Route path="/game/:type" component={AsyncKids} />
+            </ScrollToTop>
           </Router>
         </ThemeProvider>
         <PhoneIcon theme={theme} href="tel:+380935434241">

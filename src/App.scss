@@ -16,24 +16,6 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: "FiraSans-Light";
-  src: url("/fonts/FiraSans-Light.woff") format("woff"),
-       url("/fonts/FiraSans-Light.woff2") format("woff2");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "FiraSans-Bold";
-  src: url("/fonts/FiraSans-Bold.woff") format("woff"),
-       url("/fonts/FiraSans-Bold.woff2") format("woff2"); 
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
 img {
   max-width: 100%;
 }
@@ -86,30 +68,37 @@ li {
     background: url(./images/horror-back.svg);
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: scroll;
     height: 400px;
     width: 100%;
+    max-width: 100%;
+    background-size: cover;
   }
   
   .logo-link {
     align-items: center;
     font-family: 'MontserratBold';
     text-decoration: none;
-    font-size: 2em;
-    top: 0;
+    font-size: 30px;
+    top: 75px;
     justify-content: center;
     max-height: 200px;
     width: 100%;
     position: absolute;
     z-index: 100;
 
-    @media (max-width: 850px)  {
-      right: 10px;
-      top: 0px;
-    }
+    &--main {
+      top: 0;
+      font-size: 40px;
 
-    @media (max-width: 690px)  {
-      top: 100px;
+      @media (max-width: 850px)  {
+        right: 10px;
+        top: 0px;
+      }
+  
+      @media (max-width: 690px)  {
+        top: 130px;
+      }
     }
   }
   
