@@ -20,10 +20,10 @@ const CardTitle = styled.h3`
   line-height: 24px;
 `;
 
-const CardsList = ({ gamesList, theme }) => (
+const CardsList = ({ gamesList, main, game, theme }) => (
   <div className="wrapper">
     {
-      gamesList ? (
+      gamesList && gamesList.title ? (
         <Title primary level={2}>
           {gamesList.title}
         </Title>
@@ -31,7 +31,8 @@ const CardsList = ({ gamesList, theme }) => (
     }
 
     {
-      gamesList && gamesList.games.map((item, index) => (
+main ? (
+    gamesList && gamesList.games.map((item, index) => (
         <div key={index} className="game-card">
           <Title primary level={2}>
             {item.subTitle}
@@ -40,7 +41,7 @@ const CardsList = ({ gamesList, theme }) => (
             {
                 item.gameTypes.map((game, index) => (
                   <li key={index}>
-                    <Link to={`/${game.url}`} className="cards__item">
+                    <Link to={`${game.url}`} className="cards__item">
                       <CardTitle className="card__title">
                         {game.title}
                       </CardTitle>
@@ -59,16 +60,53 @@ const CardsList = ({ gamesList, theme }) => (
                         img={game.posterImg}
                         type={item.type}
                       />
-                      <Button className="card__link">
-                        Подробнее
-                      </Button>
                     </Link>
+                    <Button to={`${game.url}`} className="card__link">
+                      Подробнее
+                    </Button>
                   </li>
                 ))
             }
           </ul>
         </div>
       ))
+) : (
+    <ul className="cards">
+    {
+       game && game.gameTypes.map((game, index) => (
+          <li key={index}>
+            <Link to={`${game.url}`} className="cards__item">
+              <CardTitle className="card__title">
+                {game.title}
+              </CardTitle>
+              {
+                    game.tags ? (
+                      game.tags.map(tag => (
+                        <Tag key={tag.id} tag={tag.title}>
+                          {`#${tag.title}`}
+                        </Tag>
+                      ))
+                    ) : null
+                }
+
+              <RippedCard
+                view="game"
+                img={game.posterImg}
+                // type={item.type}
+              />
+            </Link>
+            <Button to={`${game.url}`} className="card__link">
+              Подробнее
+            </Button>
+          </li>
+        ))
+    }
+  </ul>
+)
+
+
+
+
     }
   </div>
 );

@@ -1,5 +1,6 @@
 .events {
     &__info {
+        padding-bottom: 45px;
         h2 {
             text-align: left;
 
@@ -9,12 +10,17 @@
         }
 
         p {
-            font-size: 22px;
+            font-size: 18px;
             line-height: 36px;
 
             @media(max-width: 932px) {
                 margin-top: 50px;
+                font-size: 16px;
             }
+        }
+
+        @media(max-width: 932px) {
+            padding-bottom: 0;
         }
     }
 

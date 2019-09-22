@@ -1,0 +1,20 @@
+{
+    "title": "Галерея",
+    "images": [
+        {
+            "src": "https://images.pexels.com/photos/2791657/pexels-photo-2791657.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+            "thumbnail": "https://images.pexels.com/photos/2791657/pexels-photo-2791657.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+            "thumbnailWidth": 540,
+            "thumbnailHeight": 320,
+            "caption": "Заголоаок к этой локации,  описание"
+        },
+        {
+            "src": "https://images.pexels.com/photos/2791657/pexels-photo-2791657.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+            "thumbnail": "https://images.pexels.com/photos/2791657/pexels-photo-2791657.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+            "thumbnailWidth": 540,
+            "thumbnailHeight": 320,
+            "caption": "Заголоаок к этой локации,  описание"
+        }
+    ]
+
+}

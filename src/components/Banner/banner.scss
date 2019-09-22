@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,600&display=swap');
+
 .banner {
     height: 600px;
     overflow: hidden;
     position: relative;
 
     &__layer {
-      position: absolute;
+      position: fixed;
       bottom: 0;
     }
 
@@ -125,7 +126,7 @@
 }
 
 .small-devices {
-  min-height: 70vh;
+  min-height: 500px;
   background-size: cover;
   background-repeat: no-repeat;
   background-color: #424242;

@@ -68,9 +68,11 @@ li {
     background: url(./images/horror-back.svg);
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: scroll;
     height: 400px;
     width: 100%;
+    max-width: 100%;
+    background-size: cover;
   }
   
   .logo-link {
@@ -78,7 +80,7 @@ li {
     font-family: 'MontserratBold';
     text-decoration: none;
     font-size: 30px;
-    top: 50px;
+    top: 75px;
     justify-content: center;
     max-height: 200px;
     width: 100%;
@@ -95,7 +97,7 @@ li {
       }
   
       @media (max-width: 690px)  {
-        top: 100px;
+        top: 130px;
       }
     }
   }

@@ -34,19 +34,27 @@
     justify-content: center;
     flex-wrap: wrap;
 
+    h3 {
+        font-size: 18px;
+    }
+
     & > * {
       width: 20%;
+      margin: 15px;
 
       @media(max-width: 1276px) {
-        width: 33%;
+        width: calc(33% - 40px);
       }
 
       @media(max-width: 870px) {
-        width: 31%;
+        width: calc(31% - 40px);
       }
 
       @media(max-width: 450px) {
-        width: 40%;
+        width: calc(40% - 20px);
+        h3 {
+            font-size: 14px;
+        }
       }
     }
   }
@@ -66,22 +74,15 @@
         max-width: 40px;
       }
     }
-  }
-}
 
-.advantagesIcon {
-  background: #353131cc;
-  padding: 20px;
-  border-radius: 19px;
-  max-width: 150px;
-  margin: 0 auto;
-  font-size: 16px;
-
-  @media(max-width: 870px) {
-    max-width: 120px;
-    font-size: 14px;
-    svg {
-      max-width: 40px;
-    }
+    @media(max-width: 400px) {
+        max-width: 80px;
+        font-size: 16px;
+        border-radius: 9px;
+        padding: 10px 0;
+        svg {
+          max-width: 30px;
+        }
+      }
   }
 }

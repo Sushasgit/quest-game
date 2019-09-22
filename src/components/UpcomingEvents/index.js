@@ -4,6 +4,7 @@ import styled, { withTheme } from 'styled-components';
 import './events.scss';
 import Icon from '../ui/Icon';
 import Title from '../ui/Title';
+import Description from '../ui/Description';
 
 const Events = styled.div`
     color: ${data => (data.theme ? data.theme.titleColor : '#fff')};
@@ -13,7 +14,8 @@ const Events = styled.div`
     flex-wrap: wrap;
 
     & svg {
-        max-width: 500px;   
+        max-width: 500px; 
+        margin: 0 auto;  
     }
 
   & > * {
@@ -22,26 +24,28 @@ const Events = styled.div`
 }
 `;
 
-const Description = styled.p`
-    color: ${data => (data.theme ? data.theme.textColor : '#fff')};
-    line-height: 36px;
-`;
+// const Description = styled.p`
+//     color: ${data => (data.theme ? data.theme.textColor : '#fff')};
+//     line-height: 36px;
+
+
+// `;
 
 
 const UpcomingEvents = () => {
-    return (
-        <Events className="wrapper events">
-            <div className="events__info">
-                <Title level={2}>
-                    Не получается собрать компанию чтобы поиграть?
-                </Title>
-                <Description>
-                Не беда! Приходите к нам на сборную игру! Сборная игра отличная возможность поиграть в большой команде, пообщаться с новыми людьми, завести новые знакомства, набраться положительных эмоций и впечатлений на длительное время!
-                </Description>
-            </div>
-            <Icon name="events" />
-        </Events>
-    );
+  return (
+    <Events className="wrapper events">
+      <div className="events__info">
+        <Title level={2}>
+          Не получается собрать компанию чтобы поиграть?
+        </Title>
+        <Description>
+          Не беда! Приходите к нам на сборную игру! Сборная игра отличная возможность поиграть в большой команде, пообщаться с новыми людьми, завести новые знакомства, набраться положительных эмоций и впечатлений на длительное время!
+        </Description>
+      </div>
+      <Icon name="events" />
+    </Events>
+  );
 };
 
 export default withTheme(UpcomingEvents);
