@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const StyledTag = styled.div`
   font-family: MontserratBold, sans-serif;
   font-size: ${props => (props.size === 'lg' ? '25px' : '14px')};
-  background-color:  ${props => (props.theme.titleColor)}
+  background-color:  ${props => (props.theme.themeType === 'light' ? props.theme.primaryBg : props.theme.titleColor)}
   background-size: contain;
   min-width: 50px;
   display: inline-block;
@@ -19,6 +19,11 @@ const StyledTag = styled.div`
   background-position: top 200px left;
   margin-right: 15px;
   margin-left: 15px;
+
+
+  @media(max-width: 800px) {
+    font-size: ${props => (props.size === 'lg' ? '18px' : '14px')};
+  }
 `;
 
 const Tag = ({ tag, primary, size, ...props }) => {

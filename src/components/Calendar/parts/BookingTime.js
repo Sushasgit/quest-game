@@ -5,7 +5,6 @@ import Button from '../../ui/Button';
 
 import { CARDS_DATA } from '../../../utils/constants';
 
-
 const HeadlineBlock = styled.div`
   background-color: ${data => (data.theme.calendar.hoverColor)};
   display:flex;
@@ -77,7 +76,6 @@ kind = () => {
 };
 
 render() {
-  console.log(this.props)
   let Booking = (
     <div className="booking_popup">
       <form className="booking_popup_form">
@@ -101,8 +99,16 @@ render() {
             <Input name="Email" />
           </InputBlock>
           <ButtonBlock>
-            <Button className="booking_popup_button_submit">Зарезервировать</Button>
-            <Button className="booking_popup_button_cancel" onClick={this.props.onClose}>Отменить</Button>
+            <button type="button" className="booking_popup_button_submit">
+                Зарезервировать
+            </button>
+            <button
+              type="button"
+              className="booking_popup_button_cancel"
+              onClick={this.props.onClose}
+            >
+                Отменить
+            </button>
           </ButtonBlock>
         </div>
       </form>

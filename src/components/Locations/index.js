@@ -45,7 +45,28 @@ const Location = styled.div`
 `;
 
 
-const LocationName = styled(Link)`
+const LocationName = styled.div`
+    background-color: ${data => (data.theme ? data.theme.primaryBg : '#fff')};
+    box-shadow: 0px 0px 4px 4px ${data => (data.theme ? '#333' : '#fff')};
+    color: ${props => (props.theme ? props.theme.textColor : '#fff')};
+    border: 2px solid;
+    font-size: 1em;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 22px;
+    line-height: 60px;
+    text-align: center;
+    transition: all .3s linear;
+
+    &:hover, 
+    &:focus {
+        color: ${props => (props.theme ? props.theme.primaryBg : '#fff')};
+        background-color: ${props => (props.theme ? props.theme.titleColor : '#fff')};
+    }
+`;
+
+const LocationLink = styled(Link)`
     background-color: ${data => (data.theme ? data.theme.primaryBg : '#fff')};
     box-shadow: 0px 0px 4px 4px ${data => (data.theme ? '#333' : '#fff')};
     color: ${props => (props.theme ? props.theme.textColor : '#fff')};
@@ -170,9 +191,9 @@ render() {
                           positionBottom={COORDINATES_LOCATION[index]['item.y']}
                           className={`${'location location'}${index}`}
                         >
-                          <LocationName to={`gallery/${item.id}`}>
+                          <LocationLink to={`gallery/${item.id}`}>
                             {`T ${index + 1}`}
-                          </LocationName>
+                          </LocationLink>
                         </Location>
                         <FotoBox
                           positionLeft={COORDINATES_LOCATION[index]['item.x2']}
@@ -205,7 +226,10 @@ Locations.defaultProps = {
 };
 
 Locations.propTypes = {
-  locations: PropTypes.oneOfType([]),
+  locations: PropTypes.oneOfType({
+    title: PropTypes.string,
+    list: PropTypes.array,
+  }),
 };
 
 export default withTheme(Locations);

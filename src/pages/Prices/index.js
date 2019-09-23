@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { withTheme } from 'styled-components';
 
 import Banner from '../../components/Banner';
 import Menu from '../../components/Menu';
@@ -12,9 +12,10 @@ import handLight from '../../images/hand-light.svg';
 
 import priceData from '../../data/prices.json';
 
-import './prices.scss';
 import Logo from '../../components/ui/Logo';
 import Footer from '../../components/Footer';
+
+import './prices.scss';
 
 const PriceList = styled.ul`
   color: ${data => (data.theme ? data.theme.textColor : '#fff')};
@@ -52,9 +53,9 @@ const ListItem = styled.li`
   text-align: left;
 `;
 
-const Prices = () => {
+const Prices = ({ theme }) => {
   return (
-    <div className="wrap">
+    <div style={{ backgroundColor: theme.primaryBg }} className="wrap">
       <Banner title="Стоимость">
         <Logo />
         <Menu />
@@ -71,31 +72,31 @@ const Prices = () => {
                 <Tabs.Tab id={item.id} title={item.name}>
                   <PriceList className="price">
                     {
-                        item.prices && item.prices.map(price => (
-                        <li key={price.id} className="price__card">
-                            <header className="price__header">
+                      item.prices && item.prices.map((price, index) => (
+                        <li key={index} className="price__card">
+                          <header className="price__header">
                             <Icon name={item.type} />
                             <PriceTitle className="price__title">{price.name}</PriceTitle>
                             <SubTitle className="price__amount">
-                                {`${price.price} грн`}
+                              {`${price.price} грн`}
                             </SubTitle>
-                            </header>
-                            <ul>
+                          </header>
+                          <ul>
                             {
-                                price.include && price.include.map((item, index) => (
+                              price.include && price.include.map((item, index) => (
                                 <React.Fragment key={index}>
-                                    <ListItem>
+                                  <ListItem>
                                     {item}
-                                    </ListItem>
+                                  </ListItem>
                                 </React.Fragment>
-                                ))
+                              ))
                             }
-                            </ul>
+                          </ul>
                         </li>
-                        ))
+                      ))
                     }
-                </PriceList>
-                <Footer />
+                  </PriceList>
+                  <Footer />
                 </Tabs.Tab>
               </React.Fragment>
             ))
@@ -106,4 +107,4 @@ const Prices = () => {
   );
 };
 
-export default Prices;
+export default withTheme(Prices);

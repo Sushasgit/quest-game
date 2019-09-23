@@ -1,29 +1,20 @@
 import React from 'react';
-import styled from 'styled-components';
-import Advantages from '../components/Advantages/Advantages';
 
+import Advantages from '../components/Advantages/Advantages';
 import Banner from '../components/Banner';
 import Menu from '../components/Menu';
-import Icon from '../components/ui/Icon';
+import Logo from '../components/ui/Logo';
 
+import advantages from '../data/advantagePlace';
 import data from '../data/mainPage.json';
 
 import '../components/Banner/banner.scss';
-
-const StyledLogo = styled.a`
-  color: ${props => (props.theme ? '#FFDC26' : '#fff')};
-  display: flex;
-  align-items: center;
-`;
 
 const Home = () => (
   <React.Fragment>
     <div className="wrap">
       <Banner main title={data.mainTitle}>
-        <StyledLogo main className="logo-link" href="/">
-          <Icon name="logo" />
-            Real Games
-        </StyledLogo>
+        <Logo main />
         <Menu />
       </Banner>
     </div>
@@ -31,6 +22,7 @@ const Home = () => (
       ourLocations={data.ourLocations}
       services={data.ourGames.services}
       gamesList={data.ourGames}
+      advantages={advantages}
     />
   </React.Fragment>
 );
