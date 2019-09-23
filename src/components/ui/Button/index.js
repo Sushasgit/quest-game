@@ -5,9 +5,6 @@ import {
   node,
   bool,
   string,
-  oneOfType,
-  oneOf,
-  func,
 } from 'prop-types';
 
 const propTypes = {
@@ -95,6 +92,7 @@ const Button = ({
   children,
   handleClick,
   as,
+  to,
   ...rest
 }) => (
   <StyledButton
@@ -103,6 +101,7 @@ const Button = ({
     btntype={btntype}
     {...rest}
     onClick={handleClick}
+    to={to}
   >
     {submitting && (
       <SpinnerWrapper>

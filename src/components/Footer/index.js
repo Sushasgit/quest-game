@@ -6,10 +6,11 @@ const StyledFooter = styled.footer`
     text-align: center;
     padding-top: 20px;
     padding-bottom: 10px;
-    margin-top: 10px;
     font-size: 16px;
     color: ${props => props.theme.titleColor};
     background-color: ${props => props.theme.primaryBg};
+    position: relative;
+    z-index: 200;
 `;
 
 const Footer = () => (

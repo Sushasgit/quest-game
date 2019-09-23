@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { ADVANTAGES_PLACE } from '../../utils/constants';
-
 import Description from '../ui/Description';
 
 import './advantages.scss';
@@ -23,8 +21,8 @@ const Advantage = styled.article`
     }
 `;
 
-const AdvantagesPlace = () => (
-  ADVANTAGES_PLACE.map(item => (
+const AdvantagesPlace = ({ advantages }) => (
+  advantages.map(item => (
     <Advantage key={item.id} className="advantage">
       <h3>{item.title}</h3>
       <Description align="center">

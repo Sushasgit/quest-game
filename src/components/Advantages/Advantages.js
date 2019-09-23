@@ -48,6 +48,7 @@ const Advantages = ({
   services,
   gamesList,
   ourLocations,
+  advantages,
   theme,
 }) => (
   <React.Fragment>
@@ -92,7 +93,7 @@ const Advantages = ({
           Преимущества
       </Title>
       <section className="flex wrapper">
-        <AdvantagesPlace />
+        <AdvantagesPlace advantages={advantages} />
       </section>
       <div
         style={{ filter: theme.themeType === 'light' ? 'grayscale(1)' : 'none' }}
