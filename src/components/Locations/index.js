@@ -58,12 +58,6 @@ const LocationName = styled.div`
     line-height: 60px;
     text-align: center;
     transition: all .3s linear;
-
-    &:hover, 
-    &:focus {
-        color: ${props => (props.theme ? props.theme.primaryBg : '#fff')};
-        background-color: ${props => (props.theme ? props.theme.titleColor : '#fff')};
-    }
 `;
 
 const LocationLink = styled(Link)`

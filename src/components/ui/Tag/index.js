@@ -23,16 +23,50 @@ const StyledTag = styled.div`
 
   @media(max-width: 800px) {
     font-size: ${props => (props.size === 'lg' ? '18px' : '14px')};
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+`;
+
+const TopStyleTag = styled.div`
+  font-family: MontserratBold, sans-serif;
+  font-size: ${props => (props.size === 'lg' ? '25px' : '14px')};
+  background-color: #FA0808;
+  background-size: contain;
+  min-width: 50px;
+  display: inline-block;
+  min-height: 25px;
+  border: 2px solid #FA0808;
+  border-radius: 4px;
+  padding: 0 5px;
+  padding: ${props => (props.size === 'lg' ? '10px' : '0 5px')};
+  transform: ${props => (props.size === 'lg' ? '' : '0 5px')};
+  color: #fff;
+  background-position: top 200px left;
+  margin-right: 15px;
+  margin-left: 15px;
+
+
+  @media(max-width: 800px) {
+    font-size: ${props => (props.size === 'lg' ? '18px' : '14px')};
+    margin-right: 5px;
+    margin-left: 5px;
   }
 `;
 
 const Tag = ({ tag, primary, size, ...props }) => {
   const { children } = props;
   return (
-    <StyledTag size={size} data={tag}>
+    tag === 'TOP' ? (
+      <TopStyleTag size={size} data={tag}>
+        {children}
+      </TopStyleTag>
+    ) : (
+      <StyledTag size={size} data={tag}>
       {children}
     </StyledTag>
-  );
+  )
+  )
 };
 
 Tag.defaultProps = {

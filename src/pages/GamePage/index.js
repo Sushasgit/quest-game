@@ -110,7 +110,7 @@ class PaintballKids extends React.Component {
     return (
       <div>
         <div style={{ backgroundColor: theme.primaryBg }} className="wrap">
-          <Banner title={game.mainTitle}>
+          <Banner type={game.type} title={game.mainTitle}>
             <Logo />
             <Menu />
           </Banner>
@@ -168,7 +168,7 @@ class PaintballKids extends React.Component {
                   </div>
                 )
                 }
-              <div style={{ marginTop: '20px', minHeight: '100vh'}}>
+              <div style={{ marginTop: '20px', minHeight: '850px' }}>
                 <Title level={3}>
                     Галерея
                 </Title>
