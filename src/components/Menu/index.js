@@ -9,17 +9,25 @@ import menuData from '../../data/menu-links.json';
 
 import './menu.scss';
 
-const StyledLink = styled(Link)`
+const LinkTitle = styled.span`
+  color: ${props => (props.theme ? props.theme.menu.titleColor : '#fff')};
+  transform: translateX(300%);
+  display: inline-block;
+`;
+
+const StyledIcon = styled.div`
   color: ${props => (props.theme ? props.theme.menu.textColor : '#fff')};
   background-color: ${props => (props.theme ? props.theme.menu.bgColor : '#fff')};
   box-shadow: 0px 0px 4px 4px ${props => (props.theme ? props.theme.menu.textColor : '#fff')};
-  &:hover {
-    opacity: 0.4;
-  }
-`;
-
-const LinkTitle = styled.span`
-  color: ${props => (props.theme ? props.theme.menu.titleColor : '#fff')};
+  display: inline-block;
+  width: 55px;
+  height: 55px;
+  text-align: center;
+  padding: 12px;
+  border-radius: 50%;
+  transition: all 1s linear;
+  margin-right: 20px;
+  margin-bottom: 10px;
 `;
 
 const Menu = () => (
@@ -28,10 +36,12 @@ const Menu = () => (
       {
         menuData && menuData.map(item => (
           <li key={item.id} className="menu__link">
-            <StyledLink to={item.url}>
-              <Icon name={item.iconName} />
-            </StyledLink>
-            <LinkTitle>{item.name}</LinkTitle>
+            <Link to={item.url}>
+              <StyledIcon>
+                <Icon name={item.iconName} />
+              </StyledIcon>
+              <LinkTitle>{item.name}</LinkTitle>
+            </Link>
           </li>
         ))
       }

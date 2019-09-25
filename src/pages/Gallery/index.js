@@ -14,6 +14,7 @@ import data from '../../data/mainPage.json';
 import generalGallery from '../../data/generalGallery.json';
 
 import './gallery.scss';
+import Footer from '../../components/Footer';
 
 class GalleryModal extends Component {
   styleSmall = () => ({
@@ -23,27 +24,30 @@ class GalleryModal extends Component {
   });
 
   render() {
-    const { match } = this.props;
+    const { match, theme } = this.props;
     const id = match.params.id;
     const location = id === 'all' ? generalGallery : data.ourLocations.list.find(item => item.id === +id);
     return (
-      <div className="wrap">
-        <Banner title="Галерея">
-          <Logo />
-          <Menu />
-        </Banner>
-        <BackgroundWrapper withBuildings>
-          <section className="wrapper bg">
-            <Title level={2} primary>
-              {location.title}
-            </Title>
+      <div>
+        <div style={{ backgroundColor: theme.primaryBg }} className="wrap">
+          <Banner title="Галерея">
+            <Logo />
+            <Menu />
+          </Banner>
+          <BackgroundWrapper withBuildings>
+            <section className="wrapper bg">
+              <Title level={2} primary>
+                {location.title}
+              </Title>
 
-            <Gallery
-              thumbnailStyle={this.styleSmall}
-              images={location ? location.images : []}
-            />
-          </section>
-        </BackgroundWrapper>
+              <Gallery
+                thumbnailStyle={this.styleSmall}
+                images={location ? location.images : []}
+              />
+            </section>
+          </BackgroundWrapper>
+        </div>
+        <Footer />
       </div>
     );
   }

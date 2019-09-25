@@ -56,10 +56,13 @@
 }
 
 .menu__link {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-  
+  &:hover div {
+    transform: translateX(0);
+  }
+
+  &:hover span {
+    transform: translateX(0);
+  }
 
   span {
     margin-left: 10px;
@@ -67,30 +70,20 @@
 }
 
 .menu__link a {
-  transform: translateX(300%);
-  display: inline-block;
-  width: 55px;
-  height: 55px;
-  text-align: center;
-  padding: 12px;
-  border-radius: 50%;
-  transition: all 1s linear;
-  margin-right: 20px;
+  display: flex;
+  align-items: center;
   margin-bottom: 10px;
+  text-decoration: none;
+}
+
+.menu__link div {
+  transform: translateX(160px);
 }
 
 .menu__link span {
   vertical-align: middle;
+  display: inline-block;
   transform: translateX(300%);
   transition: all 1s ease-in-out;
 }
 
-.menu__link:hover > span {
-    transform: translateX(0);
-    display: inline-block;
-    margin: 0;
-}
-
-.menu__link:hover a{
-  transform: translateX(0);
-}

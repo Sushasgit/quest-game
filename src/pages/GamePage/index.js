@@ -1,5 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { withTheme } from 'styled-components';
+import Gallery from 'react-grid-gallery';
 
 import Banner from '../../components/Banner';
 import Menu from '../../components/Menu';
@@ -9,34 +10,38 @@ import Tag from '../../components/ui/Tag';
 
 import handDark from '../../images/hand-dark.svg';
 import handLight from '../../images/hand-light.svg';
-import Calendar from '../../components/Calendar';
 import Footer from '../../components/Footer';
-
-import gallary1 from '../../images/gallery/quadro-gallery.jpg';
-import gallary2 from '../../images/gallery/quadro-gallery2.jpg';
-
-import '../../components/Advantages/advantages.scss';
 import Logo from '../../components/ui/Logo';
-import Gallery from 'react-grid-gallery';
 
 import images from '../../data/images.json';
-import data from '../../data/kids.json';
+import data from '../../data/games.json';
+
+import '../../components/Advantages/advantages.scss';
+import './game-page.scss';
 
 const Description = styled.p`
   text-align: center;
-  font-size: 1.2em;
+  font-size: 22px;
   line-height: 1.8em;
   margin: 40px 0;
   color: ${data => (data.theme ? data.theme.textColor : '#fff')};
+
+  @media(max-width: 800px) {
+    font-size: 16px;
+}
 `;
 
 const List = styled.ul`
   color: ${data => (data.theme ? data.theme.textColor : '#fff')};
   margin: 0;
+
+  @media(max-width: 800px) {
+    margin: 40px 0;
+}
 `;
 
 const ListItem = styled.li`
-  font-size: 1em;
+  font-size: 22px;
   padding-left: 1.5em;
   background-image: ${data => (data.theme && data.theme.themeType === 'light' ? `url(${handDark})` : `url(${handLight})`)};
   background-repeat: no-repeat;
@@ -44,26 +49,14 @@ const ListItem = styled.li`
   background-position: 0;
   margin-bottom: 15px;
   line-height: 1.7em;
+
+    @media(max-width: 800px) {
+        font-size: 16px;
+    }
 `;
 
 const TagsList = styled.div`
   text-align: center;
-`;
-
-const Advantage = styled.article`
-  color: ${data => (data.theme ? data.theme.textColor : '#fff')};
-  background: ${data => (data.theme ? data.theme.primaryBg : '#fff')};
-
-
-  &::before{
-    border-top: 5px solid ${data => (data.theme ? data.theme.titleColor : '#fff')};
-    border-left: 5px solid ${data => (data.theme ? data.theme.titleColor : '#fff')};
-  }
-
-  &::after {
-    border-bottom: 5px solid ${data => (data.theme ? data.theme.titleColor : '#fff')};
-    border-right: 5px solid ${data => (data.theme ? data.theme.titleColor : '#fff')};
-  }
 `;
 
 const ArticleDescription = styled.p`
@@ -71,7 +64,13 @@ const ArticleDescription = styled.p`
   margin: 0;
   color: ${data => (data.theme ? data.theme.textColor : '#fff')};
   line-height: 1.7em;
-  font-size: 1em;
+  font-size: 22px;
+
+
+  @media(max-width: 800px) {
+      margin: 40px 0;
+      font-size: 18px;
+  }
 `;
 
 const Row = styled.article`
@@ -95,84 +94,93 @@ const styleSmall = () => ({
 });
 
 class PaintballKids extends React.Component {
-    render() {
-        const { match } = this.props;
-        const gameType = match.params.type;
-        const game = gameType ? data.find(item => item.type === gameType) : [];
-        console.log(game)
-        return(
-            <div className="wrap">
-            <Banner title={game.mainTitle}>
-              <Logo />
-              <Menu />
-            </Banner>
-            <BackgroundWrapper withBuildings>
-              <section className="wrapper">
-                <Title level={3}>
-                  {game.subTitle}
-                </Title>
-                <Description>
-                  {game.mainDescription}
-                </Description>
-                {
-                    game.ready ? (
-                        game && game.rows.map(item => (
-                            <Row>
-                                <div>
-                                <Title level={3}>
-                                    {item.title}
-                                </Title>
+// TODO Когда будут апи ендпоинты сделать тут запрос данных
+  componentDidMount() {
+    // axios.get(`https://...`)
+    //   .then(res => {
+    //     const data = res.data;
+    //     this.setState({ data });
+    //   })
+  }
+
+  render() {
+    const { match, theme } = this.props;
+    const gameType = match.params.type;
+    const game = gameType ? data.find(item => item.type === gameType) : [];
+    return (
+      <div>
+        <div style={{ backgroundColor: theme.primaryBg }} className="wrap">
+          <Banner type={game.type} title={game.mainTitle}>
+            <Logo />
+            <Menu />
+          </Banner>
+          <BackgroundWrapper withBuildings>
+            <section className="wrapper">
+              <Title level={3}>
+                {game.subTitle}
+              </Title>
+              <Description>
+                {game.mainDescription}
+              </Description>
+              {
+                game.ready ? (
+                  game && game.rows.map(item => (
+                    <Row>
+                      <div>
+                        <Title level={3}>
+                          {item.title}
+                        </Title>
                         <TagsList>
-                        {
-                                        item.tags ? (
-                                          item.tags.map((tag, index) => (
-                                            <Tag key={index} tag={tag}>
-                                              {`#${tag}`}
-                                            </Tag>
-                                          ))
-                                        ) : null
-                                    }
+                          {
+                            item.tags ? (
+                              item.tags.map((tag, index) => (
+                                <Tag key={index} tag={tag}>
+                                  {`#${tag}`}
+                                </Tag>
+                              ))
+                            ) : null
+                          }
                         </TagsList>
                       </div>
                       <List>
-                      {
-                                        item.list ? (
-                                          item.list.map((listItem, index) => (
-                                            <ListItem>
-                                            {listItem.desc}
-                                        </ListItem>
-                                          ))
-                                        ) : null
-                                    }
+                        {
+                          item.list ? (
+                            item.list.map(listItem => (
+                              <ListItem>
+                                {listItem.desc}
+                              </ListItem>
+                            ))
+                          ) : null
+                        }
                       </List>
                       <ArticleDescription>
-                            {item.advantage}
+                        {item.advantage}
                       </ArticleDescription>
-                            </Row>
-                            ))
-                    ) : (
-                        <div>
-                                <div>
-                            <Tag tag="Квест в разработке" size="lg">Квест в разработке</Tag>
-                             <ArticleDescription>Мы готовим для Вас что- то очень интересное. Следите за обновлениями!</ArticleDescription>
-                             </div>
-                        </div>
-                    )
+                    </Row>
+                  ))
+                ) : (
+                  <div className="notReady">
+                    <Tag tag="Квест в разработке" size="lg"> #Квест в разработке</Tag>
+                    <ArticleDescription>
+                        Мы готовим для Вас что- то очень интересное.
+                        Следите за обновлениями!
+                    </ArticleDescription>
+                  </div>
+                )
                 }
-                
-                <div style={{ marginTop: '20px', minHeight: '100vh', marginBottom: '80px' }}>
+              <div style={{ marginTop: '20px', minHeight: '850px' }}>
                 <Title level={3}>
-                    Галерея 
+                    Галерея
                 </Title>
                 <Gallery thumbnailStyle={styleSmall} images={images} />
-                </div>
-                <Footer />
-                      
-              </section>
-            </BackgroundWrapper>
-          </div>
-        );
-    }
+              </div>
+            </section>
+          </BackgroundWrapper>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
 }
 
-export default PaintballKids;
+export default withTheme(PaintballKids);

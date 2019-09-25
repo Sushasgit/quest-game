@@ -8,6 +8,7 @@ import { darkTheme, lightTheme } from './styles/theme';
 import asyncComponent from './components/AsyncComponent';
 import Icon from './components/ui/Icon';
 import ScrollToTop from './components/ScrollToTop';
+import Switch from './components/ui/Switch';
 
 import './App.scss';
 
@@ -16,56 +17,6 @@ const AsyncPrices = asyncComponent(() => import('./pages/Prices'));
 const AsyncOurGames = asyncComponent(() => import('./pages/OurGames'));
 const AsyncGallery = asyncComponent(() => import('./pages/Gallery'));
 const AsyncKids = asyncComponent(() => import('./pages/GamePage'));
-
-const CheckBoxWrapper = styled.div`
-  position: fixed;
-  z-index: 100;
-  display: flex;
-  alignItems: center;
-  color: ${props => props.theme.toggleButton.textColor};
-  margin: 10px;
-`;
-
-const CheckBoxLabel = styled.label`
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 42px;
-    height: 26px;
-    border-radius: 15px;
-    background: #bebebe;
-    cursor: pointer;
-    &::after {
-        content: "";
-        display: block;
-        border-radius: 50%;
-        width: 18px;
-        height: 18px;
-        margin: 3px;
-        background: #ffffff;
-        box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.2);
-        transition: 0.2s;
-  }
-`;
-const CheckBox = styled.input`
-    opacity: 0;
-    z-index: 1;
-    border-radius: 15px;
-    width: 42px;
-    height: 26px;
-    &:checked + ${CheckBoxLabel} {
-        background: ${props => props.theme.toggleButton.bgColor};
-    &::after {
-        content: "";
-        display: block;
-        border-radius: 50%;
-        width: 18px;
-        height: 18px;
-        margin-left: 21px;
-        transition: 0.2s;
-    }
-  }
-`;
 
 const PhoneIcon = styled.a`
     position: fixed;
@@ -88,41 +39,25 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isDay: true,
       theme: darkTheme,
     };
 
-    this.handleClick = this.handleClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleClick(e) {
-    e.preventDefault();
-    const isDay = !this.state.isDay;
-
+  handleChange(checked) {
     this.setState({
-      isDay,
-      theme: isDay ? darkTheme : lightTheme,
+      theme: checked ? darkTheme : lightTheme,
     });
   }
 
   render() {
-    const { theme, isDay } = this.state;
+    const { theme } = this.state;
     return (
       <React.Fragment>
 
         <GlobalStyles />
-        <CheckBoxWrapper theme={theme} onChange={(e) => { this.handleClick(e); }}>
-          <CheckBox
-            role="switch"
-            aria-checked={isDay}
-            theme={theme}
-            id="checkbox"
-            type="checkbox"
-            defaultChecked={isDay}
-          />
-          <CheckBoxLabel htmlFor="checkbox" />
-          Dark theme
-        </CheckBoxWrapper>
+        <Switch defaultValue={true} onChange={this.handleChange} />
         <ThemeProvider theme={theme}>
           <Router>
             <ScrollToTop>
