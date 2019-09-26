@@ -1,13 +1,13 @@
 [
     {
         "id": 1,
-        "name": "Цены",
+        "name": "Наши цены",
         "iconName": "priceMenu",
         "url": "/prices"
     },
     {
         "id": 2,
-        "name": "Игры",
+        "name": "Наши игры",
         "iconName": "gameMenu",
         "url": "/games"
     },

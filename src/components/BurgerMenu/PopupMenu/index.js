@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
+import data from '../../../data/menu-links.json';
+
 import './popup.scss';
 
 
@@ -9,12 +12,12 @@ const NavbarList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  background-color: ${data => (data.theme ? data.theme.contactForm.bgForm : '#fff')};
+  background-color: ${props => (props.theme ? props.theme.contactForm.bgForm : '#fff')};
   padding: 10px;
 `;
 
 const LinkStyled = styled(Link)`
-  color: ${data => (data.theme ? data.theme.titleColor : '#fff')};
+  color: ${props => (props.theme ? props.theme.titleColor : '#fff')};
   transition: opacity 0.3s linear; 
 
   &:hover {
@@ -22,21 +25,18 @@ const LinkStyled = styled(Link)`
   }
 `;
 
-const PopupMenu = ({ onClick, mobile }) => {
+const PopupMenu = ({ mobile }) => {
   const linksColorModifier = mobile ? 'has-text-link' : 'has-text-white';
   const styleClasses = `navbar__link ${linksColorModifier}`;
   return (
     <NavbarList className="navbar__list">
-      <li className={styleClasses}>
-        <LinkStyled onClick={onClick} to="/prices">Цены</LinkStyled>
-      </li>
-      <li className={styleClasses}>
-        <LinkStyled onClick={onClick} to="/games">Игры</LinkStyled>
-      </li>
-
-      <li className={styleClasses}>
-        <LinkStyled onClick={onClick} to="/gallery/all">Галерея</LinkStyled>
-      </li>
+      {
+        data && data.map(item => (
+          <li className={styleClasses}>
+            <LinkStyled to={item.url}>{item.name}</LinkStyled>
+          </li>
+        ))
+      }
     </NavbarList>
   );
 };
@@ -46,7 +46,6 @@ PopupMenu.defaultProps = {
 };
 
 PopupMenu.propTypes = {
-  onClick: PropTypes.func.isRequired,
   mobile: PropTypes.bool,
 };
 

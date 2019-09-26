@@ -69,7 +69,7 @@ class App extends Component {
             </ScrollToTop>
           </Router>
         </ThemeProvider>
-        <PhoneIcon theme={theme} href="tel:+380935434241">
+        <PhoneIcon aria-label="Связаться с нами" theme={theme} href="tel:+380935434241">
           <Icon name="phone" />
         </PhoneIcon>
       </React.Fragment>
