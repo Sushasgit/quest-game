@@ -199,6 +199,7 @@ render() {
                             images={item.images}
                             size="sm"
                             img={item.src}
+                            title={item.title}
                           />
                         </FotoBox>
                       </article>

@@ -6,6 +6,7 @@ const StyledLogo = styled.a`
   color: ${props => (props.theme ? '#FFDC26' : '#fff')};
   display: flex;
   align-items: center;
+  text-shadow: ${props => (props.theme.themeType === 'light' ? '3px 4px 5px #000' : 'none')}; 
 `;
 
 const Logo = ({ main }) => (

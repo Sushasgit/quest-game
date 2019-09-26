@@ -23,7 +23,7 @@ const CardTitle = styled.h3`
   text-shadow: 3px 4px 5px ${props => (
     props.theme.themeType === 'dark'
       ? '#000'
-      : 'none'
+      : '#ccc'
   )};
   position: relative;
   line-height: 24px;
@@ -39,12 +39,12 @@ const CardsList = ({
       gamesList && gamesList.title
         ? (
           <>
-            <Title primary level={2}> 
-            {gamesList.title} 
+            <Title primary level={2}>
+              {gamesList.title} 
             </Title>
 
             <Description align="center">
-              Real Games - это место, где кровь в жилах будет бежать быстрее.
+                Real Games - это место, где кровь в жилах будет бежать быстрее.
                 Адреналин, который Вы испытаете у нас – заставит возвращаться снова и снова. 
                 Мы всегда рады  подарить Вам взрывные эмоции
             </Description>
@@ -79,8 +79,9 @@ const CardsList = ({
                                                         )))
                                                         : null
                                                 }
+                                                {console.log(game, item)}
 
-                                                <RippedCard view="game" img={game.posterImg} type={item.type}/>
+                                                <RippedCard view="game" img={game.posterImg} title={game.title} type={item.type}/>
                                             </Link>
                                             <Button to={`${game.url}`} className="card__link">
                                                 Подробнее
@@ -112,7 +113,7 @@ const CardsList = ({
                                                     : null
                                             }
 
-                                            <RippedCard view="game" img={game.posterImg}
+                                            <RippedCard  title={game.title} view="game" img={game.posterImg}
                                                 // type={item.type}
                                             />
                                         </Link>
