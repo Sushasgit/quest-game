@@ -27,7 +27,7 @@ const Description = styled.p`
   color: ${data => (data.theme ? data.theme.textColor : '#fff')};
 
   @media(max-width: 800px) {
-    font-size: 16px;
+    font-size: 18px;
 }
 `;
 
@@ -51,7 +51,7 @@ const ListItem = styled.li`
   line-height: 1.7em;
 
     @media(max-width: 800px) {
-        font-size: 16px;
+        font-size: 18px;
     }
 `;
 
@@ -60,7 +60,7 @@ const TagsList = styled.div`
 `;
 
 const ArticleDescription = styled.p`
-  text-align: left;
+  text-align: center;
   margin: 0;
   color: ${data => (data.theme ? data.theme.textColor : '#fff')};
   line-height: 1.7em;

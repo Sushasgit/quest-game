@@ -31,12 +31,12 @@ const StyledTag = styled.div`
 const TopStyleTag = styled.div`
   font-family: MontserratBold, sans-serif;
   font-size: ${props => (props.size === 'lg' ? '25px' : '14px')};
-  background-color: #FA0808;
+  background-color: #B40017;
   background-size: contain;
   min-width: 50px;
   display: inline-block;
   min-height: 25px;
-  border: 2px solid #FA0808;
+  border: 2px solid #B40017;
   border-radius: 4px;
   padding: 0 5px;
   padding: ${props => (props.size === 'lg' ? '10px' : '0 5px')};
