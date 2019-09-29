@@ -9,6 +9,7 @@ import southPort from './south-port.png';
 import hilty from './hilty-logo.svg';
 import quarnuts from './quarnuts.svg';
 import MT from './mt-logo.svg';
+import vertical from './vertical-logo.svg';
 
 import Title from '../ui/Title';
 import './clients.scss';
@@ -45,6 +46,9 @@ const OurClients = () => (
       </li>
       <li className="card-client">
         <img src={MT} alt="MT logo" />
+      </li>
+      <li className="card-client">
+        <img src={vertical} alt="Vertical logo" />
       </li>
     </ul>
   </React.Fragment>

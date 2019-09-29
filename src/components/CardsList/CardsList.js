@@ -40,7 +40,7 @@ const CardsList = ({
         ? (
           <>
             <Title primary level={2}>
-              {gamesList.title} 
+              {gamesList.title}
             </Title>
 
             <Description align="center">
@@ -56,8 +56,8 @@ const CardsList = ({
         {
             main
                 ? (gamesList && gamesList.games.map((item, index) => (
-                    <div key={index} className="game-card">
-                        <Title primary="primary" level={2}>
+                    <div key={`${index}${item.type}`} className="game-card">
+                        <Title primary level={2}>
                             {item.subTitle}
                         </Title>
                         <ul className="cards">
@@ -65,21 +65,20 @@ const CardsList = ({
                                 item
                                     .gameTypes
                                     .map((game, index) => (
-                                        <li key={index}>
+                                        <li key={`${index}${game.url}`}>
                                             <Link to={`${game.url}`} className="cards__item">
                                                 <CardTitle className="card__title">
                                                     {game.title}
                                                 </CardTitle>
                                                 {
                                                     game.tags
-                                                        ? (game.tags.map(tag => (
-                                                            <Tag key={tag.id} tag={tag.title}>
+                                                        ? (game.tags.map((tag, index) => (
+                                                            <Tag key={index} tag={tag.title}>
                                                                 {`#${tag.title}`}
                                                             </Tag>
                                                         )))
                                                         : null
                                                 }
-                                                {console.log(game, item)}
 
                                                 <RippedCard view="game" img={game.posterImg} title={game.title} type={item.type}/>
                                             </Link>
@@ -98,22 +97,22 @@ const CardsList = ({
                             game && game
                                 .gameTypes
                                 .map((game, index) => (
-                                    <li key={index}>
+                                    <li key={`${index}${game.url}`}>
                                         <Link to={`${game.url}`} className="cards__item">
                                             <CardTitle className="card__title">
                                                 {game.title}
                                             </CardTitle>
                                             {
                                                 game.tags
-                                                    ? (game.tags.map(tag => (
-                                                        <Tag key={tag.id} tag={tag.title}>
+                                                    ? (game.tags.map((tag, index) => (
+                                                        <Tag key={index} tag={tag.title}>
                                                             {`#${tag.title}`}
                                                         </Tag>
                                                     )))
                                                     : null
                                             }
 
-                                            <RippedCard  title={game.title} view="game" img={game.posterImg}
+                                            <RippedCard title={game.title} view="game" img={game.posterImg}
                                                 // type={item.type}
                                             />
                                         </Link>

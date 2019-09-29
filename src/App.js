@@ -12,7 +12,7 @@ import Switch from './components/ui/Switch';
 
 import './App.scss';
 
-const AsyncHome = asyncComponent(() => import('./pages/Home'));
+const AsyncHome = asyncComponent(() => import(/* webpackPrefetch: true */ './pages/Home'));
 const AsyncPrices = asyncComponent(() => import('./pages/Prices'));
 const AsyncOurGames = asyncComponent(() => import('./pages/OurGames'));
 const AsyncGallery = asyncComponent(() => import('./pages/Gallery'));

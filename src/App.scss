@@ -68,11 +68,14 @@ li {
     background: url(./images/horror-back.svg);
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: scroll;
     height: 400px;
     width: 100%;
     max-width: 100%;
     background-size: cover;
+
+    @media (max-width: 750px)  {
+      background-attachment: unset;
+    }
   }
   
 .logo-link {

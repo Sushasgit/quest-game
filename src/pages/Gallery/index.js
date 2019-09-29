@@ -58,7 +58,7 @@ GalleryModal.defaultProps = {
 };
 
 GalleryModal.propTypes = {
-  match: PropTypes.oneOfType({}),
+  match: PropTypes.oneOfType([]),
 };
 
 

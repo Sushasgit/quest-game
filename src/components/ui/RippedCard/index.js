@@ -39,7 +39,6 @@ const RippedCard = ({
         className="card__btn"
         to={`gallery/${id}`}
       >
-        {console.log(title)}
         <img className={`card card--${type} card--${size}`} src={img} alt={title} />
       </Link>
     )
