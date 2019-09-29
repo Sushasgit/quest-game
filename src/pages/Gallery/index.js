@@ -43,6 +43,7 @@ class GalleryModal extends Component {
               <Gallery
                 thumbnailStyle={this.styleSmall}
                 images={location ? location.images : []}
+                enableImageSelection={false}
               />
             </section>
           </BackgroundWrapper>
