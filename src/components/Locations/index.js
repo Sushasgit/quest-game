@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import styled, { withTheme } from 'styled-components';
 import ConnectElements from 'react-connect-elements';
 
@@ -165,7 +164,7 @@ render() {
                 <ul className="locations__list wrapper">
                   {
                     locations.list.map((item, index) => (
-                      <li key={item.id} className="locations__name">
+                      <li key={index} className="locations__name">
                         <LocationName>
                           {`T ${index + 1}`}
                         </LocationName>
@@ -179,7 +178,7 @@ render() {
                 <div className="locations__scheme">
                   {
                     locations.list.map((item, index) => (
-                      <article key={item.id}>
+                      <article key={index}>
                         <Location
                           positionLeft={COORDINATES_LOCATION[index]['item.x']}
                           positionBottom={COORDINATES_LOCATION[index]['item.y']}
@@ -218,13 +217,6 @@ render() {
 
 Locations.defaultProps = {
   locations: [],
-};
-
-Locations.propTypes = {
-  locations: PropTypes.oneOfType({
-    title: PropTypes.string,
-    list: PropTypes.array,
-  }),
 };
 
 export default withTheme(Locations);

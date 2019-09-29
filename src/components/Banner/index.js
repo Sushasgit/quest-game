@@ -152,7 +152,6 @@ class Banner extends Component {
       type,
       main,
     } = this.props;
-    console.log(type)
     return (
       <React.Fragment>
         <Observed

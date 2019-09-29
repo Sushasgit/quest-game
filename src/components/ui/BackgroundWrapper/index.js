@@ -61,12 +61,14 @@ BackgroundWrapper.defaultProps = {
   fixed: false,
   withBuildings: false,
   children: null,
+  mobileBanner: false,
 };
 
 BackgroundWrapper.propTypes = {
   withBuildings: PropTypes.bool,
   primary: PropTypes.bool,
   fixed: PropTypes.bool,
+  mobileBanner: PropTypes.bool,
 
   children: PropTypes.oneOfType([
     PropTypes.string,
