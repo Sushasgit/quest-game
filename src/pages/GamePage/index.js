@@ -172,7 +172,11 @@ class PaintballKids extends React.Component {
                 <Title level={3}>
                     Галерея
                 </Title>
-                <Gallery thumbnailStyle={styleSmall} images={images} />
+                <Gallery
+                  enableImageSelection={false}
+                  thumbnailStyle={styleSmall}
+                  images={images}
+                />
               </div>
             </section>
           </BackgroundWrapper>
