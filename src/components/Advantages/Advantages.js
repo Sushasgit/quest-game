@@ -76,8 +76,8 @@ const Advantages = ({
         </Description>
         <ul className="advantage__place">
           {
-            services && services.map(item => (
-              <ListItem key={item.id}>
+            services && services.map((item, index) => (
+              <ListItem key={index}>
                 <div className="advantage__icon">
                   <ListItemIcon name={item.iconName} />
                 </div>
