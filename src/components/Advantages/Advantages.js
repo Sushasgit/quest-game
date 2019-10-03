@@ -58,6 +58,7 @@ const Advantages = ({
     <BackgroundWrapper>
       <UpcomingEvents />
     </BackgroundWrapper>
+    <div style={{minHeight: '400px', backgroundColor: "#242424"}} />
     <BackgroundWrapper>
       <MediumAndDown>
         <LocationSmallDevices locations={ourLocations} />
