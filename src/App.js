@@ -17,6 +17,7 @@ const AsyncPrices = asyncComponent(() => import('./pages/Prices'));
 const AsyncOurGames = asyncComponent(() => import('./pages/OurGames'));
 const AsyncGallery = asyncComponent(() => import('./pages/Gallery'));
 const AsyncKids = asyncComponent(() => import('./pages/GamePage'));
+const AsyncEvents = asyncComponent(() => import('./pages/Events'));
 
 const PhoneIcon = styled.a`
     position: fixed;
@@ -66,7 +67,7 @@ class App extends Component {
               <Route path="/games" component={AsyncOurGames} />
               <Route path="/gallery/:id" component={AsyncGallery} />
               <Route path="/game/:type" component={AsyncKids} />
-              {/* <Route path="/game/gallery/:id" component={AsyncGallery} /> */}
+              <Route path="/events" component={AsyncEvents} />
             </ScrollToTop>
           </Router>
         </ThemeProvider>

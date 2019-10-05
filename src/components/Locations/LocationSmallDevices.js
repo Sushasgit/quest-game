@@ -47,7 +47,7 @@ const TitleLocation = styled.h4`
     font-size: 18px;
     position: absolute;
     left: 80px;
-    top: 0;
+    top: 15px;
   }
 `;
 

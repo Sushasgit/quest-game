@@ -35,8 +35,6 @@ class GalleryModal extends Component {
   render() {
     const { match, theme } = this.props;
     const id = match.params.id;
-
-    console.log(this.props)
     const location = id === 'all' ? generalGallery : data.ourLocations.list.find(item => item.id === +id);
     return (
       <div>

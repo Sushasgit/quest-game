@@ -44,7 +44,6 @@ const Location = styled.div`
     }
 `;
 
-
 const LocationName = styled.div`
     background-color: ${data => (data.theme ? data.theme.primaryBg : '#fff')};
     box-shadow: 0px 0px 4px 4px ${data => (data.theme ? '#333' : '#fff')};
