@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import styled, { withTheme } from 'styled-components';
 import Gallery from 'react-grid-gallery';
 
@@ -10,14 +11,26 @@ import Tag from '../../components/ui/Tag';
 
 import handDark from '../../images/hand-dark.svg';
 import handLight from '../../images/hand-light.svg';
-import Footer from '../../components/Footer';
+
 import Logo from '../../components/ui/Logo';
+import Locations from '../../components/Locations';
+import LocationSmallDevices from '../../components/Locations/LocationSmallDevices';
+import OurServices from '../../components/OurServices';
+import ContactForm from '../../components/ContactForm';
 
 import images from '../../data/images.json';
 import data from '../../data/games.json';
+import main from '../../data/mainPage.json';
+
+import {
+  LargeAndUp,
+  MediumAndDown,
+} from '../../utils/break-points';
 
 import '../../components/Advantages/advantages.scss';
 import './game-page.scss';
+import PriceTabs from '../../components/PriceTabs';
+import GamesTabs from '../../components/GamesTabs';
 
 const Description = styled.p`
   text-align: center;
@@ -124,8 +137,8 @@ class PaintballKids extends React.Component {
               </Description>
               {
                 game.ready ? (
-                  game && game.rows.map(item => (
-                    <Row>
+                  game && game.rows.map((item, index) => (
+                    <Row key={index}>
                       <div>
                         <Title level={3}>
                           {item.title}
@@ -168,7 +181,8 @@ class PaintballKids extends React.Component {
                   </div>
                 )
                 }
-              <div style={{ marginTop: '20px', minHeight: '850px' }}>
+
+              <div style={{ marginTop: '20px', minHeight: '950px' }}>
                 <Title level={3}>
                     Галерея
                 </Title>
@@ -181,10 +195,29 @@ class PaintballKids extends React.Component {
             </section>
           </BackgroundWrapper>
         </div>
-        <Footer />
+        <BackgroundWrapper>
+          <MediumAndDown>
+            <LocationSmallDevices locations={main.ourLocations} />
+          </MediumAndDown>
+          <LargeAndUp>
+            <Locations locations={main.ourLocations} />
+          </LargeAndUp>
+        </BackgroundWrapper>
+        <BackgroundWrapper>
+          <OurServices services={main.ourGames.services} />
+          <Title primary level={2}>
+            Наши цены
+          </Title>
+          <PriceTabs />
+          <Title primary level={2}>
+            Наши игры
+          </Title>
+          <GamesTabs />
+          <ContactForm />
+        </BackgroundWrapper>
       </div>
     );
   }
 }
 
-export default withTheme(PaintballKids);
+export default withRouter(withTheme(PaintballKids));

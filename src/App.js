@@ -66,6 +66,7 @@ class App extends Component {
               <Route path="/games" component={AsyncOurGames} />
               <Route path="/gallery/:id" component={AsyncGallery} />
               <Route path="/game/:type" component={AsyncKids} />
+              {/* <Route path="/game/gallery/:id" component={AsyncGallery} /> */}
             </ScrollToTop>
           </Router>
         </ThemeProvider>

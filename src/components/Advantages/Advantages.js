@@ -7,12 +7,10 @@ import CardsList from '../CardsList/CardsList';
 import ContactForm from '../ContactForm';
 import Title from '../ui/Title';
 import BackgroundWrapper from '../ui/BackgroundWrapper';
-import Icon from '../ui/Icon';
 import OurClients from '../OurClients';
 import Locations from '../Locations';
 import UpcomingEvents from '../UpcomingEvents';
 import LocationSmallDevices from '../Locations/LocationSmallDevices';
-import Description from '../ui/Description';
 
 import {
   LargeAndUp,
@@ -20,28 +18,24 @@ import {
 } from '../../utils/break-points';
 
 import './advantages.scss';
+import OurServices from '../OurServices';
 
-const ListItem = styled.li`
-  color: ${data => (data.theme ? data.theme.textColor : '#fff')};
-  text-align: center;
-  font-size: 16px;
-  position: relative;
-  background-position: top center;
-  background-repeat: no-repeat;
-  background-size: 80px 80px;
-//   background-color: #000;
+const TransparentBgLight = styled.div`
+  background-color: ${data => (data.theme ? data.theme.titleColor : '#fff')};
+  min-height: 400px;
+
+  @media(max-width: 961px) {
+      display: none;
+  }
 `;
 
-const ListItemTitle = styled.h3`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 20px 0;
-`;
+const TransparentBgDark = styled.div`
+  background-color: ${data => (data.theme ? data.theme.primaryBg : '#fff')};
+  min-height: 400px;
 
-const ListItemIcon = styled(Icon)`
-  max-width: 70px;
-  color: ${data => (data.theme.themeType === 'light' ? data.theme.primaryBg : data.theme.titleColor)}
+  @media(max-width: 961px) {
+    display: none;
+}
 `;
 
 const Advantages = ({
@@ -55,10 +49,15 @@ const Advantages = ({
     <BackgroundWrapper withBuildings>
       <CardsList main gamesList={gamesList} />
     </BackgroundWrapper>
+
+    <TransparentBgLight />
+
     <BackgroundWrapper>
       <UpcomingEvents />
     </BackgroundWrapper>
-    <div style={{minHeight: '400px', backgroundColor: "#242424"}} />
+
+    <TransparentBgDark />
+
     <BackgroundWrapper>
       <MediumAndDown>
         <LocationSmallDevices locations={ourLocations} />
@@ -67,35 +66,15 @@ const Advantages = ({
         <Locations locations={ourLocations} />
       </LargeAndUp>
     </BackgroundWrapper>
+
     <BackgroundWrapper>
       <section className="wrapper">
-        <Title primary level={2}>
-          Наши услуги
-        </Title>
-        <Description align="center">
-          9 лет опыта в организации разных мероприятий, 6 лет из них по направлению «экстрим».
-        </Description>
-        <ul className="advantage__place">
-          {
-            services && services.map((item, index) => (
-              <ListItem key={index}>
-                <div className="advantage__icon">
-                  <ListItemIcon name={item.iconName} />
-                </div>
-                <ListItemTitle>
-                  <span>{item.title}</span>
-                </ListItemTitle>
-              </ListItem>
-            ))
-          }
-        </ul>
+        <OurServices services={services} />
       </section>
       <Title primary level={2}>
           Преимущества
       </Title>
-      <section className="flex wrapper">
-        <AdvantagesPlace advantages={advantages} />
-      </section>
+      <AdvantagesPlace advantages={advantages} />
       <div
         style={{ filter: theme.themeType === 'light' ? 'grayscale(1)' : 'none' }}
         className="test-bg"

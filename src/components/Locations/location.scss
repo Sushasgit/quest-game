@@ -11,12 +11,11 @@
     }
 
     &__list {
-        padding-bottom: 80px;
-
         display: flex;
         align-items: center;
         justify-content: space-between;
         flex-wrap: wrap;
+        padding: 50px 0;
 
         @media(max-width: 502px) {
             flex-direction: column;
@@ -52,8 +51,9 @@
 }
 
 .locations-list {
-    padding-bottom: 80px;
     text-align: right;
+    padding-bottom: 40px;
+    
     &__item {
         display: flex;
         align-items: center;

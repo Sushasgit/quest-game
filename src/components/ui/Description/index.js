@@ -4,7 +4,7 @@ import styled, { withTheme } from 'styled-components';
 const DescriptionStyled = styled.p`
     color: ${props => (props.theme ? props.theme.textColor : '#fff')};
     font-size: 20px;
-    margin: 20px 0;
+    margin: 40px 0;
     line-height: 28px;
     text-align: ${props => (props.textAlign)}
 
