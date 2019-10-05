@@ -1,6 +1,5 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
-
 const CurrentDay = styled.div`
   background-color: ${data => (data.theme.calendar.bgAvailable)};
   border-right: 2px solid ${data => (data.theme.calendar.borderColor)};
@@ -113,6 +112,16 @@ const OtherDay = styled.div`
   };
 }`;
 
+const EventOn = styled.span`
+  position: absolute;
+  width: 2vw;
+  height: 2vw;
+  right:7%;
+  bottom:7%;
+  z-index: 300;
+  };
+}`;
+
 const Day = (props) => {
   let displayDay;
   const active = props.clickedDay === props.day.moment ? 'checked' : '';
@@ -126,18 +135,21 @@ const Day = (props) => {
     case 'todayDay': displayDay = (
       <TodayInMonth onClick={(e) => { props.onDayClick(e, props.day.moment, props.week, props.day.month, props.day.click, props.clickedDay); }} className={`${'current-today'} ${active}`}>
         <span className="calendar_data_day">{props.day.dayNam}</span>
+        <EventOn className="star" style={{display: props.day.event[0] ? 'block' : 'none'}}></EventOn>
       </TodayInMonth>
     );
       break;
     case 'daysDisplayMoth': displayDay = (
       <CurrentDay onClick={(e) => { props.onDayClick(e, props.day.moment, props.week, props.day.month, props.day.click, props.clickedDay); }} className={`${'current_month_day'} ${active}`}>
         <span className="calendar_data_day">{props.day.dayNam}</span>
+        <EventOn className="star" style={{display: props.day.event[0] ? 'block' : 'none'}}></EventOn>
       </CurrentDay>
     );
       break;
     default: displayDay = (
       <OtherDay onClick={(e) => { props.onDayClick(e, props.day.moment, props.week, props.day.month, props.day.click, props.clickedDay); }} className={`${'otherDay'} ${active}`}>
         <span className="calendar_data_day">{props.day.dayNam}</span>
+        <EventOn className="star" style={{display: props.day.event[0] ? 'block' : 'none'}}></EventOn>
       </OtherDay>
     );
   }
