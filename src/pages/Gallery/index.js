@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { withTheme } from 'styled-components';
 import Gallery from 'react-grid-gallery';
@@ -12,9 +11,19 @@ import Logo from '../../components/ui/Logo';
 
 import data from '../../data/mainPage.json';
 import generalGallery from '../../data/generalGallery.json';
+import {
+  LargeAndUp,
+  MediumAndDown,
+} from '../../utils/break-points';
 
 import './gallery.scss';
-import Footer from '../../components/Footer';
+import Locations from '../../components/Locations';
+import LocationSmallDevices from '../../components/Locations/LocationSmallDevices';
+import OurServices from '../../components/OurServices';
+import ContactForm from '../../components/ContactForm';
+import PriceTabs from '../../components/PriceTabs';
+import GamesTabs from '../../components/GamesTabs';
+import AdvantagesPlace from '../../components/Advantages/AdvantagesPlace';
 
 class GalleryModal extends Component {
   styleSmall = () => ({
@@ -26,6 +35,8 @@ class GalleryModal extends Component {
   render() {
     const { match, theme } = this.props;
     const id = match.params.id;
+
+    console.log(this.props)
     const location = id === 'all' ? generalGallery : data.ourLocations.list.find(item => item.id === +id);
     return (
       <div>
@@ -48,7 +59,30 @@ class GalleryModal extends Component {
             </section>
           </BackgroundWrapper>
         </div>
-        <Footer />
+        <BackgroundWrapper>
+          <MediumAndDown>
+            <LocationSmallDevices locations={data.ourLocations} />
+          </MediumAndDown>
+          <LargeAndUp>
+            <Locations locations={data.ourLocations} />
+          </LargeAndUp>
+        </BackgroundWrapper>
+        <BackgroundWrapper>
+          <OurServices services={data.ourGames.services} />
+          <Title level={3}>
+            Преимущества
+          </Title>
+          <AdvantagesPlace />
+          <Title primary level={2}>
+            Наши цены
+          </Title>
+          <PriceTabs />
+          <Title primary level={2}>
+            Наши игры
+          </Title>
+          <GamesTabs />
+          <ContactForm />
+        </BackgroundWrapper>
       </div>
     );
   }
@@ -56,10 +90,6 @@ class GalleryModal extends Component {
 
 GalleryModal.defaultProps = {
   match: {},
-};
-
-GalleryModal.propTypes = {
-  match: PropTypes.oneOfType([]),
 };
 
 

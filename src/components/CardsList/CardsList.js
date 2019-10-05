@@ -18,7 +18,6 @@ const CardTitle = styled.h3`
       : '#fff'
   )};
   font-size: 24px;
-  text-align: left;
   margin: 20px;
   text-shadow: 3px 4px 5px ${props => (
     props.theme.themeType === 'dark'
@@ -131,8 +130,7 @@ const CardsList = ({
 
 CardsList.propTypes = {
     gamesList: PropTypes
-        .shape({title: PropTypes.string, games: PropTypes.array})
-        .isRequired,
+        .shape({ title: PropTypes.string, games: PropTypes.array }),
     theme: PropTypes
         .shape({themeType: PropTypes.string})
         .isRequired
