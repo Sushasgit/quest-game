@@ -325,6 +325,23 @@
 
 }
 
+.star{
+  background: url("../../images/star.svg") no-repeat center;
+  background-size: contain;
+  animation-name: rotate_star;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes rotate_star {
+  from {transform:rotateY(0deg)}
+
+  to {
+    transform:rotateY(360deg)
+  }
+}
+
 .li_item_time{
   border-top: 1px solid #999;
   display: flex;

@@ -148,12 +148,11 @@ class Calendar extends Component {
           dayType: this.detectDayType(dateContextNew, dateContext, today, idx),
           event: this.detectEvent(moment(dateContextNew).add(idx, 'd').format('LL')),
         })));
-      // totalSlots.map((item, i) => {
-      //   if(item.moment === )      });
       this.setState({
         totalSlots,
       }, () => {
         this.generateCalendarWeeks();
+        console.log([] ? 1 : 2)
       });
     };
 
