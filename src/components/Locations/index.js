@@ -185,7 +185,7 @@ render() {
                           positionBottom={COORDINATES_LOCATION[index]['item.y']}
                           className={`${'location location'}${index}`}
                         >
-                          <LocationLink  to={`test/${item.id}`}>
+                          <LocationLink  to={`/gallery/${item.id}`}>
                             {`T ${index + 1}`}
                           </LocationLink>
                         </Location>
