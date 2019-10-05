@@ -114,6 +114,7 @@ const OtherDay = styled.div`
 }`;
 
 const Day = (props) => {
+  console.log(props)
   let displayDay;
   const active = props.clickedDay === props.day.moment ? 'checked' : '';
   switch (props.day.dayType) {

@@ -133,9 +133,7 @@ class Calendar extends Component {
 
     detectEvent = (date) => {
       return (
-        EVENTS.filter((element, i)=>{
-          return (moment.unix(element.date).format('LL')).isSame(date)
-        })
+        EVENTS.filter((element, i)=>moment.unix(element.date).format('LL') === date)
       );
     };
 
