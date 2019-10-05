@@ -8,6 +8,7 @@ import Week from './parts/Week';
 import Day from './parts/Day';
 import { CALENDAR_ORDER_LIST } from '../../utils/constants';
 import { WEEK_DAY_SHORT } from '../../utils/constants';
+import EVENTS from '../../data/upComingEvents.json';
 import Button from '../ui/Button';
 import {
   LargeAndUp,
@@ -76,6 +77,7 @@ class Calendar extends Component {
       year: moment(dateContext).format('YYYY'),
       currentMonth: moment().format('MMMM'),
       isOpenBookingTime: false,
+      timeStamp: moment.unix(1571554119).format('LL'),
     };
   }
 
@@ -96,6 +98,7 @@ class Calendar extends Component {
       dayPrevMonth,
     }, () => {
       this.setMomentToStart();
+      console.log(this.state.timeStamp);
     });
   };
 
@@ -128,6 +131,14 @@ class Calendar extends Component {
       return (dayType);
     };
 
+    detectEvent = (date) => {
+      return (
+        EVENTS.filter((element, i)=>{
+          return (moment.unix(element.date).format('LL')).isSame(date)
+        })
+      );
+    };
+
     generateTotalSlots = () => {
       const {
         dateContextNew, lengthArrayCalendar, today, dateContext,
@@ -137,7 +148,10 @@ class Calendar extends Component {
           moment: moment(dateContextNew).add(idx, 'd').format('LL'),
           dayNam: moment(dateContextNew).add(idx, 'd').format('D'),
           dayType: this.detectDayType(dateContextNew, dateContext, today, idx),
+          event: this.detectEvent(moment(dateContextNew).add(idx, 'd').format('LL')),
         })));
+      // totalSlots.map((item, i) => {
+      //   if(item.moment === )      });
       this.setState({
         totalSlots,
       }, () => {
@@ -343,11 +357,11 @@ class Calendar extends Component {
                                       {item.available
                                         ? (
                                           <Button
-                                              onClick={e => this.setState({
-                                                isOpenBookingTime: true,
-                                                checkTime: this.props.kindEvent === 'HideAndSeek'
-                                                    ? item.timeNight : item.timeDay,
-                                              })}
+                                            onClick={e => this.setState({
+                                              isOpenBookingTime: true,
+                                              checkTime: this.props.kindEvent === 'HideAndSeek'
+                                                ? item.timeNight : item.timeDay,
+                                            })}
                                             className="button_book_small_device"
                                           >
                                             <div className="button_book_small_device_content">
