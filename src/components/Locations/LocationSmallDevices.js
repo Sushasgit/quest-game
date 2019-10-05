@@ -74,7 +74,7 @@ const LocationSmallDevices = ({ locations }) => (
                 img={item.src}
               />
             </li>
-            <Button to={`gallery/${item.id}`}>
+            <Button to={`/test/${item.id}`}>
               Перейти
             </Button>
           </React.Fragment>

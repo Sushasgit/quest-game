@@ -2,19 +2,145 @@
     "title": "Галерея",
     "images": [
         {
-            "src": "https://images.pexels.com/photos/2791657/pexels-photo-2791657.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-            "thumbnail": "https://images.pexels.com/photos/2791657/pexels-photo-2791657.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-            "thumbnailWidth": 540,
-            "thumbnailHeight": 320,
-            "caption": "Заголоаок к этой локации,  описание"
+            "src": "https://iamwerby.com/images/gallery/t3-1.jpg",
+            "thumbnail": "https://iamwerby.com/images/gallery/t3-1.jpg",
+            "thumbnailWidth": 440,
+            "thumbnailHeight": 320
         },
         {
-            "src": "https://images.pexels.com/photos/2791657/pexels-photo-2791657.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-            "thumbnail": "https://images.pexels.com/photos/2791657/pexels-photo-2791657.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+            "src": "https://iamwerby.com/images/gallery/t3-2.jpg",
+            "thumbnail": "https://iamwerby.com/images/gallery/t3-2.jpg",
             "thumbnailWidth": 540,
-            "thumbnailHeight": 320,
-            "caption": "Заголоаок к этой локации,  описание"
+            "thumbnailHeight": 320
+        },
+        {
+            "src": "https://iamwerby.com/images/gallery/t3-3.jpg",
+            "thumbnail": "https://iamwerby.com/images/gallery/t3-3.jpg",
+            "thumbnailWidth": 240,
+            "thumbnailHeight": 320
+        },
+        {
+            "src": "https://iamwerby.com/images/gallery/t3-5.jpg",
+            "thumbnail": "https://iamwerby.com/images/gallery/t3-5.jpg",
+            "thumbnailWidth": 240,
+            "thumbnailHeight": 320
+        },
+        {
+            "src": "https://iamwerby.com/images/gallery/t3-6.jpg",
+            "thumbnail": "https://iamwerby.com/images/gallery/t3-6.jpg",
+            "thumbnailWidth": 240,
+            "thumbnailHeight": 320
+        },
+        {
+            "src": "https://iamwerby.com/images/gallery/t3-7.jpg",
+            "thumbnail": "https://iamwerby.com/images/gallery/t3-7.jpg",
+            "thumbnailWidth": 240,
+            "thumbnailHeight": 320
+        },
+        {
+            "src": "https://iamwerby.com/images/gallery/t3-9.jpg",
+            "thumbnail": "https://iamwerby.com/images/gallery/t3-9.jpg",
+            "thumbnailWidth": 240,
+            "thumbnailHeight": 320
+        },
+        {
+            "src": "https://iamwerby.com/images/gallery/t3-8.jpg",
+            "thumbnail": "https://iamwerby.com/images/gallery/t3-8.jpg",
+            "thumbnailWidth": 240,
+            "thumbnailHeight": 320
+        },
+        {
+            "src": "https://iamwerby.com/images/gallery/paintball-avtomat.jpg",
+            "thumbnail": "https://iamwerby.com/images/gallery/paintball-avtomat.jpg",
+            "thumbnailWidth": 540,
+            "thumbnailHeight": 320
+        },
+        {
+            "src": "https://iamwerby.com/images/gallery/fort.jpg",
+            "thumbnail": "https://iamwerby.com/images/gallery/fort.jpg",
+            "thumbnailWidth": 540,
+            "thumbnailHeight": 320
+        },
+        {
+            "src": "https://iamwerby.com/images/gallery/straik-ball(gun).jpg",
+            "thumbnail": "https://iamwerby.com/images/gallery/straik-ball(gun).jpg",
+            "thumbnailWidth": 540,
+            "thumbnailHeight": 320
+        },
+        {
+            "src": "https://iamwerby.com/images/gallery/starik-ball-zone.jpg",
+            "thumbnail": "https://iamwerby.com/images/gallery/starik-ball-zone.jpg",
+            "thumbnailWidth": 560,
+            "thumbnailHeight": 320
+        },
+        {
+            "src": "https://iamwerby.com/images/gallery/buttles.jpg",
+            "thumbnail": "https://iamwerby.com/images/gallery/buttles.jpg",
+            "thumbnailWidth": 560,
+            "thumbnailHeight": 320
+        },
+        {
+            "src": "https://iamwerby.com/images/gallery/dark-room.jpg",
+            "thumbnail": "https://iamwerby.com/images/gallery/dark-room.jpg",
+            "thumbnailWidth": 560,
+            "thumbnailHeight": 320
+        },
+        {
+            "src": "https://iamwerby.com/images/gallery/straik-ball(avtomat).jpg",
+            "thumbnail": "https://iamwerby.com/images/gallery/straik-ball(avtomat).jpg",
+            "thumbnailWidth": 560,
+            "thumbnailHeight": 320
+        },
+        {
+            "src": "https://iamwerby.com/images/gallery/paintball-gun.jpg",
+            "thumbnail": "https://iamwerby.com/images/gallery/paintball-gun.jpg",
+            "thumbnailWidth": 560,
+            "thumbnailHeight": 320
+        },
+        {
+            "src": "https://iamwerby.com/images/gallery/chest.jpg",
+            "thumbnail": "https://iamwerby.com/images/gallery/chest.jpg",
+            "thumbnailWidth": 560,
+            "thumbnailHeight": 320
+        },
+        {
+            "src": "https://iamwerby.com/images/gallery/relax-1.jpg",
+            "thumbnail": "https://iamwerby.com/images/gallery/relax-1.jpg",
+            "thumbnailWidth": 360,
+            "thumbnailHeight": 320
+        },
+        {
+            "src": "https://iamwerby.com/images/gallery/relax-5.jpg",
+            "thumbnail": "https://iamwerby.com/images/gallery/relax-5.jpg",
+            "thumbnailWidth": 360,
+            "thumbnailHeight": 320
+        },
+        {
+            "src": "https://iamwerby.com/images/gallery/relax-3.jpg",
+            "thumbnail": "https://iamwerby.com/images/gallery/relax-3.jpg",
+            "thumbnailWidth": 560,
+            "thumbnailHeight": 320
+        },
+        {
+            "src": "https://iamwerby.com/images/gallery/relax-4.jpg",
+            "thumbnail": "https://iamwerby.com/images/gallery/relax-4.jpg",
+            "thumbnailWidth": 360,
+            "thumbnailHeight": 320
+        },
+        {
+            "src": "https://iamwerby.com/images/gallery/relax-10.jpg",
+            "thumbnail": "https://iamwerby.com/images/gallery/relax-10.jpg",
+            "thumbnailWidth": 460,
+            "thumbnailHeight": 320
+        },
+        {
+            "src": "https://iamwerby.com/images/gallery/t3-10.jpg",
+            "thumbnail": "https://iamwerby.com/images/gallery/t3-10.jpg",
+            "thumbnailWidth": 240,
+            "thumbnailHeight": 320
         }
     ]
 
 }
+
+
