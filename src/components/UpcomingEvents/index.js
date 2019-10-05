@@ -5,6 +5,7 @@ import './events.scss';
 import Icon from '../ui/Icon';
 import Title from '../ui/Title';
 import Description from '../ui/Description';
+import Button from '../ui/Button';
 
 const Events = styled.div`
     color: ${data => (data.theme ? data.theme.titleColor : '#fff')};
@@ -24,14 +25,6 @@ const Events = styled.div`
 }
 `;
 
-// const Description = styled.p`
-//     color: ${data => (data.theme ? data.theme.textColor : '#fff')};
-//     line-height: 36px;
-
-
-// `;
-
-
 const UpcomingEvents = () => {
   return (
     <Events className="wrapper events">
@@ -40,8 +33,12 @@ const UpcomingEvents = () => {
           Не получается собрать компанию чтобы поиграть?
         </Title>
         <Description>
-          Не беда! Приходите к нам на сборную игру! Сборная игра отличная возможность поиграть в большой команде, пообщаться с новыми людьми, завести новые знакомства, набраться положительных эмоций и впечатлений на длительное время!
+          Не беда! Приходите к нам на сборную игру!
+          Сборная игра отличная возможность поиграть в большой команде,
+          пообщаться с новыми людьми, завести новые знакомства, набраться положительных эмоций
+          и впечатлений на длительное время!
         </Description>
+        <Button to="/events">Подробнее</Button>
       </div>
       <Icon name="events" />
     </Events>

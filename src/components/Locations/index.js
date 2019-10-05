@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router';
 import styled, { withTheme } from 'styled-components';
 import ConnectElements from 'react-connect-elements';
 
@@ -13,7 +14,7 @@ import './location.scss';
 
 const LocationBox = styled.div`
     position: relative;
-    overflow: hidden;
+    // overflow: hidden;
     padding: 40px 0;
 `;
 
@@ -42,7 +43,6 @@ const Location = styled.div`
         filter: hue-rotate(185deg);
     }
 `;
-
 
 const LocationName = styled.div`
     background-color: ${data => (data.theme ? data.theme.primaryBg : '#fff')};
@@ -82,7 +82,7 @@ const LocationLink = styled(Link)`
     }
 `;
 
-class Locations extends Component {
+class Locations extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -184,7 +184,7 @@ render() {
                           positionBottom={COORDINATES_LOCATION[index]['item.y']}
                           className={`${'location location'}${index}`}
                         >
-                          <LocationLink to={`gallery/${item.id}`}>
+                          <LocationLink  to={`/gallery/${item.id}`}>
                             {`T ${index + 1}`}
                           </LocationLink>
                         </Location>

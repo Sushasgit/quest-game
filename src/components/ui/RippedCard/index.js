@@ -21,14 +21,15 @@ const RippedCard = ({
     view === 'game' ? (
       <div
         style={{
-          background: `url(${img})`,
+          backgroundImage: `url('${img}')`,
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: '100% 100%',
           filter: theme.themeType === 'light' ? 'grayscale(1)' : 'none',
         }}
         className={`card card--${type} card--${size}`}
-      />
+      >
+        </div>
     ) : (
       <Link
         aria-label={title}
@@ -37,7 +38,7 @@ const RippedCard = ({
           handleOpenGallery(id, images);
         }}
         className="card__btn"
-        to={`gallery/${id}`}
+        to={`/gallery/${id}`}
       >
         <img className={`card card--${type} card--${size}`} src={img} alt={title} />
       </Link>

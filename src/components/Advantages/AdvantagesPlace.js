@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 import Description from '../ui/Description';
 
+import advantages from '../../data/advantagePlace.json';
+
 import './advantages.scss';
 
 const Advantage = styled.article`
@@ -21,15 +23,21 @@ const Advantage = styled.article`
     }
 `;
 
-const AdvantagesPlace = ({ advantages }) => (
-  advantages.map(item => (
-    <Advantage key={item.id} className="advantage">
-      <h3>{item.title}</h3>
-      <Description align="center">
-        {item.description}
-      </Description>
-    </Advantage>
-  ))
+const AdvantagesPlace = () => (
+  <section className="flex wrapper">
+    {
+      advantages.map(item => (
+        <Advantage key={item.id} className="advantage">
+          <h3>
+            {item.title}
+          </h3>
+          <Description align="center">
+            {item.description}
+          </Description>
+        </Advantage>
+      ))
+    }
+  </section>
 );
 
 export default AdvantagesPlace;

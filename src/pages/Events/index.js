@@ -17,9 +17,11 @@ import Locations from '../../components/Locations';
 import LocationSmallDevices from '../../components/Locations/LocationSmallDevices';
 import OurServices from '../../components/OurServices';
 import ContactForm from '../../components/ContactForm';
+import PriceTabs from '../../components/PriceTabs';
+import GamesTabs from '../../components/GamesTabs';
 
 import images from '../../data/images.json';
-import data from '../../data/games.json';
+import data from '../../data/eventsPage.json';
 import main from '../../data/mainPage.json';
 
 import {
@@ -27,10 +29,8 @@ import {
   MediumAndDown,
 } from '../../utils/break-points';
 
+import './style.scss';
 import '../../components/Advantages/advantages.scss';
-import './game-page.scss';
-import PriceTabs from '../../components/PriceTabs';
-import GamesTabs from '../../components/GamesTabs';
 
 const Description = styled.p`
   text-align: center;
@@ -106,7 +106,7 @@ const styleSmall = () => ({
   height: '100%',
 });
 
-class PaintballKids extends React.Component {
+class Events extends React.Component {
 // TODO Когда будут апи ендпоинты сделать тут запрос данных
   componentDidMount() {
     // axios.get(`https://...`)
@@ -118,27 +118,28 @@ class PaintballKids extends React.Component {
 
   render() {
     const { match, theme } = this.props;
-    const gameType = match.params.type;
-    const game = gameType ? data.find(item => item.type === gameType) : [];
+    console.log(data)
+    // const gameType = match.params.type;
+    // const game = gameType ? data.find(item => item.type === gameType) : [];
     return (
       <div>
         <div style={{ backgroundColor: theme.primaryBg }} className="wrap">
-          <Banner type={game.type} title={game.mainTitle}>
+          <Banner title="Сборные мероприятия">
             <Logo />
             <Menu />
           </Banner>
           <BackgroundWrapper withBuildings>
             <section className="wrapper">
-              <Title level={3}>
+              {/* <Title level={3}>
                 {game.subTitle}
               </Title>
               <Description>
                 {game.mainDescription}
-              </Description>
+              </Description> */}
               {
-                game.ready ? (
-                  game && game.rows.map((item, index) => (
+                  data && data.rows && data.rows.map((item, index) => (
                     <Row key={index}>
+                        {console.log(item)}
                       <div>
                         <Title level={3}>
                           {item.title}
@@ -167,22 +168,13 @@ class PaintballKids extends React.Component {
                         }
                       </List>
                       <ArticleDescription>
-                        {item.advantage}
+                        {data.advantage}
                       </ArticleDescription>
                     </Row>
                   ))
-                ) : (
-                  <div className="notReady">
-                    <Tag tag="Квест в разработке" size="lg"> #Квест в разработке</Tag>
-                    <ArticleDescription>
-                        Мы готовим для Вас что- то очень интересное.
-                        Следите за обновлениями!
-                    </ArticleDescription>
-                  </div>
-                )
                 }
 
-              <div style={{ marginTop: '20px', minHeight: '950px' }}>
+              <div style={{ marginTop: '20px', minHeight: '930px' }}>
                 <Title level={3}>
                     Галерея
                 </Title>
@@ -220,4 +212,4 @@ class PaintballKids extends React.Component {
   }
 }
 
-export default withRouter(withTheme(PaintballKids));
+export default withRouter(withTheme(Events));
