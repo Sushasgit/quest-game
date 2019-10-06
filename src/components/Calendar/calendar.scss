@@ -463,7 +463,7 @@
       height: 490px;
 
       &_wrap {
-        min-width: 95%;
+        min-width: 90%;
         margin: 0 auto;
       }
     }
@@ -473,7 +473,7 @@
 @media (max-width: 600px) {
   .booking_popup {
     &_form {
-      min-width: 100%;
+      min-width: 90%;
     }
   }
 }
