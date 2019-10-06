@@ -47,7 +47,7 @@ const TitleLocation = styled.h4`
     font-size: 18px;
     position: absolute;
     left: 80px;
-    top: 0;
+    top: 15px;
   }
 `;
 
@@ -74,7 +74,7 @@ const LocationSmallDevices = ({ locations }) => (
                 img={item.src}
               />
             </li>
-            <Button to={`/test/${item.id}`}>
+            <Button to={`/gallery/${item.id}`}>
               Перейти
             </Button>
           </React.Fragment>
