@@ -82,7 +82,8 @@ li {
     align-items: center;
     font-family: 'MontserratBold';
     text-decoration: none;
-    font-size: 35px;
+    font-size: 50px;
+    // text-transform: uppercase;
     top: 70px;
     justify-content: center;
     max-height: 200px;
@@ -92,7 +93,11 @@ li {
 
     &--main {
       top: 0;
-      font-size: 40px;
+      font-size: 50px;
+
+      svg {
+        margin-left: 15px;
+      }
 
       @media (max-width: 850px)  {
         right: 10px;
@@ -101,14 +106,24 @@ li {
   
       @media (max-width: 690px)  {
         top: 100px;
-        font-size: 30px;
+        font-size: 35px;
+        line-height: 36px;
+      }
+    }
+
+    &--standard {
+      position: static;
+      justify-content: flex-start;
+      font-size: 30px;
+
+      svg {
+        margin-left: 0;
       }
     }
   }
   
 .logo-link svg {
     max-width: 2em;
-    margin-left: 15px;
 }
 
 .wrap {

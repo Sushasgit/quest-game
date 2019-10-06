@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { Redirect } from 'react-router';
 import styled, { withTheme } from 'styled-components';
 import ConnectElements from 'react-connect-elements';
 

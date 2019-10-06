@@ -118,10 +118,7 @@ class Events extends React.Component {
   }
 
   render() {
-    const { match, theme } = this.props;
-    console.log(data)
-    // const gameType = match.params.type;
-    // const game = gameType ? data.find(item => item.type === gameType) : [];
+    const { theme } = this.props;
     return (
       <div>
         <div style={{ backgroundColor: theme.primaryBg }} className="wrap">

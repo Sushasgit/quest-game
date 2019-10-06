@@ -106,7 +106,7 @@ const styleSmall = () => ({
   height: '100%',
 });
 
-class PaintballKids extends React.Component {
+class GamePage extends React.Component {
 // TODO Когда будут апи ендпоинты сделать тут запрос данных
   componentDidMount() {
     // axios.get(`https://...`)
@@ -158,8 +158,8 @@ class PaintballKids extends React.Component {
                       <List>
                         {
                           item.list ? (
-                            item.list.map(listItem => (
-                              <ListItem>
+                            item.list.map((listItem, index) => (
+                              <ListItem key={index}>
                                 {listItem.desc}
                               </ListItem>
                             ))
@@ -220,4 +220,4 @@ class PaintballKids extends React.Component {
   }
 }
 
-export default withRouter(withTheme(PaintballKids));
+export default withRouter(withTheme(GamePage));
