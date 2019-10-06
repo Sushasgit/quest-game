@@ -19,6 +19,7 @@ import OurServices from '../../components/OurServices';
 import ContactForm from '../../components/ContactForm';
 import PriceTabs from '../../components/PriceTabs';
 import GamesTabs from '../../components/GamesTabs';
+import Calendar from '../../components/Calendar';
 
 import images from '../../data/images.json';
 import data from '../../data/eventsPage.json';
@@ -130,16 +131,15 @@ class Events extends React.Component {
           </Banner>
           <BackgroundWrapper withBuildings>
             <section className="wrapper">
-              {/* <Title level={3}>
-                {game.subTitle}
+              <Title level={3}>
+                {data.subTitle}
               </Title>
               <Description>
-                {game.mainDescription}
-              </Description> */}
+                {data.mainDescription}
+              </Description>
               {
                   data && data.rows && data.rows.map((item, index) => (
                     <Row key={index}>
-                        {console.log(item)}
                       <div>
                         <Title level={3}>
                           {item.title}
@@ -173,7 +173,10 @@ class Events extends React.Component {
                     </Row>
                   ))
                 }
-
+              <Title primary level={2}>
+                Календарь событий
+              </Title>
+              <Calendar />
               <div style={{ marginTop: '20px', minHeight: '930px' }}>
                 <Title level={3}>
                     Галерея

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
+
 const CurrentDay = styled.div`
   background-color: ${data => (data.theme.calendar.bgAvailable)};
   border-right: 2px solid ${data => (data.theme.calendar.borderColor)};
@@ -129,27 +130,28 @@ const Day = (props) => {
     case 'emptyDay': displayDay = (
       <EmptyDay className="empty_slot">
         <span className="calendar_data_day">{props.day.dayNam}</span>
+        <EventOn className="star" style={{display: props.day.event[0] ? 'block' : 'none'}} />
       </EmptyDay>
     );
       break;
     case 'todayDay': displayDay = (
       <TodayInMonth onClick={(e) => { props.onDayClick(e, props.day.moment, props.week, props.day.month, props.day.click, props.clickedDay); }} className={`${'current-today'} ${active}`}>
         <span className="calendar_data_day">{props.day.dayNam}</span>
-        <EventOn className="star" style={{display: props.day.event[0] ? 'block' : 'none'}}></EventOn>
+        <EventOn className="star" style={{display: props.day.event[0] ? 'block' : 'none'}} />
       </TodayInMonth>
     );
       break;
     case 'daysDisplayMoth': displayDay = (
       <CurrentDay onClick={(e) => { props.onDayClick(e, props.day.moment, props.week, props.day.month, props.day.click, props.clickedDay); }} className={`${'current_month_day'} ${active}`}>
         <span className="calendar_data_day">{props.day.dayNam}</span>
-        <EventOn className="star" style={{display: props.day.event[0] ? 'block' : 'none'}}></EventOn>
+        <EventOn className="star" style={{display: props.day.event[0] ? 'block' : 'none'}} />
       </CurrentDay>
     );
       break;
     default: displayDay = (
       <OtherDay onClick={(e) => { props.onDayClick(e, props.day.moment, props.week, props.day.month, props.day.click, props.clickedDay); }} className={`${'otherDay'} ${active}`}>
         <span className="calendar_data_day">{props.day.dayNam}</span>
-        <EventOn className="star" style={{display: props.day.event[0] ? 'block' : 'none'}}></EventOn>
+        <EventOn className="star" style={{ display: props.day.event[0] ? 'block' : 'none' }} />
       </OtherDay>
     );
   }
