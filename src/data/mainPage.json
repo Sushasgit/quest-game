@@ -605,7 +605,85 @@
                         "thumbnail": "https://iamwerby.com/images/gallery/straik-ball(gun).jpg",
                         "thumbnailWidth": 540,
                         "thumbnailHeight": 320
+                    },
+                                        {
+                        "src": "https://iamwerby.com/images/gallery/relax-1.jpg",
+                        "thumbnail": "https://iamwerby.com/images/gallery/relax-1.jpg",
+                        "thumbnailWidth": 360,
+                        "thumbnailHeight": 320
+                    },
+                    {
+                        "src": "https://iamwerby.com/images/gallery/relax-5.jpg",
+                        "thumbnail": "https://iamwerby.com/images/gallery/relax-5.jpg",
+                        "thumbnailWidth": 360,
+                        "thumbnailHeight": 320
+                    },
+                    {
+                        "src": "https://iamwerby.com/images/gallery/relax-3.jpg",
+                        "thumbnail": "https://iamwerby.com/images/gallery/relax-3.jpg",
+                        "thumbnailWidth": 560,
+                        "thumbnailHeight": 320
+                    },
+                    {
+                        "src": "https://iamwerby.com/images/gallery/relax-4.jpg",
+                        "thumbnail": "https://iamwerby.com/images/gallery/relax-4.jpg",
+                        "thumbnailWidth": 360,
+                        "thumbnailHeight": 320
+                    },
+                    {
+                        "src": "https://iamwerby.com/images/gallery/relax-10.jpg",
+                        "thumbnail": "https://iamwerby.com/images/gallery/relax-10.jpg",
+                        "thumbnailWidth": 460,
+                        "thumbnailHeight": 320
+                    },
+                    {
+                        "src": "https://iamwerby.com/images/gallery/t3-10.jpg",
+                        "thumbnail": "https://iamwerby.com/images/gallery/t3-10.jpg",
+                        "thumbnailWidth": 240,
+                        "thumbnailHeight": 320
+                    },
+                    {
+                        "src": "https://iamwerby.com/images/gallery/relax-9.jpg",
+                        "thumbnail": "https://iamwerby.com/images/gallery/relax-9.jpg",
+                        "thumbnailWidth": 180,
+                        "thumbnailHeight": 174
+                    },
+                    {
+                        "src": "https://iamwerby.com/images/gallery/relax-10.jpg",
+                        "thumbnail": "https://iamwerby.com/images/gallery/relax-10.jpg",
+                        "thumbnailWidth": 120,
+                        "thumbnailHeight": 174
+                    },
+                    {
+                        "src": "https://iamwerby.com/images/gallery/relax-11.jpg",
+                        "thumbnail": "https://iamwerby.com/images/gallery/relax-11.jpg",
+                        "thumbnailWidth": 120,
+                        "thumbnailHeight": 174
+                    },                     {
+                        "src": "https://iamwerby.com/images/gallery/t3-7.jpg",
+                        "thumbnail": "https://iamwerby.com/images/gallery/t3-7.jpg",
+                        "thumbnailWidth": 340,
+                        "thumbnailHeight": 320
+                    },
+                    {
+                        "src": "https://iamwerby.com/images/gallery/t3-9.jpg",
+                        "thumbnail": "https://iamwerby.com/images/gallery/t3-9.jpg",
+                        "thumbnailWidth": 340,
+                        "thumbnailHeight": 320
+                    },
+                    {
+                        "src": "https://iamwerby.com/images/gallery/t3-8.jpg",
+                        "thumbnail": "https://iamwerby.com/images/gallery/t3-8.jpg",
+                        "thumbnailWidth": 540,
+                        "thumbnailHeight": 320
+                    },
+                    {
+                        "src": "https://iamwerby.com/images/gallery/paintball-avtomat.jpg",
+                        "thumbnail": "https://iamwerby.com/images/gallery/paintball-avtomat.jpg",
+                        "thumbnailWidth": 540,
+                        "thumbnailHeight": 320
                     }
+
                   ]
             },
             {

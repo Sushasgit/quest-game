@@ -18,9 +18,6 @@ export const handleSwitchMan = (type) => {
     case 'straikballNight': return (
       <Icon name="strikeMan" className="l-man part08 banner__layer" />
     );
-    case 'straikballNight': return (
-      <Icon name="strikeMan" className="l-man part08 banner__layer" />
-    );
     case 'quadro': return (
       <Icon name="quadro" className="l-man part08 banner__layer" />
     );

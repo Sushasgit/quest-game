@@ -9,11 +9,18 @@ const StyledLogo = styled.a`
   text-shadow: ${props => (props.theme.themeType === 'light' ? '3px 4px 5px #000' : 'none')}; 
 `;
 
-const Logo = ({ main }) => (
-  <StyledLogo className={`${main ? 'logo-link logo-link--main' : 'logo-link'}`} href="/">
-    <Icon name="logo" />
+const Logo = ({ main, standard }) => (
+  standard ? (
+    <StyledLogo className={`logo-link logo-link--standard`} href="/">
+      <Icon name="logo" />
         Real Games
-  </StyledLogo>
+    </StyledLogo>
+  ) : (
+    <StyledLogo className={`${main ? 'logo-link logo-link--main' : 'logo-link'}`} href="/">
+      <Icon name="logo" />
+        Real Games
+    </StyledLogo>
+  )
 );
 
 

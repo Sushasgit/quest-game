@@ -14,16 +14,9 @@ import './calendar.scss';
 import Title from '../ui/Title';
 import Icon from '../ui/Icon';
 
-const CalendarWrapper = styled.div`
-  background-color: ${data => (
-    data.theme.calendar.bgColorCalendar
-  )};
-}
-`;
-
 const NavigationMonth = styled.i`
   background-color: ${data => (
-    data.theme.calendar.textColorAvailable
+    data.theme.calendar.textColorNav
   )};
   &::before {
     background-color: inherit;
@@ -72,13 +65,10 @@ const CalendarBooking = styled.div`
   border-right: 2px solid ${data => (
     data.theme.calendar.borderColor
   )};
-  background-color: ${data => (data.theme.calendar.bgWeekDays)};
+  background-color: ${data => (data.theme.primaryBg)};
 `;
 const CalendarOrderList = styled.div`
-  background-color: ${data => (
-    data.theme.calendar.bgEmpty
-  )};
-  color: ${data => (data.theme.calendar.textColorOrderList)};
+  color: ${data => (data.theme.textColor)};
   padding: 15px;
 `;
 
@@ -89,7 +79,7 @@ const DateTitle = styled.h4`
   )};
   display: flex;
   align-items: center;
-  font-size: 18px;
+  font-size: 16px;
   justify-content: center;
 
   & svg {
@@ -324,7 +314,7 @@ class Calendar extends Component {
 
       const event = EVENTS.filter(element => moment.unix(element.date).format('LL') === clickedDay)
       return (
-        <CalendarWrapper className="calendar">
+        <div className="calendar">
           <div className="calendar_container">
             <CalendarNavigation className="calendar_navigation">
               <ButtonNavigation
@@ -334,7 +324,7 @@ class Calendar extends Component {
                   this.navigationMonth('prev');
                 }}
               >
-                <NavigationMonth className="month__prev"/>
+                <NavigationMonth className="month__prev" />
               </ButtonNavigation>
               <div className="selected__month__year">
                 {this.renderMonthNav()}
@@ -362,7 +352,7 @@ class Calendar extends Component {
             <WeekDays className="weekdays">
               {
                 WEEK_DAY_SHORT.map(
-                  day => (<div key={day} className="week-day">{day}</div>),
+                  (day, index) => (<div key={index} className="week-day">{day}</div>),
                 )
               }
             </WeekDays>
@@ -392,8 +382,8 @@ class Calendar extends Component {
                                 </DateTitle>
                                 {
                                     event.length ? (
-                                      event.map(item => (
-                                        <Event>
+                                      event.map((item, index) => (
+                                        <Event key={index}>
                                           <Title level={3}>
                                             {item.title}
                                           </Title>
@@ -440,7 +430,7 @@ class Calendar extends Component {
                 ))
             }
           </div>
-        </CalendarWrapper>
+        </div>
       );
     }
 }
