@@ -37,6 +37,9 @@ import { ReactComponent as ActionGame } from './svg/actionGamePrice.svg';
 import { ReactComponent as Galery } from './svg/galery.svg';
 import { ReactComponent as GameMenu } from './svg/games-menu.svg';
 import { ReactComponent as PriceMenu } from './svg/price-menu.svg';
+import { ReactComponent as Date } from './svg/date.svg';
+import { ReactComponent as Time } from './svg/time.svg';
+import { ReactComponent as Duration } from './svg/duration.svg';
 
 const Icon = (props) => {
   switch (props.name) {
@@ -110,8 +113,14 @@ const Icon = (props) => {
       return <GameMenu className={props.className} />;
     case 'priceMenu':
       return <PriceMenu className={props.className} />;
+    case 'date':
+      return <Date className={props.className} />;
+    case 'time':
+      return <Time className={props.className} />;
+    case 'duration':
+      return <Duration className={props.className} />;
     default:
-      return <Marker className={props.className} />;
+      return <Duration className={props.className} />;
   }
 };
 

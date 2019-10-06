@@ -1,12 +1,20 @@
-
-//@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Hind&display=swap');
 .calendar{
-  font-family: 'Hind', sans-serif;
   display: flex;
   justify-content: center;
   padding: 55px;
   min-width: 270px;
+}
+
+.event {
+  &__infolist {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    li svg {
+      margin-right: 15px;
+    }
+  }
 }
 
 .page__right, .page__left{
@@ -31,16 +39,6 @@
   width: 48px;
   height: 2px;
   position: relative;
-}
-
-.page__right:hover .month__next,
-.page__left:hover .month__prev
-//.page__left:hover .month__prev:before,
-//.page__left:hover .month__prev:after,
-//.page__right:hover .month__next:before,
-//.page__right:hover .month__next:after
-  {
-  //background-color: #fff500;
 }
 
 .month__prev:before{
@@ -255,7 +253,7 @@
   }
 
   to {
-    height: 548px;
+    height: 450px;
   }
 }
 
@@ -272,18 +270,15 @@
 
 .calendar_order_list{
   margin: 15px;
+  padding: 15px;
   width: 100%;
   border-radius: 3px;
-  padding: 10px 10px 0 10px;
   opacity: 0;
   animation-duration: 2s;
   animation-delay: 1s;
   animation-name: block-opacity;
   animation-fill-mode: forwards;
-  &_headline{
-    text-align: center;
-    font-size: 16px;
-  }
+
   &_ul{
     margin-bottom: 0;
   }
@@ -313,7 +308,7 @@
     position: absolute;
     left: -22px;
 
-    background: url("../../images/gallery/clock.svg") no-repeat center;
+    //background: url("../../images/gallery/clock.svg") no-repeat center;
     background-size: 60%;
     width: 22px;
     height: 22px;
@@ -323,6 +318,23 @@
     color: #e1d8c9;
   }
 
+}
+
+.star{
+  background: url("../../images/star.svg") no-repeat center;
+  background-size: contain;
+  animation-name: rotate_star;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes rotate_star {
+  from {transform:rotateY(0deg)}
+
+  to {
+    transform:rotateY(360deg)
+  }
 }
 
 .li_item_time{
@@ -362,21 +374,21 @@
   .li_item_time{
     align-items: center;
   }
-  .calendar_booking{
-    animation-duration: 2s;
-    animation-name: block-height-media ;
-  }
+  // .calendar_booking{
+  //   animation-duration: 2s;
+  //   animation-name: block-height-media ;
+  // }
 }
 
-@keyframes block-height-media {
-  from {
-    height: 0;
-  }
+// @keyframes block-height-media {
+//   from {
+//     height: 0;
+//   }
 
-  to {
-    height: 415px;
-  }
-}
+//   to {
+//     height: 415px;
+//   }
+// }
 
 .button_book_small_device{
   width: 100%;
