@@ -23,7 +23,6 @@ import { ReactComponent as Mask } from './svg/masks.svg';
 import { ReactComponent as Team } from './svg/team.svg';
 import { ReactComponent as StrikeMan } from './svg/strike-man.svg';
 import { ReactComponent as Quadro } from './svg/quadro.svg';
-import { ReactComponent as Logo } from './svg/logo.svg';
 import { ReactComponent as Cake } from './svg/cake.svg';
 import { ReactComponent as Mustache } from './svg/mustache.svg';
 import { ReactComponent as Rent } from './svg/rent.svg';
@@ -67,16 +66,16 @@ const Icon = (props) => {
       return <Bird3 className={props.className} />;
     case 'sun':
       return <Sun className={props.className} />;
-    case 'moon':
-      return <Moon className={props.className} />;
+    // case 'moon':
+    //   return <Moon className={props.className} />;
     case 'bat-1':
       return <Bat1 className={props.className} />;
     case 'bat-2':
       return <Bat2 className={props.className} />;
     case 'bat-3':
       return <Bat3 className={props.className} />;
-    case 'paintball':
-      return <Paintball className={props.className} />;
+    // case 'paintball':
+    //   return <Paintball className={props.className} />;
     case 'mask':
       return <Mask className={props.className} />;
     case 'team':
@@ -85,8 +84,6 @@ const Icon = (props) => {
       return <StrikeMan className={props.className} />;
     case 'quadro':
       return <Quadro className={props.className} />;
-    case 'logo':
-      return <Logo className={props.className} />;
     case 'cake':
       return <Cake className={props.className} />;
     case 'mustache':

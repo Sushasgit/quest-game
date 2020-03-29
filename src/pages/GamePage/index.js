@@ -12,7 +12,6 @@ import Tag from '../../components/ui/Tag';
 import handDark from '../../images/hand-dark.svg';
 import handLight from '../../images/hand-light.svg';
 
-import Logo from '../../components/ui/Logo';
 import Locations from '../../components/Locations';
 import LocationSmallDevices from '../../components/Locations/LocationSmallDevices';
 import OurServices from '../../components/OurServices';
@@ -124,7 +123,6 @@ class GamePage extends React.Component {
       <div>
         <div style={{ backgroundColor: theme.primaryBg }} className="wrap">
           <Banner type={game.type} title={game.mainTitle}>
-            <Logo />
             <Menu />
           </Banner>
           <BackgroundWrapper withBuildings>

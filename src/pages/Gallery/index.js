@@ -7,7 +7,6 @@ import Title from '../../components/ui/Title';
 import Banner from '../../components/Banner';
 import BackgroundWrapper from '../../components/ui/BackgroundWrapper';
 import Menu from '../../components/Menu';
-import Logo from '../../components/ui/Logo';
 
 import data from '../../data/mainPage.json';
 import generalGallery from '../../data/generalGallery.json';
@@ -40,7 +39,6 @@ class GalleryModal extends Component {
       <div>
         <div style={{ backgroundColor: theme.primaryBg }} className="wrap">
           <Banner title="Галерея">
-            <Logo />
             <Menu />
           </Banner>
           <BackgroundWrapper withBuildings>
