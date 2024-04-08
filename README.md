@@ -1,26 +1,41 @@
 Quest Game template
 
+## Overview
 
-## Запуск проекта:
-Стандартный запуск проекта (использован create-react-app)
+
+Welcome to the GitHub repository for the Action Game Studio Project, a comprehensive solution designed not just for booking action game sessions but also for offering a visually engaging interface adaptable to both light and dark themes.
+- Easy Game Booking: Pick and book your favorite action game sessions quickly. Whether it's for running around with paintball guns or strategic airsoft battles.
+- Light or Dark Theme: Switch between light or dark looks whenever you want. It's easy on the eyes, whether you're checking in during the day or night.
+- Manage Games Like a Pro: Keep track of different game types.
+
+
+  ## Main page
+|     Dark     |  Light        | 
+| ----------- | -------------------- |
+|<img width="1185" alt="Screenshot 2024-04-08 at 17 19 24" src="https://github.com/Sushasgit/quest-game/assets/26334961/8098a687-28df-44ae-b9fb-2942fcf8f8e4"> | <img width="1184" alt="Screenshot 2024-04-08 at 17 19 47" src="https://github.com/Sushasgit/quest-game/assets/26334961/49c58fcd-7be6-4099-83f6-f0ba38c383cd">
+
+
+
+## Project setup:
+Project setup (using create-react-app)
  >npm i
  
- >npm strat
+ >npm start
 
-##  Структура проекта
-|     Папка     |  Для чего        |    Особенности    |
+## Project Structure
+|     Folder     |  Purpose        |    Features    |
 | ----------- | -------------------- | ------------------- |
-|components | Вынесли все переиспользуемое в компоненты | В  папке есть UI компоненты там все,  что касается мелочи (элементов форм, карточек) |
-|pages | Основные страницы сайта  |  |
-|styles | Хелперы для css in js |Вынесли туда глобальные стили и файл с темой для переключения светлая темная|
-|utils | Все для хелперов и каких то переиспользуемых штук | responsive-components - это обертка для переключения на разных  разрешениях двух разных лейаутов|
-|data|Все данные в формате json|Чтобы просто потом с севрера легко заменить получение данных и ничего не поломалось|
+|components | Moved all reusable components here | The folder contains UI components, including everything related to details (form elements, cards) |
+|pages | Main pages of the site  |  |
+|styles | Helpers for CSS-in-JS | Moved global styles there, as well as a file with a theme for switching between light and dark modes|
+|utils | Everything for helpers and any reusable stuff | `responsive-components` is a wrapper for switching between two different layouts at various resolutions|
+|data|All data in JSON format|So that later it's easy to replace data fetching from the server without breaking anything|
 
-## Данные (в проекте папка data)
+## Data (folder data)
 
  >mainPage.json
 
-Для главной страницы. Общая структура такая:
+For the main page. The overall structure is as follows:
 
 ```
 {
@@ -34,7 +49,7 @@ Quest Game template
 
 ```
 
-Где ourGames - это раздел наши игры и сам в себя включает под типы игр:
+Where "ourGames" is the "Our Games" section and itself includes subtypes of games:
 
 ```
 {
@@ -89,7 +104,7 @@ Quest Game template
 }
 
 ```
-И так далее по каждому типу игры: Страйкбол, перфоманс и тд. И в результате весь массив состоит из четырех обьектов:
+And so on for each type of game: Airsoft, performance, etc. As a result, the entire array consists of four objects:
 ```
 games: Array(4)
 0: {id: 1, type: "paintball", subTitle: "Пейнтбол", gameTypes: Array(3)}
@@ -98,7 +113,7 @@ games: Array(4)
 3: {id: 4, type: "additionalEntertainment", subTitle: "Развлечения", gameTypes: Array(3)}
 ```
 
-У же внутри этих разделов есть под типы самих игр, например пейнтбол внутри три вида пейнтбола и это в массиве gameTypes.
+Inside these sections, there are subtypes of the games themselves, for example, within paintball there are three types of paintball, and this is in the gameTypes array..
 
 ```
 {
@@ -115,12 +130,11 @@ games: Array(4)
 }
 ```
 
-Каждая под игра должна быть вот такой структуры.
+Each sub-game should have the following structure.
 
+>games.json (For individual game pages)
 
- >games.json (Для отдельных игровых страниц)
- 
- Все страницы одинаковой структуры и для них используется одна компонента в папке /pages/GamePage
+All pages have the same structure, and a single component in the /pages/GamePage folder is used for them.
  
  ```
  {
@@ -132,9 +146,9 @@ games: Array(4)
      "rows": []
  }
  ```
- 
- В массиве rows описание, которое будет в каждой игре. А в ui это строки c описанием.
- Например на странице детского пейнтбола есть одна строка с описанием и в этом массиве только один обьект:
+
+In the rows array, there's a description that will be in each game. And in UI, these are the lines with a description.
+For example, on the page for children's paintball, there is one line with a description, and in this array, there's only one object:
  
  ```
   {
@@ -166,12 +180,12 @@ games: Array(4)
       "advantage": "Существует заблуждение, что пейнтбол травмоопасная и совсем не детская игра.Однако, статистика говорит об обратном. Применяемая техника безопасности в пейнтболе и специальное оборудование  игроками делает по травмоопасности пейнтбол не опаснее настольного тенниса или гольфа."
  }, 
  ```
-##  Замена данных
-Когда будет возможность завеси уже реальные данные.
+##  Data replacement
+When it'll be possible to incorporate real data.
 
-Все глупые компоненты получают данные из своих контейнеров. У нас получилось, что в pages компоненты, которые принимают данные и раскидывают их по глупым компонентам.
+All dumb components receive data from their containers. We've arranged it so that the components in pages take data and distribute it to dumb components.
 
-Можно будет сделать запросы в componentDidMount. И когда отработает сет стейт можно будет отрисовывать из него компоненты.
+It will be possible to make requests in componentDidMount. And once setState has been executed, components can be rendered from it.
 
 ```
   componentDidMount() {
@@ -183,8 +197,9 @@ games: Array(4)
   }
 ```
 
-##  Технические долги
+## Technical Debt
 
-- [ ] В анимации компоненты Banner.js не могу использовать условный рендеринг. Если элемента изначально нет в доме, дальше при переключении темы он не увидит нового появившегося элемента в разметке. Пока решила это вопрос стилями.
+- [ ] In the animation of the `Banner.js` component, I can't use conditional rendering. If the element is initially not in the DOM, then upon switching themes, it won't detect the new element that has appeared in the layout. For now, I've resolved this issue with styles.
+- [ ] The `switch` component was poorly made in a hurry (not accessible at all) and is just styled. When possible, it needs to be properly made with a native checkbox.
 
-- [ ] Компонента switch сделана плохл на скорую руку (вообще не доступно) просто на стилях. По возможности нужно сделать нормальную с нативным чекбоксом
+This is template for real action game studio
